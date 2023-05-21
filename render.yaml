@@ -7,7 +7,7 @@ services:
   - type: web
     name: boxd
     env: ruby
-    plan: standard 
+    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
