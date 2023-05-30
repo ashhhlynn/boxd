@@ -12,12 +12,13 @@ class App extends Component {
     fetch("/films")
     .then((r) => r.json())
     .then((data) => 
-    this.setState({films: data}))
-    console.log(data)
-    ;
+    this.setState({films: data}));
+    
   }
 
   render() {
+    let x = this.state.films[0]
+    console.log(x)
     return (
       <Router>
         <div className="App">   
