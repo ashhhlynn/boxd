@@ -21,7 +21,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">   
-      Hi {this.state.films[0].title}
             <Switch>
               <Route exact path="/" element={<Films />} />
 
