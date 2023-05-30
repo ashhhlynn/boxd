@@ -18,10 +18,10 @@ class App extends Component {
         <div className="App">   
       
           <Container style={{marginTop:"1.3%"}}>
-            <Routes>
+            <Switch>
               <Route exact path="/" element={<Films />} />
 
-            </Routes>
+            </Switch>
           </Container>
         </div>
       </Router>
