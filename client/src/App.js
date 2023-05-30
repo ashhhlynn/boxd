@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Switch, Route } from 'react-router-dom'
-import 'semantic-ui-css/semantic.min.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import React, { Component } from 'react'
 import Films from './components/Films'
 
@@ -17,12 +16,10 @@ class App extends Component {
       <Router>
         <div className="App">   
       
-          <Container style={{marginTop:"1.3%"}}>
             <Switch>
               <Route exact path="/" element={<Films />} />
 
             </Switch>
-          </Container>
         </div>
       </Router>
     )
