@@ -6,7 +6,12 @@ import Films from './components/Films'
 class App extends Component {
 
 
-  
+  componentDidMount = () => {
+    fetch("/films")
+    .then((r) => r.json())
+    .then((data) => console.log(data));
+  }
+
   render() {
     return (
       <Router>
