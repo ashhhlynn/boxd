@@ -11,8 +11,9 @@ class App extends Component {
   componentDidMount = () => {
     fetch("/films")
     .then((r) => r.json())
-    .then((data) => console.log(data))
-    this.setState({films: data})
+    .then((data) => 
+    this.setState({films: data}))
+    console.log(this.state.films)
     ;
   }
 
