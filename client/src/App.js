@@ -1,29 +1,27 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Switch, Route } from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css'
+import React, { Component } from 'react'
+import Films from './components/Films'
 
-function App() {
-  const [count, setCount] = useState(0);
+class App extends Component {
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
+  
+  render() {
+    return (
+      <Router>
+        <div className="App">   
+      
+          <Container style={{marginTop:"1.3%"}}>
+            <Routes>
+              <Route exact path="/" element={<Films />} />
+
+            </Routes>
+          </Container>
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App;
