@@ -11,7 +11,7 @@ const DiaryList = (props) => {
                         <Header as="h5" floated="right" style={{textAlign:"right"}}>
                         <h3>{movie.Title} </h3>
                         <h5>{movie.Year}</h5>
-                        <h5><Icon name="star"  /> <Icon name="star"/> <Icon name="star"  /> <Icon name="star" /> <Icon name="star"  />
+                        <h5><Icon name="star" style={{color:"#ffff9f"}} /> <Icon name="star" style={{color:"#ffff9f"}}/> <Icon name="star" style={{color:"#ffff9f"}}  /> <Icon name="star" style={{color:"#ffff9f"}} /> <Icon name="star" style={{color:"#ffff9f"}}  />
                         </h5></Header>
                         <Header floated="left"><br></br><Button inverted >
                         <h3>June 8<br></br>2023</h3></Button></Header>

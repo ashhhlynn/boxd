@@ -58,8 +58,8 @@ const App = () => {
 	};
 
 	return (
-		<div className='app' style={{backgroundColor:"#20272B"}}>
-			<Menu className="headernav" style={{backgroundColor:"black", height:"100px"}}>
+		<div className='app' style={{backgroundColor:"#1a1f22"}}>
+			<Menu className="headernav" style={{backgroundColor:"#15191b", height:"100px"}}>
 						<Menu.Menu style={{marginLeft:"3%", marginTop:".5%"}} position="left"><br></br>
 							<h1>Boxd.</h1>
 						</Menu.Menu>
@@ -76,7 +76,7 @@ const App = () => {
       		<Container>
 				<center>
 					
-	    			<Segment style={{color:"white", backgroundColor:"#20272B"}}>
+	    			<Segment style={{color:"white", backgroundColor:"#1a1f22"}}>
 						
   						<div className='row'>
 							<MovieList
@@ -87,7 +87,7 @@ const App = () => {
 						</div>
 					</Segment>
 					</center>
-					<Segment style={{color:"white", backgroundColor:"#20272B"}}>
+					<Segment style={{color:"white", backgroundColor:"#1a1f22"}}>
 						<h1>Diary</h1>
 						<Divider></Divider>
 						<div className='row'>
