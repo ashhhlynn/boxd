@@ -63,12 +63,7 @@ const App = () => {
 						<Menu.Menu style={{marginLeft:"3%", marginTop:".5%"}} position="left"><br></br>
 							<h1>Boxd.</h1>
 						</Menu.Menu>
-						<Menu.Item>
-							<a>Diary</a> </Menu.Item>
-							<Menu.Item>
-							<a>Signup</a> </Menu.Item>
-							<Menu.Item>
-							<a>Signin</a> </Menu.Item>
+				
 						<Menu.Menu  style={{marginTop:"3%", marginRight:"3%"}} position='right'>
 							<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 						</Menu.Menu>
@@ -88,7 +83,7 @@ const App = () => {
 					</Segment>
 					</center>
 					<Segment style={{color:"white", backgroundColor:"#1a1f22"}}>
-						<h1>Diary</h1>
+
 						<Divider></Divider>
 						<div className='row'>
       						<DiaryList
