@@ -5,10 +5,10 @@ const MovieList = (props) => {
 	const FavouriteComponent = props.favouriteComponent;
 
 	return (
-		<Card.Group itemsPerRow={3}>
+		<Card.Group itemsPerRow={5}>
 			{props.movies.map((movie, index) => (
-				<Card>
-					<div className='image-container d-flex justify-content-start m-3'>
+				
+						<Card>
 						<img src={movie.Poster} alt='movie'></img>
 						<div
 							onClick={() => props.handleFavouritesClick(movie)}
@@ -16,8 +16,7 @@ const MovieList = (props) => {
 						>
 							<FavouriteComponent />
 						</div>
-					</div>
-				</Card>
+						</Card>				
 			))}
 		</Card.Group>
 	);
