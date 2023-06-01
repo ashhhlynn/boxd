@@ -8,16 +8,16 @@ h1 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 24px; fo
 
 p { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
 
-
 h3 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
-
-
 
 .App-link {
   color: #61dafb;
 }
 
-
+.headernav > .ui.menu{
+	background-image: url("https://cdn.theplaylist.net/wp-content/uploads/2018/05/14220831/In-the-mood-for-love-wong-kar-wai-750x400.jpg");
+	background-color: #000000;
+}
 .movie-app > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
