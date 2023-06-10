@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Segment, Header, Menu, Search, Item, Image, Container, Card } from 'semantic-ui-react'
+import { Segment, Header, Rating, Menu, Button, Icon, Image, Container, Form, Card } from 'semantic-ui-react'
 
-import Diary from './Diary'
-import TestFilms from './TestFilms'
 
 class Films extends Component {
 
@@ -10,23 +8,12 @@ class Films extends Component {
   
   render() {
     return (
- <>
- <Menu style={{backgroundColor:"#2A3135"}}></Menu>
-    <Container>
-<Segment  style={{backgroundColor:"#161D21", color:"white"}}><center>
-
-
-<TestFilms />
-
-<br></br>
-<Card.Group itemsPerRow={4} style={{marginTop: "1%", marginLeft:"20%", marginRight:"0%"}}>
-
-Hi
-</Card.Group></center>
-<br></br><br></br>
-</Segment></Container>
-
- </>
+      <><Card style={{color:"black"}}>
+        <h3>June 8, 2023</h3>
+        <h3>Film Title</h3>
+        <Rating size="huge" color="white" defaultRating={3} maxRating={4} /> <br></br>
+        <Button basic>Submit</Button></Card>
+      </>
     )
   }
 }

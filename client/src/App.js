@@ -1,41 +1,39 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
-import { Segment, Menu, Divider, Container } from 'semantic-ui-react'
+import { Segment, Icon, Menu, Divider, Container } from 'semantic-ui-react'
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import MovieList from './components/MovieList';
 import DiaryList from './components/DiaryList';
-
+import WelcomeFilms from './components/WelcomeFilms';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
 const App = () => {
-	const [movies, setMovies] = useState([]);
-	const [favourites, setFavourites] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
+	const [movies, setMovies] = useState([])
+	const [favourites, setFavourites] = useState([])
+	const [searchValue, setSearchValue] = useState('')
 	const getMovieRequest = async (searchValue) => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
 		const response = await fetch(url);
 		const responseJson = await response.json();
 		if (responseJson.Search) {
-			setMovies(responseJson.Search);
+			setMovies(responseJson.Search)
 		}
-	};
+	}
 
 	useEffect(() => {
-		getMovieRequest(searchValue);
-	}, [searchValue]);
+		getMovieRequest(searchValue)
+		}, [searchValue])
 
 	useEffect(() => {
 		const movieFavourites = JSON.parse(
 			localStorage.getItem('react-movie-app-favourites')
-		);
-
+		)
 		if (movieFavourites) {
 			setFavourites(movieFavourites);
 		}
-	}, []);
+	}, [])
 
 	const saveToLocalStorage = (items) => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
@@ -52,7 +50,6 @@ const App = () => {
 		const newFavouriteList = favourites.filter(
 			(favourite) => favourite.imdbID !== movie.imdbID
 		);
-
 		setFavourites(newFavouriteList);
 		saveToLocalStorage(newFavouriteList);
 	};
@@ -60,19 +57,18 @@ const App = () => {
 	return (
 		<div className='app' style={{backgroundColor:"#1a1f22"}}>
 			<Menu className="headernav" style={{backgroundColor:"#15191b", height:"100px"}}>
-						<Menu.Menu style={{marginLeft:"3%", marginTop:".5%"}} position="left"><br></br>
-							<h1>Boxd.</h1>
-						</Menu.Menu>
-				
-						<Menu.Menu  style={{marginTop:"3%", marginRight:"3%"}} position='right'>
-							<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-						</Menu.Menu>
-					</Menu>
+				<Menu.Menu style={{marginLeft:"5%", marginTop:".5%"}} position="left"><br></br>
+					<h1>Boxd.</h1>
+				</Menu.Menu>
+				<Menu.Menu  style={{marginTop:"3%", marginRight:"6%"}} position='right'>
+					<SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/> 
+					<Icon style={{marginTop:"0%", marginRight:"-300%"}} size="large" name="search"/>
+				</Menu.Menu>
+			</Menu>
       		<Container>
 				<center>
-					
 	    			<Segment style={{color:"white", backgroundColor:"#1a1f22"}}>
-						
+						<WelcomeFilms/>
   						<div className='row'>
 							<MovieList
 							movies={movies}
@@ -81,22 +77,20 @@ const App = () => {
 							/>
 						</div>
 					</Segment>
-					</center>
-					<Segment style={{color:"white", backgroundColor:"#1a1f22"}}>
-
-						<Divider></Divider>
-						<div className='row'>
-      						<DiaryList
+				</center>
+				<Segment style={{color:"white", backgroundColor:"#1a1f22"}}>
+					<Divider></Divider>
+					<div>
+      					<DiaryList
 							movies={favourites}
 							handleFavouritesClick={removeFavouriteMovie}
 							favouriteComponent={RemoveFavourites}
-							/>
-						</div>
-					</Segment>
-      			
+						/>
+					</div>
+					</Segment>      			
 	  		</Container>
 		</div>
-	);
-};
+	)
+}
 
 export default App;

@@ -10,14 +10,14 @@ const MovieList = (props) => {
 				<Card>
 					<Reveal animated='move'>
     				<Reveal.Content visible>
-						<Image src={movie.Poster} alt='movie'></Image>
+						<div>
+						<Image src={movie.Poster} alt='movie'></Image></div>
 					</Reveal.Content>	
 					<Reveal.Content hidden >
-					<div onClick={() => props.handleFavouritesClick(movie)}>
+						<div onClick={() => props.handleFavouritesClick(movie)}>
 							<FavouriteComponent />
 						</div>
-					<Image src={movie.Poster} style={{opacity:"60%"}}alt='movie'></Image>
-					
+						<Image src={movie.Poster} style={{opacity:"60%"}}alt='movie'></Image>
 					</Reveal.Content>
 					</Reveal>
 				</Card>				
