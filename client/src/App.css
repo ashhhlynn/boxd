@@ -1,34 +1,49 @@
-.app {
-  text-align: center;
-  font-family: "Consolas" !important;
-  font-weight: normal !important;
-  color: white !important;
-  letter-spacing:1.5px !important;
-}
-
-.header.ui.header {
+.App {
+	text-align: center;
+	font-family: "Consolas" !important;
+	font-weight: normal !important;
 	color: white !important;
+	letter-spacing:1.5px !important;
+	background-color: #1a1f22;
+  }
+  
+  .app {
+	text-align: center;
+	font-weight: normal !important;
+	color: white !important;
+	letter-spacing:1.5px !important;
+	background-color: #1a1f22;
+  }
+  
+  .stars .ui.rating{
+	color: pink !important;
+  }
+  
+  .stars {
+	color: white !important;
+  }
+  
+  h1, h2, h3, h5 {
 	font-weight: normal !important;
 	letter-spacing:1.5px !important;
-}
-
-.header{
+  }
+  
+  h4 {
 	letter-spacing:1.5px !important;
-}
-
-.h1, h2, h3, h4, h5 {
 	font-weight: normal !important;
-	letter-spacing:1.5px !important;
-}
-.App-link {
-  color: #a87ca0
-}
-
-.headernav > .ui.menu{
-	background-image: url("https://cdn.theplaylist.net/wp-content/uploads/2018/05/14220831/In-the-mood-for-love-wong-kar-wai-750x400.jpg");
-	background-color: #000000;
-}
-
-.ui.header > .ui.rating {
+  }
+  
+  .ui.Container {
+	text-align: center;
+	font-family: "Consolas" !important;
+	font-weight: normal !important;
 	color: white !important;
-}
+	letter-spacing:1.5px !important;
+	background-color: #1a1f22;
+  }
+  
+  .ui.Menu {
+	color: white !important;
+  }
+  
+  

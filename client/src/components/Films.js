@@ -1,21 +1,27 @@
-import React, { Component } from 'react'
-import { Segment, Header, Rating, Menu, Button, Icon, Image, Container, Form, Card } from 'semantic-ui-react'
+import React from 'react'
+import { Card, Popup, Icon, Image } from 'semantic-ui-react'
 
+const Films = (props) => {
 
-class Films extends Component {
-
-
-  
-  render() {
-    return (
-      <><Card style={{color:"black"}}>
-        <h3>June 8, 2023</h3>
-        <h3>Film Title</h3>
-        <Rating size="huge" color="white" defaultRating={3} maxRating={4} /> <br></br>
-        <Button basic>Submit</Button></Card>
-      </>
-    )
-  }
+	return (
+		<Card.Group itemsPerRow={5}>
+			{props.films.map((movie, index) => (
+                <Popup flowing hoverable key={index}
+                trigger={
+				    <Card >
+			            <Image style={{height:"300px", width:"220px"}}src={movie.Poster} alt='movie'></Image>		  
+				    </Card>		
+                }
+                >
+                    <div onClick={() => props.handleDiaryClick(movie)}>
+                        <Popup.Content>
+                            <center><i>Log Film to Diary</i> <Icon style={{cursor: "pointer"}} name="add"/></center>
+                        </Popup.Content>
+                    </div>
+                </Popup>
+			))}
+		</Card.Group>
+	)
 }
 
 export default Films

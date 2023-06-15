@@ -1,6 +1,6 @@
 class FilmsController < ApplicationController
 
-    def index
+      def index
         @films = Film.all
         render json: @films
       end

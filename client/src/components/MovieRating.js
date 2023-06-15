@@ -1,12 +1,26 @@
+import { Rating } from 'semantic-ui-react'
 import React, { Component } from 'react'
-import { Segment, Header, Divider, Rating } from 'semantic-ui-react'
-const MovieRating = (props) => {
-  return (
-    <>
-      <Rating size="huge" icon="star"style={{color:"white"}}defaultRating={0} maxRating={5} />
-      </>
-  )
+
+export default class MovieRating extends Component {
+
+    state = { rating: 0 }
+
+    componentDidMount = () => {
+        let x = localStorage.getItem(this.props.film.imdbID)
+        this.setState({rating: x})
+    }
+
+    handleRating = (e, { rating, maxRating }) =>{
+        this.setState({ rating, maxRating })
+        localStorage.setItem(this.props.film.imdbID, rating);
+    }
+
+    render() {
+        return (
+            <div className="stars" >
+                Rating: <Rating icon='star' color='pink' rating={this.state.rating}  
+                maxRating={5}  onRate={this.handleRating} />
+            </div>
+        )
+    }
 }
-
-
-export default MovieRating

@@ -1,23 +1,80 @@
-import React, { Component } from 'react'
-import { Segment, Header, Divider } from 'semantic-ui-react'
-import DiaryFilm from './DiaryFilm'
-
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { Form, Grid, Segment} from 'semantic-ui-react'
+import { checkUser } from "./actions/rootActions"
 
 class Login extends Component {
 
+    state = {
+        email: '',
+        password: '',
+    }
 
-  
-  render() {
-    return (
- <div>
+    handleChange = (event) => {
+        this.setState ({
+            [event.target.id]: event.target.value
+        })
+    }
 
-<Segment  style={{backgroundColor:"#161D21", color:"#faefd1", fontWeight:"normal"}}>
-Login
-
-</Segment>
- </div>
-    )
-  }
+    handleSubmit = (event, userData)  => {
+        event.preventDefault()
+        fetch("/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: userData.email, password: userData.password
+            })
+        })
+        .then((response) => response.json())
+        .then(data => {
+            if (data.errors) {
+                window.alert("Login failed.")
+            }
+            else {
+                this.props.checkUser(data)
+                window.alert("Login successful.")
+            }
+        })
+    }
+    
+    render() {
+        return (
+            <>          
+     
+                     
+                            <h1 >Sign In</h1>
+                            <Form onSubmit={ (event) => { this.handleSubmit(event, this.state)}}>
+                                <Form.Input
+                                required
+                                id="email"
+                                placeholder="Email"
+                                value={this.state.email} 
+                                onChange={this.handleChange}
+                                />               
+                                <Form.Input
+                                required
+                                id="password"
+                                placeholder="Password"
+                                type="password"
+                                value={this.state.password} 
+                                onChange={this.handleChange}
+                                /> 
+                                <Form.Button circular content='Submit' />
+                            </Form>
+                         
+                    
+            </>
+        )
+    }
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+    return { 
+      checkUser: (user) =>  { dispatch(checkUser(user)) },
+    }
+}
+  
+
+export default connect(null, mapDispatchToProps)(Login)
