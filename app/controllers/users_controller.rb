@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
+
     uf = @user.follows
     m = uf.map do |f| 
         @users.find_by(id: f.following_id)

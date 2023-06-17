@@ -16,6 +16,17 @@ const Feed = () => {
 	}
 
 
+    const getUsers = () => {
+        fetch("/users")
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+        })
+    }
+
+	useEffect(() => {
+		getUsers()
+	}, [])
 
 		useEffect(() => {
 			getRequest()

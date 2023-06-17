@@ -1,7 +1,21 @@
-import React from 'react'
-import { Header, Image, Button, Item, Icon, Label, Divider } from 'semantic-ui-react'
+import React, { useState, useEffect, useReducer } from 'react'
+import { Header, Image, Button, Item, Search, Icon, Label, Divider } from 'semantic-ui-react'
 
 const UserIndex = (props) => {
+	const [users, setUsers] = useState([])
+
+    const getUsers = () => {
+        fetch("/users")
+        .then(resp => resp.json())
+        .then(data => {
+            setUsers(data)
+            console.log(data)
+        })
+    }
+
+	useEffect(() => {
+		getUsers()
+	}, [])
 
 	const addFollow = (event, id) => {
 		event.preventDefault()
@@ -30,9 +44,10 @@ const UserIndex = (props) => {
 	}
 
 	return (
-		<>
+		<><Search placeholder='Search users to follow...'>
+		</Search>
 		
-		{props.users.map((user, index) => (
+		{users.map((user, index) => (
 			<h4>
 		<Icon name="user"/>{user.username} <Button style={{marginLeft:"10%"}}size="mini" onClick={(event) => addFollow(event, user.id)}><center><Icon size="tiny" name="plus"/></center></Button>
 		<Button style={{marginLeft:"10%"}}size="mini" onClick={(event) => removeFollow(event, user.id)}><center><Icon size="tiny" name="close"/></center></Button>

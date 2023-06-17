@@ -6,8 +6,23 @@ import Signup from './Signup'
 import Feed from './Feed'
 import UserIndex from './UserIndex'
 
-class User extends Component {
+class NewUserContainer extends Component {
 
+    state={
+        users: [],
+        userDF: []
+    }
+
+    componentDidMount = () => {
+        fetch("/users")
+        .then(resp => resp.json())
+        .then(data => {
+            this.setState({users: data})
+            console.log(data)
+        })
+
+     
+    }
     
     render() {
         return (
@@ -25,8 +40,10 @@ class User extends Component {
                 </Grid>
                 <Divider style={{color:"white"}}vertical>Or</Divider>
                 </Segment>
-                
+                <Search       placeholder='Search users to follow...'>
 
+                </Search>
+   
             </>
         )
     }
@@ -35,4 +52,4 @@ class User extends Component {
 
   
 
-export default User
+export default NewUserContainer

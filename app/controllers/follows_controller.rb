@@ -2,8 +2,14 @@ class FollowsController < ApplicationController
 
   def index
     @follows = Follow.all
-    render json: @follows
+    @followz = @follows.where(user_id: 1)
+    render json: @followz
   end
+
+  def show 
+    @follow = Follow.find_by(params[:user_id])
+    @user = User.find_by(@follow.follow_id)
+  end 
 
   def create
     follow = Follow.create(follow_params)
@@ -13,8 +19,6 @@ class FollowsController < ApplicationController
       render json: follow.errors, status: :unprocessable_entity
     end
   end
-
-
 
   def destroy
     @follow = Follow.find(params[:id])
