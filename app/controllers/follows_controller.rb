@@ -1,9 +1,14 @@
 class FollowsController < ApplicationController
 
   def index
+    @followfilms = []
     @follows = Follow.all
-    @followz = @follows.where(user_id: 1)
-    render json: @followz
+    @followz = @follows.where(following_id: 2)
+    @test = @followz.map do |f|
+      f.user
+    end 
+
+    render json: @test
   end
 
   def show 

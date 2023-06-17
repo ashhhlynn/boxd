@@ -44,17 +44,15 @@ const UserIndex = (props) => {
 	}
 
 	return (
-		<><Search placeholder='Search users to follow...'>
+		<>
+		<Search placeholder='Search users to follow...'>
 		</Search>
-		
 		{users.map((user, index) => (
 			<h4>
-		<Icon name="user"/>{user.username} <Button style={{marginLeft:"10%"}}size="mini" onClick={(event) => addFollow(event, user.id)}><center><Icon size="tiny" name="plus"/></center></Button>
-		<Button style={{marginLeft:"10%"}}size="mini" onClick={(event) => removeFollow(event, user.id)}><center><Icon size="tiny" name="close"/></center></Button>
-		</h4>
-		))}
-		
-		
+				<Icon name="user"/>{user.username} <Button style={{marginLeft:"10%"}}size="mini" onClick={(event) => addFollow(event, user.id)}><center><Icon size="tiny" name="plus"/></center></Button>
+				<Button style={{marginLeft:"10%"}}size="mini" onClick={(event) => removeFollow(event, user.id)}><center><Icon size="tiny" name="close"/></center></Button>
+			</h4>
+		))}	
 		</>
 	);
 };

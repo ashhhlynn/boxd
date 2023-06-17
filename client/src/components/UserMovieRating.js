@@ -6,7 +6,6 @@ export default class UserMovieRating extends Component {
     state = { rating: this.props.film.rating }
 
     handleRating = (e, { rating, maxRating }) =>{
-        
         this.setState({ rating, maxRating })
         let x = this.props.film.id
         console.log(x)

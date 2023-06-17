@@ -8,7 +8,6 @@ import UserIndex from './UserIndex'
 
 class User extends Component {
 
-    
     render() {
         return (
             <>          
@@ -16,23 +15,16 @@ class User extends Component {
                 <Grid stackable relaxed='very' columns={2} >
                     <Grid.Column> 
                       <Login />
-                    </Grid.Column>
-                 
+                    </Grid.Column>                 
                     <Grid.Column verticalAlign='middle'>
-
-<Signup />
+                        <Signup />
                     </Grid.Column>   
                 </Grid>
                 <Divider style={{color:"white"}}vertical>Or</Divider>
                 </Segment>
-                
-
             </>
         )
     }
 }
-
-
-  
 
 export default User

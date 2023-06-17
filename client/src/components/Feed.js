@@ -5,6 +5,7 @@ const Feed = () => {
 
 
     const [userDF, setUserDF] = useState([])
+    const [userF, setUserF] = useState([])
 
 
 	const getRequest = () => {
@@ -17,11 +18,13 @@ const Feed = () => {
 
 
     const getUsers = () => {
-        fetch("/users")
+        fetch("/follows")
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
+            setUserF(data)
         })
+        
     }
 
 	useEffect(() => {
