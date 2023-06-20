@@ -59,10 +59,9 @@ const Home = (props) => {
 	return (
         <div>
             <WelcomeFilms/>
-            <Divider></Divider>
+            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
             {props.currentUser.length === 0 ?
                 <>
-                <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
                 <Films
                     films={films}
                     handleDiaryClick={addDiaryFilm}
@@ -79,7 +78,9 @@ const Home = (props) => {
                 </>   
             : 
                 <>
-                    <UserDiaries currentUser={props.currentUser}/>
+                    <UserDiaries currentUser={props.currentUser}
+                    films={films}
+                    />
                 </>
             }
         </div>

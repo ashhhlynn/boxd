@@ -2,26 +2,9 @@ import { Header, Image, Button, Item, Icon, Label, Divider } from 'semantic-ui-r
 import UserMovieRating from './UserMovieRating'
 import React, { useState, useEffect } from 'react'
 import Films from './Films'
-import SearchBox from './SearchBox'
 import Feed from './Feed'
 
 const UserDiaries = (props) => {
-    const [films, setFilms] = useState([])
-    const [searchValue, setSearchValue] = useState('')
-    const getMovieRequest = async (searchValue) => {
-        const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
-        const response = await fetch(url)
-        const responseJson = await response.json()
-        if (responseJson.Search) {
-            setFilms(responseJson.Search)
-        }
-    }
-  
-    useEffect(() => {
-        getMovieRequest(searchValue)
-    }, [searchValue])
-
-    
 
     const [userDiaries, setUserDiaries] = useState([])
 
@@ -91,10 +74,9 @@ const UserDiaries = (props) => {
     }
 
 	return (
-		<>
-            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
+		    <>
             <Films
-                films={films}
+                films={props.films}
                 handleDiaryClick={addUserDiaryFilm}
             />
             <Divider></Divider>

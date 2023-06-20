@@ -45,7 +45,7 @@ class App extends Component {
 						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home alternate"/></Link></Menu.Item>
 						<Menu.Item><Link to='/userindex' style={{color:"white"}}><Icon name="users" size="big" style={{marginTop:"-4%"}}/></Link></Menu.Item>
 						{this.props.currentUser.length === 0 ?
-							<Menu.Item><Link to='/log' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user circle "/></Link></Menu.Item>
+							<Menu.Item><Link to='/log' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user outline"/></Link></Menu.Item>
 							:
 							<Menu.Item><Icon style={{color:"white", marginTop:"0%", cursor:"pointer"}} size="large" onClick={this.handleLogout} name="power off"/></Menu.Item>
 						}
