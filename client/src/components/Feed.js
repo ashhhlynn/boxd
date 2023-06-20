@@ -14,8 +14,7 @@ const Feed = () => {
             data.forEach(d => 
                 i.push(d.diary_films)
             )
-            setUserDF(i.flat())
-            console.log(i.flat())
+            setUserDF(i.flat().slice(0,8))
         })   
     }  
 
@@ -29,7 +28,7 @@ const Feed = () => {
                 <Card style={{marginLeft:"5%",backgroundColor:"#1a1f22", boxShadow:"none", color:"white"}}>
                     <Image style={{height:"180px", width:"200px"}} src={movie.poster}/>
                     <Card.Content style={{marginTop:"-10%"}}>
-                        <Icon name="user circle "/>{movie.user.username}
+                        <Icon name="user circle "/>{movie.user.username}<br></br>
                         <Rating icon='star' disabled size="mini"  rating={movie.rating}  
                         maxRating={5}  />
                     </Card.Content>

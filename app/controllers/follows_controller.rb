@@ -17,7 +17,7 @@ class FollowsController < ApplicationController
   def create
     follow = Follow.create(follow_params)
     if follow.valid?
-      render json: follow, status: :created
+      render json: follow.user, status: :created
     else
       render json: follow.errors, status: :unprocessable_entity
     end
