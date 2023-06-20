@@ -25,11 +25,14 @@ const UserIndex = (props) => {
 			setUserF(data)
 			console.log(data)
 		})
+		console.log(props.currentUser.follows)
 	}
 
 	useEffect(() => {
 		getFollows()
 	}, [])
+
+
 
 	const addFollow = (event, id) => {
 		event.preventDefault()
@@ -68,10 +71,19 @@ const UserIndex = (props) => {
 
 	return (
 		<div>
+		
 		{props.currentUser.length === 0? 
 			<p>Signup or login to begin following other users!</p>
 			:
 			<>	
+			<center>
+			<Card style={{ backgroundColor:"#1a1f22"}}>
+			<center><Icon size="massive" name="user circle"/></center>
+			<h1>{props.currentUser.username}</h1>
+			<p>{userF.length} following | {props.currentUser.follows.length} followers</p>
+			</Card>
+			</center><br></br>
+
 			<Grid stackable columns={2}  >
             	<Grid.Column style={{marginLeft:"-2%"}}>
 					<h3>Index</h3>

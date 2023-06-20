@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    @users = User.all
     render json: @user, includes: [:follows, :diary_films]  
   end
 
@@ -37,5 +36,5 @@ end
     def user_params
       params.permit(:username, :email, :password, :password_confirmation)
     end
-    
+
 end

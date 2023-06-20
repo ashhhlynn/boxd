@@ -1,7 +1,6 @@
 class FollowsController < ApplicationController
 
   def index
-    @followfilms = []
     @follows = Follow.all
     @ff = @follows.where(following_id: session[:user_id])
     @user_follows = @ff.map do |f|
