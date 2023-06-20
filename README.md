@@ -2,7 +2,7 @@
 
 ## Description
   
-A Letterboxd inspired application created with JavaScript and React for rating films to a personal film diary and tracking film activity by followed users. Styled with Semantic UI React and CSS.
+A Letterboxd inspired application created with JavaScript and React with Ruby on Rails for rating films to a personal film diary and tracking film activity by followed users. Styled with Semantic UI React and CSS.
   
 ## Functionality
 
