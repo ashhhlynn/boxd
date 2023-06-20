@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Card, Icon, Grid, Header} from 'semantic-ui-react'
+import { Button, Card, Icon, Grid } from 'semantic-ui-react'
 
 const UserIndex = (props) => {
 	const [users, setUsers] = useState([])

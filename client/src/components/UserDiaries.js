@@ -91,14 +91,14 @@ const UserDiaries = (props) => {
     }
 
 	return (
-		<div>
+		<>
             <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
-            <Feed/>
-            <Divider></Divider>
             <Films
                 films={films}
                 handleDiaryClick={addUserDiaryFilm}
             />
+            <Divider></Divider>
+            <Feed/>
             <Divider></Divider>
 		    {userDiaries.map((movie, index) => (
 			    <Item key={index} style={{marginLeft:"5%", marginRight:"5%"}}>
@@ -122,7 +122,7 @@ const UserDiaries = (props) => {
                     <Divider></Divider>
                 </Item>
 		    ))}
-        </div>
+        </>
 	)
 }
 
