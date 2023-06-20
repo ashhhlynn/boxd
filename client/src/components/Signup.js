@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Grid, Segment} from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 import { connect } from "react-redux"
 
@@ -43,45 +43,42 @@ class Signup extends Component {
     render() {
         return (
             <>
-       
-                    
-                            <h1 >Register</h1>
-                            <Form onSubmit={ (event) => {this.handleSubmit(event, this.state)} }>              
-                                <Form.Input
-                                required
-                                type="text"
-                                id="username"
-                                placeholder="Username"
-                                value={this.state.username} 
-                                onChange={this.handleChange}            
-                                />
-                                <Form.Input
-                                required
-                                type="text"
-                                id="email"
-                                placeholder="Email"
-                                value={this.state.email} 
-                                onChange={this.handleChange}
-                                />
-                                <Form.Input
-                                required
-                                id="password"
-                                placeholder="Password"
-                                type="password"
-                                value={this.state.password} 
-                                onChange={this.handleChange}
-                                /> 
-                                <Form.Input
-                                required
-                                id="password_confirmation"
-                                placeholder="Confirm Password"
-                                type="password"
-                                value={this.state.password_confirmation} 
-                                onChange={this.handleChange}
-                                />
-                                <Form.Button circular content="Submit"/>
-                            </Form>
-                    
+            <h1 >Register</h1>
+            <Form onSubmit={ (event) => {this.handleSubmit(event, this.state)} }>              
+                <Form.Input
+                    required
+                    type="text"
+                    id="username"
+                    placeholder="Username"
+                    value={this.state.username} 
+                    onChange={this.handleChange}            
+                />
+                <Form.Input
+                    required
+                    type="text"
+                    id="email"
+                    placeholder="Email"
+                    value={this.state.email} 
+                    onChange={this.handleChange}
+                />
+                <Form.Input
+                    required
+                    id="password"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password} 
+                    onChange={this.handleChange}
+                /> 
+                <Form.Input
+                    required
+                    id="password_confirmation"
+                    placeholder="Confirm Password"
+                    type="password"
+                    value={this.state.password_confirmation} 
+                    onChange={this.handleChange}
+                />
+                <Form.Button circular content="Submit"/>
+            </Form>
             </>
         )
     }

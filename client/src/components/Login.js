@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { Form, Grid, Segment} from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import { checkUser } from "./actions/rootActions"
 
 class Login extends Component {
@@ -41,30 +41,26 @@ class Login extends Component {
     
     render() {
         return (
-            <>          
-     
-                     
-                            <h1 >Sign In</h1>
-                            <Form onSubmit={ (event) => { this.handleSubmit(event, this.state)}}>
-                                <Form.Input
-                                required
-                                id="email"
-                                placeholder="Email"
-                                value={this.state.email} 
-                                onChange={this.handleChange}
-                                />               
-                                <Form.Input
-                                required
-                                id="password"
-                                placeholder="Password"
-                                type="password"
-                                value={this.state.password} 
-                                onChange={this.handleChange}
-                                /> 
-                                <Form.Button circular content='Submit' />
-                            </Form>
-                         
-                    
+            <>                               
+            <h1>Sign In</h1>
+            <Form onSubmit={ (event) => { this.handleSubmit(event, this.state)}}>
+                    <Form.Input
+                        required
+                        id="email"
+                        placeholder="Email"
+                        value={this.state.email} 
+                        onChange={this.handleChange}
+                    />               
+                    <Form.Input
+                        required
+                        id="password"
+                        placeholder="Password"
+                        type="password"
+                        value={this.state.password} 
+                        onChange={this.handleChange}
+                    /> 
+                    <Form.Button circular content='Submit' />
+            </Form>                
             </>
         )
     }
@@ -76,5 +72,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
   
-
 export default connect(null, mapDispatchToProps)(Login)

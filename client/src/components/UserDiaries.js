@@ -1,9 +1,9 @@
 import { Header, Image, Button, Item, Icon, Label, Divider } from 'semantic-ui-react'
 import UserMovieRating from './UserMovieRating'
-import React, { useState, useEffect, useReducer } from 'react'
-import { rootReducer } from "./reducers/rootReducer";
+import React, { useState, useEffect } from 'react'
 import Films from './Films'
 import SearchBox from './SearchBox'
+import Feed from './Feed'
 
 const UserDiaries = (props) => {
     const [films, setFilms] = useState([])
@@ -17,21 +17,22 @@ const UserDiaries = (props) => {
         }
     }
   
-      useEffect(() => {
+    useEffect(() => {
         getMovieRequest(searchValue)
     }, [searchValue])
 
     
+
     const [userDiaries, setUserDiaries] = useState([])
-	const [state, dispatch] = useReducer(rootReducer, userDiaries);
 
     const getUserMovies = () => {
-		fetch("/users/1")
+        let id = props.currentUser.id
+		fetch(`/users/` + id)
 		.then((response) => response.json())
 		.then(data => {
-		console.log(data.diary_films)
-		setUserDiaries(data.diary_films)
-	})
+	    	console.log(data.diary_films)
+	    	setUserDiaries(data.diary_films)
+    	})
 	}
 
     useEffect(() => {
@@ -48,7 +49,7 @@ const UserDiaries = (props) => {
 			},
 			body: JSON.stringify({
 				title: film.Title, 
-				user_id: 1, 
+				user_id: props.currentUser.id, 
 				watch_date: date,
 				year: film.Year, 
 				poster: film.Poster, 
@@ -81,7 +82,6 @@ const UserDiaries = (props) => {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify({
                rating: r
@@ -92,13 +92,14 @@ const UserDiaries = (props) => {
 
 	return (
 		<div>
-             <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
-             <Films
-            films={films}
-            handleDiaryClick={addUserDiaryFilm}
+            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
+            <Feed/>
+            <Divider></Divider>
+            <Films
+                films={films}
+                handleDiaryClick={addUserDiaryFilm}
             />
             <Divider></Divider>
-
 		    {userDiaries.map((movie, index) => (
 			    <Item key={index} style={{marginLeft:"5%", marginRight:"5%"}}>
                     <div onClick={() => removeUserDiaryFilm(movie)}>
@@ -113,8 +114,8 @@ const UserDiaries = (props) => {
                     </Header>
                     <Header floated="left"><br></br>
                         <Label style={{ backgroundColor:"#FFFEEF", color:"black"}}>
-                        2023
-                        <h2 ><b>{movie.watch_date.slice(0,4)}</b></h2>
+                            2023
+                            <h2 ><b>{movie.watch_date.slice(0,4)}</b></h2>
                         </Label>
                     </Header>
 				    <Image style={{height:"110px", width:"75px", marginLeft:"13%", alignContent:"left"}} src={movie.poster} alt='movie'/>

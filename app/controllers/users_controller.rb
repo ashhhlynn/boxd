@@ -6,15 +6,21 @@ class UsersController < ApplicationController
 
   end
 
-  def show
-    @user = User.find(params[:id])
+  def profile
+    @user = current_user
     @users = User.all
-    @uf = @user.follows
-    m = @uf.map do |f| 
-        User.where(id: f.following_id)
-    end 
     render json: @user, includes: [:follows, :diary_films]  
   end
+
+def show 
+  @user = User.find(params[:id])
+  @users = User.all
+  @uf = @user.follows
+  m = @uf.map do |f| 
+      User.where(id: f.following_id)
+  end 
+  render json: @user, includes: [:follows, :diary_films]  
+end 
 
   def create
     user = User.create(user_params)
@@ -26,10 +32,10 @@ class UsersController < ApplicationController
     end 
   end
 
-
   private
 
     def user_params
       params.permit(:username, :email, :password, :password_confirmation)
     end
+    
 end

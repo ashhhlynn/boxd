@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { Icon, Menu, Divider, Container, Search} from 'semantic-ui-react'
+import { Divider } from 'semantic-ui-react'
 import WelcomeFilms from './/WelcomeFilms'
 import Films from './Films'
 import Diaries from './Diaries'
 import SearchBox from './SearchBox'
+import React, { useState, useEffect } from 'react'
+import UserDiaries from './UserDiaries'
 
-
-const Home = () => {
+const Home = (props) => {
     const [films, setFilms] = useState([])
     const [diaries, setDiaries] = useState([])
     const [searchValue, setSearchValue] = useState('')
@@ -18,11 +18,11 @@ const Home = () => {
       if (responseJson.Search) {
           setFilms(responseJson.Search)
       }
-  }
+    }
 
     useEffect(() => {
       getMovieRequest(searchValue)
-  }, [searchValue])
+    }, [searchValue])
 
     useEffect(() => {
         const filmDiaries = JSON.parse(
@@ -58,23 +58,31 @@ const Home = () => {
 
 	return (
         <div>
-            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
+            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
             <WelcomeFilms/>
             <Divider></Divider>
             <Films
-            films={films}
-            handleDiaryClick={addDiaryFilm}
+                films={films}
+                handleDiaryClick={addDiaryFilm}
             />
             <Divider></Divider>
-            {diaries.length === 0 ?
-                <p>Your diary is empty. Search for a film to begin logging!</p> 
-            :
-                <></>
+            {props.currentUser.length === 0 ?
+                <>
+                {diaries.length === 0 ?
+                    <p>Your diary is empty. Search for a film to begin logging!</p> 
+                :
+                    <></>
+                }
+                <Diaries
+                films={diaries}
+                handleDiaryClick={removeDiaryFilm}
+                />
+                </>   
+            : 
+                <>
+                    <UserDiaries currentUser={props.currentUser}/>
+                </>
             }
-            <Diaries
-            films={diaries}
-            handleDiaryClick={removeDiaryFilm}
-            />   
         </div>
 	)
 }

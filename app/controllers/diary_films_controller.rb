@@ -2,7 +2,7 @@ class DiaryFilmsController < ApplicationController
 
   def index
     @diary_films = DiaryFilm.all
-    render json: @diary_films
+    render json: @diary_films, include: :user
   end
 
   def create

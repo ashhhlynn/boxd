@@ -1,10 +1,7 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
-import { Form, Grid, Divider, Search, Segment} from 'semantic-ui-react'
+import { Grid, Divider, Segment} from 'semantic-ui-react'
 import Login from './Login'
 import Signup from './Signup'
-import Feed from './Feed'
-import UserIndex from './UserIndex'
 
 class User extends Component {
 
