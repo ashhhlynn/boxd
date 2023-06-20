@@ -3,9 +3,9 @@ import {  Card, Image, Rating, Icon } from 'semantic-ui-react'
 
 const Feed = () => {
 
-    const [userDF, setUserDF] = useState([])
+    const [userFeed, setUserFeed] = useState([])
 
-    const getUsers = () => {
+    const getUserFeed = () => {
         fetch("/follows")
         .then(resp => resp.json())
         .then(data => {
@@ -14,18 +14,22 @@ const Feed = () => {
             data.forEach(d => 
                 i.push(d.diary_films)
             )
-            setUserDF(i.flat().slice(0,8))
+            let o = i.flat().slice().sort((item1, item2) => item1.watch_date < item2.watch_date ? 1 : -1)
+
+            let x = o.slice(0,7)
+            setUserFeed(x)
+                console.log(x)
         })   
     }  
 
 	useEffect(() => {
-		getUsers()
+		getUserFeed()
 	}, [])   
 
 	return (
-		<Card.Group itemsPerRow={8}>
-            {userDF.map((movie, index) => (  
-                <Card style={{marginLeft:"5%",backgroundColor:"#1a1f22", boxShadow:"none", color:"white"}}>
+		<Card.Group itemsPerRow={7}>
+            {userFeed.map((movie, index) => (  
+                <Card style={{marginLeft:".5%",backgroundColor:"#1a1f22", boxShadow:"none", color:"white"}}>
                     <Image style={{height:"180px", width:"200px"}} src={movie.poster}/>
                     <Card.Content style={{marginTop:"-10%"}}>
                         <Icon name="user circle "/>{movie.user.username}<br></br>

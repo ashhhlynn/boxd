@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Card, Icon, Grid } from 'semantic-ui-react'
+import { Button, Card, Icon, Grid, Item } from 'semantic-ui-react'
 
 const UserIndex = (props) => {
 	const [users, setUsers] = useState([])
@@ -73,8 +73,9 @@ const UserIndex = (props) => {
 			:
 			<>	
 			<Grid stackable columns={2}  >
-            	<Grid.Column>
+            	<Grid.Column style={{marginLeft:"-2%"}}>
 					<h3>Index</h3>
+					<Item style={{marginLeft:"14%"}}>
 					{users.map((user, index) => (
 						<Card style={{boxShadow:"none", backgroundColor:"#1a1f22"}}>
 							<Card.Header><Icon name="user"/>{user.username}
@@ -82,9 +83,11 @@ const UserIndex = (props) => {
 							</Card.Header>
 						</Card>
 					))}	
+					</Item>
 				</Grid.Column>
 				<Grid.Column>
 				<h3>Following</h3>
+				<Item style={{marginLeft:"14%"}}>
 					{userF.map((user, index) => (
 						<Card style={{ boxShadow:"none", backgroundColor:"#1a1f22"}}>
 							<Card.Header><Icon name="user"/>{user.username}
@@ -92,6 +95,7 @@ const UserIndex = (props) => {
 							</Card.Header>
 						</Card>
 					))}	
+				</Item>
 				</Grid.Column>
 			</Grid>
 			</>

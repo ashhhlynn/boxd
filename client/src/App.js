@@ -36,7 +36,7 @@ class App extends Component {
     render() {
         return (
 			<Router>
-    		<div className="app" style={{backgroundColor:"#1a1f22", minHeight:"100vh"}} >
+    		<div className="app" style={{backgroundColor:"#1a1f22", minHeight:"100vh"}}>
       			<Menu style={{backgroundColor:"#15191b", color:"white", height:"100px"}}>
 					<Menu.Menu style={{marginLeft:"5%", marginTop:".5%"}} position="left"><br></br>
 						<h1>Boxd.</h1>
@@ -51,7 +51,7 @@ class App extends Component {
 						}
 					</Menu.Menu>
 				</Menu>
-      			<Container >   	
+      			<Container style={{minHeight:"100vh", height:"100%"}}>   	
 					<Switch>
 						<Route exact path="/" >
                 			<Home currentUser={this.props.currentUser}/>
