@@ -30,6 +30,7 @@ class Signup extends Component {
             }
             else {
                 window.alert("Signup successful.")
+                this.props.checkUser(data)
             }
         })
     } 
