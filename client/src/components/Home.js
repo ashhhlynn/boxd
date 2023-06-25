@@ -82,7 +82,7 @@ const Home = (props) => {
                 <>
                     <UserDiaries currentUser={props.currentUser}
                     films={films}
-                    />
+                    /><br></br>
                 </>
             }
         </div>

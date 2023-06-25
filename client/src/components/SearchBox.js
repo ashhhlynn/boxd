@@ -3,7 +3,7 @@ import React from 'react'
 const SearchBox = (props) => {
 	return (
 		<>
-		<h4>
+		<h3>
 			Search Films... 
 			<input
 				value={props.value}
@@ -12,7 +12,7 @@ const SearchBox = (props) => {
 				style={{marginTop:"1.5%"}}
 				>
 			</input>
-		</h4>
+		</h3>
 		</>
 	);
 };

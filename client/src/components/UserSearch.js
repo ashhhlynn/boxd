@@ -1,81 +1,38 @@
 import _ from 'lodash'
-import React from 'react'
-import { Search  } from 'semantic-ui-react'
-
-const source = _.times(5, () => ({
-  title: 'ali',
-}))
-
-
-const initialState = {
-  loading: false,
-  results: [],
-  value: '',
-}
-
-function exampleReducer(state, action) {
-  switch (action.type) {
-    case 'CLEAN_QUERY':
-      return initialState
-    case 'START_SEARCH':
-      return { ...state, loading: true, value: action.query }
-    case 'FINISH_SEARCH':
-      return { ...state, loading: false, results: action.results }
-    case 'UPDATE_SELECTION':
-      return { ...state, value: action.selection }
-
-    default:
-      throw new Error()
-  }
-}
+import React, { useState } from 'react'
+import { Search, Button, Item, Icon } from 'semantic-ui-react'
 
 function UserSearch(props) {
-    const [state, dispatch] = React.useReducer(exampleReducer, initialState)
-    const { loading, results, value } = state
-  
-    const timeoutRef = React.useRef()
-    const handleSearchChange = React.useCallback((e, data) => {
-      clearTimeout(timeoutRef.current)
-      dispatch({ type: 'START_SEARCH', query: data.value })
-  
-      timeoutRef.current = setTimeout(() => {
-        if (data.value.length === 0) {
-          dispatch({ type: 'CLEAN_QUERY' })
-          return
-        }
-  
-        const re = new RegExp(_.escapeRegExp(data.value), 'i')
-        const isMatch = (result) => re.test(result.title)
-  
-        dispatch({
-          type: 'FINISH_SEARCH',
-          results: _.filter(source, isMatch),
-        })
-      }, 300)
-    }, [])
-    React.useEffect(() => {
-      return () => {
-        clearTimeout(timeoutRef.current)
-      }
-    }, [])
+    const [results, setResults] = useState([]);
+    const [value, setValue] = useState('');
+    
+    const handleSearchChange = e => {
+        let value = e.target.value;
+        setValue(value);
+        const re = new RegExp(_.escapeRegExp(value), 'i');
+        const isMatch = result => re.test(result.username);
+        setResults(_.filter(props.users, isMatch));
+    };
+    
+    const resultRenderer = ({ username }) => ([ 
+        <Item>
+            <Button floated="right" style={{marginTop:"-2%", width:"43px"}}size="mini" id={username} onClick={props.addFollow}>
+                <Icon name="plus"/>
+            </Button>
+            {username}
+        </Item>
+    ]);
+    
     return (
-        <>
+        <Search
+          onSearchChange={handleSearchChange}
+          noResultsMessage='No users found.'
+          resultRenderer={resultRenderer}
+          results={results}
+          value={value}
+          placeholder='Search users to follow...'
+        />
+    );
+};
 
-            <Search
-              loading={loading}
-              placeholder='Find users to follow...'
-              onResultSelect={(e, data) =>
-                dispatch({ type: 'UPDATE_SELECTION', selection: data.result.title })
-              }
-              onSearchChange={handleSearchChange}
-              results={results}
-              value={value}
-            />
-    
-    
-    
-  </>
-      )
-    }
-    
-    export default UserSearch
+export default UserSearch
