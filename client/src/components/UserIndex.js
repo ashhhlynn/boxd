@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Card, Icon, Grid, Item, Search } from 'semantic-ui-react'
+import UserSearch from './UserSearch'
 
 const UserIndex = (props) => {
 	const [users, setUsers] = useState([])
@@ -82,12 +83,9 @@ const UserIndex = (props) => {
 
 	return (
 		<div>
-			{props.currentUser.length === 0? 
-				<p><br></br>Signup or login to begin following other users!</p>
-			:
-				<>	
+
 				<br></br>
-				<Search floated="right" placeholder="Search users to follow..."/>
+				<UserSearch users={users}/>
 				<Grid style={{marginTop:"3%", marginLeft:"5%"}} stackable columns={3}  >
             		<Grid.Column>
 						<Card style={{ backgroundColor:"#1a1f22"}}>
@@ -128,8 +126,8 @@ const UserIndex = (props) => {
 						</Item>
 					</Grid.Column>
 				</Grid>
-				</>
-			}
+				
+			
 				<br></br><br></br><br></br><br></br><br></br>
 					<h3>Index</h3>
 					<Item style={{marginLeft:"33%"}}>
