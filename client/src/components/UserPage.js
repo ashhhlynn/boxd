@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button, Card, Icon, Grid, Item } from 'semantic-ui-react'
 import UserSearch from './UserSearch'
 
-const UserIndex = (props) => {
+const UserPage = (props) => {
 	const [users, setUsers] = useState([])
     const [userFollowing, setUserFollowing] = useState([])
     const [userFollowers, setUserFollowers] = useState([])
@@ -137,4 +137,4 @@ const UserIndex = (props) => {
 	);
 };
 
-export default UserIndex
+export default UserPage

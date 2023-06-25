@@ -3,7 +3,7 @@ import { Grid, Divider, Segment} from 'semantic-ui-react'
 import Login from './Login'
 import Signup from './Signup'
 
-class User extends Component {
+class SigninRegister extends Component {
 
     render() {
         return (
@@ -24,4 +24,4 @@ class User extends Component {
     }
 }
 
-export default User
+export default SigninRegister

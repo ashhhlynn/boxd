@@ -3,8 +3,8 @@ import 'semantic-ui-css/semantic.min.css'
 import React, { Component } from 'react'
 import { Icon, Menu, Container } from 'semantic-ui-react'
 import Footer from './components/Footer'
-import User from './components/User'
-import UserIndex from './components/UserIndex'
+import SigninRegister from './components/SigninRegister'
+import UserPage from './components/UserPage'
 import Home from './components/Home'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -44,10 +44,10 @@ class App extends Component {
 					<Menu.Menu  style={{marginTop:"0%", marginRight:"3%"}} position='right'>
 						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home"/></Link></Menu.Item>
 						{this.props.currentUser.length === 0 ?
-							<Menu.Item><Link to='/log' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user circle"/></Link></Menu.Item>
+							<Menu.Item><Link to='/login' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user circle"/></Link></Menu.Item>
 							:
 							<>
-							<Menu.Item><Link to='/userindex' style={{color:"white"}}><Icon name="user circle" size="large" style={{marginTop:"-4%"}}/></Link></Menu.Item>
+							<Menu.Item><Link to='/userpage' style={{color:"white"}}><Icon name="user circle" size="large" style={{marginTop:"-4%"}}/></Link></Menu.Item>
 
 							<Menu.Item><Link to='/'><Icon style={{color:"white", marginTop:"0%", cursor:"pointer"}} size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
 							</>
@@ -59,11 +59,11 @@ class App extends Component {
 						<Route exact path="/" >
                 			<Home currentUser={this.props.currentUser}/>
               			</Route>
-              			<Route exact path="/log">
-                			<User/>
+              			<Route exact path="/login">
+                			<SigninRegister/>
               			</Route>
-			  			<Route exact path="/userindex">
-                			<UserIndex currentUser={this.props.currentUser}/>
+			  			<Route exact path="/userpage">
+                			<UserPage currentUser={this.props.currentUser}/>
               			</Route>
 					</Switch>
       			</Container>
