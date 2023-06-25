@@ -3,7 +3,8 @@ import { Button, Card, Icon, Grid, Item, Search } from 'semantic-ui-react'
 
 const UserIndex = (props) => {
 	const [users, setUsers] = useState([])
-    const [userF, setUserF] = useState([])
+    const [userFollowing, setUserFollowing] = useState([])
+    const [userFollowers, setUserFollowers] = useState([])
 
     const getUsers = () => {
         fetch("/users")
@@ -22,19 +23,31 @@ const UserIndex = (props) => {
 		fetch("/follows")
         .then(resp => resp.json())
         .then(data => {
-			setUserF(data)
-			console.log(data)
+			setUserFollowing(data)
 		})
-		console.log(props.currentUser.follows)
 	}
 
 	useEffect(() => {
 		getFollows()
 	}, [])
 
+	const getFollowers = () => {
+		fetch("/followers")
+        .then(resp => resp.json())
+        .then(data => {
+			setUserFollowers(data)
+			console.log(data)
+		})
+	}
+
+	useEffect(() => {
+		getFollowers()
+	}, [])
+
+
 	const addFollow = (event, id) => {
 		event.preventDefault()
-		if (!userF.find(f => f.id === id )){
+		if (!userFollowing.find(f => f.id === id )){
 			fetch("/follows", {
 				method: 'POST',
 				headers: {
@@ -47,8 +60,8 @@ const UserIndex = (props) => {
 			})
 			.then((response) => response.json())
 			.then(data => {
-				const newUserList = [...userF, data]
-				setUserF(newUserList)
+				const newUserList = [...userFollowing, data]
+				setUserFollowing(newUserList)
 			})
 		}
 	}
@@ -61,10 +74,10 @@ const UserIndex = (props) => {
 				'Content-Type': 'application/json',
 			},
 		})
-		const newUserList = userF.filter(
+		const newUserList = userFollowing.filter(
             (u) => u.id !== id
         )
-		setUserF(newUserList)
+		setUserFollowing(newUserList)
 	}
 
 	return (
@@ -83,14 +96,14 @@ const UserIndex = (props) => {
 							</center>
 							<h1 style={{marginTop:"2%"}}>{props.currentUser.username}</h1>
 							<p>
-								{userF.length} following | {props.currentUser.follows.length} followers<br></br><br></br>
+								{userFollowing.length} following | {userFollowers.length} followers | {props.currentUser.diary_films.length} films<br></br><br></br>
 							</p>
 						</Card>
 					</Grid.Column>
 					<Grid.Column>
 						<h3 style={{marginLeft:"15%"}}>Following</h3>
 						<Item>
-							{userF.map((user, index) => (
+							{userFollowing.map((user, index) => (
 								<Card style={{ boxShadow:"none", backgroundColor:"#1a1f22"}}>
 									<Card.Header>
 										<Icon name="user"/>
@@ -104,7 +117,7 @@ const UserIndex = (props) => {
 					<Grid.Column>
 						<h3>Followers</h3>
 						<Item style={{marginLeft:"6%"}}>
-							{userF.map((user, index) => (
+							{userFollowers.map((user, index) => (
 								<Card style={{ boxShadow:"none", backgroundColor:"#1a1f22"}}>
 									<Card.Header>
 										<Icon name="user"/>

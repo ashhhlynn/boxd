@@ -11,7 +11,6 @@ class FilmsController < ApplicationController
     
       def create
         @film= Film.create(film_params)
-        
         if @film.save
           render json: @film, status: :created
         else

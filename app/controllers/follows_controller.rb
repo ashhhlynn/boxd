@@ -9,9 +9,13 @@ class FollowsController < ApplicationController
     render json: @user_follows
   end
 
-  def show 
-    @follow = Follow.find_by(params[:user_id])
-  end 
+  def followers
+    @user_follows = current_user.follows
+    @followers = @user_follows.map do |f|
+      User.find_by(id: f.following_id)
+    end 
+    render json: @followers
+  end
 
   def create
     follow = Follow.create(follow_params)
