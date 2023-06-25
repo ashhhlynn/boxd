@@ -33,7 +33,7 @@ const Feed = () => {
                     <Card key={index} style={{marginLeft:".5%",backgroundColor:"#1a1f22", boxShadow:"none", color:"white"}}>
                         <Image style={{height:"200px", width:"200px"}} src={movie.poster}/>
                         <Card.Content style={{marginTop:"-10%"}}>
-                            <Icon name="user circle "/>{movie.user.username}<br></br>
+                            <Icon name="user circle"/>{movie.user.username}<br></br>
                             <Rating icon='star' disabled size="mini"  rating={movie.rating}  
                             maxRating={5}  />
                         </Card.Content>

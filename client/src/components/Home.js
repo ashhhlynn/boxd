@@ -68,7 +68,8 @@ const Home = (props) => {
                 <Divider></Divider>
                 <WelcomeFilms/><br></br>
                 <Divider></Divider>
-                <h2>Your Diary</h2><br></br>
+                <h2>Your Diary</h2>
+                <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>
                 {diaries.length === 0 ?
                     <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
                 :
@@ -76,13 +77,14 @@ const Home = (props) => {
                         films={diaries}
                         handleDiaryClick={removeDiaryFilm}
                     />
-                } 
+                } <br></br>
                 </>   
             : 
                 <>
                     <UserDiaries currentUser={props.currentUser}
                     films={films}
-                    /><br></br>
+                    />
+                    <br></br>
                 </>
             }
         </div>

@@ -42,7 +42,7 @@ class App extends Component {
 						<h1>Boxd.</h1>
 					</Menu.Menu>
 					<Menu.Menu  style={{marginTop:"0%", marginRight:"3%"}} position='right'>
-						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home alternate"/></Link></Menu.Item>
+						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home"/></Link></Menu.Item>
 						{this.props.currentUser.length === 0 ?
 							<Menu.Item><Link to='/log' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user circle"/></Link></Menu.Item>
 							:

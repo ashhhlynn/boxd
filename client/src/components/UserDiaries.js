@@ -8,6 +8,10 @@ const UserDiaries = (props) => {
 
     const [userDiaries, setUserDiaries] = useState([])
 
+    useEffect(() => {
+		getUserMovies()
+	},[])
+
     const getUserMovies = () => {
         let id = props.currentUser.id
 		fetch(`/users/` + id)
@@ -17,10 +21,6 @@ const UserDiaries = (props) => {
 	    	setUserDiaries(data.diary_films)
     	})
 	}
-
-    useEffect(() => {
-		getUserMovies()
-	}, [])
 
 	const addUserDiaryFilm = (film) => {
 		var today = new Date(),
@@ -82,7 +82,8 @@ const UserDiaries = (props) => {
             <Divider></Divider><br></br>
             <Feed/><br></br>
             <Divider></Divider>
-            <h2>Your Diary</h2><br></br>
+            <h2>Your Diary</h2>
+            <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>
             {userDiaries.length === 0 ?
                     <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
             :
@@ -100,7 +101,7 @@ const UserDiaries = (props) => {
 					        <h5><UserMovieRating film={movie} key={movie.id} handleClickPatchRating={patchRating}/></h5>
                         </Header>
                         <Header floated="left"><br></br>
-                            <Label style={{ backgroundColor:"#FFFEEF", color:"black"}}>
+                            <Label style={{ marginTop:"3%", backgroundColor:"#FFFEEF", color:"black"}}>
                                 2023
                                 <h2 ><b>{movie.watch_date.slice(0,4)}</b></h2>
                             </Label>
