@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Films from './Films'
 import Feed from './Feed'
 
+
 const UserDiaries = (props) => {
 
     const [userDiaries, setUserDiaries] = useState([])
@@ -79,9 +80,14 @@ const UserDiaries = (props) => {
                 films={props.films}
                 handleDiaryClick={addUserDiaryFilm}
             />
+            <Divider></Divider><br></br>
+            <Feed/><br></br>
             <Divider></Divider>
-            <Feed/>
-            <Divider></Divider>
+            <h2>Your Diary</h2><br></br>
+            {userDiaries.length === 0 ?
+                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
+                :
+                <>
 		    {userDiaries.map((movie, index) => (
 			    <Item key={index} style={{marginLeft:"5%", marginRight:"5%"}}>
                     <div onClick={() => removeUserDiaryFilm(movie)}>
@@ -103,8 +109,9 @@ const UserDiaries = (props) => {
 				    <Image style={{height:"110px", width:"75px", marginLeft:"13%", alignContent:"left"}} src={movie.poster} alt='movie'/>
                     <Divider></Divider>
                 </Item>
-		    ))}
-        </>
+		    ))}</>
+            }
+            </>
 	)
 }
 

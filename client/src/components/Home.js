@@ -58,7 +58,6 @@ const Home = (props) => {
 
 	return (
         <div>
-            <WelcomeFilms/>
             <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
             {props.currentUser.length === 0 ?
                 <>
@@ -67,8 +66,11 @@ const Home = (props) => {
                     handleDiaryClick={addDiaryFilm}
                 />
                 <Divider></Divider>
+                <WelcomeFilms/><br></br>
+                <Divider></Divider>
+                <h2>Your Diary</h2><br></br>
                 {diaries.length === 0 ?
-                    <p>Your diary is empty. Search for a film to begin logging!</p> 
+                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
                 :
                     <Diaries
                         films={diaries}

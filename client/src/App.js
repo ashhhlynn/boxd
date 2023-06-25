@@ -36,7 +36,7 @@ class App extends Component {
     render() {
         return (
 			<Router>
-    		<div className="app" style={{backgroundColor:"#1a1f22", minHeight:"100vh"}}>
+    		<div className="app" style={{backgroundColor:"#1a1f22"}}>
       			<Menu style={{backgroundColor:"#15191b", color:"white", height:"100px"}}>
 					<Menu.Menu style={{marginLeft:"5%", marginTop:".5%"}} position="left"><br></br>
 						<h1>Boxd.</h1>
@@ -45,13 +45,13 @@ class App extends Component {
 						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home alternate"/></Link></Menu.Item>
 						<Menu.Item><Link to='/userindex' style={{color:"white"}}><Icon name="users" size="big" style={{marginTop:"-4%"}}/></Link></Menu.Item>
 						{this.props.currentUser.length === 0 ?
-							<Menu.Item><Link to='/log' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user outline"/></Link></Menu.Item>
+							<Menu.Item><Link to='/log' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user circle"/></Link></Menu.Item>
 							:
 							<Menu.Item><Icon style={{color:"white", marginTop:"0%", cursor:"pointer"}} size="large" onClick={this.handleLogout} name="power off"/></Menu.Item>
 						}
 					</Menu.Menu>
 				</Menu>
-      			<Container style={{minHeight:"100vh", height:"100%"}}>   	
+      			<Container style={{minHeight:"70vh", height:"100%"}}>   	
 					<Switch>
 						<Route exact path="/" >
                 			<Home currentUser={this.props.currentUser}/>
