@@ -19,7 +19,7 @@ function UserSearch(props) {
             <Button floated="right" style={{marginTop:"-2%", width:"43px"}}size="mini" id={username} onClick={props.addFollow}>
                 <Icon name="plus"/>
             </Button>
-            {username}
+            <p style={{marginTop:"2%"}}>{username}</p>
         </Item>
     ]);
     

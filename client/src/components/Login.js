@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import { Form } from 'semantic-ui-react'
-import { checkUser } from "./actions/rootActions"
 
 class Login extends Component {
 
@@ -33,7 +31,7 @@ class Login extends Component {
                 window.alert("Login failed.")
             }
             else {
-                this.props.checkUser(data)
+                this.props.handleRoute(data)
                 window.alert("Login successful.")
             }
         })
@@ -59,19 +57,11 @@ class Login extends Component {
                         value={this.state.password} 
                         onChange={this.handleChange}
                     /> 
-                  
-                        <Form.Button circular content='Submit' />
-                 
+                    <Form.Button circular content='Submit' />
             </Form>                
             </>
         )
     }
 }
-
-const mapDispatchToProps = (dispatch) => {
-    return { 
-      checkUser: (user) =>  { dispatch(checkUser(user)) },
-    }
-}
   
-export default connect(null, mapDispatchToProps)(Login)
+export default Login

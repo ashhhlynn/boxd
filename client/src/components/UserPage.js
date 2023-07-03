@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Card, Icon, Grid, Item } from 'semantic-ui-react'
 import UserSearch from './UserSearch'
+import UserCard from './UserCard'
 
 const UserPage = (props) => {
 	const [users, setUsers] = useState([])
@@ -86,16 +87,7 @@ const UserPage = (props) => {
 			<UserSearch users={users} addFollow={addFollow} />
 			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}  >
             	<Grid.Column>
-					<Card style={{ backgroundColor:"#1a1f22"}}>
-						<center>
-							<br></br>
-							<Icon size="massive" name="user circle"/>
-						</center>
-						<h1 style={{marginTop:"2%"}}>{props.currentUser.username}</h1>
-						<p>
-							{userFollowing.length} following | {userFollowers.length} followers<br></br><br></br>
-						</p>
-					</Card>
+					<UserCard currentUser={props.currentUser} userFollowing={userFollowing} userFollowers={userFollowers}/>
 				</Grid.Column>
 				<Grid.Column>
 					<Grid stackable columns={2}style={{marginLeft:"1%"}}>

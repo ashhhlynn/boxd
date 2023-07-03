@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {  Card, Image, Rating, Icon } from 'semantic-ui-react'
 import WelcomeFilms from './WelcomeFilms'
 
-const Feed = () => {
+const Feed = (props) => {
 
     const [userFeed, setUserFeed] = useState([])
 
@@ -15,9 +15,9 @@ const Feed = () => {
             data.forEach(d => 
                 i.push(d.diary_films)
             )
-            let o = i.flat().slice().sort((item1, item2) => item1.watch_date < item2.watch_date ? 1 : -1).slice(0,7)
-            setUserFeed(o)
-            console.log(o)
+            let o = i.flat()
+            let x = o.slice().sort((item1, item2) => item1.created_at < item2.created_at ? 1 : -1).slice(0,7)
+            setUserFeed(x)
         })   
     }  
 
@@ -41,7 +41,7 @@ const Feed = () => {
                 ))} 
             </Card.Group>
         :
-            <WelcomeFilms/>   
+            <WelcomeFilms welcomeMovies={props.welcomeMovies}/>   
         }
         </>
 	)

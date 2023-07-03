@@ -10,14 +10,27 @@ const Home = (props) => {
     const [films, setFilms] = useState([])
     const [diaries, setDiaries] = useState([])
     const [searchValue, setSearchValue] = useState('')
+    const [welcomeMovies, setWelcomeMovies] = useState([])
+
+    const getWelcomeMovies = () => {
+        fetch("https://www.omdbapi.com/?s=hack&apikey=263d22d8")
+        .then((response) => response.json())
+        .then(data => {
+          setWelcomeMovies(data.Search.slice(0,7))
+        })  
+    }
+
+    useEffect(() => {
+        getWelcomeMovies()
+      }, [])
 
     const getMovieRequest = async (searchValue) => {
-      const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
-      const response = await fetch(url)
-      const responseJson = await response.json()
-      if (responseJson.Search) {
-          setFilms(responseJson.Search)
-      }
+        const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+        const response = await fetch(url)
+        const responseJson = await response.json()
+        if (responseJson.Search) {
+            setFilms(responseJson.Search)
+        }
     }
 
     useEffect(() => {
@@ -66,7 +79,7 @@ const Home = (props) => {
                     handleDiaryClick={addDiaryFilm}
                 />
                 <Divider></Divider>
-                <WelcomeFilms/><br></br>
+                <WelcomeFilms welcomeMovies={welcomeMovies}/><br></br>
                 <Divider></Divider>
                 <h2>Your Diary</h2>
                 <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>
@@ -81,10 +94,12 @@ const Home = (props) => {
                 </>   
             : 
                 <>
-                    <UserDiaries currentUser={props.currentUser}
+                <UserDiaries 
+                    currentUser={props.currentUser}
                     films={films}
-                    />
-                    <br></br>
+                    welcomeMovies={welcomeMovies}
+                />
+                <br></br>
                 </>
             }
         </div>
