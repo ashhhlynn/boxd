@@ -12,50 +12,35 @@ const UserPage = (props) => {
 		getUsers()
 	}, [])
 
-    const getUsers = () => {
+	const getUsers = () => {
         fetch("/users")
         .then(resp => resp.json())
         .then(data => {
             setUsers(data)
-            console.log(data)
         })
-    }
 
-	const getFollows = () => {
 		fetch("/follows")
         .then(resp => resp.json())
         .then(data => {
 			setUserFollowing(data)
 		})
-	}
 
-	useEffect(() => {
-		getFollows()
-	}, [])
-
-	const getFollowers = () => {
 		fetch("/followers")
         .then(resp => resp.json())
         .then(data => {
 			setUserFollowers(data)
-			console.log(data)
 		})
-	}
-
-	useEffect(() => {
-		getFollowers()
-	}, [])
+    }
 
 	const addFollow = (event) => {
-		if (!userFollowing.find(f => f.username === event.target.id )){
-			let u = users.find(u => u.username === event.target.id)
+		if (!userFollowing.find(f => f.username === event.target.id) && users.find(u => u.username === event.target.id)) {
 			fetch("/follows", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					user_id: u.id , 
+					user_id: (users.find(u => u.username === event.target.id)).id, 
 					following_id: props.currentUser.id
 				})
 			})

@@ -12,15 +12,14 @@ function UserSearch(props) {
         const re = new RegExp(_.escapeRegExp(value), 'i');
         const isMatch = result => re.test(result.username);
         setResults(_.filter(props.users, isMatch));
-        console.log(results)
     };
     
     const resultRenderer = ({ username }) => ([ 
-        <Item>
+        <Item key={username}>
             <Button floated="right" style={{marginTop:"-2%", width:"43px"}}size="mini" id={username} onClick={props.addFollow}>
                 <Icon name="plus"/>
             </Button>
-            <p style={{marginTop:"2%"}}>{username}</p>
+            <p style={{marginTop:"2%"}}>{username} </p>
         </Item>
     ]);
     

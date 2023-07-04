@@ -63,7 +63,8 @@ class App extends Component {
                 			<SigninRegister/>
               			</Route>
 			  			<Route exact path="/userpage">
-                			<UserPage currentUser={this.props.currentUser}/>
+                			<UserPage currentUser={this.props.currentUser}
+							/>
               			</Route>
 					</Switch>
       			</Container>
