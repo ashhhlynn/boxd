@@ -2,7 +2,7 @@ import React from "react"
 import { Grid, Divider, Segment} from 'semantic-ui-react'
 import Login from './Login'
 import Signup from './Signup'
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 
 function SigninRegister() {
 
@@ -26,8 +26,8 @@ function SigninRegister() {
             <Divider style={{color:"white"}}vertical>Or</Divider>
             </Segment>
         </>
-    );
-};
+    )
+}
 
 export default SigninRegister
 

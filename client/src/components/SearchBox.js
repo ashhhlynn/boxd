@@ -20,21 +20,21 @@ const SearchBox = (props) => {
 
 	return (
 		<>
-		<h3>
+		<h3 style={{marginTop:"4%"}}>
 			Search Films... 
 			<input
 				value={props.value}
 				onChange={(event) => setSearchValue(event.target.value)}
 				placeholder=''
-				style={{marginTop:"1.5%"}}
 			/>
 		</h3>
 		<Films
             films={films}
             handleDiaryClick={props.addDiaryFilm}
-        /><br></br>
+        />
+		<br></br><br></br>
 		</>
-	);
-};
+	)
+}
 
 export default SearchBox

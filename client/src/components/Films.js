@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Popup, Icon, Image } from 'semantic-ui-react'
+import { Card, Popup, Icon, Image, Item } from 'semantic-ui-react'
 
 const Films = (props) => {
 
@@ -9,14 +9,16 @@ const Films = (props) => {
                 <Popup flowing hoverable 
                     key={index} 
                     trigger={
-				        <Card >
+				        <Card>
 			                <Image style={{height:"300px", width:"220px"}}src={movie.Poster} alt='movie'></Image>		  
 				        </Card>		
                     }
                 >
                     <div onClick={() => props.handleDiaryClick(movie)}>
                         <Popup.Content>
-                            <center><p>Log Film to Diary<Icon floated="right" style={{cursor: "pointer"}} name="add"/></p></center>
+                            <Item>
+                                <p>Log Film to Diary <Icon floated="right" style={{cursor: "pointer"}} name="add"/></p>
+                            </Item>
                         </Popup.Content>
                     </div>
                 </Popup>

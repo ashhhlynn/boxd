@@ -9,11 +9,13 @@ const UserPage = (props) => {
 	useEffect(() => {
 		getUsers()
 	}, [])
+
 	const getUsers = () => {
 		fetch("/follows")
         .then(resp => resp.json())
         .then(data => {
-			setUserFollowing(data)})
+			setUserFollowing(data)
+		})
     }
 
 	const addFollow = (event) => {
@@ -95,7 +97,7 @@ const UserPage = (props) => {
 				</Grid.Column>
 			</Grid>
 		</div>
-	);
-};
+	)
+}
 
 export default UserPage

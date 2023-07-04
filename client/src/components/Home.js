@@ -2,7 +2,7 @@ import { Divider } from 'semantic-ui-react'
 import WelcomeFilms from './/WelcomeFilms'
 import Diaries from './Diaries'
 import SearchBox from './SearchBox'
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState, useEffect } from 'react'
 import UserDiaries from './UserDiaries'
 import Feed from './Feed'
 
@@ -11,19 +11,6 @@ const Home = (props) => {
     const [welcomeMovies, setWelcomeMovies] = useState([])
     const [userDiaries, setUserDiaries] = useState([])
     const [feed, setFeed] = useState([])
-
-    useEffect(() => {
-		getUserMovies()
-	},[])
-
-    const getUserMovies = () => {
-        let id = props.currentUser.id
-		fetch(`/users/` + id)
-		.then((response) => response.json())
-		.then(data => {
-	    	setUserDiaries(data.diary_films)
-    	})
-	}
 
     useEffect(() => {
 		getFeed()
@@ -42,6 +29,19 @@ const Home = (props) => {
             setFeed(x)
         })
     }
+
+    useEffect(() => {
+		getUserMovies()
+	},[])
+
+    const getUserMovies = () => {
+        let id = props.currentUser.id
+		fetch(`/users/` + id)
+		.then((response) => response.json())
+		.then(data => {
+	    	setUserDiaries(data.diary_films)
+    	})
+	}
     
     useEffect(() => {
         getWelcomeMovies()
@@ -131,14 +131,11 @@ const Home = (props) => {
 
 	return (
         <div>
-            <SearchBox 
-                addDiaryFilm={addDiaryFilm}
-            />
+            <SearchBox addDiaryFilm={addDiaryFilm}/>
             <Divider></Divider>
             {props.currentUser.length !== 0 && feed.length !== 0 ?
                 <>
-                <Feed 
-                userFeed={feed}/>
+                <Feed userFeed={feed}/>
                 </>
             : 
                 <>

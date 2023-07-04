@@ -1,7 +1,5 @@
 export const initialState = {
     currentUser: [],
-    user_following: [],
-    user_feed: [],
     loading: false,
 }
 
