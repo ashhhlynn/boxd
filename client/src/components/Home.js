@@ -7,14 +7,26 @@ import UserDiaries from './UserDiaries'
 import Feed from './Feed'
 
 const Home = (props) => {
+    
     const [diaries, setDiaries] = useState([])
     const [welcomeMovies, setWelcomeMovies] = useState([])
     const [userDiaries, setUserDiaries] = useState([])
     const [feed, setFeed] = useState([])
 
     useEffect(() => {
-		getFeed()
+		getUserMovies()
 	},[])
+
+    const getUserMovies = () => {
+        if (props.currentUser.length !== 0) {
+            getFeed()
+            fetch("/profile")
+    	    .then(resp => resp.json())
+    	    .then(data => {
+                setUserDiaries(data.diary_films)
+            })
+	    }
+    }
 
     const getFeed = () => {
         fetch("/follows")
@@ -29,19 +41,6 @@ const Home = (props) => {
             setFeed(x)
         })
     }
-
-    useEffect(() => {
-		getUserMovies()
-	},[])
-
-    const getUserMovies = () => {
-        let id = props.currentUser.id
-		fetch(`/users/` + id)
-		.then((response) => response.json())
-		.then(data => {
-	    	setUserDiaries(data.diary_films)
-    	})
-	}
     
     useEffect(() => {
         getWelcomeMovies()
@@ -104,7 +103,7 @@ const Home = (props) => {
 
     const saveToLocalStorage = (items) => {
         localStorage.setItem('react-movie-app-diaries', JSON.stringify(items))
-      }
+    }
 
     const removeDiaryFilm = (film) => {
         const newDiaryList = diaries.filter(

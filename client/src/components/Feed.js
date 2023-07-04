@@ -2,7 +2,6 @@ import React from 'react'
 import {  Card, Image, Rating, Icon } from 'semantic-ui-react'
 
 const Feed = (props) => {
-
 	return (
         <>
 		<Card.Group itemsPerRow={7} style={{marginTop:"3.5%", marginBottom:"1.5%"}}>

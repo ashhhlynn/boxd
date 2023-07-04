@@ -10,11 +10,6 @@ class UsersController < ApplicationController
     render json: @user, includes: [:follows, :diary_films]  
   end
 
-  def show 
-    @user = User.find(params[:id])
-    render json: @user, includes: [:follows, :diary_films]  
-  end 
-
   def create
     user = User.create(user_params)
     if user.save

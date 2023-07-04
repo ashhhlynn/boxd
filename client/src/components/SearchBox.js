@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Films from './Films'
 
 const SearchBox = (props) => {
+	
     const [searchValue, setSearchValue] = useState('')
     const [films, setFilms] = useState([])
 

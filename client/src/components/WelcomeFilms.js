@@ -2,7 +2,6 @@ import React from 'react'
 import { Image, Card } from 'semantic-ui-react'
 
 const WelcomeFilms = (props) => {
-
 	return (
         <Card.Group itemsPerRow={7} style={{marginBottom:"4%", marginTop:"4%"}}>
             {props.welcomeMovies.map((wm) => (

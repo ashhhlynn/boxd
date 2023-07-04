@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Popup, Icon, Image, Item } from 'semantic-ui-react'
 
 const Films = (props) => {
-
 	return (
 		<Card.Group itemsPerRow={5}>
 			{props.films.map((movie, index) => (

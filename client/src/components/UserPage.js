@@ -4,6 +4,7 @@ import UserSearch from './UserSearch'
 import UserCard from './UserCard'
 
 const UserPage = (props) => {
+	
     const [userFollowing, setUserFollowing] = useState([])
 
 	useEffect(() => {

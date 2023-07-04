@@ -1,3 +1,2 @@
 class FilmsController < ApplicationController
-
 end
