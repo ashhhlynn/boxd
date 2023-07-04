@@ -79,7 +79,7 @@ const Home = (props) => {
                     handleDiaryClick={addDiaryFilm}
                 />
                 <Divider></Divider>
-                <WelcomeFilms welcomeMovies={welcomeMovies}/><br></br>
+                <WelcomeFilms welcomeMovies={welcomeMovies}/>
                 <Divider></Divider>
                 <h2>Your Diary</h2>
                 <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>

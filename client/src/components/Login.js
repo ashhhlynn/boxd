@@ -24,7 +24,8 @@ class Login extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                email: userData.email, password: userData.password
+                email: userData.email, 
+                password: userData.password
             })
         })
         .then((response) => response.json())
@@ -45,22 +46,22 @@ class Login extends Component {
             <>                               
             <h1>Sign In</h1>
             <Form onSubmit={ (event) => { this.handleSubmit(event, this.state)}}>
-                    <Form.Input
-                        required
-                        id="email"
-                        placeholder="Email"
-                        value={this.state.email} 
-                        onChange={this.handleChange}
-                    />               
-                    <Form.Input
-                        required
-                        id="password"
-                        placeholder="Password"
-                        type="password"
-                        value={this.state.password} 
-                        onChange={this.handleChange}
-                    /> 
-                    <Form.Button circular content='Submit' />
+                <Form.Input
+                    required
+                    id="email"
+                    placeholder="Email"
+                    value={this.state.email} 
+                    onChange={this.handleChange}
+                />               
+                <Form.Input
+                    required
+                    id="password"
+                    placeholder="Password"
+                    type="password"
+                    value={this.state.password} 
+                    onChange={this.handleChange}
+                /> 
+                <Form.Button circular content='Submit' />
             </Form>                
             </>
         )

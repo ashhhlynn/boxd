@@ -20,7 +20,10 @@ class Signup extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: userData.username, email: userData.email, password: userData.password, password_confirmation: userData.password_confirmation,
+                username: userData.username, 
+                email: userData.email, 
+                password: userData.password, 
+                password_confirmation: userData.password_confirmation,
             })
         })
         .then((response) => response.json())
@@ -45,7 +48,7 @@ class Signup extends Component {
     render() {
         return (
             <>
-            <h1 >Register</h1>
+            <h1>Register</h1>
             <Form onSubmit={ (event) => {this.handleSubmit(event, this.state)} }>              
                 <Form.Input
                     required

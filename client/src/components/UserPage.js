@@ -69,14 +69,14 @@ const UserPage = (props) => {
 	return (
 		<div>
 			<br></br>
-			<UserSearch users={users} addFollow={addFollow} />
-			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}  >
+			<UserSearch users={users} addFollow={addFollow}/>
+			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}>
             	<Grid.Column>
 					<UserCard currentUser={props.currentUser} userFollowing={userFollowing} userFollowers={userFollowers}/>
 				</Grid.Column>
 				<Grid.Column>
 					<Grid stackable columns={2}style={{marginLeft:"1%"}}>
-						<Grid.Column >
+						<Grid.Column>
 							<h3>Following</h3>
 							<Item style={{textAlign:"left", marginLeft:"31%"}}>
 								{userFollowing.map((user, index) => (

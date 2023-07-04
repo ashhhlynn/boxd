@@ -16,12 +16,12 @@ function UserSearch(props) {
     
     const resultRenderer = ({ username }) => ([ 
         <Item key={username}>
-            <Button floated="right" style={{marginTop:"-2%", width:"43px"}}size="mini" id={username} onClick={props.addFollow}>
+            <Button floated="right" style={{marginTop:"-2%", width:"43px"}} size="mini" id={username} onClick={props.addFollow}>
                 <Icon name="plus"/>
             </Button>
-            <p style={{marginTop:"2%"}}>{username} </p>
+            <p style={{marginTop:"2%"}}>{username}</p>
         </Item>
-    ]);
+    ])
     
     return (
         <Search
@@ -33,7 +33,7 @@ function UserSearch(props) {
           title={results}
           placeholder='Search users to follow...'
         />
-    );
-};
+    )
+}
 
 export default UserSearch

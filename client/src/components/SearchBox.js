@@ -10,8 +10,7 @@ const SearchBox = (props) => {
 				onChange={(event) => props.setSearchValue(event.target.value)}
 				placeholder=''
 				style={{marginTop:"1.5%"}}
-				>
-			</input>
+			/>
 		</h3>
 		</>
 	);

@@ -19,7 +19,7 @@ function SigninRegister() {
                 <Grid.Column> 
                   <Login handleRoute={handleRoute}/>
                 </Grid.Column>                 
-                <Grid.Column verticalAlign='middle'>
+                <Grid.Column>
                     <Signup handleRoute={handleRoute}/>
                 </Grid.Column>   
             </Grid>

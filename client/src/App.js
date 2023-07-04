@@ -41,15 +41,14 @@ class App extends Component {
 					<Menu.Menu style={{marginLeft:"5%", marginTop:".5%"}} position="left"><br></br>
 						<h1>Boxd.</h1>
 					</Menu.Menu>
-					<Menu.Menu  style={{marginTop:"0%", marginRight:"3%"}} position='right'>
+					<Menu.Menu  style={{marginRight:"3%"}} position='right'>
 						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home"/></Link></Menu.Item>
 						{this.props.currentUser.length === 0 ?
-							<Menu.Item><Link to='/login' style={{color:"white"}}><Icon style={{marginTop:"0%"}} size="large" name="user circle"/></Link></Menu.Item>
+							<Menu.Item><Link to='/login' style={{color:"white"}}><Icon size="large" name="user circle"/></Link></Menu.Item>
 							:
 							<>
 							<Menu.Item><Link to='/userpage' style={{color:"white"}}><Icon name="user circle" size="large" style={{marginTop:"-4%"}}/></Link></Menu.Item>
-
-							<Menu.Item><Link to='/'><Icon style={{color:"white", marginTop:"0%", cursor:"pointer"}} size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
+							<Menu.Item><Link to='/'><Icon style={{color:"white", cursor:"pointer"}} size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
 							</>
 						}
 					</Menu.Menu>

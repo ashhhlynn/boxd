@@ -6,8 +6,7 @@ const Films = (props) => {
 	return (
 		<Card.Group itemsPerRow={5}>
 			{props.films.map((movie, index) => (
-                <Popup flowing hoverable key={index}
-                trigger={
+                <Popup flowing hoverable key={index} trigger={
 				    <Card >
 			            <Image style={{height:"300px", width:"220px"}}src={movie.Poster} alt='movie'></Image>		  
 				    </Card>		
@@ -15,7 +14,7 @@ const Films = (props) => {
                 >
                     <div onClick={() => props.handleDiaryClick(movie)}>
                         <Popup.Content>
-                            <center><i>Log Film to Diary</i> <Icon style={{cursor: "pointer"}} name="add"/></center>
+                            <center>Log Film to Diary <Icon style={{cursor: "pointer"}} name="add"/></center>
                         </Popup.Content>
                     </div>
                 </Popup>

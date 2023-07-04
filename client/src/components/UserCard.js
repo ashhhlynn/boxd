@@ -5,15 +5,14 @@ const UserCard = (props) => {
 
 	return (
 		<>
-		<Card style={{ backgroundColor:"#1a1f22"}}>
-			<center>
-			<br></br>
-				<Icon size="massive" name="user circle"/>
-			</center>
-			<h1 style={{marginTop:"2%"}}>{props.currentUser.username}</h1>
-			<p>
-				{props.userFollowing.length} following | {props.userFollowers.length} followers<br></br><br></br>
-			</p>
+		<Card style={{backgroundColor:"#1a1f22"}}>
+            <center>
+				<Icon style={{marginTop:"6%"}} size="massive" name="user circle"/>
+			    <h1 style={{marginTop:"2%"}}>{props.currentUser.username}</h1>
+			    <p>
+				    {props.userFollowing.length} following | {props.userFollowers.length} followers<br></br><br></br>
+			    </p>
+            </center>
 		</Card>		
 		</>
 	);

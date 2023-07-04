@@ -14,7 +14,7 @@ const Diaries = (props) => {
                         </Button>
 				    </div>
                     <Header floated="right" style={{color:"white", textAlign:"right"}}>
-                        <h3>{movie.Title} </h3>
+                        <h3>{movie.Title}</h3>
                         <h5>{movie.Year}</h5>
 					    <h5><MovieRating film={movie} key={movie.imdbID}/></h5>
                     </Header>
