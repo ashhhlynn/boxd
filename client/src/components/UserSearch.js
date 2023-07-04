@@ -30,6 +30,7 @@ function UserSearch(props) {
           resultRenderer={resultRenderer}
           results={results}
           value={value}
+          title={results}
           placeholder='Search users to follow...'
         />
     );
