@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     end
     render json: @followers
   end
-
+  
   def create
     follow = Follow.create(follow_params)
     if follow.valid?
@@ -39,5 +39,5 @@ class FollowsController < ApplicationController
   def follow_params
     params.require(:follow).permit(:user_id, :following_id)
   end
-  
+
 end

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#logout'
   get '/profile', to: 'users#profile'
   get '/followers', to: 'follows#followers'
+
 end
