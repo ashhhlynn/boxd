@@ -8,19 +8,17 @@ A Letterboxd inspired application created with JavaScript and React with Ruby on
 
 - Search, sort, and display of over 200,000 films through fetches from OMDb API database
 
-- Users can rate and log films to personal diary on five star scale, organized by date
+- Rate and log films to personal diary on five star scale, organized by date
+
+- Edit film ratings and delete film diary logs
 
 - Users can signup and login authenticated through BCrypt
 
-- Users can follow and unfollow other users
+- Users can search for, follow and unfollow other users
 
 - Users can view films and ratings by followed users through feed
 
-- Users can edit their film ratings 
-
-- Users can delete their film diary logs
-
-- Data stored through localStorage for users not logged in
+- Data stored through localStorage for users without accounts
 
 ## Tech Stack
 
