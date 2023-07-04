@@ -34,4 +34,4 @@ class DiaryFilmsController < ApplicationController
       params.require(:diary_film).permit(:title, :year, :poster, :rating, :watch_date, :user_id)
     end
 
-  end
+end

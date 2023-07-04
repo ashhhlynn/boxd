@@ -2,16 +2,16 @@ class FollowsController < ApplicationController
 
   def index
     @follows = Follow.all
-    @ff = @follows.where(following_id: session[:user_id])
-    @user_follows = @ff.map do |f|
+    @uf = @follows.where(following_id: session[:user_id])
+    @user_follows = @uf.map do |f|
       f.user
     end 
     render json: @user_follows
   end
 
   def followers
-    @user_follows = current_user.follows
-    @followers = @user_follows.map do |f|
+    user_follows = current_user.follows
+    @followers = user_follows.map do |f|
       User.find_by(id: f.following_id)
     end
     render json: @followers
@@ -39,4 +39,5 @@ class FollowsController < ApplicationController
   def follow_params
     params.require(:follow).permit(:user_id, :following_id)
   end
+  
 end
