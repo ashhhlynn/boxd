@@ -10,7 +10,7 @@ const Diaries = (props) => {
 			    <Item key={index} style={{marginLeft:"5%", marginRight:"5%"}}>
                     <div onClick={() => props.handleDiaryClick(movie)}>
                         <Button floated="right" size="mini" style={{width:"40px"}} inverted basic>
-                            <Icon size="small" name="delete" />
+                            <Icon size="small" name="delete"/>
                         </Button>
 				    </div>
                     <Header floated="right" style={{color:"white", textAlign:"right"}}>

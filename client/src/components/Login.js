@@ -16,7 +16,7 @@ class Login extends Component {
         })
     }
 
-    handleSubmit = (event, userData)  => {
+    handleSubmit = (event, userData) => {
         event.preventDefault()
         fetch("/login", {
             method: 'POST',

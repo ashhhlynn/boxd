@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { Search, Button, Item, Icon } from 'semantic-ui-react'
 
 function UserSearch(props) {
-    const [results, setResults] = useState([]);
-    const [value, setValue] = useState('');
+    const [results, setResults] = useState([])
+    const [value, setValue] = useState('')
     
     const handleSearchChange = e => {
         let value = e.target.value;

@@ -1,23 +1,20 @@
 export const initialState = {
     currentUser: [],
+    user_following: [],
+    user_feed: [],
     loading: false,
 }
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_CURRENT_USER':
-            console.log(action.user)
             if (action.user !== null)
                 return {
                     ...state, 
                     currentUser: action.user, 
                     loading: false,
-                }
-            else {
-                return {
-                    ...state
-                }
-            };
+                };
+            break 
 
         case 'LOGOUT':
             return {

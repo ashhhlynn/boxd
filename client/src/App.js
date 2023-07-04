@@ -6,20 +6,33 @@ import Footer from './components/Footer'
 import SigninRegister from './components/SigninRegister'
 import UserPage from './components/UserPage'
 import Home from './components/Home'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { checkUser } from "./components/actions/rootActions"
 import { connect } from 'react-redux'
 import { logOut } from "./components/actions/rootActions"
 
 class App extends Component {
 
+	state = {
+		users: [],
+		followers: []
+	}
+
 	componentDidMount = () => {
 		fetch("/profile")
     	.then(resp => resp.json())
     	.then(data => {
-      		console.log(data)
 	  		this.props.checkUser(data)
+		})
+		fetch("/followers")
+        .then(resp => resp.json())
+        .then(data => {
+			this.setState({followers: data})
+		})
+		fetch("/users")
+        .then(resp => resp.json())
+        .then(data => {
+			this.setState({users: data})
 		})
 	}
 
@@ -56,13 +69,18 @@ class App extends Component {
       			<Container style={{minHeight:"70vh", height:"100%"}}>   	
 					<Switch>
 						<Route exact path="/" >
-                			<Home currentUser={this.props.currentUser}/>
+                			<Home 
+							currentUser={this.props.currentUser}
+							/>
               			</Route>
               			<Route exact path="/login">
                 			<SigninRegister/>
               			</Route>
 			  			<Route exact path="/userpage">
-                			<UserPage currentUser={this.props.currentUser}
+                			<UserPage 
+							currentUser={this.props.currentUser}
+							users={this.state.users}
+							followers={this.state.followers}
 							/>
               			</Route>
 					</Switch>
@@ -76,14 +94,14 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-    	currentUser: state.currentUser
+    	currentUser: state.currentUser,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
     	checkUser: (user) =>  { dispatch(checkUser(user)) },
-		logOut: () =>  { dispatch(logOut()) }
+		logOut: () =>  { dispatch(logOut()) },
     }
 } 
 

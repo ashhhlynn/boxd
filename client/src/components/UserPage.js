@@ -4,43 +4,27 @@ import UserSearch from './UserSearch'
 import UserCard from './UserCard'
 
 const UserPage = (props) => {
-	const [users, setUsers] = useState([])
     const [userFollowing, setUserFollowing] = useState([])
-    const [userFollowers, setUserFollowers] = useState([])
 
 	useEffect(() => {
 		getUsers()
 	}, [])
-
 	const getUsers = () => {
-        fetch("/users")
-        .then(resp => resp.json())
-        .then(data => {
-            setUsers(data)
-        })
-
 		fetch("/follows")
         .then(resp => resp.json())
         .then(data => {
-			setUserFollowing(data)
-		})
-
-		fetch("/followers")
-        .then(resp => resp.json())
-        .then(data => {
-			setUserFollowers(data)
-		})
+			setUserFollowing(data)})
     }
 
 	const addFollow = (event) => {
-		if (!userFollowing.find(f => f.username === event.target.id) && users.find(u => u.username === event.target.id)) {
+		if (!userFollowing.find(f => f.username === event.target.id) && props.users.find(u => u.username === event.target.id)) {
 			fetch("/follows", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					user_id: (users.find(u => u.username === event.target.id)).id, 
+					user_id: (props.users.find(u => u.username === event.target.id)).id, 
 					following_id: props.currentUser.id
 				})
 			})
@@ -69,10 +53,10 @@ const UserPage = (props) => {
 	return (
 		<div>
 			<br></br>
-			<UserSearch users={users} addFollow={addFollow}/>
+			<UserSearch users={props.users} addFollow={addFollow}/>
 			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}>
             	<Grid.Column>
-					<UserCard currentUser={props.currentUser} userFollowing={userFollowing} userFollowers={userFollowers}/>
+					<UserCard currentUser={props.currentUser} userFollowing={userFollowing} userFollowers={props.followers}/>
 				</Grid.Column>
 				<Grid.Column>
 					<Grid stackable columns={2}style={{marginLeft:"1%"}}>
@@ -97,7 +81,7 @@ const UserPage = (props) => {
 						<Grid.Column style={{marginLeft:"-8%"}}>
 							<h3>Followers</h3>
 							<Item style={{textAlign:"left", marginLeft:"31%"}}>
-								{userFollowers.map((user, index) => (
+								{props.followers.map((user, index) => (
 								<Card key={index} style={{ boxShadow:"none", backgroundColor:"#1a1f22"}}>
 									<Card.Header>
 										<Icon name="user circle"/>

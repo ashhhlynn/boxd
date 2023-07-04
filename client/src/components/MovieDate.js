@@ -15,7 +15,9 @@ export default class MovieDate extends Component {
             <div>
                 <Label style={{ backgroundColor:"#FFFEEF", color:"black"}}>
                     2023
-                    <h2><b>{this.state.date}</b></h2>
+                    <h2>
+                        <b>{this.state.date}</b>
+                    </h2>
                 </Label>
             </div>
         )

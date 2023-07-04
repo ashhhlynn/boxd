@@ -1,16 +1,51 @@
 import { Divider } from 'semantic-ui-react'
 import WelcomeFilms from './/WelcomeFilms'
-import Films from './Films'
 import Diaries from './Diaries'
 import SearchBox from './SearchBox'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import UserDiaries from './UserDiaries'
+import Feed from './Feed'
 
 const Home = (props) => {
-    const [films, setFilms] = useState([])
     const [diaries, setDiaries] = useState([])
-    const [searchValue, setSearchValue] = useState('')
     const [welcomeMovies, setWelcomeMovies] = useState([])
+    const [userDiaries, setUserDiaries] = useState([])
+    const [feed, setFeed] = useState([])
+
+    useEffect(() => {
+		getUserMovies()
+	},[])
+
+    const getUserMovies = () => {
+        let id = props.currentUser.id
+		fetch(`/users/` + id)
+		.then((response) => response.json())
+		.then(data => {
+	    	setUserDiaries(data.diary_films)
+    	})
+	}
+
+    useEffect(() => {
+		getFeed()
+	},[])
+
+    const getFeed = () => {
+        fetch("/follows")
+        .then(resp => resp.json())
+        .then(data => {
+            let i = []
+            data.forEach(d => 
+                i.push(d.diary_films)
+            )
+            let o = i.flat()
+            let x = o.slice().sort((item1, item2) => item1.created_at < item2.created_at ? 1 : -1).slice(0,7)
+            setFeed(x)
+        })
+    }
+    
+    useEffect(() => {
+        getWelcomeMovies()
+    }, [])
 
     const getWelcomeMovies = () => {
         fetch("https://www.omdbapi.com/?s=hack&apikey=263d22d8")
@@ -19,23 +54,6 @@ const Home = (props) => {
           setWelcomeMovies(data.Search.slice(0,7))
         })  
     }
-
-    useEffect(() => {
-        getWelcomeMovies()
-      }, [])
-
-    const getMovieRequest = async (searchValue) => {
-        const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
-        const response = await fetch(url)
-        const responseJson = await response.json()
-        if (responseJson.Search) {
-            setFilms(responseJson.Search)
-        }
-    }
-
-    useEffect(() => {
-      getMovieRequest(searchValue)
-    }, [searchValue])
 
     useEffect(() => {
         const filmDiaries = JSON.parse(
@@ -47,13 +65,46 @@ const Home = (props) => {
     }, [])
 
     const addDiaryFilm = (film) => {
-        const newDiaryList = [...diaries, film]
-        setDiaries(newDiaryList)
-        saveToLocalStorage(newDiaryList)
-        var today = new Date(),
-        date = (today.getMonth() + 1) + '-' + today.getDate()
-        localStorage.setItem('date'+ film.imdbID, date)
+        if (props.currentUser.length === 0) {
+            const newDiaryList = [...diaries, film]
+            setDiaries(newDiaryList)
+            saveToLocalStorage(newDiaryList)
+            var today = new Date(),
+            date = (today.getMonth() + 1) + '-' + today.getDate()
+            localStorage.setItem('date'+ film.imdbID, date)
+        }
+        else {
+            addUserDiaryFilm(film)
+        }
     }
+
+    const addUserDiaryFilm = (film) => {
+		var today = new Date(),
+		date = (today.getMonth() + 1) + '-' + today.getDate()
+		fetch("/diary_films", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				title: film.Title, 
+				user_id: props.currentUser.id, 
+				watch_date: date,
+				year: film.Year, 
+				poster: film.Poster, 
+				rating: 0, 
+			})
+		})
+		.then((response) => response.json())
+		.then(data => {
+            const newDiaryList = [...userDiaries, data]
+            setUserDiaries(newDiaryList)
+		})
+	}
+
+    const saveToLocalStorage = (items) => {
+        localStorage.setItem('react-movie-app-diaries', JSON.stringify(items))
+      }
 
     const removeDiaryFilm = (film) => {
         const newDiaryList = diaries.filter(
@@ -63,43 +114,67 @@ const Home = (props) => {
         saveToLocalStorage(newDiaryList)
         localStorage.removeItem(film.imdbID)
         localStorage.removeItem('date'+ film.imdbID)
-    }	
+    }	    
 
-    const saveToLocalStorage = (items) => {
-      localStorage.setItem('react-movie-app-diaries', JSON.stringify(items))
-    }
+    const removeUserDiaryFilm = (film) => {
+		fetch(`/diary_films/` + film.id, {
+    		method: 'DELETE',
+    		headers: {
+			'Content-Type': 'application/json',	
+    		},
+		})
+        const newDiaryList = userDiaries.filter(
+            (diary) => diary.id !== film.id
+        )
+        setUserDiaries(newDiaryList)
+	}
 
 	return (
         <div>
-            <SearchBox searchValue={searchValue} setSearchValue={setSearchValue}/><br></br>
+            <SearchBox 
+                addDiaryFilm={addDiaryFilm}
+            />
+            <Divider></Divider>
+            {props.currentUser.length !== 0 && feed.length !== 0 ?
+                <>
+                <Feed 
+                userFeed={feed}/>
+                </>
+            : 
+                <>
+                <WelcomeFilms welcomeMovies={welcomeMovies}/>
+                </>
+            }
+            <Divider></Divider>
+            <h2>Your Diary</h2>
+            <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>
             {props.currentUser.length === 0 ?
                 <>
-                <Films
-                    films={films}
-                    handleDiaryClick={addDiaryFilm}
-                />
-                <Divider></Divider>
-                <WelcomeFilms welcomeMovies={welcomeMovies}/>
-                <Divider></Divider>
-                <h2>Your Diary</h2>
-                <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>
                 {diaries.length === 0 ?
-                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
+                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p>
                 :
+                    <>
                     <Diaries
                         films={diaries}
                         handleDiaryClick={removeDiaryFilm}
                     />
-                } <br></br>
-                </>   
+                    <br></br>
+                    </>
+                }
+                </>
             : 
                 <>
-                <UserDiaries 
-                    currentUser={props.currentUser}
-                    films={films}
-                    welcomeMovies={welcomeMovies}
-                />
-                <br></br>
+                {userDiaries.length === 0 ?
+                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
+                :
+                    <>
+                    <UserDiaries 
+                        userDiaries={userDiaries}
+                        removeUserDiaryFilm={removeUserDiaryFilm}
+                    />
+                    <br></br>
+                    </>
+                }
                 </>
             }
         </div>

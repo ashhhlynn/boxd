@@ -15,7 +15,7 @@ function SigninRegister() {
     return (
         <>          
         <Segment placeholder style={{backgroundColor:"#1a1f22"}}>
-            <Grid stackable relaxed='very' columns={2} >
+            <Grid stackable relaxed='very' columns={2}>
                 <Grid.Column> 
                   <Login handleRoute={handleRoute}/>
                 </Grid.Column>                 

@@ -13,7 +13,7 @@ class FollowsController < ApplicationController
     @user_follows = current_user.follows
     @followers = @user_follows.map do |f|
       User.find_by(id: f.following_id)
-    end 
+    end
     render json: @followers
   end
 

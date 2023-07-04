@@ -10,7 +10,8 @@ const UserCard = (props) => {
 				<Icon style={{marginTop:"6%"}} size="massive" name="user circle"/>
 			    <h1 style={{marginTop:"2%"}}>{props.currentUser.username}</h1>
 			    <p>
-				    {props.userFollowing.length} following | {props.userFollowers.length} followers<br></br><br></br>
+				    {props.userFollowing.length} following | {props.userFollowers.length} followers
+                    <br></br><br></br>
 			    </p>
             </center>
 		</Card>		

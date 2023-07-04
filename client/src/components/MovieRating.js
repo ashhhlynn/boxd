@@ -10,7 +10,7 @@ export default class MovieRating extends Component {
         this.setState({rating: x})
     }
 
-    handleRating = (e, { rating, maxRating }) =>{
+    handleRating = (e, { rating, maxRating }) => {
         this.setState({ rating, maxRating })
         localStorage.setItem(this.props.film.imdbID, rating);
     }
