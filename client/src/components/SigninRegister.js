@@ -3,14 +3,12 @@ import { Grid, Divider, Segment} from 'semantic-ui-react'
 import Login from './Login'
 import Signup from './Signup'
 import { useHistory } from "react-router-dom";
-import { checkUser } from "./actions/rootActions"
 
 function SigninRegister() {
 
     const history = useHistory()
 
-    function handleRoute(data) {
-        checkUser(data)
+    function handleRoute() {
         history.push('/')
     }
     

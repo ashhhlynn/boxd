@@ -31,7 +31,7 @@ const Feed = (props) => {
 		    <Card.Group itemsPerRow={7}>
                 {userFeed.map((movie, index) => (  
                     <Card key={index} style={{marginLeft:".5%",backgroundColor:"#1a1f22", boxShadow:"none", color:"white"}}>
-                        <Image style={{height:"200px", width:"200px"}} src={movie.poster}/>
+                        <Image style={{height:"210px", width:"200px"}} src={movie.poster}/>
                         <Card.Content style={{marginTop:"-10%"}}>
                             <Icon name="user circle"/>{movie.user.username}<br></br>
                             <Rating icon='star' disabled size="mini"  rating={movie.rating}  

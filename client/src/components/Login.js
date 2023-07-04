@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Form } from 'semantic-ui-react'
+import { checkUser } from "./actions/rootActions"
+import { connect } from 'react-redux'
 
 class Login extends Component {
 
@@ -31,8 +33,9 @@ class Login extends Component {
                 window.alert("Login failed.")
             }
             else {
-                this.props.handleRoute(data)
+                this.props.checkUser(data)
                 window.alert("Login successful.")
+                this.props.handleRoute(data)
             }
         })
     }
@@ -63,5 +66,11 @@ class Login extends Component {
         )
     }
 }
-  
-export default Login
+
+const mapDispatchToProps = (dispatch) => {
+    return { 
+    	checkUser: (user) =>  { dispatch(checkUser(user)) },
+    }
+} 
+
+export default connect(null, mapDispatchToProps)(Login)

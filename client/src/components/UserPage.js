@@ -47,8 +47,8 @@ const UserPage = (props) => {
 	}, [])
 
 	const addFollow = (event) => {
-		let u = users.find(u=> u.username === event.target.id)
-		if (!userFollowing.find(f => f.id === u.id )){
+		if (!userFollowing.find(f => f.username === event.target.id )){
+			let u = users.find(u => u.username === event.target.id)
 			fetch("/follows", {
 				method: 'POST',
 				headers: {

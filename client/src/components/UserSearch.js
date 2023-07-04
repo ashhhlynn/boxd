@@ -12,6 +12,7 @@ function UserSearch(props) {
         const re = new RegExp(_.escapeRegExp(value), 'i');
         const isMatch = result => re.test(result.username);
         setResults(_.filter(props.users, isMatch));
+        console.log(results)
     };
     
     const resultRenderer = ({ username }) => ([ 
