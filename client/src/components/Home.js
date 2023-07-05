@@ -12,21 +12,10 @@ const Home = (props) => {
     const [welcomeMovies, setWelcomeMovies] = useState([])
     const [userDiaries, setUserDiaries] = useState([])
     const [feed, setFeed] = useState([])
-
+    
     useEffect(() => {
-		getUserMovies()
+		getFeed()
 	},[])
-
-    const getUserMovies = () => {
-        if (props.currentUser.length !== 0) {
-            getFeed()
-            fetch("/profile")
-    	    .then(resp => resp.json())
-    	    .then(data => {
-                setUserDiaries(data.diary_films)
-            })
-	    }
-    }
 
     const getFeed = () => {
         fetch("/follows")
@@ -40,6 +29,20 @@ const Home = (props) => {
             let x = o.slice().sort((item1, item2) => item1.created_at < item2.created_at ? 1 : -1).slice(0,7)
             setFeed(x)
         })
+    }
+
+    useEffect(() => {
+		getUserMovies()
+	},[])
+
+    const getUserMovies = () => {
+        if (props.currentUser.length !== 0) {
+            fetch("/profile")
+    	    .then(resp => resp.json())
+    	    .then(data => {
+                setUserDiaries(data.diary_films)
+            })
+	    }
     }
     
     useEffect(() => {
