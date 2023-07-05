@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :followers
   resources :follows
   resources :users
   resources :diary_films
