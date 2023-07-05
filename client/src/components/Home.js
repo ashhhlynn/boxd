@@ -49,8 +49,8 @@ const Home = (props) => {
         getWelcomeMovies()
     }, [])
 
-    const getWelcomeMovies = () => {
-        fetch("https://www.omdbapi.com/?s=hack&apikey=263d22d8")
+    const getWelcomeMovies = async () => {
+        await fetch("https://www.omdbapi.com/?s=hack&apikey=263d22d8")
         .then((response) => response.json())
         .then(data => {
           setWelcomeMovies(data.Search.slice(0,7))

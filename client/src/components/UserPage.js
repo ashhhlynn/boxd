@@ -19,29 +19,27 @@ const UserPage = (props) => {
 		})
     }
 
-	const addFollow = (event) => {
-		if (!userFollowing.find(f => f.username === event.target.id) && props.users.find(u => u.username === event.target.id)) {			
-			fetch("/follows", {
+	const addFollow = async (event) => {
+		let user = (props.users.find(u => u.username === event.target.id))
+		if (user && !userFollowing.find(f => f.username === event.target.id)) {			
+			await fetch("/follows", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					user_id: (props.users.find(u => u.username === event.target.id)).id, 
+					user_id: user.id, 
 					following_id: props.currentUser.id
 				})
 			})
-			.then((response) => response.json())
-			.then(data => {
-				const newUserList = [...userFollowing, data]
-				setUserFollowing(newUserList)
-			})
+			const newUserList = [...userFollowing, user]
+			setUserFollowing(newUserList)
 		}
 	}
 
-	const removeFollow = (event, id) => {
+	const removeFollow = async (event, id) => {
 		event.preventDefault()
-		fetch("/follows/" + id, {
+		await fetch("/follows/" + id, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
@@ -59,7 +57,7 @@ const UserPage = (props) => {
 			<UserSearch users={props.users} addFollow={addFollow}/>
 			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}>
             	<Grid.Column>
-					<UserCard currentUser={props.currentUser} userFollowing={userFollowing} userFollowers={props.followers}/>
+					<UserCard currentUser={props.currentUser}/>
 				</Grid.Column>
 				<Grid.Column>
 					<Grid stackable columns={2}style={{marginLeft:"1%"}}>
