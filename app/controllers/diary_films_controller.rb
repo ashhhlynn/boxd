@@ -8,7 +8,7 @@ class DiaryFilmsController < ApplicationController
   def create
     diary_film = DiaryFilm.create(diary_film_params)
     if diary_film.valid?
-      render json: diary_film , status: :created
+      render json: diary_film, status: :created
     else
       render json: diary_film.errors, status: :unprocessable_entity
     end
