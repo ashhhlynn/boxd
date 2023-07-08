@@ -1,9 +1,9 @@
 import { Divider } from 'semantic-ui-react'
-import WelcomeFilms from './/WelcomeFilms'
-import Diaries from './Diaries'
+import WelcomeFilms from './WelcomeFilms'
+import Diaries from '../GuestDiary/Diaries'
 import SearchBox from './SearchBox'
 import React, { useState, useEffect } from 'react'
-import UserDiaries from './UserDiaries'
+import UserDiaries from '../UserDiary/UserDiaries'
 import Feed from './Feed'
 
 const Home = (props) => {
@@ -18,7 +18,7 @@ const Home = (props) => {
 	},[])
 
     const getFeed = () => {
-        fetch("/follows")
+        fetch("/following")
         .then(resp => resp.json())
         .then(data => {
             let i = []

@@ -24,7 +24,7 @@ function SigninRegister() {
                 </Grid.Column>   
             </Grid>
             <Divider style={{color:"white"}}vertical>Or</Divider>
-            </Segment>
+        </Segment>
         </>
     )
 }

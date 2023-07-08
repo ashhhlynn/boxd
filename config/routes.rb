@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#logout'
   get '/profile', to: 'users#profile'
-  get '/followers', to: 'follows#followers'
+  post '/users/:id/follow', to: "users#follow"
+  post '/users/:id/unfollow', to: "users#unfollow"
+  get '/followerz', to: "users#followerz"
+  get '/following', to: "users#following"
 
 end
