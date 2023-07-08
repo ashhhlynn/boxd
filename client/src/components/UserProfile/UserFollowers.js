@@ -10,7 +10,7 @@ const UserFollowers = () => {
 	}, [])
 
     const getFollowers = () => { 
-        fetch("/followerz")
+        fetch("/userfollowers")
         .then(resp => resp.json())
         .then(data => {
             setFollowers(data)
@@ -24,8 +24,7 @@ const UserFollowers = () => {
 			{followers.map((user, index) => (
 				<Card key={index} style={{ boxShadow:"none", backgroundColor:"#1a1f22"}}>
 					<Card.Header>
-						<Icon name="user circle"/>
-						{user.username}
+						<Icon name="user circle"/> {user.username}
 					</Card.Header>
 				</Card>
 			))}	

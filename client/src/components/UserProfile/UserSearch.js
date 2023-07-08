@@ -26,12 +26,11 @@ function UserSearch(props) {
         const re = new RegExp(_.escapeRegExp(value), 'i');
         const isMatch = result => re.test(result.username);
         setResults(_.filter(users, isMatch));
-    };
+    }
 
     const handleAddFollow = (event) => {
         if (users.find(u => u.username === event.target.id)) {
             let x = users.find(u => u.username === event.target.id)
-            console.log(x)
             fetch(`users/` + x.id + `/follow`, {
 			    method: 'POST',
 			    headers: {

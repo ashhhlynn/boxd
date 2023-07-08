@@ -14,7 +14,7 @@ const UserPage = (props) => {
 	}, [])
 
 	const getFollowing = () => {
-		fetch("/following")
+		fetch("/userfollowing")
         .then(resp => resp.json())
         .then(data => {
 			setUserFollowing(data)

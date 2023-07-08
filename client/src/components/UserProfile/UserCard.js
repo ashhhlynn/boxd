@@ -7,11 +7,7 @@ const UserCard = (props) => {
 		<Card style={{backgroundColor:"#1a1f22"}}>
             <center>
 				<Icon style={{marginTop:"6%"}} size="massive" name="user circle"/>
-			    <h1 style={{marginTop:"2%"}}>{props.currentUser.username}</h1>
-			    <p>
-				    {props.currentUser.diary_films.length} films
-                    <br></br><br></br>
-			    </p>
+			    <h1 style={{marginTop:"2%", marginBottom:"5%"}}>{props.currentUser.username}</h1>
             </center>
 		</Card>		
 		</>

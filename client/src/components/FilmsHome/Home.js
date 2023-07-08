@@ -18,16 +18,10 @@ const Home = (props) => {
 	},[])
 
     const getFeed = () => {
-        fetch("/following")
+        fetch("/feed")
         .then(resp => resp.json())
         .then(data => {
-            let i = []
-            data.forEach(d => 
-                i.push(d.diary_films)
-            )
-            let o = i.flat()
-            let x = o.slice().sort((item1, item2) => item1.created_at < item2.created_at ? 1 : -1).slice(0,7)
-            setFeed(x)
+            setFeed(data)
         })
     }
 

@@ -34,7 +34,7 @@ const UserDiaries = (props) => {
                     <Header floated="left"><br></br>
                         <Label style={{ marginTop:"3%", backgroundColor:"#FFFEEF", color:"black"}}>
                             2023
-                            <h2 ><b>{movie.watch_date.slice(0,4)}</b></h2>
+                            <h2><b>{movie.watch_date.slice(0,4)}</b></h2>
                         </Label>
                     </Header>
 				    <Image style={{height:"110px", width:"75px", marginLeft:"13%", alignContent:"left"}} src={movie.poster} alt='movie'/>

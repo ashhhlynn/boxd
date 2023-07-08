@@ -29,10 +29,7 @@ const SearchBox = (props) => {
 				placeholder=''
 			/>
 		</h3>
-		<Films
-            films={films}
-            handleDiaryClick={props.addDiaryFilm}
-        />
+		<Films films={films} handleDiaryClick={props.addDiaryFilm}/>
 		<br></br><br></br>
 		</>
 	)

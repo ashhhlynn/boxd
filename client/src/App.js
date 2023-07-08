@@ -54,17 +54,13 @@ class App extends Component {
       			<Container style={{minHeight:"70vh", height:"100%"}}>   	
 					<Switch>
 						<Route exact path="/" >
-                			<Home 
-							currentUser={this.props.currentUser}
-							/>
+                			<Home currentUser={this.props.currentUser}/>
               			</Route>
               			<Route exact path="/login">
                 			<SigninRegister/>
               			</Route>
 			  			<Route exact path="/userpage">
-                			<UserPage 
-							currentUser={this.props.currentUser}
-							/>
+                			<UserPage currentUser={this.props.currentUser}/>
               			</Route>
 					</Switch>
       			</Container>

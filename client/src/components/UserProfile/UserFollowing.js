@@ -15,8 +15,7 @@ const UserFollowing = (props) => {
 								<Icon style={{color:"white"}} name="close"/>
 							</center>
 						</Button>
-						<Icon name="user circle"/>
-						{user.username}
+						<Icon name="user circle"/> {user.username}
 					</Card.Header>
 				</Card>
 			))}	

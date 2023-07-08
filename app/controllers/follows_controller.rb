@@ -5,8 +5,4 @@ class FollowsController < ApplicationController
     render json: @follows 
   end
 
-
-  
-
-
 end

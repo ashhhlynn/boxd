@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users
+    filtered = @users.filter {|u|!current_user.followed_users.find_by(followee_id: u.id)}
+    render json: filtered
   end
 
   def profile
@@ -20,14 +21,21 @@ class UsersController < ApplicationController
     current_user.followed_users.find_by(followee_id: @user.id).destroy
   end
 
-  def followerz
+  def userfollowers
     followers = current_user.followers
     render json: followers 
   end 
 
-  def following 
-    following = current_user.followees
-    render json: following
+  def userfollowing 
+    @following = current_user.followees
+    render json: @following
+  end 
+
+  def feed
+    films = current_user.followees.map {|f| f.diary_films }
+    sorted = films.flatten.sort { |a, b| b.created_at <=> a.created_at } 
+    @feed = sorted[0..6]
+    render json: @feed
   end 
 
   def create
