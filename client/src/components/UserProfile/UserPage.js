@@ -26,9 +26,9 @@ const UserPage = (props) => {
 		setUserFollowing(newUserList)
 	}
 
-	const removeFollow = async (event, id) => {
+	const removeFollow = (event, id) => {
 		event.preventDefault()
-		await fetch(`users/` + id + `/unfollow`, {
+		fetch(`users/` + id + `/unfollow`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

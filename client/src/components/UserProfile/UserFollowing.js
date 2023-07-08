@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Icon, Item, Button } from 'semantic-ui-react'
 
 const UserFollowing = (props) => {
-
 	return (
 		<>
 	   	<h3>Following</h3>
