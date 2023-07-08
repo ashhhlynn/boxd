@@ -8,37 +8,22 @@ import UserFollowing from './UserFollowing'
 const UserPage = (props) => {
 	
 	const [userFollowing, setUserFollowing] = useState([])
-	const [users, setUsers] = useState([])
 
 	useEffect(() => {
-		getUsers()
+		getFollowing()
 	}, [])
 
-	const getUsers = () => {
+	const getFollowing = () => {
 		fetch("/following")
         .then(resp => resp.json())
         .then(data => {
 			setUserFollowing(data)
 		})
-		fetch("/users")
-        .then(resp => resp.json())
-        .then(data => {
-			setUsers(data)
-		})
     }
 
-	const addFollow = (event) => {
-		if (!userFollowing.find(f => f.username === event.target.id) && users.find(u => u.username === event.target.id)) {			
-			let user = users.find(u => u.username === event.target.id)
-			fetch(`users/` + user.id + `/follow`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			})
-			const newUserList = [...userFollowing, user]
-			setUserFollowing(newUserList)
-		}
+	const addFollow = (data) => {
+		const newUserList = [...userFollowing, data]
+		setUserFollowing(newUserList)
 	}
 
 	const removeFollow = async (event, id) => {
@@ -58,7 +43,7 @@ const UserPage = (props) => {
 	return (
 		<div>
 			<br></br>
-			<UserSearch users={users} addFollow={addFollow}/>
+			<UserSearch addFollow={addFollow}/>
 			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}>
             	<Grid.Column>
 					<UserCard currentUser={props.currentUser}/>
