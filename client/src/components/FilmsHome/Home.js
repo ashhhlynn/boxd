@@ -14,8 +14,8 @@ const Home = (props) => {
     const [feed, setFeed] = useState([])
     
     useEffect(() => {
-		getFeed()
-	},[])
+        getFeed()
+    },[])
 
     const getFeed = () => {
         fetch("/feed")
@@ -26,8 +26,8 @@ const Home = (props) => {
     }
 
     useEffect(() => {
-		getUserMovies()
-	},[])
+        getUserMovies()
+    },[])
 
     const getUserMovies = () => {
         if (props.currentUser.length !== 0) {
@@ -36,7 +36,7 @@ const Home = (props) => {
     	    .then(data => {
                 setUserDiaries(data.diary_films)
             })
-	    }
+        }
     }
     
     useEffect(() => {
@@ -47,7 +47,7 @@ const Home = (props) => {
         await fetch("https://www.omdbapi.com/?s=hack&apikey=263d22d8")
         .then((response) => response.json())
         .then(data => {
-          setWelcomeMovies(data.Search.slice(0,7))
+            setWelcomeMovies(data.Search.slice(0,7))
         })  
     }
 
@@ -92,11 +92,11 @@ const Home = (props) => {
 			})
 		})
 		.then((response) => response.json())
-		.then(data => {
+        .then(data => {
             const newDiaryList = [...userDiaries, data]
             setUserDiaries(newDiaryList)
-		})
-	}
+        })
+    }
 
     const saveToLocalStorage = (items) => {
         localStorage.setItem('react-movie-app-diaries', JSON.stringify(items))
@@ -123,7 +123,7 @@ const Home = (props) => {
             (diary) => diary.id !== film.id
         )
         setUserDiaries(newDiaryList)
-	}
+    }
 
 	return (
         <div>

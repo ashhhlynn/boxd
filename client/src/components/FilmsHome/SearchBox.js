@@ -5,8 +5,8 @@ const SearchBox = (props) => {
 	
     const [searchValue, setSearchValue] = useState('')
     const [films, setFilms] = useState([])
-
-	const getMovieRequest = async (searchValue) => {
+    
+    const getMovieRequest = async (searchValue) => {
         const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
         const response = await fetch(url)
         const responseJson = await response.json()
@@ -23,11 +23,7 @@ const SearchBox = (props) => {
 		<>
 		<h3 style={{marginTop:"4%"}}>
 			Search Films... 
-			<input
-				value={props.value}
-				onChange={(event) => setSearchValue(event.target.value)}
-				placeholder=''
-			/>
+			<input value={props.value} onChange={(event) => setSearchValue(event.target.value)} placeholder=''/>
 		</h3>
 		<Films films={films} handleDiaryClick={props.addDiaryFilm}/>
 		<br></br><br></br>
