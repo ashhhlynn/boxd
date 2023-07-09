@@ -15,11 +15,11 @@ const UserPage = (props) => {
 
 	const getFollowing = () => {
 		fetch("/userfollowing")
-        .then(resp => resp.json())
-        .then(data => {
+		.then(resp => resp.json())
+		.then(data => {
 			setUserFollowing(data)
 		})
-    }
+	}
 
 	const addFollow = (data) => {
 		const newUserList = [...userFollowing, data]
@@ -35,8 +35,8 @@ const UserPage = (props) => {
 			},
 		})
 		const newUserList = userFollowing.filter(
-            (u) => u.id !== id
-        )
+			(u) => u.id !== id
+			)
 		setUserFollowing(newUserList)
 	}
 
@@ -45,7 +45,7 @@ const UserPage = (props) => {
 			<br></br>
 			<UserSearch addFollow={addFollow}/>
 			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}>
-            	<Grid.Column>
+				<Grid.Column>
 					<UserCard currentUser={props.currentUser}/>
 				</Grid.Column>
 				<Grid.Column>

@@ -25,24 +25,24 @@ const UserDiaries = (props) => {
                         <Button floated="right" size="mini" style={{width:"40px"}} inverted basic>
                             <Icon size="small" name="delete" />
                         </Button>
-				    </div>
+                    </div>
                     <Header floated="right" style={{color:"white", textAlign:"right"}}>
                         <h3>{movie.title} </h3>
                         <h5>{movie.year}</h5>
-					    <h5><UserMovieRating film={movie} key={movie.id} handleClickPatchRating={patchRating}/></h5>
-                    </Header>
+                        <h5><UserMovieRating film={movie} key={movie.id} handleClickPatchRating={patchRating}/></h5>
+                        </Header>
                     <Header floated="left"><br></br>
                         <Label style={{ marginTop:"3%", backgroundColor:"#FFFEEF", color:"black"}}>
                             2023
                             <h2><b>{movie.watch_date.slice(0,4)}</b></h2>
                         </Label>
                     </Header>
-				    <Image style={{height:"110px", width:"75px", marginLeft:"13%", alignContent:"left"}} src={movie.poster} alt='movie'/>
+                    <Image style={{height:"110px", width:"75px", marginLeft:"13%", alignContent:"left"}} src={movie.poster} alt='movie'/>
                     <Divider></Divider>
                 </Item>
-		    ))}
+            ))}
         </div>
-	)
+    )
 }
 
 export default UserDiaries

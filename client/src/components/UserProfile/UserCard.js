@@ -5,11 +5,11 @@ const UserCard = (props) => {
 	return (
 		<>
 		<Card style={{backgroundColor:"#1a1f22"}}>
-            <center>
+			<center>
 				<Icon style={{marginTop:"6%"}} size="massive" name="user circle"/>
-			    <h1 style={{marginTop:"2%", marginBottom:"5%"}}>{props.currentUser.username}</h1>
-            </center>
-		</Card>		
+				<h1 style={{marginTop:"2%", marginBottom:"5%"}}>{props.currentUser.username}</h1>
+			</center>
+		</Card>
 		</>
 	)
 }

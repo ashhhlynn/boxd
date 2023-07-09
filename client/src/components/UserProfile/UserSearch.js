@@ -9,15 +9,15 @@ function UserSearch(props) {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-		getUsers()
-	}, [])
+        getUsers()
+    }, [])
 
     const getUsers = () => {
-		fetch("/users")
+        fetch("/users")
         .then(resp => resp.json())
         .then(data => {
-			setUsers(data)
-		})
+            setUsers(data)
+        })
     }
 
     const handleSearchChange = e => {
@@ -32,14 +32,14 @@ function UserSearch(props) {
         if (users.find(u => u.username === event.target.id)) {
             let x = users.find(u => u.username === event.target.id)
             fetch(`users/` + x.id + `/follow`, {
-			    method: 'POST',
-			    headers: {
-			    	'Content-Type': 'application/json',
-			    },
-			    body: JSON.stringify({
-			    }),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                }),
             })
-            props.addFollow(x)   
+            props.addFollow(x)
         }
     }
     
