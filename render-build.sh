@@ -9,5 +9,6 @@ bundle install
 DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
+bundle exec rails db:migrate
 
 #if you have seeds to run add:
