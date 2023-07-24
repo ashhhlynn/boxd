@@ -43,15 +43,15 @@ const UserPage = (props) => {
 		<div>
 			<br></br>
 			<center>
-				<Card style={{backgroundColor:"#1a1f22", width:"225px"}}>
+				<Card style={{backgroundColor:"#1a1f22", width:"225px", marginBottom:"6%"}}>
 					<br></br>
 					<center>
 						<Icon size="massive" name="user circle"/>
 					</center>
 					<h2 style={{marginTop:"0%", marginBottom:"7%"}}>{props.currentUser.username}</h2>
 				</Card>
-				<UserSearch addFollow={addFollow}/><br></br>
-				<Grid stackable columns={2}style={{width:"400px"}}>
+				<UserSearch addFollow={addFollow}/>
+				<Grid stackable columns={2}style={{marginTop:"0%", width:"400px"}}>
 					<Grid.Column>
 						<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
 					</Grid.Column>

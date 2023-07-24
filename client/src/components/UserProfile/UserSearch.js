@@ -31,15 +31,13 @@ function UserSearch(props) {
     const handleAddFollow = (event) => {
         if (users.find(u => u.username === event.target.id)) {
             let x = users.find(u => u.username === event.target.id)
+            props.addFollow(x)
             fetch(`users/` + x.id + `/follow`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                }),
             })
-            props.addFollow(x)
         }
     }
     

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Item, Button } from 'semantic-ui-react'
+import { Card, Icon, Item } from 'semantic-ui-react'
 
 const UserFollowing = (props) => {
 	return (

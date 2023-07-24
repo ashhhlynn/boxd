@@ -16,7 +16,7 @@ class App extends Component {
 
 	state = {
 		modalOpen: false,
-		userDiaries: []
+		userDiaries: [],
 	}
 
 	componentDidMount = () => {
@@ -96,8 +96,6 @@ class App extends Component {
       			<Menu style={{backgroundColor:"#15191b", color:"white", height:"100px"}}>
 					<Menu.Menu style={{marginLeft:"5%", marginTop:".5%"}} position="left"><br></br>
 						<h1>Boxd.</h1>
-					</Menu.Menu>
-					<Menu.Menu style={{marginLeft:"30%", marginTop:"2.5%"}}>
 					</Menu.Menu>
 					<Menu.Menu style={{marginRight:"3%"}} position='right'>
 						<Menu.Item><Link to='/' style={{color:"white"}}><Icon size="large" name="home"/></Link></Menu.Item>
