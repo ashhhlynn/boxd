@@ -73,8 +73,8 @@ const Home = (props) => {
     }	    
 
 	return (
-        <div>
-		    <SearchBox addDiaryFilm={addDiaryFilm}/><Icon name="search" size="large" style={{marginLeft:"21%", marginTop:"-2.3%"}}/>  
+		<div>
+			<SearchBox addDiaryFilm={addDiaryFilm}/><Icon name="search" size="large" style={{marginLeft:"21%", marginTop:"-2.3%"}}/>  
             <WelcomeFilms welcomeMovies={welcomeMovies}/>
             <Divider></Divider>
             {props.currentUser.length === 0 ?
