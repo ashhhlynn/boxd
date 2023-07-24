@@ -1,27 +1,13 @@
-import { Divider, Icon } from 'semantic-ui-react'
+import { Divider, Button, Item  } from 'semantic-ui-react'
 import WelcomeFilms from './WelcomeFilms'
-import Diaries from '../GuestDiary/Diaries'
-import SearchBox from './SearchBox'
 import React, { useState, useEffect } from 'react'
 import Feed from './Feed'
+import { Link} from 'react-router-dom'
 
 const Home = (props) => {
     
-    const [diaries, setDiaries] = useState([])
     const [welcomeMovies, setWelcomeMovies] = useState([])
     const [feed, setFeed] = useState([])
-    
-    useEffect(() => {
-        getFeed()
-    },[])
-
-    const getFeed = () => {
-        fetch("/feed")
-        .then(resp => resp.json())
-        .then(data => {
-            setFeed(data)
-        })
-    }
     
     useEffect(() => {
         getWelcomeMovies()
@@ -36,65 +22,34 @@ const Home = (props) => {
     }
 
     useEffect(() => {
-        const filmDiaries = JSON.parse(
-        localStorage.getItem('react-movie-app-diaries')
-        )	
-        if (filmDiaries) {
-            setDiaries(filmDiaries);
-        }
-    }, [])
+        getFeed()
+    },[])
 
-    const addDiaryFilm = (film) => {
-        if (props.currentUser.length === 0) {
-            const newDiaryList = [...diaries, film]
-            setDiaries(newDiaryList)
-            saveToLocalStorage(newDiaryList)
-            var today = new Date(),
-            date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
-            localStorage.setItem('date'+ film.imdbID, date)
-        }
-        else {
-            props.addUserDiaryFilm(film)
-        }
+    const getFeed = () => {
+        fetch("/feed")
+        .then(resp => resp.json())
+        .then(data => {
+            setFeed(data)
+        })
     }
-
-    const saveToLocalStorage = (items) => {
-        localStorage.setItem('react-movie-app-diaries', JSON.stringify(items))
-    }
-
-    const removeDiaryFilm = (film) => {
-        const newDiaryList = diaries.filter(
-            (diary) => diary.imdbID !== film.imdbID
-        )
-        setDiaries(newDiaryList)
-        saveToLocalStorage(newDiaryList)
-        localStorage.removeItem(film.imdbID)
-        localStorage.removeItem('date'+ film.imdbID)
-    }	    
-
+    
 	return (
         <div>
-		    <SearchBox addDiaryFilm={addDiaryFilm}/><Icon name="search" size="large" style={{marginLeft:"21%", marginTop:"-2.3%"}}/>  
-            <WelcomeFilms welcomeMovies={welcomeMovies}/>
-            <Divider></Divider>
             {props.currentUser.length === 0 ?
-                <>
-                <h2>Your Diary</h2>
-                {diaries.length === 0 ?
-                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p>
-                :
-                    <>
-                    <Divider style={{width:"90%", marginLeft:"5%"}}></Divider>
-                    <Diaries
-                        films={diaries}
-                        handleDiaryClick={removeDiaryFilm}
-                    />
-                    <br></br>
-                    </>
-                }
-                </>
+                <div className="bg">
+                    <Item style={{marginTop:"4%"}}><br></br><br></br><br></br><br></br><br></br><br></br>
+                        <h1>The social network for film.</h1>
+                        <h2>Track films you've watched.</h2>
+                        <h2>Tell your friends what's good.</h2>
+                        <Button as={Link} to ="/login" size="big" color="white" style={{color:"black", letterSpacing:"1px", fontWeight:"normal"}}>GET STARTED</Button>  
+                    </Item>
+                </div>
             : 
                 <>
+                <h4 style={{marginTop:"3.6%", marginBottom:"-2%", textAlign:"left"}}><b>Welcome, {props.currentUser.username}</b></h4>      
+                <WelcomeFilms welcomeMovies={welcomeMovies}/>
+                <Divider></Divider>
+                <h4 style={{marginBottom:"-3%", marginTop:"3.5%", textAlign:"left"}}><b>New from friends</b></h4>
                 {feed.length !== 0 ?
                     <>
                     <Feed userFeed={feed}/>
@@ -102,6 +57,7 @@ const Home = (props) => {
                     </>
                 : 
                     <>
+                    <p style={{marginTop:"4.5%", marginBottom:"3.5%", textAlign:"left"}}>No new content from friends right now.</p>
                     </>
                 }
                 </>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Films from './Films'
+import {  Icon } from 'semantic-ui-react'
 
 const SearchBox = (props) => {
 	
@@ -21,10 +22,10 @@ const SearchBox = (props) => {
 
 	return (
 		<>
-		<h3 style={{marginTop:"5%"}}> 
-			<input style={{marginLeft:"-1%", fontSize:"16px"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)} placeholder='Search films to log...'/>
-		</h3>
-		<Films films={films} handleDiaryClick={props.addDiaryFilm}/>
+		<h3 style={{marginTop:"4%"}}> 
+			<input style={{letterSpacing:"1px", marginLeft:"-1%"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)} placeholder='Search films...'/> <Icon name="search" />
+        </h3>
+		<Films films={films} addUserDiaryFilm={props.addUserDiaryFilm}/>
 		</>
 	)
 }

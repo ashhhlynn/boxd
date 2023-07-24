@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Icon } from 'semantic-ui-react'
+import { Grid, Icon, Divider } from 'semantic-ui-react'
 import UserSearch from './UserSearch'
 import UserFollowers from './UserFollowers'
 import UserFollowing from './UserFollowing'
@@ -44,7 +44,9 @@ const UserPage = (props) => {
 			<center>
 			<br></br>
 				<Icon size="massive" name="user circle"/>
-				<h1 style={{marginTop:"0%", marginBottom:"4.5%"}}>{props.currentUser.username}</h1>
+				<h1 style={{ marginTop:"0%", marginBottom:".2%"}}>{props.currentUser.username}</h1>
+				<p>{props.currentUser.diary_films.length} Films</p>
+				<Divider  style={{marginBottom:"5%", marginTop:"4%"}}></Divider>
 				<UserSearch addFollow={addFollow}/>
 				<Grid stackable columns={2}style={{marginTop:"2%", width:"420px"}}>
 					<Grid.Column>

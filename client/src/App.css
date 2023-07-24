@@ -1,36 +1,48 @@
-  .app {
+.app {
 	text-align: center;
 	font-weight: normal !important;
 	color: white !important;
 	letter-spacing:1.5px !important;
 	background-color: #1a1f22;
-  }
+}
   
-  h1, h2, h3, h5 {
-	font-weight: normal !important;
-	letter-spacing:1.5px !important;
-  }
+.bg {
+	background-image: url("https://s3.amazonaws.com/criterion-production/janus_stills/5002-/198id_ITMFLfg_277_0010_198id_ITMFLfg_413_w1600.jpg");
+	background-repeat: no-repeat;
+	width: 1060px;
+	height: 470px;
+	background-position-y: 80%;
+	background-position-x: 90%;
+	background-size: cover;
+	margin: auto;
+	object-fit: cover;
+}
 
-  h2 {
+h1, h2, h3, h5 {
+	font-weight: normal !important;
+	letter-spacing:1.5px !important;
+}
+
+h2 {
 	font-size: 22px !important;
-  }
+}
   
-  h4 {
+h4 {
 	letter-spacing:1.5px !important;
 	font-weight: normal !important;
-  }
+}
   
-  .ui.Container {
+.ui.Container {
 	text-align: center;
 	font-family: "Consolas" !important;
 	font-weight: normal !important;
 	color: white !important;
 	letter-spacing:1.5px !important;
 	background-color: #1a1f22;
-  }
+}
   
-  .ui.Menu {
+.ui.Menu {
 	color: white !important;
-  }
+}
   
   

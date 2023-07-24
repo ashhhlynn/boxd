@@ -20,19 +20,25 @@ const UserFollowers = () => {
 	return (
 		<>
 	    <h3>Followers</h3>
-		<Divider></Divider>
-		<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
-			{followers.map((user, index) => (
-				<Card key={index} style={{marginTop:"-8%", width:"150px", boxShadow:"none", backgroundColor:"#1a1f22"}}>
-					<Card.Header style={{letterSpacing:"1.5px"}}>
-						{user.username}
-						<Button floated="right" style={{marginTop:"-2.5%", background:"none", cursor:"auto", color:"white"}}size="mini">
-							<Icon name="user"/>
-						</Button> 
-					</Card.Header>
-				</Card>
-			))}	
-		</Item>
+		<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
+		{followers.length === 0 ?
+			<>
+			<center>0 users are following you.</center>
+			</>
+		:
+			<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
+				{followers.map((user, index) => (
+					<Card key={index} style={{marginTop:"-8%", width:"150px", boxShadow:"none", backgroundColor:"#1a1f22"}}>
+						<Card.Header style={{letterSpacing:"1.5px"}}>
+							{user.username}
+							<Button floated="right" style={{marginTop:"-2.5%", background:"none", cursor:"auto", color:"white"}}size="mini">
+								<Icon name="user"/>
+							</Button> 
+						</Card.Header>
+					</Card>
+				))}	
+			</Item>
+		}
 		</>
 	)
 }

@@ -56,7 +56,7 @@ function UserSearch(props) {
           results={results}
           value={value}
           title={results}
-          placeholder='Search users to follow...'
+          placeholder='Search users to follow...' 
         />
     )
 }
