@@ -40,7 +40,7 @@ const UserDiaries = (props) => {
                         </Header>
                         <Header floated="left"><br></br>
                             <Label style={{ marginTop:"3%", backgroundColor:"#FFFEEF", color:"black"}}>
-                                2023
+                                {movie.watch_date.slice(5)}
                                 <h2><b>{movie.watch_date.slice(0,4)}</b></h2>
                             </Label>
                         </Header>

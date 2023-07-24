@@ -50,7 +50,7 @@ const Home = (props) => {
             setDiaries(newDiaryList)
             saveToLocalStorage(newDiaryList)
             var today = new Date(),
-            date = (today.getMonth() + 1) + '-' + today.getDate()
+            date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
             localStorage.setItem('date'+ film.imdbID, date)
         }
         else {

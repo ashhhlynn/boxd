@@ -54,7 +54,7 @@ class App extends Component {
 
 	addUserDiaryFilm = (film) => {	
 		var today = new Date(),
-		date = (today.getMonth() + 1) + '-' + today.getDate()
+		date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
 		fetch("/diary_films", {
 			method: 'POST',
 			headers: {
@@ -109,7 +109,7 @@ class App extends Component {
 							</>
 						}
 						<Modal
-						style={{width:"500px"}}
+						style={{width:"500px", borderBox: "none"}}
 						open={this.state.modalOpen}
 						onClose={this.handleClose}
 						closeIcon>
