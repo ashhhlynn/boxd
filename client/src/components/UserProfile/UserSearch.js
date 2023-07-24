@@ -28,22 +28,20 @@ function UserSearch(props) {
         setResults(_.filter(users, isMatch));
     }
 
-    const handleAddFollow = (event) => {
-        if (users.find(u => u.username === event.target.id)) {
-            let x = users.find(u => u.username === event.target.id)
-            props.addFollow(x)
-            fetch(`users/` + x.id + `/follow`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-        }
+    const handleAddFollow = async (event, user) => {
+        event.preventDefault()
+        props.addFollow(user)
+        await fetch(`users/` + user.id + `/follow`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
     }
     
-    const resultRenderer = ({ username }) => ([ 
+    const resultRenderer = ({username}) => ([ 
         <Item key={username}>
-            <Button floated="right" style={{marginTop:"-2%", width:"43px"}} size="mini" id={username} onClick={handleAddFollow}>
+            <Button floated="right" style={{marginTop:"-2%", width:"43px"}} size="mini" onClick={(e) => handleAddFollow(e, users.find(u => u.username === username))}>
                 <Icon name="plus"/>
             </Button>
             <p style={{marginTop:"2%"}}>{username}</p>
