@@ -4,11 +4,12 @@ import Login from './Login'
 import Signup from './Signup'
 import { useHistory } from "react-router-dom"
 
-function SigninRegister() {
+function SigninRegister(props) {
 
     const history = useHistory()
 
     function handleRoute() {
+        props.getUserProfile()
         history.push('/')
     }
     

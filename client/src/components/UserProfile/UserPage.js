@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Icon, Card } from 'semantic-ui-react'
 import UserSearch from './UserSearch'
-import UserCard from './UserCard'
 import UserFollowers from './UserFollowers'
 import UserFollowing from './UserFollowing'
 
@@ -43,22 +42,25 @@ const UserPage = (props) => {
 	return (
 		<div>
 			<br></br>
-			<UserSearch addFollow={addFollow}/>
-			<Grid style={{marginTop:"3%", marginLeft:"8%"}} stackable columns={2}>
-				<Grid.Column>
-					<UserCard currentUser={props.currentUser}/>
-				</Grid.Column>
-				<Grid.Column>
-					<Grid stackable columns={2}style={{marginLeft:"1%"}}>
-						<Grid.Column>
-							<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
-						</Grid.Column>
-						<Grid.Column style={{marginLeft:"-8%"}}>
-							<UserFollowers/>
-						</Grid.Column>
-					</Grid>
-				</Grid.Column>
-			</Grid>
+			<center>
+				<Card style={{backgroundColor:"#1a1f22", width:"225px"}}>
+					<br></br>
+					<center>
+						<Icon size="massive" name="user circle"/>
+					</center>
+					<h2 style={{marginTop:"0%", marginBottom:"7%"}}>{props.currentUser.username}</h2>
+				</Card>
+				<UserSearch addFollow={addFollow}/><br></br>
+				<Grid stackable columns={2}style={{width:"400px"}}>
+					<Grid.Column>
+						<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
+					</Grid.Column>
+					<Grid.Column>
+						<UserFollowers/>
+					</Grid.Column>
+				</Grid>
+			</center>
+			<br></br>
 		</div>
 	)
 }

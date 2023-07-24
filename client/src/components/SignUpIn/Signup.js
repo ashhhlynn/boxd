@@ -32,7 +32,6 @@ class Signup extends Component {
                 window.alert("Signup failed.")
             }
             else {
-                this.props.checkUser(data)
                 window.alert("Signup successful.")
                 this.props.handleRoute()
             }
