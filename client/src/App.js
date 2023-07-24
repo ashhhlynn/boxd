@@ -88,6 +88,14 @@ class App extends Component {
         )
         this.setState({userDiaries: newDiaryList})
 	}
+
+	patchUserDiaryFilm = (film) => {
+		const newDiaryList = this.state.userDiaries.filter(
+            (diary) => diary.id !== film.id
+        )
+		newDiaryList.push(film)
+		this.setState({userDiaries: newDiaryList})
+	}
     
 	render() {
         return (
@@ -109,7 +117,7 @@ class App extends Component {
 							</>
 						}
 						<Modal
-						style={{width:"500px", borderBox: "none"}}
+						style={{width:"500px"}}
 						open={this.state.modalOpen}
 						onClose={this.handleClose}
 						closeIcon>
@@ -128,7 +136,7 @@ class App extends Component {
                 			<SigninRegister getUserProfile={this.getUserProfile}/>
               			</Route>
 						<Route exact path="/userdiary">
-                			<UserDiaries getUserProfile={this.getUserProfile} removeUserDiaryFilm={this.removeUserDiaryFilm} userDiaries={this.state.userDiaries}/>
+                			<UserDiaries patchUserDiaryFilm={this.patchUserDiaryFilm} removeUserDiaryFilm={this.removeUserDiaryFilm} userDiaries={this.state.userDiaries}/>
               			</Route>
 					</Switch>
       			</Container>

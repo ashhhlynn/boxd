@@ -15,7 +15,9 @@ const UserDiaries = (props) => {
             })
         })
         .then(resp => resp.json())
-        props.getUserProfile()
+        .then(data => {
+            props.patchUserDiaryFilm(data)
+        })
     }
 
 	return (

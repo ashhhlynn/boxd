@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Icon, Item } from 'semantic-ui-react'
+import { Card, Icon, Item, Button, Divider } from 'semantic-ui-react'
 
 const UserFollowers = () => {
 
@@ -20,11 +20,15 @@ const UserFollowers = () => {
 	return (
 		<>
 	    <h3>Followers</h3>
-		<Item style={{textAlign:"left", marginLeft:"23%"}}>
+		<Divider></Divider>
+		<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
 			{followers.map((user, index) => (
-				<Card key={index} style={{ boxShadow:"none", backgroundColor:"#1a1f22"}}>
+				<Card key={index} style={{marginTop:"-8%", width:"150px", boxShadow:"none", backgroundColor:"#1a1f22"}}>
 					<Card.Header style={{letterSpacing:"1.5px"}}>
-						<Icon name="user"/> {user.username}
+						{user.username}
+						<Button floated="right" style={{marginTop:"-2.5%", background:"none", cursor:"auto", color:"white"}}size="mini">
+							<Icon name="user"/>
+						</Button> 
 					</Card.Header>
 				</Card>
 			))}	

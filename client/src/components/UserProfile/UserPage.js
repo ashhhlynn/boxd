@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Icon, Card } from 'semantic-ui-react'
+import { Grid, Icon } from 'semantic-ui-react'
 import UserSearch from './UserSearch'
 import UserFollowers from './UserFollowers'
 import UserFollowing from './UserFollowing'
@@ -41,17 +41,12 @@ const UserPage = (props) => {
 
 	return (
 		<div>
-			<br></br>
 			<center>
-				<Card style={{backgroundColor:"#1a1f22", width:"225px", marginBottom:"6%"}}>
-					<br></br>
-					<center>
-						<Icon size="massive" name="user circle"/>
-					</center>
-					<h2 style={{marginTop:"0%", marginBottom:"7%"}}>{props.currentUser.username}</h2>
-				</Card>
+			<br></br>
+				<Icon size="massive" name="user circle"/>
+				<h1 style={{marginTop:"0%", marginBottom:"4.5%"}}>{props.currentUser.username}</h1>
 				<UserSearch addFollow={addFollow}/>
-				<Grid stackable columns={2}style={{marginTop:"0%", width:"400px"}}>
+				<Grid stackable columns={2}style={{marginTop:"2%", width:"420px"}}>
 					<Grid.Column>
 						<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
 					</Grid.Column>
@@ -59,8 +54,8 @@ const UserPage = (props) => {
 						<UserFollowers/>
 					</Grid.Column>
 				</Grid>
-			</center>
 			<br></br>
+			</center>
 		</div>
 	)
 }
