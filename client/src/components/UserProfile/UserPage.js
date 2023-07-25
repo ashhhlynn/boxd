@@ -40,15 +40,15 @@ const UserPage = (props) => {
 	}
 
 	return (
-		<div>
+		<div className="userpage">
 			<center>
-			<br></br>
+				<br></br>
 				<Icon size="massive" name="user circle"/>
-				<h1 style={{ marginTop:"0%", marginBottom:".2%"}}>{props.currentUser.username}</h1>
+				<h1>{props.currentUser.username}</h1>
 				<p>{props.currentUser.diary_films.length} Films</p>
-				<Divider  style={{marginBottom:"5%", marginTop:"4%"}}></Divider>
+				<Divider style={{marginBottom:"5%", marginTop:"4%"}}></Divider>
 				<UserSearch addFollow={addFollow}/>
-				<Grid stackable columns={2}style={{marginTop:"2%", width:"420px"}}>
+				<Grid stackable columns={2}>
 					<Grid.Column>
 						<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
 					</Grid.Column>
@@ -56,7 +56,7 @@ const UserPage = (props) => {
 						<UserFollowers/>
 					</Grid.Column>
 				</Grid>
-			<br></br>
+				<br></br>
 			</center>
 		</div>
 	)

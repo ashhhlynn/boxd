@@ -41,7 +41,7 @@ function UserSearch(props) {
     
     const resultRenderer = ({username}) => ([ 
         <Item key={username}>
-            <Button floated="right" style={{marginTop:"-2%", width:"43px"}} size="mini" onClick={(e) => handleAddFollow(e, users.find(u => u.username === username))}>
+            <Button floated="right" style={{color: "black", marginTop:"-2%", width:"43px"}} size="mini" onClick={(e) => handleAddFollow(e, users.find(u => u.username === username))}>
                 <Icon name="plus"/>
             </Button>
             <p style={{marginTop:"2%"}}>{username}</p>

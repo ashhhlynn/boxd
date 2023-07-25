@@ -13,8 +13,8 @@ export default class UserMovieRating extends Component {
 
     render() {
         return (
-            <div>
-            <Rating size="big" icon="star" rating={this.state.rating} maxRating={5} onRate={this.handleRating} />
+            <div className="filmrating">
+                <Rating className="stars" size="big" rating={this.state.rating} maxRating={5} onRate={this.handleRating} />
             </div>
         )
     }

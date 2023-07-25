@@ -5,7 +5,16 @@
 	letter-spacing:1.5px !important;
 	background-color: #1a1f22;
 }
-  
+
+.app .nav { 
+	background-color:#15191b !important;
+	height:100px;
+}
+
+.app .nav a, .ui.icon {
+	color:white !important;
+}
+
 .bg {
 	background-image: url("https://s3.amazonaws.com/criterion-production/janus_stills/5002-/198id_ITMFLfg_277_0010_198id_ITMFLfg_413_w1600.jpg");
 	background-repeat: no-repeat;
@@ -16,6 +25,83 @@
 	background-size: cover;
 	margin: auto;
 	object-fit: cover;
+	margin-bottom: 3.5%;
+}
+
+.home h4 {
+	font-weight:bold !important;
+	text-align: left;
+}
+
+.home p {
+	margin-top:4.5%;
+	margin-bottom:3.5%;
+	text-align:left
+}
+
+.home .ui.button {
+	background-color: white;
+	letter-spacing: 1px;
+	color: black;
+	font-weight: normal;
+}
+
+.home .ui.card {
+	background-color:#1a1f22 !important;
+	box-shadow:none !important;
+	color: white;
+}
+.home .ui.image {
+	height: 220px !important;
+	width: 210px !important;
+}
+
+.diaries h3 {
+	color:white;
+	font-size:18px
+}
+
+.diaries .ui.image {
+	height: 88px;
+	width: 67px;
+	margin-left: 13%
+}
+
+.remove .ui.button {
+	background: none;
+	color: white;
+}
+
+.ui.rating .icon:before {
+	color: #383838 !important;
+}
+
+.ui.rating .icon.active:before{
+	color: #FFFFCC !important;
+}
+
+.userpage h1 {
+	margin-top:0%;
+	margin-bottom:.2%;
+}
+
+.userpage .ui.card {
+	background-color: #1a1f22 !important;
+	box-shadow: none;
+	margin-top: -8% !important;
+	width: 150px;
+	letter-spacing: 1.5px !important;
+}
+
+.userpage .ui.button {
+	background: none !important;
+	margin-top:-2.5%;
+	color:white;
+}
+
+.userpage .ui.grid {
+	width: 420px;
+	margin-top: 2%
 }
 
 h1, h2, h3, h5 {
@@ -31,7 +117,18 @@ h4 {
 	letter-spacing:1.5px !important;
 	font-weight: normal !important;
 }
-  
+
+.ui.divider {
+	color: white  !important;
+}
+
+.ui.modal {
+	background-color: #1a1f22 !important;
+	width: 550px !important;
+	color: white;
+}
+
+
 .ui.Container {
 	text-align: center;
 	font-family: "Consolas" !important;

@@ -28,10 +28,10 @@ const UserFollowers = () => {
 		:
 			<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
 				{followers.map((user, index) => (
-					<Card key={index} style={{marginTop:"-8%", width:"150px", boxShadow:"none", backgroundColor:"#1a1f22"}}>
-						<Card.Header style={{letterSpacing:"1.5px"}}>
+					<Card key={index}>
+						<Card.Header>
 							{user.username}
-							<Button floated="right" style={{marginTop:"-2.5%", background:"none", cursor:"auto", color:"white"}}size="mini">
+							<Button floated="right" style={{cursor:"auto"}}size="mini">
 								<Icon name="user"/>
 							</Button> 
 						</Card.Header>

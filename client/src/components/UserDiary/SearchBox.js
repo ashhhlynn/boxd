@@ -23,7 +23,7 @@ const SearchBox = (props) => {
 	return (
 		<>
 		<h3 style={{marginTop:"4%"}}> 
-			<input style={{letterSpacing:"1px", marginLeft:"-1%"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)} placeholder='Search films...'/> <Icon name="search" />
+			<input style={{letterSpacing:"1px", fontSize:"16px", marginLeft:"-1%"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)} placeholder='Search films...'/> <Icon name="search" />
         </h3>
 		<Films films={films} addUserDiaryFilm={props.addUserDiaryFilm}/>
 		</>

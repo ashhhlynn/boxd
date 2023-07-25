@@ -34,26 +34,22 @@ const Home = (props) => {
     }
     
 	return (
-        
-		<div>
-			<SearchBox addDiaryFilm={addDiaryFilm}/><Icon name="search" size="large" style={{marginLeft:"21%", marginTop:"-2.3%"}}/>  
-            <WelcomeFilms welcomeMovies={welcomeMovies}/>
-            <Divider></Divider>
+		<div className="home">
             {props.currentUser.length === 0 ?
                 <div className="bg">
                     <Item style={{marginTop:"4%"}}><br></br><br></br><br></br><br></br><br></br><br></br>
                         <h1>The social network for film.</h1>
                         <h2>Track films you've watched.</h2>
                         <h2>Tell your friends what's good.</h2>
-                        <Button as={Link} to ="/login" size="big" color="white" style={{color:"black", letterSpacing:"1px", fontWeight:"normal"}}>GET STARTED</Button>  
+                        <Button as={Link} to ="/login" size="big">GET STARTED</Button>  
                     </Item>
                 </div>
             : 
                 <>
-                <h4 style={{marginTop:"3.6%", marginBottom:"-2%", textAlign:"left"}}><b>Welcome, {props.currentUser.username}</b></h4>      
+                <h4 style={{marginTop:"3.6%", marginBottom:"-2%"}}>Welcome, {props.currentUser.username}</h4>      
                 <WelcomeFilms welcomeMovies={welcomeMovies}/>
                 <Divider></Divider>
-                <h4 style={{marginBottom:"-3%", marginTop:"3.5%", textAlign:"left"}}><b>New from friends</b></h4>
+                <h4 style={{marginBottom:"-3%", marginTop:"3.5%"}}>New from friends</h4>
                 {feed.length !== 0 ?
                     <>
                     <Feed userFeed={feed}/>
@@ -61,7 +57,7 @@ const Home = (props) => {
                     </>
                 : 
                     <>
-                    <p style={{marginTop:"4.5%", marginBottom:"3.5%", textAlign:"left"}}>No new content from friends right now.</p>
+                    <p>No new content from friends right now.</p>
                     </>
                 }
                 </>

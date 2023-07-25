@@ -24,7 +24,7 @@ function SigninRegister(props) {
                     <Signup handleRoute={handleRoute}/>
                 </Grid.Column>   
             </Grid>
-            <Divider style={{color:"white"}}vertical>Or</Divider>
+            <Divider vertical>Or</Divider>
         </Segment>
         </>
     )

@@ -68,18 +68,11 @@ const UserDiaries = (props) => {
                rating: r
             })
         })
-        .then(resp => resp.json())
-        .then(data => {
-            const newDiaryList = dF.filter(
-                (diary) => diary.id !== data.id
-            )
-            newDiaryList.push(data)
-            setDF(newDiaryList)
-        })
+
     }
 
 	return (
-		<div>
+		<div className="diaries">
             <SearchBox addUserDiaryFilm={addUserDiaryFilm} /><br></br><br></br>
             {dF.length === 0 ?
                 <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
