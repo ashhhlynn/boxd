@@ -16,6 +16,7 @@ function SigninRegister(props) {
     return (
         <>          
         <Segment placeholder style={{background:"none"}}>
+            <br></br>
             <Grid stackable relaxed='very' columns={2}>
                 <Grid.Column> 
                   <Login handleRoute={handleRoute}/>

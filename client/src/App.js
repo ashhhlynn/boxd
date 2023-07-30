@@ -61,8 +61,8 @@ class App extends Component {
 							<Menu.Item><Link to='/login'><Icon size="big" name="user circle"/></Link></Menu.Item>
 							:
 							<>
-							<Menu.Item style={{marginLeft:"10%"}}><Link to='/userdiary'><Icon name="film" size="large" style={{marginTop:"2%"}}/></Link></Menu.Item>
-							<Menu.Item><Icon name="user circle" onClick={this.handleOpen} size="large" style={{color:"white", cursor:"pointer"}}/></Menu.Item>
+							<Menu.Item style={{marginLeft:"10%"}}><Link to='/userdiary'><Icon name="user circle" size="large" style={{marginTop:"2%"}}/></Link></Menu.Item>
+							<Menu.Item><Icon name="address book outline" onClick={this.handleOpen} size="large" style={{color:"white", cursor:"pointer"}}/></Menu.Item>
 							<Menu.Item style={{marginLeft:"-2%"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
 							</>
 						}
@@ -85,7 +85,7 @@ class App extends Component {
                 			<SigninRegister getUserProfile={this.getUserProfile}/>
               			</Route>
 						<Route exact path="/userdiary">
-                			<UserDiaries currentUser={this.props.currentUser} />
+                			<UserDiaries handleOpen={this.handleOpen} currentUser={this.props.currentUser} />
               			</Route>
 					</Switch>
       			</Container>

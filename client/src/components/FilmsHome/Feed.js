@@ -11,7 +11,8 @@ const Feed = (props) => {
                     <Card.Content style={{marginTop:"-10%"}}>
                         <Icon name="user circle"/>{movie.user.username}<br></br>
                         <Rating 
-                        disabled size="mini" 
+                        disabled 
+                        size="mini" 
                         rating={movie.rating}  
                         maxRating={5}  
                         />

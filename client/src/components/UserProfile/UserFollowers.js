@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { Card, Icon, Item, Button, Divider } from 'semantic-ui-react'
+import React from 'react'
+import { Card, Icon, Item, Button } from 'semantic-ui-react'
 
-const UserFollowers = () => {
-
-    const [followers, setFollowers] = useState([])
-
-    useEffect(() => {
-		getFollowers()
-	}, [])
-
-    const getFollowers = () => { 
-        fetch("/userfollowers")
-        .then(resp => resp.json())
-        .then(data => {
-            setFollowers(data)
-        })
-    }
+const UserFollowers = (props) => {
 
 	return (
 		<>
-	    <h3>Followers</h3>
-		<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
-		{followers.length === 0 ?
+		{props.currentUser.followers.length === 0 ?
 			<>
 			<center>0 users are following you.</center>
 			</>
 		:
 			<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
-				{followers.map((user, index) => (
+				{props.currentUser.followers.map((user, index) => (
 					<Card key={index}>
 						<Card.Header>
 							{user.username}

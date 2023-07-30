@@ -21,11 +21,6 @@ class UsersController < ApplicationController
     current_user.followed_users.find_by(followee_id: @user.id).destroy
   end
 
-  def userfollowers
-    followers = current_user.followers
-    render json: followers 
-  end 
-
   def userfollowing 
     @following = current_user.followees
     render json: @following

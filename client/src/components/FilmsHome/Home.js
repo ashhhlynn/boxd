@@ -46,10 +46,10 @@ const Home = (props) => {
                 </div>
             : 
                 <>
-                <h4 style={{marginTop:"3.6%", marginBottom:"-2%"}}>Welcome, {props.currentUser.username}</h4>      
+                <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>Welcome, {props.currentUser.username}</h4>      
                 <WelcomeFilms welcomeMovies={welcomeMovies}/>
                 <Divider></Divider>
-                <h4 style={{marginBottom:"-3%", marginTop:"3.5%"}}>New from friends</h4>
+                <h4 style={{marginBottom:"-1.5%", marginTop:"3.5%"}}>New from friends</h4>
                 {feed.length !== 0 ?
                     <>
                     <Feed userFeed={feed}/>

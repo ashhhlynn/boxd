@@ -58,7 +58,7 @@
 
 .diaries h3 {
 	color:white;
-	font-size:18px
+	font-size:16px
 }
 
 .diaries .ui.image {
@@ -128,18 +128,4 @@ h4 {
 	color: white;
 }
 
-
-.ui.Container {
-	text-align: center;
-	font-family: "Consolas" !important;
-	font-weight: normal !important;
-	color: white !important;
-	letter-spacing:1.5px !important;
-	background-color: #1a1f22;
-}
-  
-.ui.Menu {
-	color: white !important;
-}
-  
   

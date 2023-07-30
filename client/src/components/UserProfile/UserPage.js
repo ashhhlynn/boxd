@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Icon, Divider } from 'semantic-ui-react'
+import { Grid, Item, Divider } from 'semantic-ui-react'
 import UserSearch from './UserSearch'
 import UserFollowers from './UserFollowers'
 import UserFollowing from './UserFollowing'
@@ -43,17 +43,23 @@ const UserPage = (props) => {
 		<div className="userpage">
 			<center>
 				<br></br>
-				<Icon size="massive" name="user circle"/>
-				<h1>{props.currentUser.username}</h1>
-				<p>{props.currentUser.diary_films.length} Films</p>
-				<Divider style={{marginBottom:"5%", marginTop:"4%"}}></Divider>
 				<UserSearch addFollow={addFollow}/>
 				<Grid stackable columns={2}>
 					<Grid.Column>
-						<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
+						<h3>Following</h3>
+						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
+						{userFollowing.length === 0 ?
+							<center>You're following 0 users.</center>
+						:
+							<Item style={{textAlign:"left", marginLeft:"12%"}}>	
+								<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
+							</Item>
+						}
 					</Grid.Column>
 					<Grid.Column>
-						<UserFollowers/>
+						<h3>Followers</h3>
+						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
+						<UserFollowers currentUser={props.currentUser}/>
 					</Grid.Column>
 				</Grid>
 				<br></br>

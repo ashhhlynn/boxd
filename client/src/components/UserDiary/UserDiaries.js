@@ -1,4 +1,4 @@
-import { Divider } from 'semantic-ui-react'
+import { Divider, Icon } from 'semantic-ui-react'
 import React, { useState, useEffect } from 'react'
 import UserDiaryFilm from './UserDiaryFilm'
 import SearchBox from './SearchBox'
@@ -73,7 +73,18 @@ const UserDiaries = (props) => {
 
 	return (
 		<div className="diaries">
-            <SearchBox addUserDiaryFilm={addUserDiaryFilm} /><br></br><br></br>
+            <br></br>
+            <Icon size="massive" name="user circle"/>
+			<h1>{props.currentUser.username}</h1>
+			<h3 onClick={props.handleOpen} style={{cursor:"pointer", marginTop:"-1%"}}>
+                <center>
+                    {dF.length} Films | {props.currentUser.followees.length} Following | {props.currentUser.followers.length} Followers
+                </center>
+            </h3>
+			<Divider style={{marginBottom:"2%", marginTop:"4%"}}></Divider>
+            <center>
+                <SearchBox addUserDiaryFilm={addUserDiaryFilm}/>
+            </center><br></br><br></br>
             {dF.length === 0 ?
                 <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
             :

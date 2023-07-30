@@ -8,7 +8,7 @@ const UserDiaryFilm = (props) => {
         <Item style={{marginLeft:"7%", marginRight:"7%"}} >
             <div className="remove" onClick={() => props.removeUserDiaryFilm(props.movie)}>
                 <Button floated="right" size="mini">
-                    <Icon size="large" name="delete" />
+                    <center><Icon size="large" name="delete" /></center>
                 </Button>
             </div>
             <Header floated="left">
@@ -20,7 +20,7 @@ const UserDiaryFilm = (props) => {
             <Image src={props.movie.poster} alt='movie'/>
             <Item style={{ marginLeft:"24.5%", marginBottom:"4%", marginTop:"-7.5%", textAlign:"left"}}>
                 <h3>
-                    <b>{props.movie.title}</b> 
+                    {props.movie.title}
                     <Label as="h5" style={{background:"none", marginTop:"-2%",color:"white"}}>{props.movie.year}</Label>
                     <UserMovieRating film={props.movie} key={props.movie.id} handleClickPatchRating={props.patchRating}/>
                 </h3>
