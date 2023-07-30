@@ -13,11 +13,11 @@ const Home = (props) => {
         getWelcomeMovies()
     }, [])
 
-    const getWelcomeMovies = async () => {
-        await fetch("https://www.omdbapi.com/?s=hack&apikey=263d22d8")
+    const getWelcomeMovies = () => {
+        fetch("/diary_films")
         .then((response) => response.json())
         .then(data => {
-            setWelcomeMovies(data.Search.slice(0,7))
+            setWelcomeMovies(data)
         })  
     }
 
@@ -46,9 +46,17 @@ const Home = (props) => {
                 </div>
             : 
                 <>
-                <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>Welcome, {props.currentUser.username}</h4>      
-                <WelcomeFilms welcomeMovies={welcomeMovies}/>
-                <Divider></Divider>
+                <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>New on Boxd</h4>      
+                {welcomeMovies.length !== 0 ?
+                    <>
+                    <WelcomeFilms welcomeMovies={welcomeMovies}/>
+                    <Divider></Divider>
+                    </>
+                : 
+                    <>
+                    <p>No new content on Boxd right now.</p>
+                    </>
+                }
                 <h4 style={{marginBottom:"-1.5%", marginTop:"3.5%"}}>New from friends</h4>
                 {feed.length !== 0 ?
                     <>

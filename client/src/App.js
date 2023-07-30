@@ -11,7 +11,6 @@ import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { checkUser } from "./components/actions/rootActions"
 import { connect } from 'react-redux'
 import { logOut } from "./components/actions/rootActions"
-import UserShow from './components/UserProfile/UserShow'
 
 class App extends Component {
 
@@ -88,9 +87,6 @@ class App extends Component {
 						<Route exact path="/userdiary">
                 			<UserDiaries handleOpen={this.handleOpen} currentUser={this.props.currentUser} />
               			</Route>
-						<Route path='/usershow'>
-                			<UserShow />
-						</Route>
 					</Switch>
       			</Container>
       			<Footer/>
