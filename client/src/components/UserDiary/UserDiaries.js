@@ -22,8 +22,6 @@ const UserDiaries = (props) => {
     }
 
     const addUserDiaryFilm = (film) => {	
-		var today = new Date(),
-		date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear()
 		fetch("/diary_films", {
 			method: 'POST',
 			headers: {
@@ -32,7 +30,7 @@ const UserDiaries = (props) => {
 			body: JSON.stringify({
 				title: film.Title, 
 				user_id: props.currentUser.id, 
-				watch_date: date,
+				watch_date: film.imdbID,
 				year: film.Year, 
 				poster: film.Poster, 
 				rating: 0, 
@@ -68,7 +66,6 @@ const UserDiaries = (props) => {
                rating: r
             })
         })
-
     }
 
 	return (

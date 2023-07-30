@@ -1,6 +1,7 @@
 import React from 'react'
-import { Header, Image, Button, Item, Icon, Label, Divider } from 'semantic-ui-react'
+import { Header, Button, Item, Icon, Label, Divider } from 'semantic-ui-react'
 import UserMovieRating from './UserMovieRating'
+import Film from '../FilmsHome/Filmy'
 
 const UserDiaryFilm = (props) => {
 	return (
@@ -13,11 +14,11 @@ const UserDiaryFilm = (props) => {
             </div>
             <Header floated="left">
                 <Label style={{marginTop:"20%", backgroundColor:"#FFFEEF", color:"black"}}>
-                    {props.movie.watch_date.slice(5)}
-                    <h2><b>{props.movie.watch_date.slice(0,4)}</b></h2>
+                    {props.movie.created_at.slice(0,4)}
+                    <h2><b>{props.movie.created_at.slice(6,10)}</b></h2>
                 </Label>
             </Header>
-            <Image src={props.movie.poster} alt='movie'/>
+            <Film film={props.movie}/>
             <Item style={{ marginLeft:"24.5%", marginBottom:"4%", marginTop:"-7.5%", textAlign:"left"}}>
                 <h3>
                     {props.movie.title}

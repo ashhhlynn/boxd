@@ -1,12 +1,13 @@
 import React from 'react'
-import { Image, Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
+import Film from './Filmy'
 
 const WelcomeFilms = (props) => {
 	return (
         <Card.Group itemsPerRow={7} style={{marginBottom:"3%", marginTop:"3%"}}>
             {props.welcomeMovies.map((wm) => (
                 <Card key={wm.title}>
-                    <Image src={wm.poster}/>
+                    <Film film={wm}/>
                 </Card>
             ))}
         </Card.Group>

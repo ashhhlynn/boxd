@@ -2,7 +2,7 @@ class DiaryFilmsController < ApplicationController
 
   def index
     @diary_films = DiaryFilm.all
-    render json: @diary_films[0..6], include: :user
+    render json: @diary_films, include: :user
   end
 
   def create
@@ -27,6 +27,15 @@ class DiaryFilmsController < ApplicationController
     @diary_film = DiaryFilm.find(params[:id])
     @diary_film.destroy
   end
+
+  def show 
+    diary_film = DiaryFilm.find(params[:id])
+    @diary_films = DiaryFilm.all
+    filtered = @diary_films.filter {|u | u.watch_date === diary_film.watch_date}
+    f = filtered.map {|x| x.rating}
+    rate = (f.reduce(0) { |sum, num | sum + num })/f.count
+    render json: rate
+  end 
 
   private
 

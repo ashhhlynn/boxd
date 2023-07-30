@@ -13,6 +13,7 @@ const SearchBox = (props) => {
         const responseJson = await response.json()
         if (responseJson.Search) {
             setFilms(responseJson.Search)
+            console.log(films)
         }
     }
 

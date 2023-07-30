@@ -3,9 +3,10 @@ import { Card, Popup, Button, Image } from 'semantic-ui-react'
 
 const Films = (props) => {
 	return (
-        <Card.Group itemsPerRow={5}>
+        <Card.Group itemsPerRow={4}>
             {props.films.map((movie, index) => (
-                <Popup hoverable key={index} trigger={<Card><Image style={{height:"300px", width:"220px"}}src={movie.Poster} alt='movie'></Image></Card>}>
+                <Card style={{background:"inherit", boxShadow:"none"}}>
+                <Popup hoverable key={index} trigger={<Image style={{height:"290px", width:"205px"}}src={movie.Poster} alt='movie'></Image>}>
                     <Popup.Content>
                         <h1>{movie.Title}</h1>
                         <p>
@@ -14,8 +15,10 @@ const Films = (props) => {
                         </p>  
                     </Popup.Content>
                 </Popup>
+                </Card>
             ))}
         </Card.Group>
+       
 	)
 }
 
