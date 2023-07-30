@@ -13,6 +13,7 @@ const UserPage = (props) => {
 	}, [])
 
 	const getFollowing = () => {
+		setUserFollowing(props.currentUser.followees)
 		fetch("/userfollowing")
 		.then(resp => resp.json())
 		.then(data => {
@@ -59,7 +60,7 @@ const UserPage = (props) => {
 					<Grid.Column>
 						<h3>Followers</h3>
 						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
-						<UserFollowers currentUser={props.currentUser}/>
+						<UserFollowers  currentUser={props.currentUser}/>
 					</Grid.Column>
 				</Grid>
 				<br></br>
