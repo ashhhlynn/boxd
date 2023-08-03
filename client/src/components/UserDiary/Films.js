@@ -3,10 +3,9 @@ import { Card  } from 'semantic-ui-react'
 import Film  from './Film'
 
 class Films extends Component {
-
     render () {
 	    return (
-		    <div>
+		    <div className="films">
                 <Card.Group itemsPerRow={4}>
                     {this.props.films.map((movie, index) => (
                         <Film key={index} addUserDiaryFilm={this.props.addUserDiaryFilm} movie={movie} />                      

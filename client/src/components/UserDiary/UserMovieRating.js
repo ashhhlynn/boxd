@@ -8,7 +8,7 @@ export default class UserMovieRating extends Component {
     handleRating = (e, { rating, maxRating }) => {
         this.setState({ rating, maxRating })
         let x = this.props.film.id
-        this.props.handleClickPatchRating(rating, x)
+        this.props.patchRating(rating, x)
     }
 
     render() {

@@ -27,3 +27,9 @@ export const patchDiaryFilm = (film) => {
         dispatch({ type: "PATCH_DIARY_FILM", film: film })
     }
 }
+
+export const fetchAllDF = (films) => {
+    return (dispatch) => {
+        dispatch({ type: "FETCH_ALL_DF", films: films })
+    }
+}

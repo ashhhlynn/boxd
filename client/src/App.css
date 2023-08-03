@@ -6,13 +6,47 @@
 	background-color: #1a1f22;
 }
 
-.app .nav { 
+.ui.button {
+	letter-spacing: 1px !important;
+	font-weight: normal !important;
+}
+
+.ui.modal {
+	background-color: #1a1f22 !important;
+	width: 550px !important;
+	color: white;
+}
+
+.ui.modal > .content {
+	background: inherit !important;
+}
+
+.ui.divider {
+	color: white  !important;
+}
+
+.nav { 
 	background-color:#15191b !important;
 	height:100px;
 }
 
-.app .nav a, .ui.icon {
+.nav a, .ui.icon {
 	color:white !important;
+}
+
+.app .ui.container {
+	min-height:70vh; 
+	height:100%
+}
+
+.footer .ui.segment {
+	background-color:#15191b !important;
+	margin-top: 2.5% !important;
+	color:white;
+}
+
+.ui.segment {
+	background: inherit !important;
 }
 
 .bg {
@@ -41,9 +75,7 @@
 
 .home .ui.button {
 	background-color: white;
-	letter-spacing: 1px;
 	color: black;
-	font-weight: normal;
 }
 
 .home .ui.card {
@@ -51,6 +83,7 @@
 	box-shadow:none !important;
 	color: white;
 }
+
 .home .ui.image {
 	height: 220px !important;
 	width: 210px !important;
@@ -69,6 +102,11 @@
 	height: 88px;
 	width: 67px;
 	margin-left: 13%
+}
+
+.films .ui.card {
+	background: inherit !important;
+	box-shadow: none !important;
 }
 
 .remove .ui.button {
@@ -112,7 +150,7 @@
 	margin-top: 2%
 }
 
-h1, h2, h3, h5 {
+h1, h2, h3, h4, h5 {
 	font-weight: normal !important;
 	letter-spacing:1.5px !important;
 }
@@ -121,19 +159,9 @@ h2 {
 	font-size: 22px !important;
 }
   
-h4 {
-	letter-spacing:1.5px !important;
-	font-weight: normal !important;
-}
 
-.ui.divider {
-	color: white  !important;
-}
 
-.ui.modal {
-	background-color: #1a1f22 !important;
-	width: 550px !important;
-	color: white;
-}
+
+
 
   

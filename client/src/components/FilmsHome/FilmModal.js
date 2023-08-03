@@ -56,9 +56,9 @@ class FilmModal extends Component {
 					open={this.state.modalOpen}
 					onClose={this.handleClose}
 					closeIcon>
-            		<Modal.Content style={{background:"inherit"}}>
+            		<Modal.Content >
 						<h3>{film.title}
-							<Button style={{letterSpacing:"1px", fontWeight:"normal"}} onClick={this.addFilmToDiary} circular floated='right'>Log Film to Diary</Button>
+							<Button onClick={this.addFilmToDiary} circular floated='right'>Log Film to Diary</Button>
 						</h3>
 						<h5>{film.year}</h5>
 						<h5>Boxd score: {this.state.score}</h5>

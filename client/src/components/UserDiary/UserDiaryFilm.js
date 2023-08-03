@@ -22,8 +22,8 @@ const UserDiaryFilm = (props) => {
             <Item style={{ marginLeft:"24.5%", marginBottom:"4%", marginTop:"-7.5%", textAlign:"left"}}>
                 <h3>
                     {props.movie.title}
-                    <Label as="h5" style={{background:"none", marginTop:"-2%",color:"white"}}>{props.movie.year}</Label>
-                    <UserMovieRating film={props.movie} key={props.movie.id} handleClickPatchRating={props.patchRating}/>
+                    <Label as="p" style={{background:"none", fontWeight:"normal", marginTop:"-2%",color:"white"}}>{props.movie.year}</Label>
+                    <UserMovieRating film={props.movie} key={props.movie.id} patchRating={props.patchRating}/>
                 </h3>
             </Item>
             <Divider></Divider>

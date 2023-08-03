@@ -7,10 +7,6 @@ class DiaryFilmsController < ApplicationController
 
   def create
     diary_film = DiaryFilm.create(diary_film_params)
-    @films = Film.all
-    if !@films.find {| f | f.year === diary_film.watch_date }
-      Film.create(year: diary_film.watch_date)
-    end 
     if diary_film.valid?
       render json: diary_film, status: :created
     else

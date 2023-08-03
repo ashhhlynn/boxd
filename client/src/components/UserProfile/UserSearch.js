@@ -37,6 +37,8 @@ function UserSearch(props) {
                 'Content-Type': 'application/json',
             },
         })
+        let newUsersList = users.filter(u => u.id !== user.id)
+        setUsers(newUsersList)
     }
     
     const resultRenderer = ({username}) => ([ 
@@ -49,15 +51,17 @@ function UserSearch(props) {
     ])
     
     return (
-        <Search
-          onSearchChange={handleSearchChange}
-          noResultsMessage='No users found.'
-          resultRenderer={resultRenderer}
-          results={results}
-          value={value}
-          title={results}
-          placeholder='Search users to follow...' 
-        />
+        <p>
+            <Search
+            onSearchChange={handleSearchChange}
+            noResultsMessage='No unfollowed users found.'
+            resultRenderer={resultRenderer}
+            results={results}
+            value={value}
+            title={results}
+            placeholder='Search users to follow...' 
+            />
+        </p>
     )
 }
 

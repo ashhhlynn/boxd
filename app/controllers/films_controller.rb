@@ -16,11 +16,7 @@ class FilmsController < ApplicationController
   
     def show 
         @film = Film.find(params[:id])
-        @diary_films = DiaryFilm.all 
-        x = @diary_films.filter {|f| f.watch_date === @film.year}
-        f = x.map {|x| x.rating}
-        rate = ((f.reduce(0) { |sum, num | sum + num })/f.count.to_f).round(2)
-        render json: rate
+        render json: @film
     end 
   
     private

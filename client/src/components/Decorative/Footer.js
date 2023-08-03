@@ -3,8 +3,8 @@ import {  Segment } from 'semantic-ui-react'
 
 const Footer = () => {
 	return (
-		<div>
-			<Segment style={{backgroundColor:"#15191b", marginTop:"2.5%", color:"white"}}>
+		<div className="footer">
+			<Segment>
 				<h5>© 2023 Boxd</h5>
 			</Segment>
 		</div>

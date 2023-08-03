@@ -15,7 +15,7 @@ function SigninRegister(props) {
     
     return (
         <>          
-        <Segment placeholder style={{background:"none"}}>
+        <Segment placeholder>
             <br></br>
             <Grid stackable relaxed='very' columns={2}>
                 <Grid.Column> 

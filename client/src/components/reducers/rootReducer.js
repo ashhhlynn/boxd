@@ -4,7 +4,8 @@ export const initialState = {
     diaryFilms: [],
     countFollowing: 0,
     countFollowers: 0,
-    countDF: 0
+    countDF: 0,
+    allDF: []
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -22,6 +23,13 @@ export const rootReducer = (state = initialState, action) => {
                 };
             break 
 
+        case 'FETCH_ALL_DF':
+            return {
+                ...state, 
+                allDF: action.films, 
+                loading: false,
+            };
+
         case 'LOGOUT':
             return {
                 ...state, 
@@ -30,10 +38,12 @@ export const rootReducer = (state = initialState, action) => {
             };
 
         case 'ADD_DIARY_FILM':
-            const newDiaryList = [action.film, ...state.diaryFilms, ]
+            const newDiaryList = [action.film, ...state.diaryFilms ]
+            const newAllDiaryList = [action.film, ...state.allDF ]
             return {
                 ...state, 
                 diaryFilms: newDiaryList,
+                allDF: newAllDiaryList,
                 countDF: state.countDF + 1,
                 loading: false,
             };

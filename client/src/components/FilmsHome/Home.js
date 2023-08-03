@@ -1,8 +1,8 @@
-import { Divider, Button, Item  } from 'semantic-ui-react'
+import { Divider } from 'semantic-ui-react'
 import WelcomeFilms from './WelcomeFilms'
 import React, { useState, useEffect } from 'react'
 import Feed from './Feed'
-import { Link} from 'react-router-dom'
+import Welcome from './Welcome'
 
 const Home = (props) => {
     
@@ -36,14 +36,9 @@ const Home = (props) => {
 	return (
 		<div className="home">
             {props.currentUser.length === 0 ?
-                <div className="bg">
-                    <Item style={{marginTop:"4%"}}><br></br><br></br><br></br><br></br><br></br><br></br>
-                        <h1>The social network for film.</h1>
-                        <h2>Track films you've watched.</h2>
-                        <h2>Tell your friends what's good.</h2>
-                        <Button as={Link} to ="/login" size="big">GET STARTED</Button>  
-                    </Item>
-                </div>
+                <>
+                <Welcome/>
+                </>
             : 
                 <>
                 <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>New on Boxd</h4>      
