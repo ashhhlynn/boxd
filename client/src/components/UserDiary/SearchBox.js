@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Films from './Films'
 import {  Icon } from 'semantic-ui-react'
+import Films from './Films'
 
 const SearchBox = (props) => {
 	

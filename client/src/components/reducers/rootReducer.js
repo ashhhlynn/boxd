@@ -1,6 +1,7 @@
 export const initialState = {
     currentUser: [],
     loading: false,
+    diaryFilms: []
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -18,6 +19,13 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 currentUser: [], 
+                loading: false,
+            };
+
+        case 'FETCH_DIARY_FILMS':
+            return {
+                ...state, 
+                diaryFilms: action.films, 
                 loading: false,
             };
 

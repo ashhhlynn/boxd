@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Button, Item, Icon, Label, Divider } from 'semantic-ui-react'
 import UserMovieRating from './UserMovieRating'
-import Film from '../FilmsHome/Filmy'
+import FilmModal from '../FilmsHome/FilmModal'
 
 const UserDiaryFilm = (props) => {
 	return (
@@ -18,7 +18,7 @@ const UserDiaryFilm = (props) => {
                     <h2><b>{props.movie.created_at.slice(6,10)}</b></h2>
                 </Label>
             </Header>
-            <Film film={props.movie}/>
+            <FilmModal film={props.movie} />
             <Item style={{ marginLeft:"24.5%", marginBottom:"4%", marginTop:"-7.5%", textAlign:"left"}}>
                 <h3>
                     {props.movie.title}

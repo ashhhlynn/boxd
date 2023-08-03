@@ -9,3 +9,9 @@ export const logOut = () => {
         dispatch({ type: "LOGOUT" })
     }
 }
+
+export const fetchDiaryFilms = (films) => {
+    return (dispatch) => {
+        dispatch({ type: "FETCH_DIARY_FILMS", films: films })
+    }
+}

@@ -7,6 +7,10 @@ class DiaryFilmsController < ApplicationController
 
   def create
     diary_film = DiaryFilm.create(diary_film_params)
+    @films = Film.all
+    if !@films.find {| f | f.year === diary_film.watch_date }
+      Film.create(year: diary_film.watch_date)
+    end 
     if diary_film.valid?
       render json: diary_film, status: :created
     else
@@ -33,7 +37,7 @@ class DiaryFilmsController < ApplicationController
     @diary_films = DiaryFilm.all
     filtered = @diary_films.filter {|u | u.watch_date === diary_film.watch_date}
     f = filtered.map {|x| x.rating}
-    rate = (f.reduce(0) { |sum, num | sum + num })/f.count
+    rate = ((f.reduce(0) { |sum, num | sum + num })/f.count.to_f).round(2)
     render json: rate
   end 
 

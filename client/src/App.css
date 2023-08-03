@@ -56,6 +56,10 @@
 	width: 210px !important;
 }
 
+.filmModal .ui.image {
+	cursor: pointer;
+}
+
 .diaries h3 {
 	color:white;
 	font-size:16px
@@ -90,6 +94,10 @@
 	box-shadow: none;
 	margin-top: -8% !important;
 	width: 150px;
+	letter-spacing: 1.5px !important;
+}
+
+.userpage p {
 	letter-spacing: 1.5px !important;
 }
 

@@ -44,13 +44,13 @@ const UserPage = (props) => {
 		<div className="userpage">
 			<center>
 				<br></br>
-				<UserSearch addFollow={addFollow}/>
+				<UserSearch className="userSearch" addFollow={addFollow}/>
 				<Grid stackable columns={2}>
 					<Grid.Column>
 						<h3>Following</h3>
 						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
 						{userFollowing.length === 0 ?
-							<center>You're following 0 users.</center>
+							<p style={{marginTop:"-7%"}}>You're following 0 users.</p>
 						:
 							<Item style={{textAlign:"left", marginLeft:"12%"}}>	
 								<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
@@ -60,7 +60,13 @@ const UserPage = (props) => {
 					<Grid.Column>
 						<h3>Followers</h3>
 						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
-						<UserFollowers  currentUser={props.currentUser}/>
+						{props.currentUser.followers.length === 0 ?
+							<p style={{marginTop:"-7%"}}>0 users are following you.</p>
+						:
+							<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
+								<UserFollowers userFollowers={props.currentUser.followers}/>
+							</Item>
+						}
 					</Grid.Column>
 				</Grid>
 				<br></br>

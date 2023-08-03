@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 import { Button, Image, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-class Filmy extends Component {
+class FilmModal extends Component {
 
 	state = {
 		modalOpen: false,
-		r: ''
+		score: ''
 	}
 
 	handleOpen = () => {
@@ -15,7 +15,7 @@ class Filmy extends Component {
 		.then(resp => resp.json())
 		.then(data => {
 			if (data !== null) {
-				this.setState({r: data})
+				this.setState({score: data})
 			}
 		})
 		this.setState({ modalOpen: true });
@@ -45,7 +45,7 @@ class Filmy extends Component {
 	render() {
         let film = this.props.film
         return (
-    		<div onClick={this.handleOpen}>
+    		<div className="filmModal" onClick={this.handleOpen}>
       			<Image src={film.poster}/>
 				<Modal
 					open={this.state.modalOpen}
@@ -53,20 +53,21 @@ class Filmy extends Component {
 					closeIcon>
             		<Modal.Content style={{background:"inherit"}}>
 						<h3>{film.title}
-							<Button onClick={this.addFilmToDiary} style={{letterSpacing:"1px", fontWeight:"normal"}}circular floated='right'>Log Film to Diary</Button>
+							<Button style={{letterSpacing:"1px", fontWeight:"normal"}} onClick={this.addFilmToDiary} circular floated='right'>Log Film to Diary</Button>
 						</h3>
 						<h5>{film.year}</h5>
-						<h5>Boxd score: {this.state.r}</h5>
+						<h5>Boxd score: {this.state.score}</h5>
             		</Modal.Content>
           		</Modal>
     		</div>
   		)
 	}
 }
+
 const mapStateToProps = (state) => {
     return { 
     	currentUser: state.currentUser,
     }
 }
 
-export default connect(mapStateToProps)(Filmy)
+export default connect(mapStateToProps)(FilmModal)

@@ -11,6 +11,7 @@ import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { checkUser } from "./components/actions/rootActions"
 import { connect } from 'react-redux'
 import { logOut } from "./components/actions/rootActions"
+import { fetchDiaryFilms } from "./components/actions/rootActions"
 
 class App extends Component {
 
@@ -105,7 +106,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
     	checkUser: (user) =>  { dispatch(checkUser(user)) },
-		logOut: () =>  { dispatch(logOut()) }
+		logOut: () =>  { dispatch(logOut()) },
+		fetchDiaryFilms: (films) => { dispatch(fetchDiaryFilms(films)) }
     }
 } 
 
