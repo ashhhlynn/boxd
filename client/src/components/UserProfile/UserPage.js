@@ -7,6 +7,7 @@ import UserFollowing from './UserFollowing'
 const UserPage = (props) => {
 	
 	const [userFollowing, setUserFollowing] = useState([])
+	const [users, setUsers] = useState([])
 
 	useEffect(() => {
 		getFollowing()
@@ -20,30 +21,46 @@ const UserPage = (props) => {
 		})
 	}
 
+    useEffect(() => {
+        getUsers()
+    }, [])
+
+    const getUsers = () => {
+        fetch("/users")
+        .then(resp => resp.json())
+        .then(data => {
+            setUsers(data)
+        })
+    }
+
 	const addFollow = (data) => {
-		const newUserList = [...userFollowing, data]
-		setUserFollowing(newUserList)
+		const newUserFollowing = [...userFollowing, data]
+		setUserFollowing(newUserFollowing)
 		props.getUserProfile()
+		let newUsersList = users.filter(u => u.id !== data.id)
+        setUsers(newUsersList)
 	}
 
-	const removeFollow = (event, id) => {
+	const removeFollow = (event, user) => {
 		event.preventDefault()
-		fetch(`users/` + id + `/unfollow`, {
+		fetch(`users/` + user.id + `/unfollow`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		})
-		const newUserList = userFollowing.filter((u) => u.id !== id)
+		const newUserList = userFollowing.filter((u) => u.id !== user.id)
 		setUserFollowing(newUserList)
 		props.getUserProfile()
+		let newUsersList = [...users, user]
+		setUsers(newUsersList)
 	}
 
 	return (
 		<div className="userpage">
 			<center>
 				<br></br>
-				<UserSearch addFollow={addFollow}/>
+				<UserSearch users={users} addFollow={addFollow}/>
 				<Grid stackable columns={2}>
 					<Grid.Column>
 						<h3>Following</h3>

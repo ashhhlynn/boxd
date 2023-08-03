@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    filtered = @users.filter {|u|!current_user.followed_users.find_by(followee_id: u.id)}
+    filtered = @users.filter { |u| !current_user.followed_users.find_by(followee_id: u.id) }
     render json: filtered
   end
 
@@ -21,13 +21,13 @@ class UsersController < ApplicationController
     current_user.followed_users.find_by(followee_id: @user.id).destroy
   end
 
-  def userfollowing 
+    def userfollowing 
     @following = current_user.followees
     render json: @following
-  end 
+    end 
 
   def feed
-    films = current_user.followees.map {|f| f.diary_films }
+    films = current_user.followees.map { |f| f.diary_films }
     sorted = films.flatten.sort { |a, b| b.created_at <=> a.created_at } 
     @feed = sorted[0..6]
     render json: @feed
@@ -42,11 +42,6 @@ class UsersController < ApplicationController
       render json: { errors: ["Signup invalid"] }
     end 
   end
-
-  def show 
-    @user = User.find(params[:id])
-    render json: @user, includes: :diary_films
-  end 
 
   private
 

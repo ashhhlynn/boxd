@@ -8,7 +8,7 @@ const UserFollowing = (props) => {
 			<Card key={index}>
 				<Card.Header>
 					{user.username}
-					<Button floated="right" onClick={(event) => props.removeFollow(event, user.id)} size="mini">
+					<Button floated="right" onClick={(event) => props.removeFollow(event, user)} size="mini">
 						<Icon name="user close"/>
 					</Button> 
 				</Card.Header>
