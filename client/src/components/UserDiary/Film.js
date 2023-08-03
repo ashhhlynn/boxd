@@ -9,26 +9,22 @@ class Film extends Component {
         films: []
     }
 
-    componentDidMount = () => {
+    handleOpen = (event) => {
         fetch("/films")
         .then(resp => resp.json())
         .then(data => {
-            this.setState({films: data})
-        })
+            let x = data
+            if (x.find(f => f.year === event.target.id)){
+                let f = x.find(f => f.year === event.target.id)
+                fetch("/films/" + f.id)
+                .then(resp => resp.json())
+                .then(data => {
+                    this.setState({rate: data})
+                })
+            }
+            this.setState({ modalOpen: true });
+	    })
     }
-
-    handleOpen = (event) => {
-        let x = this.state.films
-        if (x.find(f => f.year === event.target.id)){
-            let f = x.find(f => f.year === event.target.id)
-            fetch("/films/" + f.id)
-            .then(resp => resp.json())
-            .then(data => {
-                this.setState({rate: data})
-            })
-        }
-        this.setState({ modalOpen: true });
-	}
 	
 	handleClose = () => {
 		this.setState({ modalOpen: false })

@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Button, Image, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { addDiaryFilm } from "../actions/rootActions"
 
 class FilmModal extends Component {
 
@@ -40,6 +41,10 @@ class FilmModal extends Component {
 				rating: 0, 
 			})
 		})
+		.then((response) => response.json())
+        .then(data => {
+			this.props.addDiaryFilm(data)
+		})
 	}
 
 	render() {
@@ -70,4 +75,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(FilmModal)
+const mapDispatchToProps = (dispatch) => {
+    return { 
+    	addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilmModal)

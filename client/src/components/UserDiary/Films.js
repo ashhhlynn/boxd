@@ -8,8 +8,8 @@ class Films extends Component {
 	    return (
 		    <div>
                 <Card.Group itemsPerRow={4}>
-                    {this.props.films.map((movie) => (
-                        <Film addUserDiaryFilm={this.props.addUserDiaryFilm} movie={movie} />                      
+                    {this.props.films.map((movie, index) => (
+                        <Film key={index} addUserDiaryFilm={this.props.addUserDiaryFilm} movie={movie} />                      
                     ))}
                 </Card.Group>
             </div>

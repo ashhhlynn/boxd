@@ -91,7 +91,7 @@ const UserDiaries = (props) => {
                 <>
                 <Divider style={{width:"84%", marginLeft:"8%"}}></Divider>
 		        {dF.map((movie, index) => (
-                    <UserDiaryFilm key={index} movie={movie} addUserDiaryFilm={addUserDiaryFilm} removeUserDiaryFilm={removeUserDiaryFilm} patchRating={patchRating}/>
+                    <UserDiaryFilm key={index} movie={movie} removeUserDiaryFilm={removeUserDiaryFilm} patchRating={patchRating}/>
                 ))}
                 </>
             }

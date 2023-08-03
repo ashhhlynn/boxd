@@ -5,8 +5,8 @@ import FilmModal from './FilmModal'
 const WelcomeFilms = (props) => {
 	return (
         <Card.Group itemsPerRow={7} style={{marginBottom:"3%", marginTop:"3%"}}>
-            {props.welcomeMovies.map((wm) => (
-                <Card key={wm.title}>
+            {props.welcomeMovies.map((wm, index) => (
+                <Card key={index}>
                     <FilmModal film={wm}/>
                 </Card>
             ))}

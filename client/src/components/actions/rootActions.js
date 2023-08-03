@@ -10,8 +10,20 @@ export const logOut = () => {
     }
 }
 
-export const fetchDiaryFilms = (films) => {
+export const addDiaryFilm = (film) => {
     return (dispatch) => {
-        dispatch({ type: "FETCH_DIARY_FILMS", films: films })
+        dispatch({ type: "ADD_DIARY_FILM", film: film })
+    }
+}
+
+export const removeDiaryFilm = (film) => {
+    return (dispatch) => {
+        dispatch({ type: "REMOVE_DIARY_FILM", film: film })
+    }
+}
+
+export const patchDiaryFilm = (film) => {
+    return (dispatch) => {
+        dispatch({ type: "PATCH_DIARY_FILM", film: film })
     }
 }

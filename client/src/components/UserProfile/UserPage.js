@@ -24,6 +24,7 @@ const UserPage = (props) => {
 	const addFollow = (data) => {
 		const newUserList = [...userFollowing, data]
 		setUserFollowing(newUserList)
+		props.getUserProfile()
 	}
 
 	const removeFollow = (event, id) => {
@@ -38,6 +39,8 @@ const UserPage = (props) => {
 			(u) => u.id !== id
 			)
 		setUserFollowing(newUserList)
+		props.getUserProfile()
+
 	}
 
 	return (

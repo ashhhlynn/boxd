@@ -6,6 +6,10 @@ import Footer from './components/Decorative/Footer'
 import SigninRegister from './components/SignUpIn/SigninRegister'
 import UserPage from './components/UserProfile/UserPage'
 import UserDiaries from './components/UserDiary/UserDiaries'
+
+import TestUserDiaries from './components/UserDiary/TestUserDiaries'
+
+
 import Home from './components/FilmsHome/Home'
 import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { checkUser } from "./components/actions/rootActions"
@@ -30,6 +34,10 @@ class App extends Component {
 		})
 	}
     
+	countFollowing = () => {
+
+	}
+
 	handleLogout = () => {
         fetch("/logout", {
             method: 'DELETE',
@@ -61,7 +69,7 @@ class App extends Component {
 							<Menu.Item><Link to='/login'><Icon size="big" name="user circle"/></Link></Menu.Item>
 							:
 							<>
-							<Menu.Item style={{marginLeft:"10%"}}><Link to='/userdiary'><Icon name="user circle" size="large" style={{marginTop:"2%"}}/></Link></Menu.Item>
+							<Menu.Item style={{marginLeft:"10%"}}><Link to='/testuserdiary'><Icon name="user circle" size="large" style={{marginTop:"2%"}}/></Link></Menu.Item>
 							<Menu.Item><Icon name="address book outline" onClick={this.handleOpen} size="large" style={{color:"white", cursor:"pointer"}}/></Menu.Item>
 							<Menu.Item style={{marginLeft:"-2%"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
 							</>
@@ -71,7 +79,7 @@ class App extends Component {
 						onClose={this.handleClose}
 						closeIcon>
             				<Modal.Content style={{background:"inherit"}}>
-								<UserPage handleUserShow={this.handleUserShow} currentUser={this.props.currentUser}/>
+								<UserPage getUserProfile={this.getUserProfile}currentUser={this.props.currentUser}/>
             				</Modal.Content>
           				</Modal>
 					</Menu.Menu>
@@ -86,6 +94,10 @@ class App extends Component {
               			</Route>
 						<Route exact path="/userdiary">
                 			<UserDiaries handleOpen={this.handleOpen} currentUser={this.props.currentUser} />
+              			</Route>
+
+						  <Route exact path="/testuserdiary">
+                			<TestUserDiaries handleOpen={this.handleOpen}  />
               			</Route>
 					</Switch>
       			</Container>

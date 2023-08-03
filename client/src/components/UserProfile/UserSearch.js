@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { useState, useEffect } from 'react'
-import { Search, Button, Item, Icon  } from 'semantic-ui-react'
+import { Search, Button, Item, Icon } from 'semantic-ui-react'
 
 function UserSearch(props) {
     
