@@ -6,6 +6,7 @@ import SearchBox from './SearchBox'
 const UserDiaries = (props) => {
 
     const [dF, setDF] = useState([])
+    const [countFollowing, setCountFollowing] = useState([])
     
     useEffect(() => {
         getDF()
@@ -16,7 +17,9 @@ const UserDiaries = (props) => {
         .then(resp => resp.json())
         .then(data => {
             if (data !== null) {
+                console.log(data)
                 setDF(data.diary_films)
+                setCountFollowing(data.followees.length)
             }
         })
     }
@@ -40,7 +43,6 @@ const UserDiaries = (props) => {
         .then(data => {
             const newDiaryList = [...dF, data]
             setDF(newDiaryList)
-
 		})
 	}
 
@@ -76,7 +78,7 @@ const UserDiaries = (props) => {
 			<h1>{props.currentUser.username}</h1>
 			<h3 onClick={props.handleOpen} style={{cursor:"pointer", marginTop:"-1%"}}>
                 <center>
-                    {dF.length} Films | {props.currentUser.followees.length} Following | {props.currentUser.followers.length} Followers
+                    {dF.length} Films | {countFollowing} Following | {props.currentUser.followers.length} Followers
                 </center>
             </h3>
 			<Divider style={{marginBottom:"2%", marginTop:"4%"}}></Divider>

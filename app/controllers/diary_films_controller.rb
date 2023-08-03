@@ -1,8 +1,8 @@
 class DiaryFilmsController < ApplicationController
 
   def index
-    @diary_films = DiaryFilm.all
-    render json: @diary_films, include: :user
+    @diary_films = DiaryFilm.all.order(created_at: :desc)
+    render json: @diary_films
   end
 
   def create

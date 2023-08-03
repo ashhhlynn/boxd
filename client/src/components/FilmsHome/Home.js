@@ -17,7 +17,7 @@ const Home = (props) => {
         fetch("/diary_films")
         .then((response) => response.json())
         .then(data => {
-            setWelcomeMovies(data.slice(-7))
+            setWelcomeMovies(data.slice(0,7))
         })  
     }
 
