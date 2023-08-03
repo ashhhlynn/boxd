@@ -50,9 +50,11 @@ export const rootReducer = (state = initialState, action) => {
                 
         case 'REMOVE_DIARY_FILM':
             const newDiaryListTwo = state.diaryFilms.filter((diary) => diary.id !== action.film.id)
+            const newAllDiaryListTwo = state.allDF.filter((diary) => diary.id !== action.film.id)
             return {
                 ...state, 
                 diaryFilms: newDiaryListTwo,
+                allDF: newAllDiaryListTwo,
                 countDF: state.countDF - 1,
                 loading: false,
             };
