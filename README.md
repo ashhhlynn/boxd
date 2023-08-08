@@ -29,9 +29,8 @@ A Letterboxd inspired application created with JavaScript and React with Ruby on
 - Ruby
 - Rails
 - PostgresQL
-- BCrpyt
+- BCrypt
 - active_model_serializers
-- localStorage
 - OMDb API
 - Semantic UI React
 - HTML & CSS
