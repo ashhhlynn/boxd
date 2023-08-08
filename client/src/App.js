@@ -27,6 +27,7 @@ class App extends Component {
 		fetch("/profile")
     	.then(resp => resp.json())
     	.then(data => {
+			console.log(data)
 			this.props.checkUser(data)
 		})
 	}
