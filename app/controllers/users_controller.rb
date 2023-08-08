@@ -21,10 +21,10 @@ class UsersController < ApplicationController
     current_user.followed_users.find_by(followee_id: @user.id).destroy
   end
 
-    def userfollowing 
+  def userfollowing 
     @following = current_user.followees
     render json: @following
-    end 
+  end 
 
   def feed
     films = current_user.followees.map { |f| f.diary_films }

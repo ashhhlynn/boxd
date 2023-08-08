@@ -17,8 +17,8 @@ class App extends Component {
 	componentDidMount = () => {
 		this.getUserProfile()
 		fetch("/diary_films")
-    	.then(resp => resp.json())
-    	.then(data => {
+		.then(resp => resp.json())
+		.then(data => {
 			this.props.fetchAllDF(data)
 		})
 	}

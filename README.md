@@ -18,7 +18,7 @@ A Letterboxd inspired application created with JavaScript and React with Ruby on
 
 - Users can view films and ratings by followed users through feed
 
-- Data stored through localStorage for users without accounts
+- Users can view Boxd application rating average for films with ratings
 
 ## Tech Stack
 

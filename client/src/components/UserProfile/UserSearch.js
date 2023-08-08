@@ -36,8 +36,7 @@ function UserSearch(props) {
     ])
     
     return (
-        <p>
-            <Search
+        <Search
             onSearchChange={handleSearchChange}
             noResultsMessage='No unfollowed users found.'
             resultRenderer={resultRenderer}
@@ -45,8 +44,7 @@ function UserSearch(props) {
             value={value}
             title={results}
             placeholder='Search users to follow...' 
-            />
-        </p>
+        />
     )
 }
 
