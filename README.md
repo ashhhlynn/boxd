@@ -2,7 +2,7 @@
 
 ## Description
   
-A Letterboxd inspired application created with JavaScript and React with Ruby on Rails for rating films to a personal film diary and tracking film activity by followed users. Styled with Semantic UI React and CSS.
+A Letterboxd inspired application created with JavaScript and React with Ruby on Rails for rating films to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Styled with Semantic UI React and CSS.
   
 ## Functionality
 
@@ -14,13 +14,13 @@ A Letterboxd inspired application created with JavaScript and React with Ruby on
 
 - Add and remove films from watchlist
 
-- Users can signup and login authenticated through BCrypt
+- Signup and login authenticated through BCrypt
 
-- Users can search for, follow and unfollow other users
+- Options to search for, follow and unfollow other users
 
-- Users can view films and ratings by followed users through feed
+- View films and ratings by followed users through feed
 
-- Users can view Boxd application rating average for films with ratings
+- View Boxd application rating average for films with ratings
 
 ## Tech Stack
 
