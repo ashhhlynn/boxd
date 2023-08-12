@@ -76,23 +76,24 @@ class FilmModal extends Component {
     		<div className="filmModal" onClick={this.handleOpen}>
       			<Image src={film.poster}/>
 				<Modal
-					open={this.state.modalOpen}
-					onClose={this.handleClose}
-					closeIcon>
+				open={this.state.modalOpen}
+				onClose={this.handleClose}
+				closeIcon
+				>
             		<Modal.Content>
-					<Menu style={{background: "none", color:"white"}}>
-						<h3>{film.title}</h3>
-						<Menu.Menu position="right" icon='labeled' style={{marginTop:"-1.5%"}}>
-							<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
-								<Icon onClick={this.addFilmToDiary} size="large" name="book"/>Diary
-							</Menu.Item>
-							<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
-								<Icon onClick={this.addUserWatchlistFilm} size="large" name="eye"/>Watchlist
-							</Menu.Item>
-						</Menu.Menu>
-					</Menu>
-					<h5 style={{marginTop:"-2%"}}>{film.year}</h5>
-					<h5>Boxd score: {this.state.score}</h5>
+						<Menu style={{background: "none"}}>
+							<h3>{film.title}</h3>
+							<Menu.Menu position="right" icon='labeled' style={{marginTop:"-1.5%"}}>
+								<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
+									<Icon onClick={this.addFilmToDiary} size="large" name="book"/>Diary
+								</Menu.Item>
+								<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
+									<Icon onClick={this.addUserWatchlistFilm} size="large" name="eye"/>Watchlist
+								</Menu.Item>
+							</Menu.Menu>
+						</Menu>
+						<h5 style={{marginTop:"-2%"}}>{film.year}</h5>
+						<h5>Boxd score: {this.state.score}</h5>
             		</Modal.Content>
           		</Modal>
     		</div>

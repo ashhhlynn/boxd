@@ -21,10 +21,10 @@ class Watchlist extends Component {
                     <p><center><br></br>Your watchlist is empty. Search for a film to begin adding!</center></p> 
                 :
                     <>
-                    <Card.Group style={{marginTop:"3%"}} itemsPerRow={7}>
-                        {this.props.watchlistFilms.map((movie, index) => (
+                    <Card.Group style={{marginTop:"3%", marginBottom:"-.5%"}} itemsPerRow={7}>
+                        {this.props.watchlistFilms.map((movie) => (
                             <Card>
-                                <WatchlistFilm key={index} film={movie} />
+                                <WatchlistFilm key={movie.id} film={movie} />
                             </Card>
                         ))}
                     </Card.Group>

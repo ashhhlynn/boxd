@@ -82,19 +82,19 @@ class Film extends Component {
 			        closeIcon
                 >
                     <Modal.Content>
-                    <Menu style={{background: "none", color:"white"}}>
-						<h3>{movie.Title}</h3>
-						<Menu.Menu position="right" icon='labeled' style={{marginTop:"-1.5%"}}>
-							<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
-								<Icon onClick={() => this.addUserDiaryFilm(movie)} size="large" name="book"/>Diary
-							</Menu.Item>
-							<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
-								<Icon onClick={() => this.addUserWatchlistFilm(movie)} size="large" name="eye"/>Watchlist
-							</Menu.Item>
-						</Menu.Menu>
-					</Menu>
-                    <h5 style={{marginTop:"-2%"}}>{movie.Year}</h5> 
-                    <h5>Boxd Score: {this.state.score}</h5>
+                        <Menu style={{background: "none"}}>
+						    <h3>{movie.Title}</h3>
+						    <Menu.Menu position="right" icon='labeled' style={{marginTop:"-1.5%"}}>
+							    <Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
+								    <Icon onClick={() => this.addUserDiaryFilm(movie)} size="large" name="book"/>Diary
+							    </Menu.Item>
+							    <Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
+								    <Icon onClick={() => this.addUserWatchlistFilm(movie)} size="large" name="eye"/>Watchlist
+							    </Menu.Item>
+						    </Menu.Menu>
+					    </Menu>
+                        <h5 style={{marginTop:"-2%"}}>{movie.Year}</h5> 
+                        <h5>Boxd Score: {this.state.score}</h5>
                     </Modal.Content>
           	    </Modal>
             </Card>

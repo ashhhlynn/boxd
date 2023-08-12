@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Button, Image, Modal } from 'semantic-ui-react'
+import { Button, Icon, Image, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { removeWatchlistFilm } from "../actions/rootActions"
 
@@ -48,7 +48,14 @@ class WatchlistFilm extends Component {
 					closeIcon>
             		<Modal.Content >
 						<h3>{film.title}
-							<Button onClick={this.removeFilmFromWatchlist}style={{marginTop:"-1%"}} circular floated='right'>Remove</Button>
+							<Button onClick={this.removeFilmFromWatchlist} animated style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+								<Button.Content visible>
+									<Icon size="large" name="eye slash"/>
+								</Button.Content>
+								<Button.Content hidden>
+									Remove
+								</Button.Content>
+							</Button>
 						</h3>
 						<h5>{film.year}</h5>
 						<h5>Boxd Score: {this.state.score}</h5>
@@ -61,7 +68,6 @@ class WatchlistFilm extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-    	currentUser: state.currentUser,
 		allDiaryFilms: state.allDF
     }
 }
