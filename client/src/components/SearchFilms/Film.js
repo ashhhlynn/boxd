@@ -44,6 +44,7 @@ class Film extends Component {
 		})
 		.then((response) => response.json())
         .then(data => {
+            window.alert("Added to diary.")
             this.props.addDiaryFilm(data)
         })
 	}
@@ -64,6 +65,7 @@ class Film extends Component {
 		})
 		.then((response) => response.json())
         .then(data => {
+            window.alert("Added to watchlist.")
             this.props.addWatchlistFilm(data)
         })
 	}

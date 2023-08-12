@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Button, Icon, Image, Menu, Modal } from 'semantic-ui-react'
+import { Icon, Image, Menu, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
@@ -44,6 +44,7 @@ class FilmModal extends Component {
 		})
 		.then((response) => response.json())
         .then(data => {
+			window.alert("Added to diary.")
 			this.props.addDiaryFilm(data)
 		})
 	}
@@ -64,6 +65,7 @@ class FilmModal extends Component {
 		})
 		.then((response) => response.json())
         .then(data => {
+			window.alert("Added to watchlist.")
 			this.props.addWatchlistFilm(data)
         })
 	}

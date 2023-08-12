@@ -1,7 +1,7 @@
 class WatchlistFilmsController < ApplicationController
 
   def index
-    @watchlist_films = WatchlistFilm.all
+    @watchlist_films = WatchlistFilm.all.order(created_at: :desc)
     wf = @watchlist_films.filter { |u| u.user_id.to_i === current_user.id }
     render json: wf
   end
