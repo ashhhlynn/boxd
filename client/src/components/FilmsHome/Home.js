@@ -3,6 +3,7 @@ import WelcomeFilms from './WelcomeFilms'
 import React, { useState, useEffect } from 'react'
 import Feed from './Feed'
 import Welcome from './Welcome'
+import SearchBox from '../SearchFilms/SearchBox'
 
 const Home = (props) => {
     
@@ -41,6 +42,10 @@ const Home = (props) => {
                 </>
             : 
                 <>
+                <h4 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>     
+                    <center><SearchBox/></center>
+                </h4>
+                <Divider></Divider>
                 <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>New on Boxd</h4>      
                 {welcomeMovies.length !== 0 ?
                     <>

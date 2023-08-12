@@ -1,3 +1,3 @@
-class FilmsController < ApplicationController
+class FilmsController < ApplicationController   
 end
   

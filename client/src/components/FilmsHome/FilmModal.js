@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react'
-import { Button, Image, Modal } from 'semantic-ui-react'
+import { Button, Icon, Image, Menu, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
+import { addWatchlistFilm } from "../actions/rootActions"
 
 class FilmModal extends Component {
 
@@ -47,6 +48,26 @@ class FilmModal extends Component {
 		})
 	}
 
+	addUserWatchlistFilm = () => {	
+        fetch("/watchlist_films", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				title: this.props.film.title, 
+				user_id: this.props.currentUser.id, 
+				watch_date: this.props.film.watch_date,
+				year: this.props.film.year, 
+				poster: this.props.film.poster, 
+			})
+		})
+		.then((response) => response.json())
+        .then(data => {
+			this.props.addWatchlistFilm(data)
+        })
+	}
+
 	render() {
         let film = this.props.film
         return (
@@ -56,12 +77,20 @@ class FilmModal extends Component {
 					open={this.state.modalOpen}
 					onClose={this.handleClose}
 					closeIcon>
-            		<Modal.Content >
-						<h3>{film.title}
-							<Button onClick={this.addFilmToDiary} circular floated='right'>Log Film to Diary</Button>
-						</h3>
-						<h5>{film.year}</h5>
-						<h5>Boxd score: {this.state.score}</h5>
+            		<Modal.Content>
+					<Menu style={{background: "none", color:"white"}}>
+						<h3>{film.title}</h3>
+						<Menu.Menu position="right" icon='labeled' style={{marginTop:"-1.5%"}}>
+							<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
+								<Icon onClick={this.addFilmToDiary} size="large" name="book"/>Diary
+							</Menu.Item>
+							<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
+								<Icon onClick={this.addUserWatchlistFilm} size="large" name="eye"/>Watchlist
+							</Menu.Item>
+						</Menu.Menu>
+					</Menu>
+					<h5 style={{marginTop:"-2%"}}>{film.year}</h5>
+					<h5>Boxd score: {this.state.score}</h5>
             		</Modal.Content>
           		</Modal>
     		</div>
@@ -77,7 +106,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-    	addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) }
+    	addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
+		addWatchlistFilm: (film) =>  { dispatch(addWatchlistFilm(film)) }
     }
 }
 

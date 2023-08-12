@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import Navbar from './components/Decorative/Navbar'
 import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
+import Watchlist from './components/UserWatchlist/Watchlist'
 
 class App extends Component {
 
@@ -47,6 +48,9 @@ class App extends Component {
               			</Route>
 						<Route exact path="/userdiary">
                 			<UserDiaries />
+              			</Route>
+						<Route exact path="/watchlist">
+							<Watchlist/>
               			</Route>
 					</Switch>
       			</Container>

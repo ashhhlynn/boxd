@@ -6,9 +6,10 @@ class Films extends Component {
     render () {
 	    return (
 		    <div className="films">
-                <Card.Group itemsPerRow={4}>
+                <br></br><br></br>
+                <Card.Group itemsPerRow={7}>
                     {this.props.films.map((movie, index) => (
-                        <Film key={index} addUserDiaryFilm={this.props.addUserDiaryFilm} movie={movie} />                      
+                        <Film key={index} movie={movie} />                      
                     ))}
                 </Card.Group>
             </div>

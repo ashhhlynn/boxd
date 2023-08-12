@@ -5,7 +5,8 @@ export const initialState = {
     countFollowing: 0,
     countFollowers: 0,
     countDF: 0,
-    allDF: []
+    allDF: [],
+    watchlistFilms: []
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -65,6 +66,29 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 diaryFilms: newDiaryListThree,
+                loading: false,
+            };
+
+        case 'FETCH_WATCHLIST_FILMS':
+            return {
+                ...state, 
+                watchlistFilms: action.films,
+                loading: false,
+            };
+            
+        case 'ADD_WATCHLIST_FILM':
+            const newWatchlistList = [action.film, ...state.watchlistFilms]
+            return {
+                ...state, 
+                watchlistFilms: newWatchlistList,
+                loading: false,
+            };
+
+        case 'REMOVE_WATCHLIST_FILM':
+            const newWatchlistListTwo = state.watchlistFilms.filter((film) => film.id !== action.film.id)
+            return {
+                ...state, 
+                watchlistFilms: newWatchlistListTwo,
                 loading: false,
             };
 

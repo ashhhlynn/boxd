@@ -1,4 +1,4 @@
-import Diaries from '../GuestDiary/Diaries'
+import Diaries from './Diaries'
 import React, { useState, useEffect } from 'react'
 
 const GuestHome = (props) => {
