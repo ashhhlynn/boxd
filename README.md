@@ -12,6 +12,8 @@ A Letterboxd inspired application created with JavaScript and React with Ruby on
 
 - Edit film ratings and delete film diary logs
 
+- Add and remove films from watchlist
+
 - Users can signup and login authenticated through BCrypt
 
 - Users can search for, follow and unfollow other users
