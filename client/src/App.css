@@ -9,6 +9,7 @@
 .ui.button {
 	letter-spacing: 1px !important;
 	font-weight: normal !important;
+	text-align: center !important;
 }
 
 .ui.modal {
@@ -50,7 +51,6 @@
 }
 
 .bg {
-	background-image: url("https://miro.medium.com/v2/resize:fit:829/1*aBrXE2zWyNZHTC0eVJcdoA.jpeg");
 	background-repeat: no-repeat;
 	width: 1060px;
 	height: 470px;
@@ -60,6 +60,10 @@
 	margin: auto;
 	object-fit: cover;
 	margin-bottom: 3.5%;
+
+	background-image: linear-gradient(
+    transparent, #1a1f22
+  ), url("https://miro.medium.com/v2/resize:fit:829/1*aBrXE2zWyNZHTC0eVJcdoA.jpeg");
 }
 
 .home h4 {
@@ -92,6 +96,7 @@
 .filmModal .ui.image {
 	cursor: pointer;
 }
+
 
 .diaries h3 {
 	color:white;

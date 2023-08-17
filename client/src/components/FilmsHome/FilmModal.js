@@ -83,15 +83,15 @@ class FilmModal extends Component {
             		<Modal.Content>
 						<h3>
 							{film.title}
-							<Button onClick={this.addUserWatchlistFilm} animated style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+							<Button onClick={this.addUserWatchlistFilm} animated inverted style={{marginTop:"-1%", background:"none", color:"white"}} circular floated='right'>
 								<Button.Content visible>
 									<Icon size="large" name="eye"/>
 								</Button.Content>
 								<Button.Content hidden>
-									Watchlist
+									Watch
 								</Button.Content>
 							</Button>
-							<Button onClick={this.addFilmToDiary} animated style={{ marginTop:"-1.25%", background:"none",color:"white" }} circular floated='right'>
+							<Button onClick={this.addFilmToDiary} animated inverted style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
 								<Button.Content visible>
 									<Icon size="large" name="calendar check"/>
 								</Button.Content>

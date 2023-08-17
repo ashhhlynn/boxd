@@ -37,7 +37,7 @@ class Navbar extends Component {
 				</Menu.Menu>
 				<Menu.Menu style={{marginRight:"4%"}} position='right'>
 					{this.props.currentUser.length === 0 ?
-						<Menu.Item style={{color:"white"}}><Link to='/login'><Icon size="big" name="user circle"/></Link>Login | Register</Menu.Item>
+						<Menu.Item style={{color:"white"}}><Link to='/login'><Icon size="big" name="user plus"/></Link></Menu.Item>
 						:
 						<>
 						<Menu.Item style={{color:"white"}}><Link to='/userdiary'><Icon name="book" size="large" style={{marginTop:"2%"}}/> </Link> Diary</Menu.Item>

@@ -48,9 +48,9 @@ class WatchlistFilm extends Component {
 					closeIcon>
             		<Modal.Content >
 						<h3>{film.title}
-							<Button onClick={this.removeFilmFromWatchlist} animated style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+							<Button onClick={this.removeFilmFromWatchlist} animated inverted style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
 								<Button.Content visible>
-									<Icon size="large" name="remove circle"/>
+									<Icon size="large" name="close"/>
 								</Button.Content>
 								<Button.Content hidden>
 									Remove
