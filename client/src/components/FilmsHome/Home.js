@@ -35,24 +35,24 @@ const Home = (props) => {
     }
     
 	return (
-		<div className="home">
+        <div className="home">
             {props.currentUser.length === 0 ?
                 <>
                 <Welcome/>
                 </>
-            : 
+            :
                 <>
-                <h4 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>     
+                <h4 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>
                     <center><SearchBox/></center>
                 </h4>
                 <Divider></Divider>
-                <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>New on Boxd</h4>      
+                <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>New on Boxd</h4>
                 {welcomeMovies.length !== 0 ?
                     <>
                     <WelcomeFilms welcomeMovies={welcomeMovies}/>
                     <Divider></Divider>
                     </>
-                : 
+                :
                     <>
                     <p>No new content on Boxd right now.</p>
                     </>
@@ -63,7 +63,7 @@ const Home = (props) => {
                     <Feed userFeed={feed}/>
                     <Divider></Divider>
                     </>
-                : 
+                :
                     <>
                     <p>No new content from friends right now.</p>
                     </>
@@ -71,7 +71,7 @@ const Home = (props) => {
                 </>
             }
         </div>
-	)
+    )
 }
 
 export default Home

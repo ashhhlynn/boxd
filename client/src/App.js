@@ -14,7 +14,7 @@ import { fetchAllDF } from "./components/actions/rootActions"
 import Watchlist from './components/UserWatchlist/Watchlist'
 
 class App extends Component {
-
+	
 	componentDidMount = () => {
 		this.getUserProfile()
 		fetch("/diary_films")
@@ -23,40 +23,40 @@ class App extends Component {
 			this.props.fetchAllDF(data)
 		})
 	}
-
+	
 	getUserProfile = () => {
 		fetch("/profile")
-    	.then(resp => resp.json())
-    	.then(data => {
+		.then(resp => resp.json())
+		.then(data => {
 			this.props.checkUser(data)
 		})
 	}
-
+	
 	render() {
-        return (
+		return (
 			<Router>
-    		<div className="app">
+			<div className="app">
 				<Navbar getUserProfile={this.getUserProfile}/>
-      			<Container>   	
+				<Container>
 					<Switch>
-						<Route exact path="/" >
-                			<Home currentUser={this.props.currentUser}/>
-              			</Route>
-              			<Route exact path="/login">
-                			<SigninRegister getUserProfile={this.getUserProfile}/>
-              			</Route>
+						<Route exact path="/">
+							<Home currentUser={this.props.currentUser}/>
+						</Route>
+						<Route exact path="/login">
+							<SigninRegister getUserProfile={this.getUserProfile}/>
+							</Route>
 						<Route exact path="/userdiary">
-                			<UserDiaries/>
-              			</Route>
+							<UserDiaries/>
+						</Route>
 						<Route exact path="/watchlist">
 							<Watchlist/>
-              			</Route>
+						</Route>
 					</Switch>
-      			</Container>
-      			<Footer/>
-    		</div>
+				</Container>
+				<Footer/>
+			</div>
 			</Router>
-  		)
+		)
 	}
 }
 
@@ -68,9 +68,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-    	checkUser: (user) =>  { dispatch(checkUser(user)) },
+		checkUser: (user) =>  { dispatch(checkUser(user)) },
 		fetchAllDF: (data) =>  { dispatch(fetchAllDF(data)) }
-    }
+	}
 } 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

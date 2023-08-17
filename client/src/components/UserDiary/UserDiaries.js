@@ -6,16 +6,16 @@ import { removeDiaryFilm } from "../actions/rootActions"
 import { patchDiaryFilm } from "../actions/rootActions"
 
 class UserDiaries extends Component {
-
-	removeUserDiaryFilm = (film) => {
-		fetch(`/diary_films/` + film.id, {
-    		method: 'DELETE',
-    		headers: {
-			'Content-Type': 'application/json',	
-    		},
-		})
+    
+    removeUserDiaryFilm = (film) => {
+        fetch(`/diary_films/` + film.id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         this.props.removeDiaryFilm(film)
-	}
+    }
 
     patchRating = (r, id) => {
         fetch(`/diary_films/` + id, {  

@@ -8,14 +8,14 @@ class Watchlist extends Component {
 
     componentDidMount = () => {
         fetch("/watchlist_films")
-		.then(resp => resp.json())
-		.then(data => {
-			this.props.fetchWatchlistFilms(data)
-		})
+        .then(resp => resp.json())
+        .then(data => {
+            this.props.fetchWatchlistFilms(data)
+        })
     }
 
     render () {
-	    return (
+        return (
             <div className="home">
                 {this.props.watchlistFilms.length === 0 ?
                     <p><center><br></br>Your watchlist is empty. Search for a film to begin adding!</center></p> 
@@ -31,7 +31,7 @@ class Watchlist extends Component {
                     </>
                 }
             </div>
-	    )
+        )
     }
 }
     

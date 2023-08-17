@@ -8,11 +8,11 @@ const UserPage = (props) => {
 	
 	const [userFollowing, setUserFollowing] = useState([])
 	const [users, setUsers] = useState([])
-
+	
 	useEffect(() => {
 		getFollowing()
 	}, [])
-
+	
 	const getFollowing = () => {
 		fetch("/userfollowing")
 		.then(resp => resp.json())
@@ -20,26 +20,26 @@ const UserPage = (props) => {
 			setUserFollowing(data)
 		})
 	}
+	
+	useEffect(() => {
+		getUsers()
+	}, [])
 
-    useEffect(() => {
-        getUsers()
-    }, [])
-
-    const getUsers = () => {
-        fetch("/users")
-        .then(resp => resp.json())
-        .then(data => {
-            setUsers(data)
-        })
-    }
-
+	const getUsers = () => {
+		fetch("/users")
+		.then(resp => resp.json())
+		.then(data => {
+			setUsers(data)
+		})
+	}
+	
 	const addFollow = (data) => {
 		const newUserFollowing = [...userFollowing, data]
 		setUserFollowing(newUserFollowing)
 		let newUsersList = users.filter(u => u.id !== data.id)
-        setUsers(newUsersList)
+		setUsers(newUsersList)
 	}
-
+	
 	const removeFollow = (event, user) => {
 		event.preventDefault()
 		fetch(`users/` + user.id + `/unfollow`, {
