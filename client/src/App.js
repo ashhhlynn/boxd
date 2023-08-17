@@ -47,7 +47,7 @@ class App extends Component {
                 			<SigninRegister getUserProfile={this.getUserProfile}/>
               			</Route>
 						<Route exact path="/userdiary">
-                			<UserDiaries />
+                			<UserDiaries/>
               			</Route>
 						<Route exact path="/watchlist">
 							<Watchlist/>

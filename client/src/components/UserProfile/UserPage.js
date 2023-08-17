@@ -36,7 +36,6 @@ const UserPage = (props) => {
 	const addFollow = (data) => {
 		const newUserFollowing = [...userFollowing, data]
 		setUserFollowing(newUserFollowing)
-		props.getUserProfile()
 		let newUsersList = users.filter(u => u.id !== data.id)
         setUsers(newUsersList)
 	}
@@ -51,7 +50,6 @@ const UserPage = (props) => {
 		})
 		const newUserList = userFollowing.filter((u) => u.id !== user.id)
 		setUserFollowing(newUserList)
-		props.getUserProfile()
 		let newUsersList = [...users, user]
 		setUsers(newUsersList)
 	}

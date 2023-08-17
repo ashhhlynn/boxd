@@ -2,8 +2,6 @@ export const initialState = {
     currentUser: [],
     loading: false,
     diaryFilms: [],
-    countFollowing: 0,
-    countFollowers: 0,
     countDF: 0,
     allDF: [],
     watchlistFilms: []
@@ -17,8 +15,6 @@ export const rootReducer = (state = initialState, action) => {
                     ...state, 
                     currentUser: action.user, 
                     diaryFilms: action.user.diary_films,
-                    countFollowing: action.user.followees.length,
-                    countFollowers: action.user.followers.length,
                     countDF: action.user.diary_films.length,
                     loading: false,
                 };

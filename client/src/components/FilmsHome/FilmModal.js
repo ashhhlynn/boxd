@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Icon, Image, Menu, Modal } from 'semantic-ui-react'
+import { Icon, Image, Modal, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
@@ -81,18 +81,26 @@ class FilmModal extends Component {
 				closeIcon
 				>
             		<Modal.Content>
-						<Menu style={{background: "none"}}>
-							<h3>{film.title}</h3>
-							<Menu.Menu position="right" icon='labeled' style={{marginTop:"-1.5%"}}>
-								<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
-									<Icon onClick={this.addFilmToDiary} size="large" name="book"/>Diary
-								</Menu.Item>
-								<Menu.Item style={{color:"white", letterSpacing:"1px", cursor:"pointer"}}>
-									<Icon onClick={this.addUserWatchlistFilm} size="large" name="eye"/>Watchlist
-								</Menu.Item>
-							</Menu.Menu>
-						</Menu>
-						<h5 style={{marginTop:"-2%"}}>{film.year}</h5>
+						<h3>
+							{film.title}
+							<Button onClick={this.addUserWatchlistFilm} animated style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+								<Button.Content visible>
+									<Icon size="large" name="eye"/>
+								</Button.Content>
+								<Button.Content hidden>
+									Watchlist
+								</Button.Content>
+							</Button>
+							<Button onClick={this.addFilmToDiary} animated style={{ marginTop:"-1.25%", background:"none",color:"white" }} circular floated='right'>
+								<Button.Content visible>
+									<Icon size="large" name="calendar check"/>
+								</Button.Content>
+								<Button.Content hidden>
+									Diary
+								</Button.Content>
+							</Button>
+						</h3>
+						<h5>{film.year}</h5>
 						<h5>Boxd score: {this.state.score}</h5>
             		</Modal.Content>
           		</Modal>

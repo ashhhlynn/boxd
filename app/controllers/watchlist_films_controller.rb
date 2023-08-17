@@ -25,4 +25,5 @@ class WatchlistFilmsController < ApplicationController
     def watchlist_film_params
       params.require(:watchlist_film).permit(:title, :year, :poster, :watch_date, :user_id)
     end
+    
 end

@@ -50,7 +50,7 @@ class WatchlistFilm extends Component {
 						<h3>{film.title}
 							<Button onClick={this.removeFilmFromWatchlist} animated style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
 								<Button.Content visible>
-									<Icon size="large" name="eye slash"/>
+									<Icon size="large" name="remove circle"/>
 								</Button.Content>
 								<Button.Content hidden>
 									Remove
