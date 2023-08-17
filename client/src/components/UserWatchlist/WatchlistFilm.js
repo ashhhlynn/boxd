@@ -69,7 +69,7 @@ class WatchlistFilm extends Component {
 					open={this.state.modalOpen}
 					onClose={this.handleClose}
 					closeIcon>
-            		<Modal.Content >
+					<Modal.Content>
 						<h3>{film.title}
 							<Button onClick={this.removeFilmFromWatchlist} animated inverted style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
 								<Button.Content visible>
@@ -91,26 +91,26 @@ class WatchlistFilm extends Component {
 						<h5>{film.year}</h5>
 						<h5>
 							<Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
-						</h5>            		
+						</h5>
 					</Modal.Content>
-          		</Modal>
-    		</div>
-  		)
+				</Modal>
+			</div>
+		)
 	}
 }
 
 const mapStateToProps = (state) => {
-    return { 
+	return {
 		allDiaryFilms: state.allDF,
 		currentUser: state.currentUser
-    }
+	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return { 
-        removeWatchlistFilm: (film) =>  { dispatch(removeWatchlistFilm(film)) },
+	return {
+		removeWatchlistFilm: (film) =>  { dispatch(removeWatchlistFilm(film)) },
 		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) }
-    }
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WatchlistFilm)

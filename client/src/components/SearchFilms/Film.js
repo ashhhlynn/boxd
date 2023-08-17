@@ -75,40 +75,40 @@ class Film extends Component {
         return (
         <>
             <Card>
-            <Image id={movie.imdbID} onClick={this.handleOpen} style={{cursor:"pointer", height:"290px", width:"205px"}} src={movie.Poster} alt='movie'></Image>   
+                <Image id={movie.imdbID} onClick={this.handleOpen} style={{cursor:"pointer", height:"290px", width:"205px"}} src={movie.Poster} alt='movie'></Image>   
                 <Modal
-			        open={this.state.modalOpen}
+                    open={this.state.modalOpen}
                     onClose={this.handleClose}
-			        closeIcon
+                    closeIcon
                 >
                     <Modal.Content>
-						<h3>{movie.Title}
+                        <h3>{movie.Title}
                             <Button onClick={() => this.addUserWatchlistFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
-								<Button.Content visible>
-									<Icon size="large" name="eye"/>
-								</Button.Content>
-								<Button.Content hidden>
-									Watch
-								</Button.Content>
-							</Button>
-							<Button onClick={() => this.addUserDiaryFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }}  circular floated='right'>
-								<Button.Content visible>
-									<Icon size="large" name="calendar check"/>
-								</Button.Content>
-								<Button.Content hidden>
-									Diary
-								</Button.Content>
-							</Button>
+                                <Button.Content visible>
+                                    <Icon size="large" name="eye"/>
+                                </Button.Content>
+                                <Button.Content hidden>
+                                    Watch
+                                </Button.Content>
+                            </Button>
+                            <Button onClick={() => this.addUserDiaryFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }}  circular floated='right'>
+                                <Button.Content visible>
+                                    <Icon size="large" name="calendar check"/>
+                                </Button.Content>
+                                <Button.Content hidden>
+                                    Diary
+                                </Button.Content>
+                            </Button>
                         </h3>
-                        <h5>{movie.Year}</h5> 
+                        <h5>{movie.Year}</h5>
                         <h5>
-							<Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
-						</h5>
+                            <Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
+                        </h5>
                     </Modal.Content>
-          	    </Modal>
+                </Modal>
             </Card>
             </>
-	    )
+        )
     }
 }
 

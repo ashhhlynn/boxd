@@ -80,7 +80,7 @@ class FilmModal extends Component {
 				onClose={this.handleClose}
 				closeIcon
 				>
-            		<Modal.Content>
+					<Modal.Content>
 						<h3>
 							{film.title}
 							<Button onClick={this.addUserWatchlistFilm} animated inverted style={{marginTop:"-1%", background:"none", color:"white"}} circular floated='right'>
@@ -102,13 +102,12 @@ class FilmModal extends Component {
 						</h3>
 						<h5>{film.year}</h5>
 						<div className="filmrating">
-			                <h5>
+							<h5>
 								<Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
 							</h5>
 						</div>
-            		</Modal.Content>
-				
-          		</Modal>
+					</Modal.Content>
+				</Modal>
     		</div>
   		)
 	}
@@ -121,10 +120,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return { 
-    	addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
+    return {
+		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
 		addWatchlistFilm: (film) =>  { dispatch(addWatchlistFilm(film)) }
-    }
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmModal)
