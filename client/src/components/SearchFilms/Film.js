@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Image, Icon, Button, Modal } from 'semantic-ui-react'
+import { Card, Image, Icon, Button, Rating, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
@@ -101,7 +101,9 @@ class Film extends Component {
 							</Button>
                         </h3>
                         <h5>{movie.Year}</h5> 
-                        <h5>Boxd Score: {this.state.score}</h5>
+                        <h5>
+							<Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
+						</h5>
                     </Modal.Content>
           	    </Modal>
             </Card>

@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react'
-import { Button, Icon, Image, Modal } from 'semantic-ui-react'
+import { Button, Icon, Image, Modal, Rating} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { removeWatchlistFilm } from "../actions/rootActions"
+import { addDiaryFilm } from "../actions/rootActions"
 
 class WatchlistFilm extends Component {
 
@@ -37,6 +38,28 @@ class WatchlistFilm extends Component {
         this.props.removeWatchlistFilm(this.props.film)
     }
 
+	addFilmToDiary = () => {
+		fetch("/diary_films", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				title: this.props.film.title, 
+				user_id: this.props.currentUser.id, 
+				watch_date: this.props.film.watch_date,
+				year: this.props.film.year, 
+				poster: this.props.film.poster, 
+				rating: 0, 
+			})
+		})
+		.then((response) => response.json())
+        .then(data => {
+			window.alert("Added to diary.")
+			this.props.addDiaryFilm(data)
+		})
+	}
+
 	render() {
         let film = this.props.film
         return (
@@ -56,10 +79,20 @@ class WatchlistFilm extends Component {
 									Remove
 								</Button.Content>
 							</Button>
+							<Button onClick={this.addFilmToDiary} animated inverted style={{marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+								<Button.Content visible>
+									<Icon size="large" name="calendar plus"/>
+								</Button.Content>
+								<Button.Content hidden>
+									Diary
+								</Button.Content>
+							</Button>
 						</h3>
 						<h5>{film.year}</h5>
-						<h5>Boxd Score: {this.state.score}</h5>
-            		</Modal.Content>
+						<h5>
+							<Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
+						</h5>            		
+					</Modal.Content>
           		</Modal>
     		</div>
   		)
@@ -68,13 +101,15 @@ class WatchlistFilm extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-		allDiaryFilms: state.allDF
+		allDiaryFilms: state.allDF,
+		currentUser: state.currentUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
         removeWatchlistFilm: (film) =>  { dispatch(removeWatchlistFilm(film)) },
+		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
     }
 }
 
