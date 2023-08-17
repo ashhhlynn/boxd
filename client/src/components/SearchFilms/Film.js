@@ -5,12 +5,12 @@ import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
 
 class Film extends Component {
-
+    
     state = {
-		modalOpen: false,
+        modalOpen: false,
         score: 'N/A'
     }
-
+    
     handleOpen = (event) => {
         if (this.props.allDiaryFilms.find(f => f.watch_date === event.target.id)) {
             let f = this.props.allDiaryFilms.find(f => f.watch_date === event.target.id)
@@ -20,62 +20,62 @@ class Film extends Component {
                 this.setState({score: data})
             })
         }
-        this.setState({ modalOpen: true });
+        this.setState({ modalOpen: true })
     }
-	
-	handleClose = () => {
-		this.setState({ modalOpen: false })
-	}
-
+    
+    handleClose = () => {
+        this.setState({ modalOpen: false })
+    }
+    
     addUserDiaryFilm = (film) => {	
         fetch("/diary_films", {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				title: film.Title, 
-				user_id: this.props.currentUser.id, 
-				watch_date: film.imdbID,
-				year: film.Year, 
-				poster: film.Poster, 
-				rating: 0, 
-			})
-		})
-		.then((response) => response.json())
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: film.Title,
+                user_id: this.props.currentUser.id,
+                watch_date: film.imdbID,
+                year: film.Year,
+                poster: film.Poster,
+                rating: 0,
+            })
+        })
+        .then((response) => response.json())
         .then(data => {
             window.alert("Added to diary.")
             this.props.addDiaryFilm(data)
         })
-	}
+    }
     
-    addUserWatchlistFilm = (film) => {	
+    addUserWatchlistFilm = (film) => {
         fetch("/watchlist_films", {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				title: film.Title, 
-				user_id: this.props.currentUser.id, 
-				watch_date: film.imdbID,
-				year: film.Year, 
-				poster: film.Poster, 
-			})
-		})
-		.then((response) => response.json())
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: film.Title, 
+                user_id: this.props.currentUser.id, 
+                watch_date: film.imdbID,
+                year: film.Year, 
+                poster: film.Poster, 
+            })
+        })
+        .then((response) => response.json())
         .then(data => {
             window.alert("Added to watchlist.")
             this.props.addWatchlistFilm(data)
         })
-	}
-
+    }
+    
     render () {
         let movie = this.props.movie
-	    return (
-		    <>
+        return (
+        <>
             <Card>
-                <Image id={movie.imdbID} onClick={this.handleOpen} style={{cursor:"pointer", height:"290px", width:"205px"}} src={movie.Poster} alt='movie'></Image>   
+            <Image id={movie.imdbID} onClick={this.handleOpen} style={{cursor:"pointer", height:"290px", width:"205px"}} src={movie.Poster} alt='movie'></Image>   
                 <Modal
 			        open={this.state.modalOpen}
                     onClose={this.handleClose}
