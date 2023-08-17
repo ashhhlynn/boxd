@@ -23,8 +23,8 @@ class Watchlist extends Component {
                     <>
                     <Card.Group style={{marginTop:"3%", marginBottom:"-.5%"}} itemsPerRow={7}>
                         {this.props.watchlistFilms.map((movie) => (
-                            <Card>
-                                <WatchlistFilm key={movie.id} film={movie} />
+                            <Card key={movie.id}>
+                                <WatchlistFilm film={movie} />
                             </Card>
                         ))}
                     </Card.Group>

@@ -67,7 +67,7 @@ const UserPage = (props) => {
 							<p style={{marginTop:"-7%"}}>You're following 0 users.</p>
 						:
 							<Item style={{textAlign:"left", marginLeft:"12%"}}>	
-								<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow} />
+								<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow}/>
 							</Item>
 						}
 					</Grid.Column>

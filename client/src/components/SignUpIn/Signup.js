@@ -7,7 +7,7 @@ class Signup extends Component {
         username: '',
         email: '',
         password: '',
-        password_confirmation: '',
+        password_confirmation: ''
     }
 
     handleSubmit = (event, userData) => {

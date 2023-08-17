@@ -8,7 +8,7 @@ import { logOut } from "../actions/rootActions"
 class Navbar extends Component {
 
 	state = {
-		modalOpen: false,
+		modalOpen: false
 	}
     
 	handleLogout = () => {
@@ -22,7 +22,7 @@ class Navbar extends Component {
     }    
 
 	handleOpen = () => {
-		this.setState({ modalOpen: true });
+		this.setState({ modalOpen: true })
 	}
 	
 	handleClose = () => {
@@ -37,13 +37,13 @@ class Navbar extends Component {
 				</Menu.Menu>
 				<Menu.Menu style={{marginRight:"4%"}} position='right'>
 					{this.props.currentUser.length === 0 ?
-						<Menu.Item style={{color:"white"}}><Link to='/login'><Icon size="big" name="user plus"/></Link></Menu.Item>
+						<Menu.Item style={{color:"white"}}><Link to='/login'><Icon size="big" name="user circle outline"/></Link></Menu.Item>
 						:
 						<>
-						<Menu.Item style={{color:"white"}}><Link to='/userdiary'><Icon name="book" size="large" style={{marginTop:"2%"}}/> </Link> Diary</Menu.Item>
-						<Menu.Item style={{color:"white"}}><Link to='/watchlist'><Icon name="eye" size="large" style={{marginTop:"2%"}}/> </Link> Watchlist</Menu.Item>
+						<Menu.Item style={{color:"white"}}><Link to='/userdiary'><Icon name="book" size="large" style={{marginTop:"2%"}}/></Link> Diary</Menu.Item>
+						<Menu.Item style={{color:"white"}}><Link to='/watchlist'><Icon name="eye" size="large" style={{marginTop:"2%"}}/></Link> Watchlist</Menu.Item>
 						<Menu.Item style={{color:"white"}}><Icon name="address book outline" onClick={this.handleOpen} size="large" style={{color:"white", cursor:"pointer"}}/>Friends</Menu.Item>
-						<Menu.Item style={{color:"white"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/> </Link> Logout</Menu.Item>
+						<Menu.Item style={{color:"white"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/></Link> Logout</Menu.Item>
 						</>
 					}
 					<Modal
@@ -51,7 +51,7 @@ class Navbar extends Component {
 					onClose={this.handleClose}
 					closeIcon>
             			<Modal.Content style={{background:"inherit"}}>
-							<UserPage getUserProfile={this.props.getUserProfile} currentUser={this.props.currentUser}/>
+							<UserPage currentUser={this.props.currentUser}/>
             			</Modal.Content>
           			</Modal>
 				</Menu.Menu>
@@ -62,13 +62,13 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-    	currentUser: state.currentUser,
+    	currentUser: state.currentUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-		logOut: () =>  { dispatch(logOut()) },
+		logOut: () =>  { dispatch(logOut()) }
     }
 } 
 

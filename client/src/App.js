@@ -28,7 +28,6 @@ class App extends Component {
 		fetch("/profile")
     	.then(resp => resp.json())
     	.then(data => {
-			console.log(data)
 			this.props.checkUser(data)
 		})
 	}
@@ -37,7 +36,7 @@ class App extends Component {
         return (
 			<Router>
     		<div className="app">
-				<Navbar getUserProfile ={this.getUserProfile}/>
+				<Navbar getUserProfile={this.getUserProfile}/>
       			<Container>   	
 					<Switch>
 						<Route exact path="/" >
@@ -63,14 +62,14 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-    	currentUser: state.currentUser,
+    	currentUser: state.currentUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
     	checkUser: (user) =>  { dispatch(checkUser(user)) },
-		fetchAllDF: (data) =>  { dispatch(fetchAllDF(data)) },
+		fetchAllDF: (data) =>  { dispatch(fetchAllDF(data)) }
     }
 } 
 

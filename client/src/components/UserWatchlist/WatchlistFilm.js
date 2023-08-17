@@ -9,7 +9,7 @@ class WatchlistFilm extends Component {
 
 	state = {
 		modalOpen: false,
-		score: 'NA'
+		score: 'N/A'
 	}
 
 	handleOpen = () => {
@@ -109,7 +109,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
         removeWatchlistFilm: (film) =>  { dispatch(removeWatchlistFilm(film)) },
-		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
+		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) }
     }
 }
 

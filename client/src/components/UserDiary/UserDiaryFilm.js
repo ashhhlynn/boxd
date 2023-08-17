@@ -9,7 +9,7 @@ const UserDiaryFilm = (props) => {
         <Item style={{marginLeft:"7%", marginRight:"7%"}} >
             <div className="remove" onClick={() => props.removeUserDiaryFilm(props.movie)}>
                 <Button floated="right" size="mini">
-                    <center><Icon size="large" name="delete" /></center>
+                    <center><Icon size="large" name="delete"/></center>
                 </Button>
             </div>
             <Header floated="left">

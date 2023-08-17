@@ -8,7 +8,7 @@ class Film extends Component {
 
     state = {
 		modalOpen: false,
-        score: 'N/A',
+        score: 'N/A'
     }
 
     handleOpen = (event) => {
@@ -115,7 +115,7 @@ class Film extends Component {
 const mapStateToProps = (state) => {
     return { 
         allDiaryFilms: state.allDF,
-        currentUser: state.currentUser,
+        currentUser: state.currentUser
     }
 }
 

@@ -9,10 +9,10 @@ function UserSearch(props) {
 
     const handleSearchChange = e => {
         let value = e.target.value;
-        setValue(value);
-        const re = new RegExp(_.escapeRegExp(value), 'i');
-        const isMatch = result => re.test(result.username);
-        setResults(_.filter(props.users, isMatch));
+        setValue(value)
+        const re = new RegExp(_.escapeRegExp(value), 'i')
+        const isMatch = result => re.test(result.username)
+        setResults(_.filter(props.users, isMatch))
     }
 
     const handleAddFollow = async (event, user) => {
@@ -42,7 +42,6 @@ function UserSearch(props) {
             resultRenderer={resultRenderer}
             results={results}
             value={value}
-            title={results}
             placeholder='Search users to follow...' 
         />
     )
