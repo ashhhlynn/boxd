@@ -24,8 +24,15 @@
 - Search for, follow and unfollow other users & view their film activity
 
 ## Setup
-` git clone < this repository > `
-` cd < this repository > `
+- ` git clone < this repository > `
+- ` cd < this repository > `
+- ` bundle install `
+- ` rake db:create `
+- ` rake db:migrate `
+- ` rails s `
+- ` cd client `
+- ` npm install `
+- ` npm start `
 
 
 # Boxd
