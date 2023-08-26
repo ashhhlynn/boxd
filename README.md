@@ -10,7 +10,7 @@ A Letterboxd inspired social media application created with JavaScript and React
 - View Boxd application rating average for rated films
 - Signup and login authenticated through BCrypt
 - Rate & log films to personal diary on five star scale, ability to edit & delete
-- Add and remove films from watchlist
+- Add & remove films from watchlist
 - Search for, follow and unfollow other users & view their film activity
 
 ## Tech Stack
