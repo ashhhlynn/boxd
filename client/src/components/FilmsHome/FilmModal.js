@@ -6,6 +6,7 @@ import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
 
 class FilmModal extends Component {
+	
 	state = {
 		modalOpen: false,
 		score: ''
