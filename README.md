@@ -30,7 +30,7 @@ A Letterboxd inspired application created with JavaScript and React with Ruby on
 - React Router
 - Ruby
 - Rails
-- PostgresQL
+- PostgreSQL
 - BCrypt
 - active_model_serializers
 - OMDb API
