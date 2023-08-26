@@ -1,6 +1,6 @@
 # Boxd.
 > A Letterboxd inspired social media application created with JavaScript and React with Ruby on Rails for rating films to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Styled with Semantic UI React and CSS.
-> Live demo [_here_](film-app.onrender.com/). 
+> Live demo [_here_](/film-app.onrender.com/). 
 
 ## Technologies Used
 - JavaScript
