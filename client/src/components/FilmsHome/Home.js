@@ -9,7 +9,7 @@ const Home = (props) => {
     
     const [welcomeMovies, setWelcomeMovies] = useState([])
     const [feed, setFeed] = useState([])
-    
+
     useEffect(() => {
         getWelcomeMovies()
     }, [])
