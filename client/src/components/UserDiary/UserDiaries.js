@@ -36,7 +36,7 @@ class UserDiaries extends Component {
     render () {
 	    return (
             <div className="diaries">
-                {this.props.countDF === 0 ?
+                {this.props.dF.length === 0 ?
                     <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
                 :
                     <>
@@ -55,7 +55,6 @@ class UserDiaries extends Component {
 const mapStateToProps = (state) => {
     return { 
         dF: state.diaryFilms,
-        countDF: state.countDF
     }
 }
 

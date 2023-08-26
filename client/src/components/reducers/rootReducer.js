@@ -2,7 +2,6 @@ export const initialState = {
     currentUser: [],
     loading: false,
     diaryFilms: [],
-    countDF: 0,
     allDF: [],
     watchlistFilms: []
 }
@@ -15,7 +14,6 @@ export const rootReducer = (state = initialState, action) => {
                     ...state, 
                     currentUser: action.user, 
                     diaryFilms: action.user.diary_films,
-                    countDF: action.user.diary_films.length,
                     loading: false,
                 };
             break 
@@ -41,7 +39,6 @@ export const rootReducer = (state = initialState, action) => {
                 ...state, 
                 diaryFilms: newDiaryList,
                 allDF: newAllDiaryList,
-                countDF: state.countDF + 1,
                 loading: false,
             };
                 
@@ -52,7 +49,6 @@ export const rootReducer = (state = initialState, action) => {
                 ...state, 
                 diaryFilms: newDiaryListTwo,
                 allDF: newAllDiaryListTwo,
-                countDF: state.countDF - 1,
                 loading: false,
             };
     
