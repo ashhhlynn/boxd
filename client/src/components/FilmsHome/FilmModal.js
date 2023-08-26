@@ -6,12 +6,11 @@ import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
 
 class FilmModal extends Component {
-
 	state = {
 		modalOpen: false,
 		score: ''
 	}
-
+	
 	handleOpen = () => {
 		fetch("/diary_films/" + this.props.film.id)
 		.then(resp => resp.json())
@@ -26,7 +25,7 @@ class FilmModal extends Component {
 	handleClose = () => {
 		this.setState({ modalOpen: false })
 	}
-
+	
 	addFilmToDiary = () => {
 		fetch("/diary_films", {
 			method: 'POST',
@@ -34,47 +33,47 @@ class FilmModal extends Component {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				title: this.props.film.title, 
-				user_id: this.props.currentUser.id, 
+				title: this.props.film.title,
+				user_id: this.props.currentUser.id,
 				watch_date: this.props.film.watch_date,
 				year: this.props.film.year, 
-				poster: this.props.film.poster, 
-				rating: 0, 
+				poster: this.props.film.poster,
+				rating: 0,
 			})
 		})
 		.then((response) => response.json())
-        .then(data => {
+		.then(data => {
 			window.alert("Added to diary.")
 			this.props.addDiaryFilm(data)
 		})
 	}
-
-	addUserWatchlistFilm = () => {	
-        fetch("/watchlist_films", {
+	
+	addUserWatchlistFilm = () => {
+		fetch("/watchlist_films", {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
 				title: this.props.film.title, 
-				user_id: this.props.currentUser.id, 
+				user_id: this.props.currentUser.id,
 				watch_date: this.props.film.watch_date,
 				year: this.props.film.year, 
 				poster: this.props.film.poster, 
 			})
 		})
 		.then((response) => response.json())
-        .then(data => {
+		.then(data => {
 			window.alert("Added to watchlist.")
 			this.props.addWatchlistFilm(data)
-        })
+		})
 	}
-
+	
 	render() {
-        let film = this.props.film
-        return (
-    		<div className="filmModal" onClick={this.handleOpen}>
-      			<Image src={film.poster}/>
+		let film = this.props.film
+		return (
+			<div className="filmModal" onClick={this.handleOpen}>
+				<Image src={film.poster}/>
 				<Modal
 				open={this.state.modalOpen}
 				onClose={this.handleClose}
@@ -108,19 +107,19 @@ class FilmModal extends Component {
 						</div>
 					</Modal.Content>
 				</Modal>
-    		</div>
-  		)
+			</div>
+		)
 	}
 }
 
 const mapStateToProps = (state) => {
-    return { 
-    	currentUser: state.currentUser
-    }
+	return {
+		currentUser: state.currentUser
+	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
+	return {
 		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
 		addWatchlistFilm: (film) =>  { dispatch(addWatchlistFilm(film)) }
 	}
