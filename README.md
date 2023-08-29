@@ -19,9 +19,9 @@
 - Search, sort, and display over 200,000 films through fetches from OMDb API database
 - View Boxd application rating average for rated films
 - Register and login
-- Rate & log films to personal diary on five star scale, ability to edit & delete
-- Add & remove films from watchlist
-- Search for, follow and unfollow other users & view their film activity
+- Rate and log films to personal diary on five star scale with ability to edit and delete
+- Add and remove films from watchlist
+- Search for, follow and unfollow other users, and view their film activity
 
 ## Media 
 ### Register & Log In
