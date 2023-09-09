@@ -46,7 +46,7 @@ const Home = (props) => {
                     <center><SearchBox/></center>
                 </h4>
                 <Divider></Divider>
-                <h4 style={{marginTop:"3.6%", marginBottom:"-.7%"}}>New on Boxd</h4>
+                <h4 style={{marginTop:"3.6%", marginBottom:"-.65%"}}>New on Boxd</h4>
                 {welcomeMovies.length !== 0 ?
                     <>
                     <WelcomeFilms welcomeMovies={welcomeMovies}/>

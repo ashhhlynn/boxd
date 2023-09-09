@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Card, Rating, Icon } from 'semantic-ui-react'
+import { Card, Rating, Icon } from 'semantic-ui-react'
 import FilmModal from './FilmModal'
 
 const Feed = (props) => {

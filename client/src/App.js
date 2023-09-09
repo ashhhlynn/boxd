@@ -68,8 +68,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-		checkUser: (user) =>  { dispatch(checkUser(user)) },
-		fetchAllDF: (data) =>  { dispatch(fetchAllDF(data)) }
+		checkUser: (user) => { dispatch(checkUser(user)) },
+		fetchAllDF: (data) => { dispatch(fetchAllDF(data)) }
 	}
 } 
 

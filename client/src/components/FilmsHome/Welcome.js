@@ -1,4 +1,4 @@
-import { Button, Item  } from 'semantic-ui-react'
+import { Button, Item } from 'semantic-ui-react'
 import React from 'react'
 import { Link} from 'react-router-dom'
 

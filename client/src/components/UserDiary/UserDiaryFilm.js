@@ -6,7 +6,7 @@ import FilmModal from '../FilmsHome/FilmModal'
 const UserDiaryFilm = (props) => {
 	return (
     <>
-        <Item style={{marginLeft:"7%", marginRight:"7%"}} >
+        <Item style={{marginLeft:"7%", marginRight:"7%"}}>
             <div className="remove" onClick={() => props.removeUserDiaryFilm(props.movie)}>
                 <Button floated="right" size="mini">
                     <center><Icon size="large" name="delete"/></center>

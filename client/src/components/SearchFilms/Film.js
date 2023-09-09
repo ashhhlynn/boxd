@@ -121,8 +121,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-    	addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) },
-        addWatchlistFilm: (film) =>  { dispatch(addWatchlistFilm(film)) }
+    	addDiaryFilm: (film) => { dispatch(addDiaryFilm(film)) },
+        addWatchlistFilm: (film) => { dispatch(addWatchlistFilm(film)) }
     }
 }
     

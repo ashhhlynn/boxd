@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-        fetchWatchlistFilms: (data) =>  { dispatch(fetchWatchlistFilms(data)) }
+        fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) }
     }
 }
 

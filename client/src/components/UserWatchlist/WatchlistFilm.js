@@ -108,8 +108,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeWatchlistFilm: (film) =>  { dispatch(removeWatchlistFilm(film)) },
-		addDiaryFilm: (film) =>  { dispatch(addDiaryFilm(film)) }
+		removeWatchlistFilm: (film) => { dispatch(removeWatchlistFilm(film)) },
+		addDiaryFilm: (film) => { dispatch(addDiaryFilm(film)) }
 	}
 }
 

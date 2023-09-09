@@ -60,8 +60,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-        removeDiaryFilm: (film) =>  { dispatch(removeDiaryFilm(film)) },
-    	patchDiaryFilm: (film) =>  { dispatch(patchDiaryFilm(film)) }
+        removeDiaryFilm: (film) => { dispatch(removeDiaryFilm(film)) },
+    	patchDiaryFilm: (film) => { dispatch(patchDiaryFilm(film)) }
     }
 }
 

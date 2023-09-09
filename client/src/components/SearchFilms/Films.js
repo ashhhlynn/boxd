@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card  } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import Film  from './Film'
 
 class Films extends Component {

@@ -39,6 +39,7 @@ export const fetchWatchlistFilms = (films) => {
         dispatch({ type: "FETCH_WATCHLIST_FILMS", films: films })
     }
 }
+
 export const addWatchlistFilm = (film) => {
     return (dispatch) => {
         dispatch({ type: "ADD_WATCHLIST_FILM", film: film })
