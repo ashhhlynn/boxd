@@ -3,6 +3,7 @@ import { Card, Image, Icon, Button, Rating, Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
+import { removeWatchlistFilm } from "../actions/rootActions"
 
 class Film extends Component {
     
@@ -70,6 +71,17 @@ class Film extends Component {
         })
     }
     
+    removeFilmFromWatchlist = (film) => {
+		let x = this.props.watchlistFilms.find(f => f.watch_date === film.imdbID)
+		fetch(`/watchlist_films/` + x.id, {
+    		method: 'DELETE',
+    		headers: {
+			'Content-Type': 'application/json',	
+    		},
+		})
+        this.props.removeWatchlistFilm(x)
+    }
+
     render () {
         let movie = this.props.movie
         return (
@@ -83,14 +95,29 @@ class Film extends Component {
                 >
                     <Modal.Content>
                         <h3>{movie.Title}
-                            <Button onClick={() => this.addUserWatchlistFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
-                                <Button.Content visible>
-                                    <Icon size="large" name="eye"/>
-                                </Button.Content>
-                                <Button.Content hidden>
-                                    Watch
-                                </Button.Content>
-                            </Button>
+                            {this.props.watchlistFilms.find(f => f.watch_date === movie.imdbID) ?
+							    <>
+                                <Button onClick={() => this.removeFilmFromWatchlist(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+                                    <Button.Content visible>
+                                        <Icon size="large" name="eye slash"/>
+                                    </Button.Content>
+                                    <Button.Content hidden>
+                                        Unwatch
+                                    </Button.Content>
+                                </Button>
+                                </>
+                            :
+                                <>
+                                <Button onClick={() => this.addUserWatchlistFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+                                    <Button.Content visible>
+                                        <Icon size="large" name="eye"/>
+                                    </Button.Content>
+                                    <Button.Content hidden>
+                                        Watch
+                                    </Button.Content>
+                                </Button>    
+                                </>
+                            }
                             <Button onClick={() => this.addUserDiaryFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }}  circular floated='right'>
                                 <Button.Content visible>
                                     <Icon size="large" name="calendar check"/>
@@ -115,14 +142,16 @@ class Film extends Component {
 const mapStateToProps = (state) => {
     return { 
         allDiaryFilms: state.allDF,
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        watchlistFilms: state.watchlistFilms
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return { 
     	addDiaryFilm: (film) => { dispatch(addDiaryFilm(film)) },
-        addWatchlistFilm: (film) => { dispatch(addWatchlistFilm(film)) }
+        addWatchlistFilm: (film) => { dispatch(addWatchlistFilm(film)) },
+        removeWatchlistFilm: (film) => { dispatch(removeWatchlistFilm(film)) }
     }
 }
     

@@ -12,6 +12,7 @@ import Navbar from './components/Decorative/Navbar'
 import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
 import Watchlist from './components/UserWatchlist/Watchlist'
+import { fetchWatchlistFilms } from "./components/actions/rootActions"
 
 class App extends Component {
 	
@@ -29,7 +30,18 @@ class App extends Component {
 		.then(resp => resp.json())
 		.then(data => {
 			this.props.checkUser(data)
+			if (data !== null) {
+				this.getWatchlistFilms()
+			}
 		})
+	}
+
+	getWatchlistFilms = () => {
+		fetch("/watchlist_films")
+        .then(resp => resp.json())
+        .then(data => {
+            this.props.fetchWatchlistFilms(data)
+        })
 	}
 	
 	render() {
@@ -69,7 +81,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
 		checkUser: (user) => { dispatch(checkUser(user)) },
-		fetchAllDF: (data) => { dispatch(fetchAllDF(data)) }
+		fetchAllDF: (data) => { dispatch(fetchAllDF(data)) },
+		fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) }
 	}
 } 
 

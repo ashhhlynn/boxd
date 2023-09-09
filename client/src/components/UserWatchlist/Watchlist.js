@@ -1,18 +1,9 @@
 import { Card } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchWatchlistFilms } from "../actions/rootActions"
-import WatchlistFilm from './WatchlistFilm'
+import FilmModal from '../FilmsHome/FilmModal'
 
 class Watchlist extends Component {
-
-    componentDidMount = () => {
-        fetch("/watchlist_films")
-        .then(resp => resp.json())
-        .then(data => {
-            this.props.fetchWatchlistFilms(data)
-        })
-    }
 
     render () {
         return (
@@ -24,7 +15,7 @@ class Watchlist extends Component {
                     <Card.Group style={{marginTop:"3%", marginBottom:"-.5%"}} itemsPerRow={7}>
                         {this.props.watchlistFilms.map((movie) => (
                             <Card key={movie.id}>
-                                <WatchlistFilm film={movie} />
+                                <FilmModal film={movie} />
                             </Card>
                         ))}
                     </Card.Group>
@@ -41,10 +32,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return { 
-        fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Watchlist)
+export default connect(mapStateToProps)(Watchlist)
