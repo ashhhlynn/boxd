@@ -1,5 +1,5 @@
 # Boxd.
-> A Letterboxd inspired social media application created with JavaScript and React with Ruby on Rails for rating films to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Styled with Semantic UI React and CSS.
+> A Letterboxd inspired social media application built with JavaScript and React with Ruby on Rails for rating films to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Styled with Semantic UI React and CSS.
 >
 > Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/863275157/4f031b953e">video</a> demos.
 
@@ -12,7 +12,8 @@
 - Ruby
 - Rails
 - PostgreSQL
-- BCrypt
+- Active Model Serializers
+- BCrypt Gem
 - OMDb API
 - Semantic UI React
 - HTML & CSS
@@ -20,7 +21,7 @@
 ## Features
 - Search, sort, and display over 200,000 films through fetches from OMDb API database
 - View Boxd application rating average for rated films
-- Register and log in
+- Register and log in with BCrypt gem
 - Rate and log films to personal diary on five star scale with ability to edit and delete
 - Add and remove films from watchlist
 - Search for, follow and unfollow other users, and view their film activity
