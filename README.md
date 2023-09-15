@@ -25,7 +25,7 @@
 - Rate and log films to personal diary on five star scale with ability to edit and delete
 - Add and remove films from watchlist
 - Search for, follow and unfollow other users
-- View feed of followed user's film activity
+- View film activity feed for followed users
 
 ## Media 
 ### Register & Log In
