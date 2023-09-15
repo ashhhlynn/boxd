@@ -63,7 +63,7 @@
 - ` npm start `
 
 ## Acknowledgements
-This project was inspired by Letterboxd Application and created by Ashley
+This project was inspired by Letterboxd Application and created by Ashley.
 
 ## License 
 This project is MIT licensed. 
