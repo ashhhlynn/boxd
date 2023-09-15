@@ -24,7 +24,8 @@
 - Register and log in with BCrypt gem
 - Rate and log films to personal diary on five star scale with ability to edit and delete
 - Add and remove films from watchlist
-- Search for, follow and unfollow other users, and view their film activity
+- Search for, follow and unfollow other users
+- View feed of followed user's film activity
 
 ## Media 
 ### Register & Log In
