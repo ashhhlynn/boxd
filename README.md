@@ -19,13 +19,12 @@
 - HTML & CSS
 
 ## Features
+- Register and log in authenticated with BCrypt gem
 - Search, sort, and display over 200,000 films through fetches from OMDb API database
 - View Boxd application rating average for rated films
-- Register and log in with BCrypt gem
-- Rate and log films to personal diary on five star scale with ability to edit and delete
+- Log and rate films to diary on 5-star scale, and update or remove logs
 - Add and remove films from watchlist
-- Search for, follow and unfollow other users
-- View film activity feed for followed users
+- Search for, follow and unfollow users to track activity on feed
 
 ## Media 
 ### Register & Log In
