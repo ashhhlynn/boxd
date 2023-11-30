@@ -28,28 +28,28 @@
 
 ## Media 
 ### Register & Log In
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173904-a05c7612-855e-46fe-924a-ab069e81e731.png">
+![Screenshot (168)](https://github.com/ashhhlynn/film_app/assets/84604278/3d34984f-963d-4823-894a-403646db3f87)
 
 ### Home
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173907-c3d7b3b3-4ee2-42ff-ae61-20d0ff5d39b9.png">
+![Screenshot (160)](https://github.com/ashhhlynn/film_app/assets/84604278/5b27191f-07da-4adb-9177-cc7f4f87aacd)
 
 ### Home Cont.
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173908-8d127cc1-11c0-4d18-b9d4-343463a0a6d2.png">
+![Screenshot (161)](https://github.com/ashhhlynn/film_app/assets/84604278/18d736af-2ffa-456d-a988-ee967bea1852)
 
 ### Search Films
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173912-40be7aa0-0ff1-44a6-9a0e-46b1981ac8fd.png">
+![Screenshot (163)](https://github.com/ashhhlynn/film_app/assets/84604278/d339d61a-3c00-4dc3-bc18-755081116bcc)
 
 ### Film Modal
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173917-7fee03a8-4c20-46c5-a4bd-724d4d7b9314.png">
+![Screenshot (167)](https://github.com/ashhhlynn/film_app/assets/84604278/52e60abb-1249-448e-b858-bf9544d249e6)
 
 ### Diary
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173913-be190d97-9577-4b7a-b73e-bcfec890a34c.png">
+![Screenshot (162)](https://github.com/ashhhlynn/film_app/assets/84604278/e9d868b8-9ec1-4ec2-80ae-7b9b040793b8)
 
 ### Watchlist
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173920-d3b1c07b-d6ab-4ea0-ba58-c0d41d23f89f.png">
+![Screenshot (165)](https://github.com/ashhhlynn/film_app/assets/84604278/eb97dbde-be48-4fa5-a957-97c54b3e9039)
 
 ### Follow Users
-<img width="660" height="290" src="https://user-images.githubusercontent.com/84604278/264173915-c0751652-9823-404e-a014-381b15515e77.png">
+![Screenshot (164)](https://github.com/ashhhlynn/film_app/assets/84604278/1168f2ed-2c0c-4582-8fec-adf3fd4398c5)
 
 ## Setup
 - ` git clone < this repository > `
