@@ -41,7 +41,7 @@ class UserDiaries extends Component {
                 :
                     <>
                     <br></br>
-                    <Divider style={{width:"84%", marginLeft:"8%"}}></Divider>
+                    <Divider style={{width:"87.5%", marginLeft:"5.75%"}}></Divider>
 		            {this.props.dF.map((movie, index) => (
                         <UserDiaryFilm key={index} movie={movie} removeUserDiaryFilm={this.removeUserDiaryFilm} patchRating={this.patchRating}/>
                     ))}

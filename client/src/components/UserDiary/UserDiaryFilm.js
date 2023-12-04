@@ -6,16 +6,16 @@ import FilmModal from '../FilmsHome/FilmModal'
 const UserDiaryFilm = (props) => {
 	return (
     <>
-        <Item style={{marginLeft:"7%", marginRight:"7%"}}>
+        <Item style={{marginLeft:"6.5%", marginRight:"6.75%"}}>
             <div className="remove" onClick={() => props.removeUserDiaryFilm(props.movie)}>
                 <Button floated="right" size="mini">
                     <center><Icon size="large" name="delete"/></center>
                 </Button>
             </div>
-            <Header floated="left">
+            <Header floated="left" style={{marginLeft:".5%"}}>
                 <Label style={{marginTop:"20%", backgroundColor:"#FFFEEF", color:"black"}}>
                     {props.movie.created_at.slice(0,4)}
-                    <h2><b>{props.movie.created_at.slice(6,10)}</b></h2>
+                    <h2><b>{props.movie.created_at.slice(5,10)}</b></h2>
                 </Label>
             </Header>
             <FilmModal film={props.movie} />
@@ -26,7 +26,7 @@ const UserDiaryFilm = (props) => {
                     <UserMovieRating film={props.movie} key={props.movie.id} patchRating={props.patchRating}/>
                 </h3>
             </Item>
-            <Divider></Divider>
+            <Divider style={{marginLeft:"-1.2%"}}></Divider>
         </Item>
     </>
 	)

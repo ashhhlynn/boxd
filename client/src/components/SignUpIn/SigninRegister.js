@@ -14,7 +14,8 @@ function SigninRegister(props) {
     }
     
     return (
-        <>          
+        <>  
+        <br></br>        
         <Segment placeholder>
             <br></br>
             <Grid stackable relaxed='very' columns={2}>
@@ -25,7 +26,7 @@ function SigninRegister(props) {
                     <Signup handleRoute={handleRoute}/>
                 </Grid.Column>   
             </Grid>
-            <Divider vertical>Or</Divider>
+            <Divider vertical style={{marginTop:"1%"}}>Or</Divider>
         </Segment>
         </>
     )
