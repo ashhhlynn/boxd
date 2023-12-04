@@ -1,5 +1,7 @@
 # Boxd.
-> A Letterboxd inspired social media application created with JavaScript and React with Ruby on Rails for rating films to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Styled with Semantic UI React and CSS.
+> A Letterboxd inspired social media application for rating films from the OMDb database to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Built with a JavaScript and React front end and Ruby on Rails with PostgreSQL database back end. Deployed to Render. 
+>
+> Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/863275157/4f031b953e">video</a> demos.
 
 
 ## Technologies Used
@@ -10,43 +12,44 @@
 - Ruby
 - Rails
 - PostgreSQL
-- BCrypt
+- Active Model Serializers
+- BCrypt Gem
 - OMDb API
 - Semantic UI React
 - HTML & CSS
 
 ## Features
+- Register and log in authenticated with BCrypt gem
 - Search, sort, and display over 200,000 films through fetches from OMDb API database
 - View Boxd application rating average for rated films
-- Register and login
-- Rate and log films to personal diary on five star scale with ability to edit and delete
+- Log and rate films to diary on 5-star scale, and update or remove logs
 - Add and remove films from watchlist
-- Search for, follow and unfollow other users, and view their film activity
+- Search for, follow and unfollow users to track activity on feed
 
 ## Media 
 ### Register & Log In
-![Screenshot (123)](https://github.com/ashhhlynn/film_app/assets/84604278/a05c7612-855e-46fe-924a-ab069e81e731)
+![Screenshot (168)](https://github.com/ashhhlynn/film_app/assets/84604278/3d34984f-963d-4823-894a-403646db3f87)
 
 ### Home
-![Screenshot (124)](https://github.com/ashhhlynn/film_app/assets/84604278/c3d7b3b3-4ee2-42ff-ae61-20d0ff5d39b9)
+![Screenshot (160)](https://github.com/ashhhlynn/film_app/assets/84604278/5b27191f-07da-4adb-9177-cc7f4f87aacd)
 
 ### Home Cont.
-![Screenshot (125)](https://github.com/ashhhlynn/film_app/assets/84604278/8d127cc1-11c0-4d18-b9d4-343463a0a6d2)
+![Screenshot (161)](https://github.com/ashhhlynn/film_app/assets/84604278/18d736af-2ffa-456d-a988-ee967bea1852)
 
 ### Search Films
-![Screenshot (126)](https://github.com/ashhhlynn/film_app/assets/84604278/40be7aa0-0ff1-44a6-9a0e-46b1981ac8fd)
+![Screenshot (163)](https://github.com/ashhhlynn/film_app/assets/84604278/d339d61a-3c00-4dc3-bc18-755081116bcc)
 
 ### Film Modal
-![Screenshot (130)](https://github.com/ashhhlynn/film_app/assets/84604278/7fee03a8-4c20-46c5-a4bd-724d4d7b9314)
+![Screenshot (167)](https://github.com/ashhhlynn/film_app/assets/84604278/52e60abb-1249-448e-b858-bf9544d249e6)
 
 ### Diary
-![Screenshot (127)](https://github.com/ashhhlynn/film_app/assets/84604278/be190d97-9577-4b7a-b73e-bcfec890a34c)
+![Screenshot (162)](https://github.com/ashhhlynn/film_app/assets/84604278/e9d868b8-9ec1-4ec2-80ae-7b9b040793b8)
 
 ### Watchlist
-![Screenshot (131)](https://github.com/ashhhlynn/film_app/assets/84604278/d3b1c07b-d6ab-4ea0-ba58-c0d41d23f89f)
+![Screenshot (165)](https://github.com/ashhhlynn/film_app/assets/84604278/eb97dbde-be48-4fa5-a957-97c54b3e9039)
 
 ### Follow Users
-![Screenshot (129)](https://github.com/ashhhlynn/film_app/assets/84604278/c0751652-9823-404e-a014-381b15515e77)
+![Screenshot (164)](https://github.com/ashhhlynn/film_app/assets/84604278/1168f2ed-2c0c-4582-8fec-adf3fd4398c5)
 
 ## Setup
 - ` git clone < this repository > `
@@ -60,5 +63,7 @@
 - ` npm start `
 
 ## Acknowledgements
-- This project was inspired by Letterboxd Application
-- This project was created by Ashley
+This project was inspired by Letterboxd Application and created by Ashley.
+
+## License 
+This project is MIT licensed. 
