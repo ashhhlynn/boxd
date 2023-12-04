@@ -11,7 +11,7 @@ const Welcome = () => {
                 <h2>Tell your friends what's good.</h2>
                 <Button as={Link} to ="/login" size="big">GET STARTED</Button>  
             </Item>
-        </div>   
+        </div>
 	)
 }
 
