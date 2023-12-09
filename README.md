@@ -1,8 +1,13 @@
 # Boxd.
-> A Letterboxd inspired social media application for rating films from the OMDb database to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Built with a JavaScript and React front end and Ruby on Rails with PostgreSQL database back end. Deployed to Render. 
->
-> Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/863275157/4f031b953e">video</a> demos.
+<table>
+  <tr>
+    <td>
+A Letterboxd inspired social media application for rating films from the OMDb database to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Built with a JavaScript and React front end and Ruby on Rails with PostgreSQL database back end. Deployed to Render.   
+    </td>
+  </tr>
+</table>
 
+Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/863275157/4f031b953e">video</a> demos.
 
 ## Technologies Used
 - JavaScript
@@ -12,7 +17,6 @@
 - Ruby
 - Rails
 - PostgreSQL
-- Active Model Serializers
 - BCrypt Gem
 - OMDb API
 - Semantic UI React
@@ -61,9 +65,6 @@
 - ` cd client `
 - ` npm install `
 - ` npm start `
-
-## Acknowledgements
-This project was inspired by Letterboxd Application and created by Ashley.
 
 ## License 
 This project is MIT licensed. 
