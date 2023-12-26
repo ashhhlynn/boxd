@@ -6,6 +6,10 @@
 	background-color: #1a1f22;
 }
 
+.bg .ui.button {
+	letter-spacing: .3px !important;
+}
+
 .ui.button {
 	letter-spacing: 1px !important;
 	font-weight: normal !important;

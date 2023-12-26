@@ -9,7 +9,7 @@ const Welcome = () => {
                 <h1>The social network for film.</h1>
                 <h2>Track films you've watched.</h2>
                 <h2>Tell your friends what's good.</h2>
-                <Button as={Link} to ="/login" size="big">GET STARTED</Button>  
+                <Button circular as={Link} to ="/login" size="big">GET STARTED</Button>  
             </Item>
         </div>
 	)
