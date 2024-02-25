@@ -26,7 +26,7 @@ class UserShow extends Component {
                     <Grid.Column style={{ width:"230px"}}>
                         <Item style={{marginLeft:"-20%", marginTop:"20%", fontFamily:"Helvetica", letterSpacing:".5px",}}>
                             <center>
-                                <Icon name="user circle" size="huge" style={{fontSize:"600%"}} />  
+                                <Icon name="user circle" size="huge" style={{marginLeft:"2.2%", fontSize:"600%"}} />  
                             </center>
                             <h2 style={{ marginTop:"3%"}}>{this.state.user.username}</h2>
                             <p>

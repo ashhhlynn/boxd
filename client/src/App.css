@@ -122,8 +122,8 @@
 }
 
 .diaries .ui.image {
-	height: 88px;
-	width: 67px;
+	height: 88px !important;
+	width: 65px !important;
 	margin-left: 15%
 }
 
@@ -158,6 +158,10 @@
 	color: #f4f4ff; 
 }
 
+.userpage  .ui.button:hover, a:hover {
+	color: #c7c7ff !important;
+}
+
 .userpage h3 {
 	font-family: "Helvetica" !important;
 	letter-spacing: .5px !important;
@@ -183,10 +187,3 @@ h1, h2, h3, h4, h5 {
 h2 {
 	font-size: 22px !important;
 }
-  
-
-
-
-
-
-  

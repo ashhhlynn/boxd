@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Image, Icon, Button, Rating, Modal } from 'semantic-ui-react'
+import { Card, Image, Icon, Button, Rating, Modal, Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
@@ -109,9 +109,9 @@ class Film extends Component {
                     onClose={this.handleClose}
                     closeIcon
                 >
-                    <Modal.Content>	
+                    <Modal.Content style={{marginTop:"1.75%"}}>	
                         <h3 style={{fontFamily:"Helvetica", letterSpacing:".5px", fontSize:"17px"}}>{movie.Title}
-                            <Image floated="left" size="tiny" src={movie.Poster} style={{marginTop:"-1%"}}/>
+                            <Image floated="left" size="tiny" src={movie.Poster} style={{width:"82px", height:"120px", marginTop:"-1%"}}/>
                             {this.props.watchlistFilms.find(f => f.watch_date === movie.imdbID) ?
 							    <>
                                 <Button size="large" onClick={() => this.removeFilmFromWatchlist(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
@@ -150,12 +150,15 @@ class Film extends Component {
                             <Rating className="stars" disabled rating={5} maxRating={5}/> 
                         </div>
                         <br></br><br></br>
-                        <div style={{marginLeft:"-4%", marginTop:"0%"}}>
-						<Card.Group itemsPerRow={7} >
+						<Card.Group style={{marginLeft:"-6%", marginTop:"-2%"}} itemsPerRow={7} >
 							{feedEntries.map((f => (
 								<Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
-									<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>
-                        			<Rating 
+									<Popup
+    								trigger={<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>}
+    								content={f.user.username}
+    								basic
+  									/>
+                                    <Rating 
                         			disabled
                         			size="mini" 
                         			rating={f.rating}  
@@ -165,8 +168,6 @@ class Film extends Component {
 								</Card>
 							)))} 	
 						</Card.Group>
-						</div>
-
                     </Modal.Content>
                 </Modal>
             </Card>

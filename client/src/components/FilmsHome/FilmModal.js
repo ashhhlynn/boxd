@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Icon, Image, Modal, Card, Rating, Button } from 'semantic-ui-react'
+import { Icon, Image, Modal, Card, Rating, Button, Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
@@ -110,10 +110,9 @@ class FilmModal extends Component {
 				onClose={this.handleClose}
 				closeIcon
 				>
-					<Modal.Content>
-						<div style={{marginBottom:"5.7%"}}>
+					<Modal.Content style={{marginTop:"1.75%"}}>
 						<h3 style={{fontFamily:"Helvetica", letterSpacing:".5px", fontSize:"17px"}}>
-							<Image floated="left" size="tiny" src={film.poster} style={{marginTop:"-1%"}}/>
+							<Image floated="left" src={film.poster} style={{width:"82px", height:"120px", marginTop:"-1%"}}/>
 							{film.title}
 							{this.props.watchlistFilms.find(f => f.watch_date === this.props.film.watch_date) ?
 								<>
@@ -152,13 +151,15 @@ class FilmModal extends Component {
 						<div className="filmrating" style={{marginTop:"-2%"}}>
 							<Rating className="stars" disabled rating={5} maxRating={5}/> 					
 						</div>
-
-						</div>
-						<div style={{marginLeft:"-4%", marginTop:"0%"}}>
-						<Card.Group style={{}} itemsPerRow={7} >
+						<br></br><br></br>
+						<Card.Group style={{marginLeft:"-6%", marginTop:"-2%"}} itemsPerRow={7} >
 							{feedEntries.map((f => (
 								<Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
-									<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>
+									<Popup
+    								trigger={<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>}
+    								content={f.user.username}
+    								basic
+  									/>
                         			<Rating 
                         			disabled
                         			size="mini" 
@@ -169,7 +170,6 @@ class FilmModal extends Component {
 								</Card>
 							)))} 	
 						</Card.Group>
-						</div>
 					</Modal.Content>
 				</Modal>
 			</div>
@@ -182,7 +182,6 @@ const mapStateToProps = (state) => {
 		currentUser: state.currentUser,
 		allDiaryFilms: state.allDF,
 		watchlistFilms: state.watchlistFilms,
-
 		feed: state.feed
 	}
 }
