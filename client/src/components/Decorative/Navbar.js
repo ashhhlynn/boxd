@@ -29,6 +29,11 @@ class Navbar extends Component {
 		this.setState({ modalOpen: false })
 	}
 
+	changeUserShow = (userShow) => {
+		this.props.changeUserShow(userShow)
+		this.handleClose()
+	}
+
 	render() {
         return (
       		<Menu className="nav">			
@@ -44,9 +49,7 @@ class Navbar extends Component {
 						<>
 						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/userdiary'><Icon name="user circle" size="large" style={{ marginTop:"2%"}}/></Link> Diary</Menu.Item>
 						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/watchlist'><Icon name="eye" size="large" style={{ marginTop:"2%"}}/></Link> Watch</Menu.Item>
-
 						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Icon name="address book outline" onClick={this.handleOpen} size="large" style={{color:"#c7c7ff ", cursor:"pointer"}}/>Friends</Menu.Item>
-
 						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
 						</>
 					}
@@ -55,7 +58,7 @@ class Navbar extends Component {
 					onClose={this.handleClose}
 					closeIcon>
             			<Modal.Content style={{background:"inherit"}}>
-							<UserPage currentUser={this.props.currentUser}/>
+							<UserPage changeUserShow={this.changeUserShow} currentUser={this.props.currentUser}/>
             			</Modal.Content>
           			</Modal>
 				</Menu.Menu>

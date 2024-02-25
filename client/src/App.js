@@ -14,9 +14,14 @@ import { fetchAllDF } from "./components/actions/rootActions"
 import Watchlist from './components/UserWatchlist/Watchlist'
 import { fetchWatchlistFilms } from "./components/actions/rootActions"
 import { fetchFeed } from "./components/actions/rootActions"
+import UserShow from './components/UserDiary/UserShow'
 
 class App extends Component {
-	
+
+	state = {
+		userShow: null
+	}
+
 	componentDidMount = () => {
 		this.getUserProfile()
 		fetch("/diary_films")
@@ -54,11 +59,15 @@ class App extends Component {
         })
     }
 	
+	changeUserShow = (id) => {
+       this.setState({userShow: id})
+    }
+
 	render() {
 		return (
 	        <Router>
 			    <div className="app">
-				    <Navbar getUserProfile={this.getUserProfile}/>
+				    <Navbar changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
 				    <Container>
 					    <Switch>
 						    <Route exact path="/">
@@ -72,6 +81,9 @@ class App extends Component {
 						    </Route>
 						    <Route exact path="/watchlist">
 							    <Watchlist/>
+						    </Route>
+							<Route exact path="/profile">
+							    <UserShow userShow={this.state.userShow}/>
 						    </Route>
 					    </Switch>
 				    </Container>
@@ -94,9 +106,7 @@ const mapDispatchToProps = (dispatch) => {
 		checkUser: (user) => { dispatch(checkUser(user)) },
 		fetchAllDF: (data) => { dispatch(fetchAllDF(data)) },
 		fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) },
-
 		fetchFeed: (data) => { dispatch(fetchFeed(data)) }
-
 	}
 } 
 

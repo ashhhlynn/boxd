@@ -4,7 +4,6 @@ export const initialState = {
     diaryFilms: [],
     allDF: [],
     watchlistFilms: [],
-    
     feed: []
 }
 
@@ -19,21 +18,18 @@ export const rootReducer = (state = initialState, action) => {
                     loading: false,
                 };
             break 
-
         case 'FETCH_FEED':
-                return {
-                    ...state, 
-                    feed: action.films, 
-                    loading: false,
-                };
-
+            return {
+                ...state, 
+                feed: action.films, 
+                loading: false,
+            };
         case 'FETCH_ALL_DF':
             return {
                 ...state, 
                 allDF: action.films, 
                 loading: false,
             };
-
         case 'FETCH_WATCHLIST_FILMS':
             return {
                 ...state, 

@@ -43,6 +43,11 @@ class UsersController < ApplicationController
     end 
   end
 
+  def show
+    @user = User.find(params[:id])
+    render json: @user, includes: :diary_films
+  end
+
   private
 
     def user_params

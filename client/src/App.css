@@ -154,6 +154,10 @@
 	letter-spacing: .5px !important;
 }
 
+.userpage a {
+	color: #f4f4ff; 
+}
+
 .userpage h3 {
 	font-family: "Helvetica" !important;
 	letter-spacing: .5px !important;

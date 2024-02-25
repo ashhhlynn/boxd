@@ -67,7 +67,7 @@ const UserPage = (props) => {
 							<p style={{marginTop:"-7%"}}>You're following 0 users.</p>
 						:
 							<Item style={{textAlign:"left", marginLeft:"12%"}}>	
-								<UserFollowing userFollowing={userFollowing} removeFollow={removeFollow}/>
+								<UserFollowing changeUserShow={props.changeUserShow} userFollowing={userFollowing} removeFollow={removeFollow}/>
 							</Item>
 						}
 					</Grid.Column>
@@ -78,7 +78,7 @@ const UserPage = (props) => {
 							<p style={{marginTop:"-7%"}}>0 users are following you.</p>
 						:
 							<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
-								<UserFollowers userFollowers={props.currentUser.followers}/>
+								<UserFollowers changeUserShow={props.changeUserShow} userFollowers={props.currentUser.followers}/>
 							</Item>
 						}
 					</Grid.Column>
