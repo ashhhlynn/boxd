@@ -25,10 +25,11 @@ Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="htt
 ## Features
 - Register and log in authenticated with BCrypt gem
 - Search, sort, and display over 200,000 films through fetches from OMDb API database
-- View Boxd application rating average for rated films
+- View Boxd application rating average and followed users who watched for rated films
 - Log and rate films to diary on 5-star scale, and update or remove logs
 - Add and remove films from watchlist
 - Search for, follow and unfollow users to track activity on feed
+- View film diaries of other users 
 
 ## Media 
 ### Register & Log In
