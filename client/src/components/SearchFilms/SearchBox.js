@@ -22,7 +22,7 @@ const SearchBox = (props) => {
 
 	return (
 		<>
-		Search films <input style={{letterSpacing:"1px", fontSize:"16px"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)}/> <Icon name="search"/>
+		Search films <input style={{letterSpacing:".5px", fontSize:"16px"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)}/> <Icon name="search"/>
 		<Films films={films}/>
 		</>
 	)

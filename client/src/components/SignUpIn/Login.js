@@ -41,7 +41,7 @@ class Login extends Component {
     render() {
         return (
             <>                               
-            <h1>Sign In</h1>
+            <h2 style={{fontFamily:"Helvetica"}}>Sign In</h2>
             <Form onSubmit={ (event) => { this.handleSubmit(event, this.state)}}>
                 <Form.Input
                     required
@@ -58,7 +58,7 @@ class Login extends Component {
                     value={this.state.password} 
                     onChange={this.handleChange}
                 /> 
-                <Form.Button circular content='Submit'/>
+                <Form.Button size="tiny" circular content='Submit'/>
             </Form>                
             </>
         )

@@ -1,4 +1,4 @@
-import { Divider } from 'semantic-ui-react'
+import { Divider, Icon, Grid, Item } from 'semantic-ui-react'
 import UserDiaryFilm from './UserDiaryFilm'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -36,17 +36,34 @@ class UserDiaries extends Component {
     render () {
 	    return (
             <div className="diaries">
-                {this.props.dF.length === 0 ?
-                    <p><br></br>Your diary is empty. Search for a film to begin logging!</p> 
-                :
-                    <>
-                    <br></br>
-                    <Divider style={{width:"87.5%", marginLeft:"5.75%"}}></Divider>
-		            {this.props.dF.map((movie, index) => (
-                        <UserDiaryFilm key={index} movie={movie} removeUserDiaryFilm={this.removeUserDiaryFilm} patchRating={this.patchRating}/>
-                    ))}
-                    </>
-                }
+                <Grid stackable columns={2}>
+                    <Grid.Column style={{ width:"230px"}}>
+                        <Item style={{marginLeft:"-20%", marginTop:"20%", fontFamily:"Helvetica", letterSpacing:".5px",}}>
+                            <center>
+                                <Icon name="user circle" size="huge" style={{fontSize:"600%"}} />  
+                            </center>
+                            <h2 style={{ marginTop:"3%"}}>{this.props.currentUser.username}</h2>
+                            <p>
+                                Since {this.props.currentUser.created_at.slice(0,7)}<br></br>
+                                {this.props.currentUser.diary_films.length} Films Logged<br></br>
+                                {this.props.currentUser.followees.length} Following | {this.props.currentUser.followers.length} Followers 
+                            </p>
+                        </Item>
+                    </Grid.Column>
+                    <Grid.Column style={{letterSpacing:".5px", fontFamily:"Helvetica"}}>
+                        {this.props.dF.length === 0 ?
+                            <p><br></br><br></br><br></br>Your diary is empty. Search for a film to begin logging!</p>
+                        :
+                            <>
+                            <br></br>
+                            <Divider style={{width:"157%", marginLeft:"1.4%"}}></Divider>
+		                    {this.props.dF.map((movie, index) => (
+                                <UserDiaryFilm key={index} movie={movie} removeUserDiaryFilm={this.removeUserDiaryFilm} patchRating={this.patchRating}/>
+                            ))}
+                            </>
+                        }
+                   </Grid.Column>
+                </Grid>
             </div>
 	    )
     }
@@ -55,6 +72,7 @@ class UserDiaries extends Component {
 const mapStateToProps = (state) => {
     return { 
         dF: state.diaryFilms,
+        currentUser: state.currentUser
     }
 }
 

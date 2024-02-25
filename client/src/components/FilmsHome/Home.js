@@ -2,7 +2,6 @@ import { Divider } from 'semantic-ui-react'
 import WelcomeFilms from './WelcomeFilms'
 import React, { useState, useEffect } from 'react'
 import Feed from './Feed'
-import Welcome from './Welcome'
 import SearchBox from '../SearchFilms/SearchBox'
 
 const Home = (props) => {
@@ -36,28 +35,28 @@ const Home = (props) => {
     
 	return (
         <div className="home">
-            {props.currentUser.length === 0 ?
+            <h3 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>
+                    <center><SearchBox/></center>
+            </h3>
+            <Divider></Divider>
+            <h3 style={{marginTop:"3.6%", marginBottom:"-.65%"}}>New on Boxd</h3>
+            {welcomeMovies.length !== 0 ?
                 <>
-                <Welcome/>
+                <WelcomeFilms welcomeMovies={welcomeMovies}/>
+                <Divider></Divider>
                 </>
             :
                 <>
-                <h4 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>
-                    <center><SearchBox/></center>
-                </h4>
-                <Divider></Divider>
-                <h4 style={{marginTop:"3.6%", marginBottom:"-.65%"}}>New on Boxd</h4>
-                {welcomeMovies.length !== 0 ?
-                    <>
-                    <WelcomeFilms welcomeMovies={welcomeMovies}/>
-                    <Divider></Divider>
-                    </>
-                :
-                    <>
-                    <p>No new content on Boxd right now.</p>
-                    </>
-                }
-                <h4 style={{marginBottom:"-1.5%", marginTop:"3.5%"}}>New from friends</h4>
+                <p>No new content on Boxd right now.</p>
+                </>
+            }
+            <h3 style={{marginBottom:"-1.5%", marginTop:"3.5%"}}>New from Friends</h3>
+            {props.currentUser.length === 0 ?
+                <>
+                <p>Register or login to view activity from friends.</p>
+                </>
+            :
+                <>
                 {feed.length !== 0 ?
                     <>
                     <Feed userFeed={feed}/>

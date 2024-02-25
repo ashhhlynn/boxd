@@ -31,19 +31,23 @@ class Navbar extends Component {
 
 	render() {
         return (
-      		<Menu className="nav">
-				<Menu.Menu icon='labeled' style={{marginLeft:"4%", marginTop:".5%"}} position="left"><br></br>
+      		<Menu className="nav">			
+				<Menu.Menu icon='labeled' style={{marginLeft:"4%", marginTop:"1%"}} position="left"><br></br>
 					<h1><Link to='/'>Boxd.</Link></h1>
 				</Menu.Menu>
-				<Menu.Menu style={{marginRight:"4%"}} position='right'>
+				<Menu.Menu style={{marginRight:"3%"}} position='right'>
 					{this.props.currentUser.length === 0 ?
-						<Menu.Item style={{color:"white"}}><Link to='/login'><Icon size="big" name="user circle outline"/></Link></Menu.Item>
+					<>
+						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/login'><Icon size="big" name="user circle outline"/></Link></Menu.Item>
+					</>
 						:
 						<>
-						<Menu.Item style={{color:"white"}}><Link to='/userdiary'><Icon name="book" size="large" style={{marginTop:"2%"}}/></Link> Diary</Menu.Item>
-						<Menu.Item style={{color:"white"}}><Link to='/watchlist'><Icon name="eye" size="large" style={{marginTop:"2%"}}/></Link> Watchlist</Menu.Item>
-						<Menu.Item style={{color:"white"}}><Icon name="address book outline" onClick={this.handleOpen} size="large" style={{color:"white", cursor:"pointer"}}/>Friends</Menu.Item>
-						<Menu.Item style={{color:"white"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/></Link> Logout</Menu.Item>
+						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/userdiary'><Icon name="user circle" size="large" style={{ marginTop:"2%"}}/></Link> Diary</Menu.Item>
+						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/watchlist'><Icon name="eye" size="large" style={{ marginTop:"2%"}}/></Link> Watch</Menu.Item>
+
+						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Icon name="address book outline" onClick={this.handleOpen} size="large" style={{color:"#c7c7ff ", cursor:"pointer"}}/>Friends</Menu.Item>
+
+						<Menu.Item style={{color:"#c7c7ff ", letterSpacing:".25px"}}><Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off"/></Link></Menu.Item>
 						</>
 					}
 					<Modal

@@ -1,9 +1,10 @@
 .app {
 	text-align: center;
 	font-weight: normal !important;
-	color: white !important;
-	letter-spacing:1.5px !important;
-	background-color: #1a1f22;
+	color: #f4f4ff !important;
+	letter-spacing: .5px !important;
+	background-color:#171b22; 
+	font-family: "futura-pt", sans-serif;
 }
 
 .bg .ui.button {
@@ -11,14 +12,14 @@
 }
 
 .ui.button {
-	letter-spacing: 1px !important;
+	letter-spacing: .5px !important;
 	font-weight: normal !important;
 	justify-content: center !important;
 	text-align: center !important;
 }
 
 .ui.modal {
-	background-color: #1a1f22 !important;
+	background-color: #171b22 !important;
 	width: 630px !important;
 	color: white;
 }
@@ -32,12 +33,17 @@
 }
 
 .nav { 
-	background-color:#15191b !important;
+	background-color:#171b22 !important;
 	height:100px;
 }
 
-.nav a, .ui.icon {
-	color:white !important;
+.nav a, .ui.icon  {
+	color: #c7c7ff !important;
+}
+
+.nav h1 > a {
+	color:#f4f4ff !important;
+	font-family:"Helvetica"
 }
 
 .app .ui.container {
@@ -46,9 +52,10 @@
 }
 
 .footer .ui.segment {
-	background-color:#15191b !important;
+	background-color:#171b22 !important;
 	margin-top: 3.3% !important;
 	color:white;
+	font-family: "Helvetica" !important;
 }
 
 .ui.segment {
@@ -69,9 +76,16 @@
   	background-image: url("https://miro.medium.com/v2/resize:fit:829/1*aBrXE2zWyNZHTC0eVJcdoA.jpeg");
 }
 
-.home h4 {
-	font-weight:bold !important;
+.home h3 {
+	font-weight: normal !important;
 	text-align: left;
+	font-size: 16px;
+	font-family: 'Helvetica' !important;
+	letter-spacing: 0px !important;
+}
+
+.home {
+	letter-spacing: .5px !important;
 }
 
 .home p {
@@ -86,9 +100,9 @@
 }
 
 .home .ui.card {
-	background-color:#1a1f22 !important;
+	background-color:#171b22 !important;
 	box-shadow:none !important;
-	color: white;
+	color:#f4f4ff !important;
 }
 
 .home .ui.image {
@@ -100,16 +114,17 @@
 	cursor: pointer;
 }
 
-
 .diaries h3 {
-	color:white;
-	font-size:16px
+	color:#f4f4ff;
+	font-size:16px;
+	font-family: 'Helvetica';
+	letter-spacing: .5px !important;
 }
 
 .diaries .ui.image {
 	height: 88px;
 	width: 67px;
-	margin-left: 13%
+	margin-left: 15%
 }
 
 .films .ui.card {
@@ -127,24 +142,22 @@
 }
 
 .ui.rating .icon.active:before{
-	color: #FFFFCC !important;
-}
-
-.userpage h1 {
-	margin-top:0%;
-	margin-bottom:.2%;
+	color: #cdcdff !important;
 }
 
 .userpage .ui.card {
-	background-color: #1a1f22 !important;
+	background-color: #171b22 !important;
 	box-shadow: none;
 	margin-top: -8% !important;
 	width: 150px;
-	letter-spacing: 1.5px !important;
+	font-family: "Helvetica" !important;
+	letter-spacing: .5px !important;
 }
 
-.userpage p {
-	letter-spacing: 1.5px !important;
+.userpage h3 {
+	font-family: "Helvetica" !important;
+	letter-spacing: .5px !important;
+	font-size: 16px
 }
 
 .userpage .ui.button {
@@ -160,7 +173,7 @@
 
 h1, h2, h3, h4, h5 {
 	font-weight: normal !important;
-	letter-spacing:1.5px !important;
+	letter-spacing: .5px !important;
 }
 
 h2 {

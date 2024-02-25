@@ -28,49 +28,63 @@ class Film extends Component {
         this.setState({ modalOpen: false })
     }
     
+    alertMessage = () => {
+		window.alert("Register or log in to begin adding films.")
+	}
+
     addUserDiaryFilm = (film) => {	
-        fetch("/diary_films", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: film.Title,
-                user_id: this.props.currentUser.id,
-                watch_date: film.imdbID,
-                year: film.Year,
-                poster: film.Poster,
-                rating: 0,
+        if (this.props.currentUser.length === 0) {
+			this.alertMessage()
+		}
+		else {
+            fetch("/diary_films", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title: film.Title,
+                    user_id: this.props.currentUser.id,
+                    watch_date: film.imdbID,
+                    year: film.Year,
+                    poster: film.Poster,
+                    rating: 0,
+                })
             })
-        })
-        .then((response) => response.json())
-        .then(data => {
-            window.alert("Added to diary.")
-            this.props.addDiaryFilm(data)
-        })
+            .then((response) => response.json())
+            .then(data => {
+                window.alert("Added to diary.")
+                this.props.addDiaryFilm(data)
+            })
+        }
     }
-    
+
     addUserWatchlistFilm = (film) => {
-        fetch("/watchlist_films", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: film.Title, 
-                user_id: this.props.currentUser.id, 
-                watch_date: film.imdbID,
-                year: film.Year, 
-                poster: film.Poster, 
+        if (this.props.currentUser.length === 0) {
+			this.alertMessage()
+		}
+		else {
+            fetch("/watchlist_films", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title: film.Title, 
+                    user_id: this.props.currentUser.id, 
+                    watch_date: film.imdbID,
+                    year: film.Year, 
+                    poster: film.Poster, 
+                })
             })
-        })
-        .then((response) => response.json())
-        .then(data => {
-            window.alert("Added to watchlist.")
-            this.props.addWatchlistFilm(data)
-        })
+            .then((response) => response.json())
+            .then(data => {
+                window.alert("Added to watchlist.")
+                this.props.addWatchlistFilm(data)
+            })
+        }
     }
-    
+
     removeFilmFromWatchlist = (film) => {
 		let x = this.props.watchlistFilms.find(f => f.watch_date === film.imdbID)
 		fetch(`/watchlist_films/` + x.id, {
@@ -84,6 +98,8 @@ class Film extends Component {
 
     render () {
         let movie = this.props.movie
+        let feedEntries = this.props.feed.filter(f => f.title === movie.Title)
+
         return (
         <>
             <Card>
@@ -93,44 +109,64 @@ class Film extends Component {
                     onClose={this.handleClose}
                     closeIcon
                 >
-                    <Modal.Content>
-                        <h3>{movie.Title}
+                    <Modal.Content>	
+                        <h3 style={{fontFamily:"Helvetica", letterSpacing:".5px", fontSize:"17px"}}>{movie.Title}
+                            <Image floated="left" size="tiny" src={movie.Poster} style={{marginTop:"-1%"}}/>
                             {this.props.watchlistFilms.find(f => f.watch_date === movie.imdbID) ?
 							    <>
-                                <Button onClick={() => this.removeFilmFromWatchlist(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+                                <Button size="large" onClick={() => this.removeFilmFromWatchlist(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
                                     <Button.Content visible>
-                                        <Icon size="large" name="eye slash"/>
+                                        <Icon name="eye slash"/>
                                     </Button.Content>
-                                    <Button.Content hidden>
+                                    <Button.Content hidden style={{fontSize:"13px"}}>
                                         Unwatch
                                     </Button.Content>
                                 </Button>
                                 </>
                             :
                                 <>
-                                <Button onClick={() => this.addUserWatchlistFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+                                <Button size="large" onClick={() => this.addUserWatchlistFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
                                     <Button.Content visible>
-                                        <Icon size="large" name="eye"/>
+                                        <Icon name="eye"/>
                                     </Button.Content>
-                                    <Button.Content hidden>
+                                    <Button.Content hidden style={{fontSize:"13px"}}>
                                         Watch
                                     </Button.Content>
                                 </Button>    
                                 </>
                             }
-                            <Button onClick={() => this.addUserDiaryFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }}  circular floated='right'>
+                            <Button size="large" onClick={() => this.addUserDiaryFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }}  circular floated='right'>
                                 <Button.Content visible>
-                                    <Icon size="large" name="calendar check"/>
+                                    <Icon name="calendar check"/>
                                 </Button.Content>
-                                <Button.Content hidden>
+                                <Button.Content hidden style={{fontSize:"13px"}}>
                                     Diary
                                 </Button.Content>
                             </Button>
                         </h3>
-                        <h5>{movie.Year}</h5>
-                        <h5>
-                            <Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
-                        </h5>
+                        {movie.Year}<br></br><br></br>
+                        <p style={{marginTop:"-1.5%"}}>Average {this.state.score}</p>
+                        <div className="filmrating" style={{marginTop:"-2%"}}>
+                            <Rating className="stars" disabled rating={5} maxRating={5}/> 
+                        </div>
+                        <br></br><br></br>
+                        <div style={{marginLeft:"-4%", marginTop:"0%"}}>
+						<Card.Group itemsPerRow={7} >
+							{feedEntries.map((f => (
+								<Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
+									<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>
+                        			<Rating 
+                        			disabled
+                        			size="mini" 
+                        			rating={f.rating}  
+                        			maxRating={5}  
+									style={{fontSize:"8px", marginTop:"40%"}}
+                        			/>
+								</Card>
+							)))} 	
+						</Card.Group>
+						</div>
+
                     </Modal.Content>
                 </Modal>
             </Card>
@@ -143,7 +179,8 @@ const mapStateToProps = (state) => {
     return { 
         allDiaryFilms: state.allDF,
         currentUser: state.currentUser,
-        watchlistFilms: state.watchlistFilms
+        watchlistFilms: state.watchlistFilms, 
+        feed: state.feed
     }
 }
 

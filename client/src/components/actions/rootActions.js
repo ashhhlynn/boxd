@@ -1,6 +1,24 @@
+export const fetchFeed = (films) => {
+    return (dispatch) => {
+        dispatch({ type: "FETCH_FEED", films: films })
+    }
+}
+
+export const fetchAllDF = (films) => {
+    return (dispatch) => {
+        dispatch({ type: "FETCH_ALL_DF", films: films })
+    }
+}
+
 export const checkUser = (user) => {
     return (dispatch) => {  
         dispatch({ type: "SET_CURRENT_USER", user: user })
+    }
+}
+
+export const fetchWatchlistFilms = (films) => {
+    return (dispatch) => {
+        dispatch({ type: "FETCH_WATCHLIST_FILMS", films: films })
     }
 }
 
@@ -25,18 +43,6 @@ export const removeDiaryFilm = (film) => {
 export const patchDiaryFilm = (film) => {
     return (dispatch) => {
         dispatch({ type: "PATCH_DIARY_FILM", film: film })
-    }
-}
-
-export const fetchAllDF = (films) => {
-    return (dispatch) => {
-        dispatch({ type: "FETCH_ALL_DF", films: films })
-    }
-}
-
-export const fetchWatchlistFilms = (films) => {
-    return (dispatch) => {
-        dispatch({ type: "FETCH_WATCHLIST_FILMS", films: films })
     }
 }
 

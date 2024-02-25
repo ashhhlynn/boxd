@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Icon, Image, Modal, Rating, Button } from 'semantic-ui-react'
+import { Icon, Image, Modal, Card, Rating, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
@@ -31,47 +31,61 @@ class FilmModal extends Component {
 		this.setState({ modalOpen: false })
 	}
 	
+	alertMessage = () => {
+		window.alert("Register or log in to begin adding films.")
+	}
+
 	addFilmToDiary = () => {
-		fetch("/diary_films", {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				title: this.props.film.title,
-				user_id: this.props.currentUser.id,
-				watch_date: this.props.film.watch_date,
-				year: this.props.film.year, 
-				poster: this.props.film.poster,
-				rating: 0,
+		if (this.props.currentUser.length === 0) {
+			this.alertMessage()
+		}
+		else {
+			fetch("/diary_films", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					title: this.props.film.title,
+					user_id: this.props.currentUser.id,
+					watch_date: this.props.film.watch_date,
+					year: this.props.film.year, 
+					poster: this.props.film.poster,
+					rating: 0,
+				})
 			})
-		})
-		.then((response) => response.json())
-		.then(data => {
-			window.alert("Added to diary.")
-			this.props.addDiaryFilm(data)
-		})
+			.then((response) => response.json())
+			.then(data => {
+				window.alert("Added to diary.")
+				this.props.addDiaryFilm(data)
+			})
+		}
 	}
 	
 	addUserWatchlistFilm = () => {
-		fetch("/watchlist_films", {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				title: this.props.film.title, 
-				user_id: this.props.currentUser.id,
-				watch_date: this.props.film.watch_date,
-				year: this.props.film.year, 
-				poster: this.props.film.poster, 
+		if (this.props.currentUser.length === 0) {
+			this.alertMessage()
+		}
+		else {
+			fetch("/watchlist_films", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					title: this.props.film.title, 
+					user_id: this.props.currentUser.id,
+					watch_date: this.props.film.watch_date,
+					year: this.props.film.year, 
+					poster: this.props.film.poster, 
+				})
 			})
-		})
-		.then((response) => response.json())
-		.then(data => {
-			window.alert("Added to watchlist.")
-			this.props.addWatchlistFilm(data)
-		})
+			.then((response) => response.json())
+			.then(data => {
+				window.alert("Added to watchlist.")
+				this.props.addWatchlistFilm(data)
+			})
+		}
 	}
 		
     removeFilmFromWatchlist = () => {
@@ -87,6 +101,7 @@ class FilmModal extends Component {
 
 	render() {
 		let film = this.props.film
+		let feedEntries = this.props.feed.filter(f => f.title === film.title)
 		return (
 			<div className="filmModal" onClick={this.handleOpen}>
 				<Image src={film.poster}/>
@@ -96,45 +111,64 @@ class FilmModal extends Component {
 				closeIcon
 				>
 					<Modal.Content>
-						<h3>
+						<div style={{marginBottom:"5.7%"}}>
+						<h3 style={{fontFamily:"Helvetica", letterSpacing:".5px", fontSize:"17px"}}>
+							<Image floated="left" size="tiny" src={film.poster} style={{marginTop:"-1%"}}/>
 							{film.title}
 							{this.props.watchlistFilms.find(f => f.watch_date === this.props.film.watch_date) ?
 								<>
-								<Button onClick={this.removeFilmFromWatchlist} animated inverted style={{marginTop:"-1%", background:"none", color:"white"}} circular floated='right'>
+								<Button size="large" onClick={this.removeFilmFromWatchlist} inverted animated style={{marginTop:"-1%", background:"none", color:"white"}} circular floated='right'>
 									<Button.Content visible>
-										<Icon size="large" name="eye slash"/>
+										<Icon name="eye slash"/>
 									</Button.Content>
-									<Button.Content hidden>
+									<Button.Content hidden style={{fontSize:"13px"}}>
 										Unwatch
 									</Button.Content>
 								</Button>
 								</>
 							:
 								<>
-								<Button onClick={this.addUserWatchlistFilm} animated inverted style={{marginTop:"-1%", background:"none", color:"white"}} circular floated='right'>
+								<Button size="large" onClick={this.addUserWatchlistFilm} animated inverted style={{marginTop:"-1%", background:"none", color:"white"}} circular floated='right'>
 									<Button.Content visible>
-										<Icon size="large" name="eye"/>
+										<Icon name="eye"/>
 									</Button.Content>
-									<Button.Content hidden>
+									<Button.Content hidden style={{fontSize:"13px"}}>
 										Watch
 									</Button.Content>
 								</Button>
 								</>
 							}
-							<Button onClick={this.addFilmToDiary} animated inverted style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
+							<Button size="large" onClick={this.addFilmToDiary} animated inverted style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
 								<Button.Content visible>
-									<Icon size="large" name="calendar check"/>
+									<Icon name="calendar check"/>
 								</Button.Content>
-								<Button.Content hidden>
+								<Button.Content hidden style={{fontSize:"13px"}}>
 									Diary
 								</Button.Content>
 							</Button>
 						</h3>
-						<h5>{film.year}</h5>
-						<div className="filmrating">
-							<h5>
-								<Rating className="stars" disabled rating={5} maxRating={5}/> {this.state.score}
-							</h5>
+						{film.year}<br></br><br></br>
+						<p style={{marginTop:"-2%"}}>Average {this.state.score}</p>
+						<div className="filmrating" style={{marginTop:"-2%"}}>
+							<Rating className="stars" disabled rating={5} maxRating={5}/> 					
+						</div>
+
+						</div>
+						<div style={{marginLeft:"-4%", marginTop:"0%"}}>
+						<Card.Group style={{}} itemsPerRow={7} >
+							{feedEntries.map((f => (
+								<Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
+									<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>
+                        			<Rating 
+                        			disabled
+                        			size="mini" 
+                        			rating={f.rating}  
+                        			maxRating={5}  
+									style={{fontSize:"8px", marginTop:"40%"}}
+                        			/>
+								</Card>
+							)))} 	
+						</Card.Group>
 						</div>
 					</Modal.Content>
 				</Modal>
@@ -147,7 +181,9 @@ const mapStateToProps = (state) => {
 	return {
 		currentUser: state.currentUser,
 		allDiaryFilms: state.allDF,
-		watchlistFilms: state.watchlistFilms
+		watchlistFilms: state.watchlistFilms,
+
+		feed: state.feed
 	}
 }
 

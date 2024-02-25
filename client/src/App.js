@@ -13,6 +13,7 @@ import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
 import Watchlist from './components/UserWatchlist/Watchlist'
 import { fetchWatchlistFilms } from "./components/actions/rootActions"
+import { fetchFeed } from "./components/actions/rootActions"
 
 class App extends Component {
 	
@@ -32,6 +33,7 @@ class App extends Component {
 			this.props.checkUser(data)
 			if (data !== null) {
 				this.getWatchlistFilms()
+				this.getFeed()
 			}
 		})
 	}
@@ -43,30 +45,38 @@ class App extends Component {
             this.props.fetchWatchlistFilms(data)
         })
 	}
+
+	getFeed = () => {
+        fetch("/feed")
+        .then(resp => resp.json())
+        .then(data => {
+            this.props.fetchFeed(data)
+        })
+    }
 	
 	render() {
 		return (
-			<Router>
-			<div className="app">
-				<Navbar getUserProfile={this.getUserProfile}/>
-				<Container>
-					<Switch>
-						<Route exact path="/">
-							<Home currentUser={this.props.currentUser}/>
-						</Route>
-						<Route exact path="/login">
-							<SigninRegister getUserProfile={this.getUserProfile}/>
+	        <Router>
+			    <div className="app">
+				    <Navbar getUserProfile={this.getUserProfile}/>
+				    <Container>
+					    <Switch>
+						    <Route exact path="/">
+							    <Home currentUser={this.props.currentUser}/>
+						    </Route>
+						    <Route exact path="/login">
+							    <SigninRegister getUserProfile={this.getUserProfile}/>
 							</Route>
-						<Route exact path="/userdiary">
-							<UserDiaries/>
-						</Route>
-						<Route exact path="/watchlist">
-							<Watchlist/>
-						</Route>
-					</Switch>
-				</Container>
-				<Footer/>
-			</div>
+						    <Route exact path="/userdiary">
+							    <UserDiaries/>
+						    </Route>
+						    <Route exact path="/watchlist">
+							    <Watchlist/>
+						    </Route>
+					    </Switch>
+				    </Container>
+				    <Footer/>
+			    </div>
 			</Router>
 		)
 	}
@@ -74,7 +84,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-    	currentUser: state.currentUser
+        currentUser: state.currentUser,
+		allDF: state.allDF
     }
 }
 
@@ -82,7 +93,10 @@ const mapDispatchToProps = (dispatch) => {
     return { 
 		checkUser: (user) => { dispatch(checkUser(user)) },
 		fetchAllDF: (data) => { dispatch(fetchAllDF(data)) },
-		fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) }
+		fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) },
+
+		fetchFeed: (data) => { dispatch(fetchFeed(data)) }
+
 	}
 } 
 
