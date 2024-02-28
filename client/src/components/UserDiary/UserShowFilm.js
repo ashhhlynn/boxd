@@ -18,10 +18,11 @@ const UserShowFilm = (props) => {
                 <h3>
                     {props.movie.title}
                     <Label as="p" style={{background:"none", fontWeight:"normal", marginTop:"-2%",color:"white"}}>{props.movie.year}</Label>
+                    <br></br>
                     <Rating className="stars" rating={props.movie.rating} disabled maxRating={5} />
                 </h3>
             </Item>
-            <Divider style={{marginLeft:"-1.2%", marginTop:"7.75%"}}></Divider>
+            <Divider style={{marginLeft:"-1.2%", }}></Divider>
         </Item>
         </>
 	)

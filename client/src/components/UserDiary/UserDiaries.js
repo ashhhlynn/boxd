@@ -44,9 +44,10 @@ class UserDiaries extends Component {
                             </center>
                             <h2 style={{ marginTop:"3%"}}>{this.props.currentUser.username}</h2>
                             <p>
-                                Since {this.props.currentUser.created_at.slice(0,7)}<br></br>
+                                Since {this.props.currentUser.created_at.slice(5, 10)}-  
+                                {this.props.currentUser.created_at.slice(0,4)}<br></br>
+                                {this.props.currentUser.followees.length} Following | {this.props.currentUser.followers.length} Followers <br></br>
                                 {this.props.currentUser.diary_films.length} Films Logged<br></br>
-                                {this.props.currentUser.followees.length} Following | {this.props.currentUser.followers.length} Followers 
                             </p>
                         </Item>
                     </Grid.Column>

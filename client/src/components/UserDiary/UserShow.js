@@ -1,4 +1,4 @@
-import { Divider, Icon, Grid, Item } from 'semantic-ui-react'
+import { Divider, Icon, Grid, Item,  } from 'semantic-ui-react'
 import UserShowFilm from './UserShowFilm'
 import React, { Component } from 'react'
 
@@ -6,16 +6,23 @@ class UserShow extends Component {
 
     state = {
 		user: [],
-        userDiaryFilms: []
+        userDiaryFilms: [],
+        date: '',
+        follows: 0,
+        followers: 0
 	}
 
     componentDidMount = () => {
         fetch("/users/" + this.props.userShow)
 		.then(resp => resp.json())
 		.then(data => {
-            console.log(data.diary_films)
             this.setState({user: data})
+            let year = data.created_at.slice(0,4)
+            let date = data.created_at.slice(5,10) + '-' + year
+            this.setState({date})
             this.setState({userDiaryFilms: data.diary_films})
+            this.setState({follows: data.followees.length})
+            this.setState({followers: data.followers.length})
 		})
     }
 
@@ -30,7 +37,9 @@ class UserShow extends Component {
                             </center>
                             <h2 style={{ marginTop:"3%"}}>{this.state.user.username}</h2>
                             <p>
-                                {this.state.userDiaryFilms.length} Films Logged<br></br>
+                                Since {this.state.date}<br></br>
+                                {this.state.follows} Following | {this.state.followers} Followers<br></br>                             
+                                {this.state.userDiaryFilms.length} Films Logged
                             </p>
                         </Item>
                     </Grid.Column>
@@ -48,6 +57,7 @@ class UserShow extends Component {
                         }
                    </Grid.Column>
                 </Grid>
+
             </div>
 	    )
     }
