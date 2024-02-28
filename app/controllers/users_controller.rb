@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-        filtered = @users.filter { |u| !current_user.followed_users.find_by(followee_id: u.id) }
+        filtered = @users.filter { |u| !current_user.followed_users.find_by(followee_id: u.id) && u.id != current_user.id }
         render json: filtered
     end
 

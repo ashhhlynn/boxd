@@ -38,6 +38,7 @@ const UserPage = (props) => {
 		setUserFollowing(newUserFollowing)
 		let newUsersList = users.filter(u => u.id !== data.id)
 		setUsers(newUsersList)
+        props.addFollowFilms(data.diary_films)
 	}
 	
 	const removeFollow = (event, user) => {
@@ -52,6 +53,7 @@ const UserPage = (props) => {
 		setUserFollowing(newUserList)
 		let newUsersList = [...users, user]
 		setUsers(newUsersList)
+        props.removeFollowFilms(user)
 	}
 
 	return (

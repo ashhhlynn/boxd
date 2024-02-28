@@ -57,3 +57,15 @@ export const removeWatchlistFilm = (film) => {
         dispatch({ type: "REMOVE_WATCHLIST_FILM", film: film })
     }
 }
+
+export const addFollowFeed = (films) => {
+    return (dispatch) => {
+        dispatch({ type: "ADD_FOLLOW_FEED", films: films })
+    }
+}
+
+export const removeFollowFeed = (user) => {
+    return (dispatch) => {
+        dispatch({ type: "REMOVE_FOLLOW_FEED", user: user})
+    }
+}

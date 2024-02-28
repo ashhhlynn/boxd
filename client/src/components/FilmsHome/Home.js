@@ -29,6 +29,7 @@ const Home = (props) => {
         fetch("/feed")
         .then(resp => resp.json())
         .then(data => {
+            props.getFeed(data)
             setFeed(data.slice(0,7))
         })
     }

@@ -1,9 +1,9 @@
 export const initialState = {
-    currentUser: [],
     loading: false,
+    currentUser: [],
     diaryFilms: [],
-    allDF: [],
     watchlistFilms: [],
+    allDF: [],
     feed: []
 }
 
@@ -36,14 +36,6 @@ export const rootReducer = (state = initialState, action) => {
                 watchlistFilms: action.films,
                 loading: false,
             };
-
-        case 'LOGOUT':
-            return {
-                ...state, 
-                currentUser: [], 
-                loading: false,
-            };
-
         case 'ADD_DIARY_FILM':
             const newDiaryList = [action.film, ...state.diaryFilms ]
             const newAllDiaryList = [action.film, ...state.allDF ]
@@ -52,8 +44,7 @@ export const rootReducer = (state = initialState, action) => {
                 diaryFilms: newDiaryList,
                 allDF: newAllDiaryList,
                 loading: false,
-            };
-                
+            };  
         case 'REMOVE_DIARY_FILM':
             const newDiaryListTwo = state.diaryFilms.filter((diary) => diary.id !== action.film.id)
             const newAllDiaryListTwo = state.allDF.filter((diary) => diary.id !== action.film.id)
@@ -63,7 +54,6 @@ export const rootReducer = (state = initialState, action) => {
                 allDF: newAllDiaryListTwo,
                 loading: false,
             };
-    
         case 'PATCH_DIARY_FILM':
             const newDiaryListThree = state.diaryFilms.filter((diary) => diary.id !== action.film.id)
             newDiaryListThree.unshift(action.film)
@@ -72,7 +62,6 @@ export const rootReducer = (state = initialState, action) => {
                 diaryFilms: newDiaryListThree,
                 loading: false,
             };
-            
         case 'ADD_WATCHLIST_FILM':
             const newWatchlistList = [action.film, ...state.watchlistFilms]
             return {
@@ -80,7 +69,6 @@ export const rootReducer = (state = initialState, action) => {
                 watchlistFilms: newWatchlistList,
                 loading: false,
             };
-
         case 'REMOVE_WATCHLIST_FILM':
             const newWatchlistListTwo = state.watchlistFilms.filter((film) => film.id !== action.film.id)
             return {
@@ -88,7 +76,26 @@ export const rootReducer = (state = initialState, action) => {
                 watchlistFilms: newWatchlistListTwo,
                 loading: false,
             };
-
+        case 'ADD_FOLLOW_FEED':
+            const newFollowFeed = [action.films, ...state.feed]
+            return {
+                ...state, 
+                feed: newFollowFeed,
+                loading: false,
+            };
+        case 'REMOVE_FOLLOW_FEED':
+            const newFollowFeedTwo = state.feed.filter((film) => film.user_id != action.user.id)
+            return {
+                ...state, 
+                feed: newFollowFeedTwo,
+                loading: false,
+            };
+        case 'LOGOUT':
+            return {
+                ...state, 
+                currentUser: [], 
+                loading: false,
+            };
         default:
             return state;
     }

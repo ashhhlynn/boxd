@@ -15,6 +15,8 @@ import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
 import { fetchWatchlistFilms } from "./components/actions/rootActions"
 import { fetchFeed } from "./components/actions/rootActions"
+import { addFollowFeed } from "./components/actions/rootActions"
+import { removeFollowFeed } from "./components/actions/rootActions"
 
 class App extends Component {
 
@@ -38,7 +40,6 @@ class App extends Component {
             this.props.checkUser(data)
             if (data !== null) {
                 this.getWatchlistFilms()
-                this.getFeed()
             }
         })
     }
@@ -51,27 +52,31 @@ class App extends Component {
         })
     }
 
-    getFeed = () => {
-        fetch("/feed")
-        .then(resp => resp.json())
-        .then(data => {
-            this.props.fetchFeed(data)
-        })
+    getFeed = (data) => {
+        this.props.fetchFeed(data)
     }
     
     changeUserShow = (id) => {
        this.setState({userShow: id})
     }
 
+    addFollowFilms = (data) => {
+        this.props.addFollowFeed(data)
+    }
+
+    removeFollowFilms = (data) => {
+        this.props.removeFollowFeed(data)
+    }
+
     render() {
         return (
             <Router>
                 <div className="app">
-                    <Navbar changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
+                    <Navbar addFollowFilms={this.addFollowFilms} removeFollowFilms={this.removeFollowFilms} changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
                     <Container>
                         <Switch>
                             <Route exact path="/">
-                                <Home currentUser={this.props.currentUser}/>
+                                <Home getFeed={this.getFeed} currentUser={this.props.currentUser}/>
                             </Route>
                             <Route exact path="/login">
                                 <SigninRegister getUserProfile={this.getUserProfile}/>
@@ -106,7 +111,9 @@ const mapDispatchToProps = (dispatch) => {
         checkUser: (user) => { dispatch(checkUser(user)) },
         fetchAllDF: (data) => { dispatch(fetchAllDF(data)) },
         fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) },
-        fetchFeed: (data) => { dispatch(fetchFeed(data)) }
+        fetchFeed: (data) => { dispatch(fetchFeed(data)) },
+        addFollowFeed: (data) => { dispatch(addFollowFeed(data)) },
+        removeFollowFeed: (data) => { dispatch(removeFollowFeed(data)) }
     }
 } 
 

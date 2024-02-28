@@ -58,7 +58,7 @@ class Navbar extends Component {
 					onClose={this.handleClose}
 					closeIcon>
             			<Modal.Content style={{background:"inherit"}}>
-							<UserPage changeUserShow={this.changeUserShow} currentUser={this.props.currentUser}/>
+							<UserPage addFollowFilms={this.props.addFollowFilms} removeFollowFilms={this.props.removeFollowFilms} changeUserShow={this.changeUserShow} currentUser={this.props.currentUser}/>
             			</Modal.Content>
           			</Modal>
 				</Menu.Menu>
