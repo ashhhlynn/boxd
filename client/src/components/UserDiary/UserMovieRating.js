@@ -1,5 +1,5 @@
-import { Rating } from 'semantic-ui-react'
 import React, { Component } from 'react'
+import { Rating } from 'semantic-ui-react'
 
 export default class UserMovieRating extends Component {
 

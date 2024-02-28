@@ -3,6 +3,7 @@ import { Card } from 'semantic-ui-react'
 import Film  from './Film'
 
 class Films extends Component {
+
     render () {
         return (
             <div className="films">

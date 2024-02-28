@@ -2,6 +2,8 @@ import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Footer from './components/Decorative/Footer'
 import SigninRegister from './components/SignUpIn/SigninRegister'
 import UserDiaries from './components/UserDiary/UserDiaries'
@@ -9,8 +11,6 @@ import Home from './components/FilmsHome/Home'
 import Navbar from './components/Decorative/Navbar'
 import Watchlist from './components/UserWatchlist/Watchlist'
 import UserShow from './components/UserDiary/UserShow'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
 import { fetchWatchlistFilms } from "./components/actions/rootActions"

@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react'
 import { Divider } from 'semantic-ui-react'
 import WelcomeFilms from './WelcomeFilms'
-import React, { useState, useEffect } from 'react'
 import Feed from './Feed'
 import SearchBox from '../SearchFilms/SearchBox'
 

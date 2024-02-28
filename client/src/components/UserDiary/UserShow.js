@@ -1,6 +1,7 @@
+import React, { Component } from 'react'
 import { Divider, Icon, Grid, Item,  } from 'semantic-ui-react'
 import UserShowFilm from './UserShowFilm'
-import React, { Component } from 'react'
+
 
 class UserShow extends Component {
 

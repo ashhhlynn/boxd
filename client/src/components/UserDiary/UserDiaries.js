@@ -1,7 +1,7 @@
-import { Divider, Icon, Grid, Item } from 'semantic-ui-react'
-import UserDiaryFilm from './UserDiaryFilm'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Divider, Icon, Grid, Item } from 'semantic-ui-react'
+import UserDiaryFilm from './UserDiaryFilm'
 import { removeDiaryFilm } from "../actions/rootActions"
 import { patchDiaryFilm } from "../actions/rootActions"
 

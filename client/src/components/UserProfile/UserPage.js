@@ -64,7 +64,7 @@ const UserPage = (props) => {
 						<h3>Following</h3>
 						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
 						{userFollowing.length === 0 ?
-							<p style={{marginTop:"-7%"}}>You're following 0 users.</p>
+							<p style={{marginTop:"-7%"}}>You're following 0 users</p>
 						:
 							<Item style={{textAlign:"left", marginLeft:"12%"}}>	
 								<UserFollowing changeUserShow={props.changeUserShow} userFollowing={userFollowing} removeFollow={removeFollow}/>
@@ -75,7 +75,7 @@ const UserPage = (props) => {
 						<h3>Followers</h3>
 						<Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}}></Divider>
 						{props.currentUser.followers.length === 0 ?
-							<p style={{marginTop:"-7%"}}>0 users are following you.</p>
+							<p style={{marginTop:"-7%"}}>0 users are following you</p>
 						:
 							<Item style={{textAlign:"left", marginLeft:"12.5%"}}>
 								<UserFollowers changeUserShow={props.changeUserShow} userFollowers={props.currentUser.followers}/>

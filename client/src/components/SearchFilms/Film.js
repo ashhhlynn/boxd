@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Card, Image, Icon, Button, Rating, Modal, Popup } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { Card, Image, Icon, Button, Rating, Modal, Popup } from 'semantic-ui-react'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
 import { removeWatchlistFilm } from "../actions/rootActions"
