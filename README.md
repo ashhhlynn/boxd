@@ -32,29 +32,24 @@ Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="htt
 - View film diaries of other users 
 
 ## Media 
-### Register & Log In
-![Screenshot (168)](https://github.com/ashhhlynn/film_app/assets/84604278/3d34984f-963d-4823-894a-403646db3f87)
 
-### Home
-![Screenshot (160)](https://github.com/ashhhlynn/film_app/assets/84604278/5b27191f-07da-4adb-9177-cc7f4f87aacd)
+### Home (Search)
+![Screenshot (181)](https://github.com/ashhhlynn/film_app/assets/84604278/3615b1c8-f1e4-4b23-952b-bf79d1c7fc44)
 
-### Home Cont.
-![Screenshot (161)](https://github.com/ashhhlynn/film_app/assets/84604278/18d736af-2ffa-456d-a988-ee967bea1852)
-
-### Search Films
-![Screenshot (163)](https://github.com/ashhhlynn/film_app/assets/84604278/d339d61a-3c00-4dc3-bc18-755081116bcc)
+### Home 
+![Screenshot (182)](https://github.com/ashhhlynn/film_app/assets/84604278/eaaa741b-e4fe-4c8f-b733-e479429e28ec)
 
 ### Film Modal
-![Screenshot (167)](https://github.com/ashhhlynn/film_app/assets/84604278/52e60abb-1249-448e-b858-bf9544d249e6)
+![Screenshot (184)](https://github.com/ashhhlynn/film_app/assets/84604278/46fda5a6-2817-40a9-a799-04a084eb54d1)
 
 ### Diary
-![Screenshot (162)](https://github.com/ashhhlynn/film_app/assets/84604278/e9d868b8-9ec1-4ec2-80ae-7b9b040793b8)
+![Screenshot (179)](https://github.com/ashhhlynn/film_app/assets/84604278/2c1fa1b3-031e-4eb8-b444-6ac9bc38e560)
 
 ### Watchlist
-![Screenshot (165)](https://github.com/ashhhlynn/film_app/assets/84604278/eb97dbde-be48-4fa5-a957-97c54b3e9039)
+![Screenshot (180)](https://github.com/ashhhlynn/film_app/assets/84604278/3dfb4b18-ddb9-438b-a7d0-d640e60c0b6f)
 
 ### Follow Users
-![Screenshot (164)](https://github.com/ashhhlynn/film_app/assets/84604278/1168f2ed-2c0c-4582-8fec-adf3fd4398c5)
+![Screenshot (186)](https://github.com/ashhhlynn/film_app/assets/84604278/349f37d5-56a2-4eb4-8e1a-277ac459bb68)
 
 ## Setup
 - ` git clone < this repository > `
