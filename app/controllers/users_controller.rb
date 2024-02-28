@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     def feed
         films = current_user.followees.map { |f| f.diary_films }
         sorted = films.flatten.sort { |a, b| b.created_at <=> a.created_at } 
-        @feed = sorted[0..6]
+        @feed = sorted
         render json: @feed
     end 
 
