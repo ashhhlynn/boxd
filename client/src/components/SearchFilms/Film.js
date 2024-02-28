@@ -9,7 +9,7 @@ class Film extends Component {
     
     state = {
         modalOpen: false,
-        score: 'N/A'
+        score: 'Unrated'
     }
     
     handleOpen = (event) => {

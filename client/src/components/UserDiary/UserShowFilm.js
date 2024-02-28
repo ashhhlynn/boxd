@@ -22,7 +22,7 @@ const UserShowFilm = (props) => {
                     <Rating className="stars" rating={props.movie.rating} disabled maxRating={5} />
                 </h3>
             </Item>
-            <Divider style={{marginLeft:"-1.2%", }}></Divider>
+            <Divider style={{marginLeft:"-1.2%"}}></Divider>
         </Item>
         </>
 	)
