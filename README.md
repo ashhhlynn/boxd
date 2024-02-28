@@ -43,7 +43,7 @@ Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="htt
 ![Screenshot (184)](https://github.com/ashhhlynn/film_app/assets/84604278/46fda5a6-2817-40a9-a799-04a084eb54d1)
 
 ### Diary
-![Screenshot (179)](https://github.com/ashhhlynn/film_app/assets/84604278/2c1fa1b3-031e-4eb8-b444-6ac9bc38e560)
+![Screenshot (187)](https://github.com/ashhhlynn/film_app/assets/84604278/8093a166-ec60-4259-b199-1a1fa69c5c6d)
 
 ### Watchlist
 ![Screenshot (180)](https://github.com/ashhhlynn/film_app/assets/84604278/3dfb4b18-ddb9-438b-a7d0-d640e60c0b6f)
