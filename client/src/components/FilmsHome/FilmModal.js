@@ -8,8 +8,8 @@ import { removeWatchlistFilm } from "../actions/rootActions"
 class FilmModal extends Component {
 	
 	state = {
-		modalOpen: false,
-		score: 'Unrated'
+		score: 'Unrated',
+        modalOpen: false
 	}
 	
 	handleOpen = () => {
