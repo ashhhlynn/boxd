@@ -3,7 +3,7 @@
 	font-weight: normal !important;
 	color: #f4f4ff !important;
 	letter-spacing: .5px !important;
-	background-color:#171b22; 
+	background-color: #171b22; 
 	font-family: "futura-pt", sans-serif;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .ui.divider {
-	color: #f4f4ff !important;
+	color: white !important;
 }
 
 .nav { 
