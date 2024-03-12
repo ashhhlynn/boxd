@@ -7,7 +7,7 @@ A Letterboxd inspired social media application for rating films from the OMDb da
   </tr>
 </table>
 
-Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/863275157/4f031b953e">video</a> demos.
+Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/922334242">video</a> demos.
 
 ## Technologies Used
 - JavaScript
