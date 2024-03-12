@@ -4,7 +4,8 @@ export const initialState = {
     diaryFilms: [],
     watchlistFilms: [],
     allDF: [],
-    feed: []
+    feed: [], 
+    userFollowingCount: 0
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -15,6 +16,7 @@ export const rootReducer = (state = initialState, action) => {
                     ...state, 
                     currentUser: action.user, 
                     diaryFilms: action.user.diary_films,
+                    userFollowingCount: action.user.followees.length,
                     loading: false,
                 };
             break 
@@ -37,7 +39,7 @@ export const rootReducer = (state = initialState, action) => {
                 loading: false,
             };
         case 'ADD_DIARY_FILM':
-            const newDiaryList = [action.film, ...state.diaryFilms ]
+            const newDiaryList = [action.film, ...state.diaryFilms]
             const newAllDiaryList = [action.film, ...state.allDF ]
             return {
                 ...state, 
@@ -76,24 +78,26 @@ export const rootReducer = (state = initialState, action) => {
                 watchlistFilms: newWatchlistListTwo,
                 loading: false,
             };
-        case 'ADD_FOLLOW_FEED':
-            const newFollowFeed = [action.films, ...state.feed]
-            return {
-                ...state, 
-                feed: newFollowFeed,
-                loading: false,
-            };
         case 'REMOVE_FOLLOW_FEED':
             const newFollowFeedTwo = state.feed.filter((film) => film.user_id != action.user.id)
+            let followingCount = state.userFollowingCount - 1
             return {
                 ...state, 
                 feed: newFollowFeedTwo,
+                userFollowingCount: followingCount,
                 loading: false,
             };
         case 'LOGOUT':
             return {
                 ...state, 
                 currentUser: [], 
+                loading: false,
+            };
+        case 'ADD_USER_FOLLOWING_COUNT':
+            let newFollowingCount = state.userFollowingCount + 1
+            return {
+                ...state, 
+                userFollowingCount: newFollowingCount, 
                 loading: false,
             };
         default:

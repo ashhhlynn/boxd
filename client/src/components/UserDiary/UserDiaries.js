@@ -46,8 +46,8 @@ class UserDiaries extends Component {
                             <p>
                                 Since {this.props.currentUser.created_at.slice(5, 10)}-  
                                 {this.props.currentUser.created_at.slice(0,4)}<br></br>
-                                {this.props.currentUser.followees.length} Following | {this.props.currentUser.followers.length} Followers <br></br>
-                                {this.props.currentUser.diary_films.length} Films Logged<br></br>
+                                {this.props.userFollowingCount} Following | {this.props.currentUser.followers.length} Followers <br></br>
+                                {this.props.dF.length} Films Logged<br></br>
                             </p>
                         </Item>
                     </Grid.Column>
@@ -73,7 +73,8 @@ class UserDiaries extends Component {
 const mapStateToProps = (state) => {
     return { 
         dF: state.diaryFilms,
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        userFollowingCount: state.userFollowingCount
     }
 }
 

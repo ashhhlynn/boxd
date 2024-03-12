@@ -15,8 +15,8 @@ import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
 import { fetchWatchlistFilms } from "./components/actions/rootActions"
 import { fetchFeed } from "./components/actions/rootActions"
-import { addFollowFeed } from "./components/actions/rootActions"
 import { removeFollowFeed } from "./components/actions/rootActions"
+import { addUserFollowingCount } from "./components/actions/rootActions"
 
 class App extends Component {
 
@@ -40,6 +40,7 @@ class App extends Component {
             this.props.checkUser(data)
             if (data !== null) {
                 this.getWatchlistFilms()
+                this.getFeed()
             }
         })
     }
@@ -52,16 +53,21 @@ class App extends Component {
         })
     }
 
-    getFeed = (data) => {
-        this.props.fetchFeed(data)
+    getFeed = () => {
+        fetch("/feed")
+        .then(resp => resp.json())
+        .then(data => {
+            this.props.fetchFeed(data)
+        })
     }
     
     changeUserShow = (id) => {
        this.setState({userShow: id})
     }
 
-    addFollowFilms = (data) => {
-        this.props.addFollowFeed(data)
+    addFollowFilms = () => {
+        this.getFeed()
+        this.props.addUserFollowingCount()
     }
 
     removeFollowFilms = (data) => {
@@ -76,7 +82,7 @@ class App extends Component {
                     <Container>
                         <Switch>
                             <Route exact path="/">
-                                <Home getFeed={this.getFeed} currentUser={this.props.currentUser}/>
+                                <Home currentUser={this.props.currentUser}/>
                             </Route>
                             <Route exact path="/login">
                                 <SigninRegister getUserProfile={this.getUserProfile}/>
@@ -112,8 +118,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchAllDF: (data) => { dispatch(fetchAllDF(data)) },
         fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) },
         fetchFeed: (data) => { dispatch(fetchFeed(data)) },
-        addFollowFeed: (data) => { dispatch(addFollowFeed(data)) },
-        removeFollowFeed: (data) => { dispatch(removeFollowFeed(data)) }
+        removeFollowFeed: (data) => { dispatch(removeFollowFeed(data)) },
+        addUserFollowingCount: () => { dispatch(addUserFollowingCount()) }
     }
 } 
 

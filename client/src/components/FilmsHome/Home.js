@@ -7,7 +7,6 @@ import SearchBox from '../SearchFilms/SearchBox'
 const Home = (props) => {
     
     const [welcomeMovies, setWelcomeMovies] = useState([])
-    const [feed, setFeed] = useState([])
 
     useEffect(() => {
         getWelcomeMovies()
@@ -19,19 +18,6 @@ const Home = (props) => {
         .then(data => {
             setWelcomeMovies(data.slice(0,7))
         })  
-    }
-
-    useEffect(() => {
-        getFeed()
-    },[])
-
-    const getFeed = () => {
-        fetch("/feed")
-        .then(resp => resp.json())
-        .then(data => {
-            props.getFeed(data)
-            setFeed(data.slice(0,7))
-        })
     }
     
 	return (
@@ -58,16 +44,7 @@ const Home = (props) => {
                 </>
             :
                 <>
-                {feed.length !== 0 ?
-                    <>
-                    <Feed userFeed={feed}/>
-                    <Divider></Divider>
-                    </>
-                :
-                    <>
-                    <p>No new content from friends right now.</p>
-                    </>
-                }
+                <Feed />
                 </>
             }
         </div>

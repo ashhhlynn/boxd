@@ -10,7 +10,7 @@ class Navbar extends Component {
 	state = {
 		modalOpen: false
 	}
-    
+
 	handleLogout = () => {
         fetch("/logout", {
             method: 'DELETE',
