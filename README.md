@@ -7,15 +7,13 @@ A Letterboxd inspired social media application for rating films from the OMDb da
   </tr>
 </table>
 
-Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/863275157/4f031b953e">video</a> demos.
+Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/922334242">video</a> demos.
 
 ## Technologies Used
-- JavaScript
-- React
+- React.js
 - Redux
 - React Router
-- Ruby
-- Rails
+- Ruby on Rails
 - PostgreSQL
 - BCrypt Gem
 - OMDb API
@@ -58,7 +56,7 @@ Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="htt
 - ` rake db:create `
 - ` rake db:migrate `
 - ` rails s `
-##### In Separate Terminal
+#### In Separate Terminal
 - ` cd client `
 - ` npm install `
 - ` npm start `
