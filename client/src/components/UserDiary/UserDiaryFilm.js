@@ -4,8 +4,8 @@ import UserMovieRating from './UserMovieRating'
 import FilmModal from '../FilmsHome/FilmModal'
 
 const UserDiaryFilm = (props) => {
-	return (
-    <>
+    return (
+        <>
         <Item style={{marginLeft:"3%", marginRight:"-58%"}}>
             <div className="remove" onClick={() => props.removeUserDiaryFilm(props.movie)}>
                 <Button floated="right" size="mini">
@@ -30,7 +30,7 @@ const UserDiaryFilm = (props) => {
             </Item>
             <Divider style={{marginLeft:"-1.2%"}}></Divider>
         </Item>
-    </>
+        </>
 	)
 }
 
