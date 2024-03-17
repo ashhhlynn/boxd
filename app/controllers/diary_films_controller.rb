@@ -17,9 +17,8 @@ class DiaryFilmsController < ApplicationController
     def show 
         diary_film = DiaryFilm.find(params[:id])
         @diary_films = DiaryFilm.all
-        filtered = @diary_films.filter { |u| u.watch_date === diary_film.watch_date }
-        f = filtered.map { |x| x.rating }
-        rate = ((f.reduce(0) { | sum, num | sum + num })/f.count.to_f).round(2)
+        ratings = @diary_films.select{|u| u.watch_date === diary_film.watch_date}.map{|y| y.rating}
+        rate = ((ratings.reduce(:+))/ratings.count.to_f).round(2)
         render json: rate
     end 
 
