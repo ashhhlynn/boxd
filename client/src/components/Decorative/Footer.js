@@ -5,7 +5,7 @@ const Footer = () => {
 	return (
 		<div className="appfooter">
 			<Segment>
-				<h5>© 2023 Boxd</h5>
+				<h5>© 2023 Boxd </h5>
 			</Segment>
 		</div>
 	)
