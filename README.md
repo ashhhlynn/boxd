@@ -14,8 +14,7 @@ Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="htt
 - React
 - Redux
 - React Router
-- Ruby
-- Rails
+- Ruby on Rails
 - PostgreSQL
 - BCrypt Gem
 - OMDb API
