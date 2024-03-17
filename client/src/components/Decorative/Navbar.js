@@ -7,8 +7,8 @@ import { logOut } from "../actions/rootActions"
 
 class Navbar extends Component {
 
-	state = {
-		modalOpen: false
+    state = {
+    	modalOpen: false
 	}
 
 	handleLogout = () => {
@@ -57,7 +57,7 @@ class Navbar extends Component {
 					open={this.state.modalOpen}
 					onClose={this.handleClose}
 					closeIcon>
-            			<Modal.Content style={{background:"inherit"}}>
+            			<Modal.Content>
 							<UserPage addFollowFilms={this.props.addFollowFilms} removeFollowFilms={this.props.removeFollowFilms} changeUserShow={this.changeUserShow} currentUser={this.props.currentUser}/>
             			</Modal.Content>
           			</Modal>

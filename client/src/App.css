@@ -51,7 +51,7 @@
 	height:100%
 }
 
-.footer .ui.segment {
+.appfooter .ui.segment {
 	background-color:#171b22 !important;
 	margin-top: 3.3% !important;
 	color:white;
@@ -176,7 +176,7 @@
 
 .userpage .ui.grid {
 	width: 420px;
-	margin-top: 2%
+	margin-top: 2.1%
 }
 
 h1, h2, h3, h4, h5 {

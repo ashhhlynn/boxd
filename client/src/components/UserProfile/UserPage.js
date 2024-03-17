@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Item, Divider } from 'semantic-ui-react'
-import UserSearch from './UserSearch'
 import UserFollowers from './UserFollowers'
 import UserFollowing from './UserFollowing'
+import UserSearch from './UserSearch'
 
 const UserPage = (props) => {
 	

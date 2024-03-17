@@ -164,7 +164,7 @@ class FilmModal extends Component {
                         			size="mini" 
                         			rating={f.rating}  
                         			maxRating={5}  
-									style={{fontSize:"8px", marginTop:"40%"}}
+									style={{fontSize:"8px", marginTop:"41%"}}
                         			/>
 								</Card>
 							)))} 	

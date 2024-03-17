@@ -91,6 +91,8 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 currentUser: [], 
+                watchlistFilms: [],
+                feed: [], 
                 loading: false,
             };
         case 'ADD_USER_FOLLOWING_COUNT':

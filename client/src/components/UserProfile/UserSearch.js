@@ -17,13 +17,13 @@ function UserSearch(props) {
 
     const handleAddFollow = async (event, user) => {
         event.preventDefault()
-        props.addFollow(user)
         await fetch(`users/` + user.id + `/follow`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
         })
+        props.addFollow(user)
     }
     
     const resultRenderer = ({username}) => ([ 
