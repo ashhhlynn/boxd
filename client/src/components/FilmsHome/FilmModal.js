@@ -6,40 +6,40 @@ import { addWatchlistFilm } from "../actions/rootActions"
 import { removeWatchlistFilm } from "../actions/rootActions"
 
 class FilmModal extends Component {
-	
-	state = {
-		score: 'Unrated',
+    
+    state = {
+        score: 'Unrated',
         modalOpen: false
-	}
-	
-	handleOpen = () => {
-		if (this.props.allDiaryFilms.find(f => f.watch_date === this.props.film.watch_date)) {
-			let f = this.props.allDiaryFilms.find(f => f.watch_date === this.props.film.watch_date)
-			fetch("/diary_films/" + f.id)
-				.then(resp => resp.json())
-				.then(data => {
-				if (data !== null) {
-					this.setState({score: data})
-				}
-			})
-		}
-		this.setState({ modalOpen: true });
-	}
-	
-	handleClose = () => {
-		this.setState({ modalOpen: false })
-	}
-	
-	alertMessage = () => {
-		window.alert("Register or log in to begin adding films.")
-	}
-
-	addFilmToDiary = () => {
-		if (this.props.currentUser.length === 0) {
-			this.alertMessage()
-		}
-		else {
-			fetch("/diary_films", {
+    }
+    
+    handleOpen = () => {
+        if (this.props.allDiaryFilms.find(f => f.watch_date === this.props.film.watch_date)) {
+            let f = this.props.allDiaryFilms.find(f => f.watch_date === this.props.film.watch_date)
+            fetch("/diary_films/" + f.id)
+            .then(resp => resp.json())
+            .then(data => {
+                if (data !== null) {
+                    this.setState({score: data})
+                }
+            })
+        }
+        this.setState({ modalOpen: true });
+    }
+    
+    handleClose = () => {
+        this.setState({ modalOpen: false })
+    }
+    
+    alertMessage = () => {
+        window.alert("Register or log in to begin adding films.")
+    }
+    
+    addFilmToDiary = () => {
+        if (this.props.currentUser.length === 0) {
+            this.alertMessage()
+        }
+        else {
+            fetch("/diary_films", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -58,8 +58,8 @@ class FilmModal extends Component {
 				window.alert("Added to diary.")
 				this.props.addDiaryFilm(data)
 			})
-		}
-	}
+        }
+    }
 	
 	addUserWatchlistFilm = () => {
 		if (this.props.currentUser.length === 0) {
@@ -86,7 +86,7 @@ class FilmModal extends Component {
 			})
 		}
 	}
-		
+
     removeFilmFromWatchlist = () => {
 		let x = this.props.watchlistFilms.find(f => f.watch_date === this.props.film.watch_date)
 		fetch(`/watchlist_films/` + x.id, {
@@ -98,7 +98,7 @@ class FilmModal extends Component {
         this.props.removeWatchlistFilm(x)
     }
 
-	render() {
+    render() {
 		let film = this.props.film
 		let feedEntries = this.props.feed.filter(f => f.title === film.title)
 		return (

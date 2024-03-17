@@ -20,7 +20,7 @@ const Home = (props) => {
         })  
     }
     
-	return (
+    return (
         <div className="home">
             <h3 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>
                     <center><SearchBox/></center>
