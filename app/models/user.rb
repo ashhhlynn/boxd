@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-
     has_many :diary_films, -> { order 'created_at DESC'}
     has_many :watchlist_films, -> { order 'created_at DESC'}
     has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
