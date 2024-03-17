@@ -21,6 +21,13 @@ class UsersController < ApplicationController
         render json: @user, includes: :diary_films
     end
 
+    def feed
+        films = current_user.followees.map { |f| f.diary_films }
+        sorted = films.flatten.sort { |a, b| b.created_at <=> a.created_at } 
+        @feed = sorted
+        render json: @feed
+    end 
+
     def show
         @user = User.find(params[:id])
         render json: @user, includes: :diary_films
@@ -39,13 +46,6 @@ class UsersController < ApplicationController
     def userfollowing 
         @following = current_user.followees
         render json: @following
-    end 
-
-    def feed
-        films = current_user.followees.map { |f| f.diary_films }
-        sorted = films.flatten.sort { |a, b| b.created_at <=> a.created_at } 
-        @feed = sorted
-        render json: @feed
     end 
 
     private
