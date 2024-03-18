@@ -60,24 +60,24 @@ class FilmModal extends Component {
             })
         }
     }
-	
-	addUserWatchlistFilm = () => {
-		if (this.props.currentUser.length === 0) {
-			this.alertMessage()
-		}
-		else {
-			fetch("/watchlist_films", {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					title: this.props.film.title, 
-					user_id: this.props.currentUser.id,
-					watch_date: this.props.film.watch_date,
-					year: this.props.film.year, 
-					poster: this.props.film.poster, 
-				})
+    
+    addUserWatchlistFilm = () => {
+        if (this.props.currentUser.length === 0) {
+            this.alertMessage()
+        }
+        else {
+            fetch("/watchlist_films", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                    body: JSON.stringify({
+                    title: this.props.film.title, 
+                    user_id: this.props.currentUser.id,
+                    watch_date: this.props.film.watch_date,
+                    year: this.props.film.year, 
+                    poster: this.props.film.poster, 
+                })
             })
             .then((response) => response.json())
             .then(data => {
