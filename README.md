@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td>
-A Letterboxd inspired social media application for rating films from the OMDb database to a personal film diary, adding films to a watchlist, and tracking film activity by followed users. Built with a JavaScript and React front end and Ruby on Rails with PostgreSQL database back end. Deployed to Render.   
+A Letterboxd inspired social network for rating films from the OMDb database to a diary, adding to a watchlist, and tracking activity by followed users. Built with a JavaScript and React front end and Ruby on Rails with PostgreSQL database back end. Deployed to Render.   
     </td>
   </tr>
 </table>
