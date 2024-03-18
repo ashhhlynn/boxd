@@ -57,7 +57,7 @@ Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="htt
 - ` rake db:migrate `
 - ` rails s `
   
-` # In New Terminal `
+` In New Terminal `
 - ` cd client `
 - ` npm install `
 - ` npm start `
