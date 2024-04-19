@@ -29,8 +29,8 @@ class Film extends Component {
     }
     
     alertMessage = () => {
-		window.alert("Register or log in to begin adding films.")
-	}
+        window.alert("Register or log in to begin adding films.")
+    }
 
     addUserDiaryFilm = (film) => {
         if (this.props.currentUser.length === 0) {
