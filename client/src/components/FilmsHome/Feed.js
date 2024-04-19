@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import FilmModal from './FilmModal'
 
 class Feed extends Component {
+    
     render() {
         let homeFeed = this.props.feed.slice(0,7)
         return (

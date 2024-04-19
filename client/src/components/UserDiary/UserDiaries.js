@@ -34,10 +34,10 @@ class UserDiaries extends Component {
     }
 
     render () {
-	    return (
+        return (
             <div className="diaries">
                 <Grid stackable columns={2}>
-                    <Grid.Column style={{ width:"230px"}}>
+                    <Grid.Column style={{width:"230px"}}>
                         <Item style={{marginLeft:"-20%", marginTop:"20%", fontFamily:"Helvetica", letterSpacing:".5px",}}>
                             <center>
                                 <Icon name="user circle" size="huge" style={{marginLeft:"2.2%", fontSize:"600%"}} />  
@@ -58,15 +58,15 @@ class UserDiaries extends Component {
                             <>
                             <br></br>
                             <Divider style={{width:"157%", marginLeft:"1.4%"}}></Divider>
-		                    {this.props.dF.map((movie, index) => (
+                            {this.props.dF.map((movie, index) => (
                                 <UserDiaryFilm key={index} movie={movie} removeUserDiaryFilm={this.removeUserDiaryFilm} patchRating={this.patchRating}/>
                             ))}
                             </>
                         }
-                   </Grid.Column>
+                    </Grid.Column>
                 </Grid>
             </div>
-	    )
+        )
     }
 }
     

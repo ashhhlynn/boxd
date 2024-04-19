@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, Icon, Button } from 'semantic-ui-react'
 
 const UserFollowers = (props) => {
+    
     return (
         <>
         {props.userFollowers.map((user, index) => (
@@ -15,7 +16,7 @@ const UserFollowers = (props) => {
                 </Card.Header>
             </Card>
         ))}
-    </>
+        </>
     )
 }
 

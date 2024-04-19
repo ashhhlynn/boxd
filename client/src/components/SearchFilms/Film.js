@@ -32,11 +32,11 @@ class Film extends Component {
 		window.alert("Register or log in to begin adding films.")
 	}
 
-    addUserDiaryFilm = (film) => {	
+    addUserDiaryFilm = (film) => {
         if (this.props.currentUser.length === 0) {
-			this.alertMessage()
-		}
-		else {
+            this.alertMessage()
+        }
+        else {
             fetch("/diary_films", {
                 method: 'POST',
                 headers: {
@@ -58,12 +58,12 @@ class Film extends Component {
             })
         }
     }
-
+    
     addUserWatchlistFilm = (film) => {
         if (this.props.currentUser.length === 0) {
-			this.alertMessage()
-		}
-		else {
+            this.alertMessage()
+        }
+        else {
             fetch("/watchlist_films", {
                 method: 'POST',
                 headers: {
@@ -73,8 +73,8 @@ class Film extends Component {
                     title: film.Title, 
                     user_id: this.props.currentUser.id, 
                     watch_date: film.imdbID,
-                    year: film.Year, 
-                    poster: film.Poster, 
+                    year: film.Year,
+                    poster: film.Poster,
                 })
             })
             .then((response) => response.json())
@@ -84,36 +84,35 @@ class Film extends Component {
             })
         }
     }
-
+    
     removeFilmFromWatchlist = (film) => {
-		let x = this.props.watchlistFilms.find(f => f.watch_date === film.imdbID)
-		fetch(`/watchlist_films/` + x.id, {
-    		method: 'DELETE',
-    		headers: {
-			'Content-Type': 'application/json',	
-    		},
-		})
+        let x = this.props.watchlistFilms.find(f => f.watch_date === film.imdbID)
+        fetch(`/watchlist_films/` + x.id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         this.props.removeWatchlistFilm(x)
     }
-
+    
     render () {
         let movie = this.props.movie
         let feedEntries = this.props.feed.filter(f => f.title === movie.Title)
-
         return (
-        <>
+            <>
             <Card>
-                <Image id={movie.imdbID} onClick={this.handleOpen} style={{cursor:"pointer", height:"290px", width:"205px"}} src={movie.Poster} alt='movie'></Image>   
+                <Image id={movie.imdbID} onClick={this.handleOpen} style={{cursor:"pointer", height:"290px", width:"205px"}} src={movie.Poster} alt='movie'></Image>
                 <Modal
                     open={this.state.modalOpen}
                     onClose={this.handleClose}
                     closeIcon
                 >
-                    <Modal.Content style={{marginTop:"1.75%"}}>	
+                    <Modal.Content style={{marginTop:"1.75%"}}>
                         <h3 style={{fontFamily:"Helvetica", letterSpacing:".5px", fontSize:"17px"}}>{movie.Title}
-                            <Image floated="left" size="tiny" src={movie.Poster} style={{width:"82px", height:"120px", marginTop:"-1%"}}/>
+                        <Image floated="left" size="tiny" src={movie.Poster} style={{width:"82px", height:"120px", marginTop:"-1%"}}/>
                             {this.props.watchlistFilms.find(f => f.watch_date === movie.imdbID) ?
-							    <>
+                                <>
                                 <Button size="large" onClick={() => this.removeFilmFromWatchlist(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
                                     <Button.Content visible>
                                         <Icon name="eye slash"/>
@@ -123,7 +122,7 @@ class Film extends Component {
                                     </Button.Content>
                                 </Button>
                                 </>
-                            :
+                                :
                                 <>
                                 <Button size="large" onClick={() => this.addUserWatchlistFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }} circular floated='right'>
                                     <Button.Content visible>
@@ -132,7 +131,7 @@ class Film extends Component {
                                     <Button.Content hidden style={{fontSize:"13px"}}>
                                         Watch
                                     </Button.Content>
-                                </Button>    
+                                </Button>
                                 </>
                             }
                             <Button size="large" onClick={() => this.addUserDiaryFilm(movie)} inverted animated style={{ marginTop:"-1%", background:"none",color:"white" }}  circular floated='right'>
@@ -147,27 +146,25 @@ class Film extends Component {
                         {movie.Year}<br></br><br></br>
                         <p style={{marginTop:"-1.5%"}}>Average {this.state.score}</p>
                         <div className="filmrating" style={{marginTop:"-2%"}}>
-                            <Rating className="stars" disabled rating={5} maxRating={5}/> 
-                        </div>
-                        <br></br><br></br>
-						<Card.Group style={{marginLeft:"-6%", marginTop:"-2%"}} itemsPerRow={7} >
-							{feedEntries.map((f => (
-								<Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
-									<Popup
-    								trigger={<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>}
-    								content={f.user.username}
-    								basic
-  									/>
+                            <Rating className="stars" disabled rating={5} maxRating={5}/>
+                        </div><br></br><br></br>
+                        <Card.Group style={{marginLeft:"-6%", marginTop:"-2%"}} itemsPerRow={7}>
+                            {feedEntries.map((f => (
+                                <Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
+                                    <Popup basic
+                                    trigger={<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>}
+                                    content={f.user.username}
+                                    />
                                     <Rating 
-                        			disabled
-                        			size="mini" 
-                        			rating={f.rating}  
-                        			maxRating={5}  
-									style={{fontSize:"8px", marginTop:"40%"}}
-                        			/>
-								</Card>
-							)))} 	
-						</Card.Group>
+                                    disabled
+                                    size="mini" 
+                                    rating={f.rating}
+                                    maxRating={5}
+                                    style={{fontSize:"8px", marginTop:"40%"}}
+                                    />
+                                </Card>
+                            )))}
+                        </Card.Group>
                     </Modal.Content>
                 </Modal>
             </Card>

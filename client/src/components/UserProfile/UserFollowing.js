@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, Icon, Button } from 'semantic-ui-react'
 
 const UserFollowing = (props) => {
+    
     return (
         <>
         {props.userFollowing.map((user, index) => (

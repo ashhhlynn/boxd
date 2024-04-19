@@ -4,6 +4,7 @@ import UserMovieRating from './UserMovieRating'
 import FilmModal from '../FilmsHome/FilmModal'
 
 const UserDiaryFilm = (props) => {
+    
     return (
         <>
         <Item style={{marginLeft:"3%", marginRight:"-58%"}}>
@@ -31,7 +32,7 @@ const UserDiaryFilm = (props) => {
             <Divider style={{marginLeft:"-1.2%"}}></Divider>
         </Item>
         </>
-	)
+    )
 }
 
 export default UserDiaryFilm

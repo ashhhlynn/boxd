@@ -97,6 +97,7 @@ class FilmModal extends Component {
         })
         this.props.removeWatchlistFilm(x)
     }
+    
     render() {
         let film = this.props.film
         let feedEntries = this.props.feed.filter(f => f.title === film.title)
