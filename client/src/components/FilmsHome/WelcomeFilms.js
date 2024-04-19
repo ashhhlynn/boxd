@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react'
 import FilmModal from './FilmModal'
 
 const WelcomeFilms = (props) => {
-	return (
+    return (
         <Card.Group itemsPerRow={7} style={{marginBottom:"3%", marginTop:"3%"}}>
             {props.welcomeMovies.map((wm, index) => (
                 <Card key={index}>

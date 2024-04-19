@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 import FilmModal from './FilmModal'
 
 class Feed extends Component {
-
-	render() {
+    render() {
         let homeFeed = this.props.feed.slice(0,7)
-		return (
+        return (
             <>
             {homeFeed.length !== 0 ?
                 <>      
@@ -40,9 +39,9 @@ class Feed extends Component {
 }
 
 const mapStateToProps = (state) => {
-	return {
-		feed: state.feed
-	}
+    return {
+        feed: state.feed
+    }
 }
 
 export default connect(mapStateToProps)(Feed)

@@ -3,8 +3,7 @@ import { Header, Item, Label, Divider, Rating } from 'semantic-ui-react'
 import FilmModal from '../FilmsHome/FilmModal'
 
 const UserShowFilm = (props) => {
-
-	return (
+    return (
         <>
         <Item style={{marginLeft:"3%", marginRight:"-58%"}}>
             <Header floated="left" style={{marginLeft:".5%"}}>
@@ -25,7 +24,7 @@ const UserShowFilm = (props) => {
             <Divider style={{marginLeft:"-1.2%"}}></Divider>
         </Item>
         </>
-	)
+    )
 }
 
 export default UserShowFilm

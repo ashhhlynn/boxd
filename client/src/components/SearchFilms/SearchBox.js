@@ -19,13 +19,14 @@ const SearchBox = (props) => {
     useEffect(() => {
       getMovieRequest(searchValue)
     }, [searchValue])
-
-	return (
-		<>
-		Search films <input style={{letterSpacing:".5px", fontSize:"16px"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)}/> <Icon name="search"/>
-		<Films films={films}/>
-		</>
-	)
+    
+    return (
+        <>
+        Search films 
+        <input style={{letterSpacing:".5px", fontSize:"16px"}} value={props.value} onChange={(event) => setSearchValue(event.target.value)}/> <Icon name="search"/>
+        <Films films={films}/>
+        </>
+    )
 }
 
 export default SearchBox

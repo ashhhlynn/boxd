@@ -9,7 +9,3 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     end
   end
 end
-
-
-
-20330614123504_create_follows
