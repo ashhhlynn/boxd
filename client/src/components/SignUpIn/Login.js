@@ -37,6 +37,30 @@ class Login extends Component {
             }
         })
     }
+
+    handleSubmitDemo = (event) => {
+        event.preventDefault()
+        fetch("/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: 'demo@gmail.com',
+                password: 'demo'
+            })
+        })
+        .then((response) => response.json())
+        .then(data => {
+            if (data.errors) {
+                window.alert("Login failed.")
+            }
+            else {
+                window.alert("Login successful.")
+                this.props.handleRoute()
+            }
+        })
+    }
     
     render() {
         return (
@@ -59,7 +83,9 @@ class Login extends Component {
                     onChange={this.handleChange}
                 /> 
                 <Form.Button size="tiny" circular content='Submit'/>
-            </Form>                
+            </Form>               
+            <br></br>
+            Don't want to create account? Use <button onClick={this.handleSubmitDemo} style={{border:"0", backgroundColor:"#cdcdff"}}><p style={{fontSize:"13px"}}>Demo</p></button>
             </>
         )
     }

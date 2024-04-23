@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { logOut } from "../actions/rootActions"
 
 class Navbar extends Component {
+
     state = {
         modalOpen: false
     }
@@ -65,6 +66,7 @@ class Navbar extends Component {
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         currentUser: state.currentUser
