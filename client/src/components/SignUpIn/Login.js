@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form } from 'semantic-ui-react'
+import { Form, Label } from 'semantic-ui-react'
 
 class Login extends Component {
 
@@ -85,7 +85,7 @@ class Login extends Component {
                 <Form.Button size="tiny" circular content='Submit'/>
             </Form>               
             <br></br>
-            Don't want to create account? Use <button onClick={this.handleSubmitDemo} style={{border:"0", backgroundColor:"#cdcdff"}}><p style={{fontSize:"13px"}}>Demo</p></button>
+            No account? Sign in with the <Label size="mini" style={{color:"black", cursor:"pointer", fontSize:"11px", fontWeight:"normal", backgroundColor:"#cdcdff"}} onClick={this.handleSubmitDemo}>Demo</Label>
             </>
         )
     }
