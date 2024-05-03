@@ -1,189 +1,189 @@
 .app {
-	text-align: center;
-	font-weight: normal !important;
-	color: #f4f4ff !important;
-	letter-spacing: .5px !important;
-	background-color: #171b22; 
-	font-family: "futura-pt", sans-serif;
+    text-align: center;
+    font-weight: normal !important;
+    color: #f4f4ff !important;
+    letter-spacing: .5px !important;
+    background-color: #171b22; 
+    font-family: "futura-pt", sans-serif;
 }
 
 .bg .ui.button {
-	letter-spacing: .3px !important;
+    letter-spacing: .3px !important;
 }
 
 .ui.button {
-	letter-spacing: .5px !important;
-	font-weight: normal !important;
-	justify-content: center !important;
-	text-align: center !important;
+    letter-spacing: .5px !important;
+    font-weight: normal !important;
+    justify-content: center !important;
+    text-align: center !important;
 }
 
 .ui.modal {
-	background-color: #171b22 !important;
-	width: 630px !important;
-	color: white;
+    background-color: #171b22 !important;
+    width: 630px !important;
+    color: white;
 }
 
 .ui.modal > .content {
-	background: inherit !important;
+    background: inherit !important;
 }
 
 .ui.divider {
-	color: white !important;
+    color: white !important;
 }
 
-.nav { 
-	background-color:#171b22 !important;
-	height:100px;
+.nav {
+    background-color:#171b22 !important;
+    height:100px;
 }
 
 .nav a, .ui.icon  {
-	color: #c7c7ff !important;
+    color: #c7c7ff !important;
 }
 
 .nav h1 > a {
-	color:#f4f4ff !important;
-	font-family:"Helvetica"
+    color:#f4f4ff !important;
+    font-family:"Helvetica";
 }
 
 .app .ui.container {
-	min-height:70vh; 
-	height:100%
+    min-height:70vh;
+    height:100%;
 }
 
 .appfooter .ui.segment {
-	background-color:#171b22 !important;
-	margin-top: 3.3% !important;
-	color:white;
-	font-family: "Helvetica" !important;
+    background-color:#171b22 !important;
+    margin-top: 3.3% !important;
+    color:white;
+    font-family: "Helvetica" !important;
 }
 
 .ui.segment {
-	background: inherit !important;
+    background: inherit !important;
 }
 
 .bg {
-	background-repeat: no-repeat;
-	width: 1060px;
-	height: 470px;
-	background-position-y: 80%;
-	background-position-x: 90%;
-	background-size: cover;
-	margin: auto;
-	object-fit: cover;
-	margin-bottom: 3.5%;
-	opacity: 80%;
-  	background-image: url("https://miro.medium.com/v2/resize:fit:829/1*aBrXE2zWyNZHTC0eVJcdoA.jpeg");
+    background-repeat: no-repeat;
+    width: 1060px;
+    height: 470px;
+    background-position-y: 80%;
+    background-position-x: 90%;
+    background-size: cover;
+    margin: auto;
+    object-fit: cover;
+    margin-bottom: 3.5%;
+    opacity: 80%;
+    background-image: url("https://miro.medium.com/v2/resize:fit:829/1*aBrXE2zWyNZHTC0eVJcdoA.jpeg");
 }
 
 .home h3 {
-	font-weight: normal !important;
-	text-align: left;
-	font-size: 16px;
-	font-family: 'Helvetica' !important;
-	letter-spacing: 0px !important;
+    font-weight: normal !important;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Helvetica' !important;
+    letter-spacing: 0px !important;
 }
 
 .home {
-	letter-spacing: .5px !important;
+    letter-spacing: .5px !important;
 }
 
 .home p {
-	margin-top:4.5%;
-	margin-bottom:3.5%;
-	text-align:left
+    margin-top:4.5%;
+    margin-bottom:3.5%;
+    text-align:left;
 }
 
 .home .ui.button {
-	background-color: white;
-	color: black;
+    background-color: white;
+    color: black;
 }
 
 .home .ui.card {
-	background-color:#171b22 !important;
-	box-shadow:none !important;
-	color:#f4f4ff !important;
+    background-color:#171b22 !important;
+    box-shadow:none !important;
+    color:#f4f4ff !important;
 }
 
 .home .ui.image {
-	height: 220px !important;
-	width: 210px !important;
+    height: 220px !important;
+    width: 210px !important;
 }
 
 .filmModal .ui.image {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .diaries h3 {
-	color:#f4f4ff;
-	font-size:16px;
-	font-family: 'Helvetica';
-	letter-spacing: .5px !important;
+    color:#f4f4ff;
+    font-size:16px;
+    font-family: 'Helvetica';
+    letter-spacing: .5px !important;
 }
 
 .diaries .ui.image {
-	height: 88px !important;
-	width: 65px !important;
-	margin-left: 15%
+    height: 88px !important;
+    width: 65px !important;
+    margin-left: 15%;
 }
 
 .films .ui.card {
-	background: inherit !important;
-	box-shadow: none !important;
+    background: inherit !important;
+    box-shadow: none !important;
 }
 
 .remove .ui.button {
-	background: none;
-	color: white;
+    background: none;
+    color: white;
 }
 
 .ui.rating .icon:before {
-	color: #383838 !important;
+    color: #383838 !important;
 }
 
 .ui.rating .icon.active:before{
-	color: #cdcdff !important;
+    color: #cdcdff !important;
 }
 
 .userpage .ui.card {
-	background-color: #171b22 !important;
-	box-shadow: none;
-	margin-top: -8% !important;
-	width: 150px;
-	font-family: "Helvetica" !important;
-	letter-spacing: .5px !important;
+    background-color: #171b22 !important;
+    box-shadow: none;
+    margin-top: -8% !important;
+    width: 150px;
+    font-family: "Helvetica" !important;
+    letter-spacing: .5px !important;
 }
 
 .userpage a {
-	color: #f4f4ff; 
+    color: #f4f4ff;
 }
 
 .userpage  .ui.button:hover, a:hover {
-	color: #c7c7ff !important;
+    color: #c7c7ff !important;
 }
 
 .userpage h3 {
-	font-family: "Helvetica" !important;
-	letter-spacing: .5px !important;
-	font-size: 16px
+    font-family: "Helvetica" !important;
+    letter-spacing: .5px !important;
+    font-size: 16px;
 }
 
 .userpage .ui.button {
-	background: none !important;
-	margin-top:-2.5%;
-	color:white;
+    background: none !important;
+    margin-top:-2.5%;
+    color:white;
 }
 
 .userpage .ui.grid {
-	width: 420px;
-	margin-top: 2.1%
+    width: 420px;
+    margin-top: 2.1%;
 }
 
 h1, h2, h3, h4, h5 {
-	font-weight: normal !important;
-	letter-spacing: .5px !important;
+    font-weight: normal !important;
+    letter-spacing: .5px !important;
 }
 
 h2 {
-	font-size: 22px !important;
+    font-size: 22px !important;
 }
