@@ -40,7 +40,7 @@ const Home = (props) => {
             <h3 style={{marginBottom:"-1.5%", marginTop:"3.5%"}}>New from Friends</h3>
             {props.currentUser.length === 0 ?
                 <>
-                <p>Register or login to view activity from friends.</p>
+                <p>Register or log in (demo login included) to rate films, add to a watchlist, and view friend activity!</p>
                 </>
             :
                 <>
