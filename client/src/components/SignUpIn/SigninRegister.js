@@ -1,36 +1,34 @@
-import React from "react"
-import { Grid, Divider, Segment } from 'semantic-ui-react'
-import Login from './Login'
-import Signup from './Signup'
-import { useHistory } from "react-router-dom"
+import React from "react";
+import { Grid, Divider, Segment } from 'semantic-ui-react';
+import Login from './Login';
+import Signup from './Signup';
+import { useHistory } from "react-router-dom";
 
-function SigninRegister(props) {
+const SigninRegister = ({ getUserProfile }) => {
+    const history = useHistory();
 
-    const history = useHistory()
-
-    function handleRoute() {
-        props.getUserProfile()
+    const handleRoute = () => {
+        getUserProfile()
         history.push('/')
-    }
+    };
     
     return (
         <>  
-        <br></br>        
+        <br/>        
         <Segment placeholder>
-            <br></br>
+            <br/> 
             <Grid stackable relaxed='very' columns={2}>
                 <Grid.Column> 
-                  <Login handleRoute={handleRoute}/>
+                  <Login handleRoute={handleRoute} />
                 </Grid.Column>                 
                 <Grid.Column>
-                    <Signup handleRoute={handleRoute}/>
+                    <Signup handleRoute={handleRoute} />
                 </Grid.Column>   
             </Grid>
             <Divider vertical style={{marginTop:"1%"}}>Or</Divider>
         </Segment>
         </>
-    )
-}
+    );
+};
 
-export default SigninRegister
-
+export default SigninRegister;

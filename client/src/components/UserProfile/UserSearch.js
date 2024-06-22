@@ -1,11 +1,11 @@
-import _ from 'lodash'
-import React, { useState } from 'react'
-import { Search, Button, Item, Icon } from 'semantic-ui-react'
+import _ from 'lodash';
+import React, { useState } from 'react';
+import { Search, Button, Item, Icon } from 'semantic-ui-react';
 
-function UserSearch(props) {
+const UserSearch = (props) => {
     
-    const [results, setResults] = useState([])
-    const [value, setValue] = useState('')
+    const [results, setResults] = useState([]);
+    const [value, setValue] = useState('');
 
     const handleSearchChange = e => {
         let value = e.target.value;
@@ -13,7 +13,7 @@ function UserSearch(props) {
         const re = new RegExp(_.escapeRegExp(value), 'i')
         const isMatch = result => re.test(result.username)
         setResults(_.filter(props.users, isMatch))
-    }
+    };
 
     const handleAddFollow = async (event, user) => {
         event.preventDefault()
@@ -24,7 +24,7 @@ function UserSearch(props) {
             },
         })
         props.addFollow(user)
-    }
+    };
     
     const resultRenderer = ({username}) => ([ 
         <Item key={username}>
@@ -33,7 +33,7 @@ function UserSearch(props) {
             </Button>
             <p style={{marginTop:"2%"}}>{username}</p>
         </Item>
-    ])
+    ]);
     
     return (
         <Search
@@ -45,6 +45,6 @@ function UserSearch(props) {
             placeholder='Search users..' 
         />
     )
-}
+};
 
-export default UserSearch
+export default UserSearch;

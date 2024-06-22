@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Divider } from 'semantic-ui-react'
-import WelcomeFilms from './WelcomeFilms'
-import Feed from './Feed'
-import SearchBox from '../SearchFilms/SearchBox'
+import React, { useState, useEffect } from 'react';
+import { Divider } from 'semantic-ui-react';
+import WelcomeFilms from './WelcomeFilms';
+import Feed from './Feed';
+import SearchBox from '../SearchFilms/SearchBox';
 
-const Home = (props) => {
-    
-    const [welcomeMovies, setWelcomeMovies] = useState([])
+const Home = ({ currentUser }) => {
+    const [welcomeMovies, setWelcomeMovies] = useState([]);
 
     useEffect(() => {
         getWelcomeMovies()
-    }, [])
+    }, []);
 
     const getWelcomeMovies = () => {
         fetch("/diary_films")
@@ -18,19 +17,19 @@ const Home = (props) => {
         .then(data => {
             setWelcomeMovies(data.slice(0,7))
         })  
-    }
+    };
     
     return (
         <div className="home">
             <h3 style={{marginTop:"3.8%", marginLeft:"-2%", marginBottom:"2.6%"}}>
-                    <center><SearchBox/></center>
+                    <center><SearchBox /></center>
             </h3>
-            <Divider></Divider>
+            <Divider />
             <h3 style={{marginTop:"3.6%", marginBottom:"-.65%"}}>New on Boxd</h3>
             {welcomeMovies.length !== 0 ?
                 <>
-                <WelcomeFilms welcomeMovies={welcomeMovies}/>
-                <Divider></Divider>
+                <WelcomeFilms welcomeMovies={welcomeMovies} />
+                <Divider />
                 </>
             :
                 <>
@@ -38,9 +37,9 @@ const Home = (props) => {
                 </>
             }
             <h3 style={{marginBottom:"-1.5%", marginTop:"3.5%"}}>New from Friends</h3>
-            {props.currentUser.length === 0 ?
+            {currentUser.length === 0 ?
                 <>
-                <p>Register or log in (demo login included) to rate films, add to a watchlist, and view friend activity!</p>
+                <p>Register or log in (demo login available) to rate films, add to a watchlist, and view friend activity!</p>
                 </>
             :
                 <>
@@ -48,7 +47,7 @@ const Home = (props) => {
                 </>
             }
         </div>
-    )
-}
+    );
+};
 
 export default Home

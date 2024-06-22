@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { Grid, Item, Divider } from 'semantic-ui-react'
-import UserFollowers from './UserFollowers'
-import UserFollowing from './UserFollowing'
-import UserSearch from './UserSearch'
+import React, { useState, useEffect } from 'react';
+import { Grid, Item, Divider } from 'semantic-ui-react';
+import UserFollowers from './UserFollowers';
+import UserFollowing from './UserFollowing';
+import UserSearch from './UserSearch';
 
 const UserPage = (props) => {
     
-    const [userFollowing, setUserFollowing] = useState([])
-    const [users, setUsers] = useState([])
+    const [userFollowing, setUserFollowing] = useState([]);
+    const [users, setUsers] = useState([]);
     
     useEffect(() => {
         getFollowing()
-    }, [])
+    }, []);
     
     const getFollowing = () => {
         fetch("/userfollowing")
@@ -19,11 +19,11 @@ const UserPage = (props) => {
         .then(data => {
             setUserFollowing(data)
         })
-    }
+    };
     
     useEffect(() => {
         getUsers()
-    }, [])
+    }, []);
     
     const getUsers = () => {
         fetch("/users")
@@ -31,7 +31,7 @@ const UserPage = (props) => {
         .then(data => {
             setUsers(data)
         })
-    }
+    };
     
     const addFollow = (data) => {
         props.addFollowFilms()
@@ -39,7 +39,7 @@ const UserPage = (props) => {
         setUserFollowing(newUserFollowing)
         let newUsersList = users.filter(u => u.id !== data.id)
         setUsers(newUsersList)
-    }
+    };
     
     const removeFollow = (event, user) => {
         event.preventDefault()
@@ -54,7 +54,7 @@ const UserPage = (props) => {
         let newUsersList = [...users, user]
         setUsers(newUsersList)
         props.removeFollowFilms(user)
-    }
+    };
     
     return (
         <div className="userpage">
@@ -89,6 +89,6 @@ const UserPage = (props) => {
             </center>
         </div>
     )
-}
+};
 
-export default UserPage
+export default UserPage;

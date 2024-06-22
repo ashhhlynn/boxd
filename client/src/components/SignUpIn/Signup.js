@@ -1,16 +1,15 @@
-import React, { Component } from "react"
-import { Form } from 'semantic-ui-react'
+import React, { useState } from 'react';
+import { Form } from 'semantic-ui-react';
 
-class Signup extends Component {
-
-    state = {
+const Signup = ({ handleRoute }) => {
+    const [state, setState] = useState({
         username: '',
         email: '',
         password: '',
         password_confirmation: ''
-    }
+    });
 
-    handleSubmit = (event, userData) => {
+    const handleSubmit = (event, userData) => {
         event.preventDefault()
         fetch("/users", {
             method: 'POST',
@@ -31,60 +30,55 @@ class Signup extends Component {
             }
             else {
                 window.alert("Signup successful.")
-                this.props.handleRoute()
+                handleRoute()
             }
         })
-    } 
+    }; 
 
-    handleChange = (event) => {
-        this.setState ({
-            [event.target.id]: event.target.value
-        })
-    }
+    const handleChange = (event) => {
+        setState({...state, [event.target.id]: event.target.value})
+    };
 
-    render() {
-        return (
-            <>
-            <h2 style={{fontFamily:"Helvetica"}}>Register</h2>
-            <Form onSubmit={ (event) => {this.handleSubmit(event, this.state)} }>              
-                <Form.Input
-                    required
-                    type="text"
-                    id="username"
-                    placeholder="Username"
-                    value={this.state.username} 
-                    onChange={this.handleChange}            
-                />
-                <Form.Input
-                    required
-                    type="text"
-                    id="email"
-                    placeholder="Email"
-                    value={this.state.email} 
-                    onChange={this.handleChange}
-                />
-                <Form.Input
-                    required
-                    id="password"
-                    placeholder="Password"
-                    type="password"
-                    value={this.state.password} 
-                    onChange={this.handleChange}
-                /> 
-                <Form.Input
-                    required
-                    id="password_confirmation"
-                    placeholder="Confirm Password"
-                    type="password"
-                    value={this.state.password_confirmation} 
-                    onChange={this.handleChange}
-                />
-                <Form.Button size="tiny" circular content="Submit"/>
-            </Form>
-            </>
-        )
-    }
-}
+    return (
+        <>
+        <h2 style={{fontFamily:"Helvetica"}}>Register</h2>
+        <Form onSubmit={ (event) => {handleSubmit(event, state)} }>              
+            <Form.Input
+                required
+                type="text"
+                id="username"
+                placeholder="Username"
+                value={state.username} 
+                onChange={handleChange}            
+            />
+            <Form.Input
+                required
+                type="text"
+                id="email"
+                placeholder="Email"
+                value={state.email} 
+                onChange={handleChange}
+            />
+            <Form.Input
+                required
+                id="password"
+                placeholder="Password"
+                type="password"
+                value={state.password} 
+                onChange={handleChange}
+            /> 
+            <Form.Input
+                required
+                id="password_confirmation"
+                placeholder="Confirm Password"
+                type="password"
+                value={state.password_confirmation} 
+                onChange={handleChange}
+            />
+            <Form.Button size="tiny" circular content="Submit" />
+        </Form>
+        </>
+    );
+};
 
-export default Signup
-
+export default Signup;

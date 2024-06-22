@@ -1,21 +1,20 @@
-import React, { Component } from 'react'
-import { Rating } from 'semantic-ui-react'
+import React, { useState } from 'react';
+import { Rating } from 'semantic-ui-react';
 
-export default class UserMovieRating extends Component {
+const UserMovieRating = ({ film, patchRating }) => {
 
-    state = { rating: this.props.film.rating }
+    const [state, setState] = useState({rating: film.rating});
 
-    handleRating = ( e, { rating, maxRating }) => {
-        this.setState({ rating, maxRating })
-        let x = this.props.film.id
-        this.props.patchRating(rating, x)
-    }
+    const handleRating = ( e, { rating, maxRating }) => {
+        setState({ rating, maxRating })
+        patchRating(rating, film.id)
+    };
 
-    render() {
-        return (
-            <div className="filmrating">
-                <Rating className="stars" rating={this.state.rating} maxRating={5} onRate={this.handleRating} />
-            </div>
-        )
-    }
-}
+    return (
+        <div className="filmrating">
+            <Rating className="stars" rating={state.rating} maxRating={5} onRate={handleRating} />
+        </div>
+    )
+};
+
+export default UserMovieRating;

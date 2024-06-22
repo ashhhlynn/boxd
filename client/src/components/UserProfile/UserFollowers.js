@@ -1,9 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Card, Icon, Button } from 'semantic-ui-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Card, Icon, Button } from 'semantic-ui-react';
 
 const UserFollowers = (props) => {
-    
     return (
         <>
         {props.userFollowers.map((user, index) => (
@@ -18,6 +17,6 @@ const UserFollowers = (props) => {
         ))}
         </>
     )
-}
+};
 
-export default UserFollowers
+export default UserFollowers;

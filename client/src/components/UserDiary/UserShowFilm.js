@@ -1,6 +1,6 @@
-import React from 'react'
-import { Header, Item, Label, Divider, Rating } from 'semantic-ui-react'
-import FilmModal from '../FilmsHome/FilmModal'
+import React from 'react';
+import { Header, Item, Label, Divider, Rating } from 'semantic-ui-react';
+import FilmModal from '../FilmsHome/FilmModal';
 
 const UserShowFilm = (props) => {
     return (
@@ -25,6 +25,6 @@ const UserShowFilm = (props) => {
         </Item>
         </>
     )
-}
+};
 
-export default UserShowFilm
+export default UserShowFilm;

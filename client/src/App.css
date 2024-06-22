@@ -62,41 +62,24 @@
     background: inherit !important;
 }
 
-.bg {
-    background-repeat: no-repeat;
-    width: 1060px;
-    height: 470px;
-    background-position-y: 80%;
-    background-position-x: 90%;
-    background-size: cover;
-    margin: auto;
-    object-fit: cover;
-    margin-bottom: 3.5%;
-    opacity: 80%;
-    background-image: url("https://miro.medium.com/v2/resize:fit:829/1*aBrXE2zWyNZHTC0eVJcdoA.jpeg");
+
+
+.home {
+    letter-spacing: .5px;
 }
 
 .home h3 {
-    font-weight: normal !important;
+    font-weight: normal;
     text-align: left;
     font-size: 16px;
-    font-family: 'Helvetica' !important;
+    font-family: 'Helvetica';
     letter-spacing: 0px !important;
-}
-
-.home {
-    letter-spacing: .5px !important;
 }
 
 .home p {
     margin-top:4.5%;
     margin-bottom:3.5%;
     text-align:left;
-}
-
-.home .ui.button {
-    background-color: white;
-    color: black;
 }
 
 .home .ui.card {
@@ -123,13 +106,8 @@
 
 .diaries .ui.image {
     height: 88px !important;
-    width: 65px !important;
+    width: 62px !important;
     margin-left: 15%;
-}
-
-.films .ui.card {
-    background: inherit !important;
-    box-shadow: none !important;
 }
 
 .remove .ui.button {
@@ -178,6 +156,8 @@
     width: 420px;
     margin-top: 2.1%;
 }
+
+
 
 h1, h2, h3, h4, h5 {
     font-weight: normal !important;
