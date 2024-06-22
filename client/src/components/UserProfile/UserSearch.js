@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useState } from 'react';
 import { Search, Button, Item, Icon } from 'semantic-ui-react';
 
-const UserSearch = (props) => {
+const UserSearch = ({ users, addFollow }) => {
     
     const [results, setResults] = useState([]);
     const [value, setValue] = useState('');
@@ -12,7 +12,7 @@ const UserSearch = (props) => {
         setValue(value)
         const re = new RegExp(_.escapeRegExp(value), 'i')
         const isMatch = result => re.test(result.username)
-        setResults(_.filter(props.users, isMatch))
+        setResults(_.filter(users, isMatch))
     };
 
     const handleAddFollow = async (event, user) => {
@@ -23,12 +23,12 @@ const UserSearch = (props) => {
                 'Content-Type': 'application/json',
             },
         })
-        props.addFollow(user)
+        addFollow(user)
     };
     
     const resultRenderer = ({username}) => ([ 
         <Item key={username}>
-            <Button floated="right" style={{color: "black", marginTop:"-2%", width:"43px"}} size="mini" onClick={(e) => handleAddFollow(e, props.users.find(u => u.username === username))}>
+            <Button floated="right" style={{color: "black", marginTop:"-2%", width:"43px"}} size="mini" onClick={(e) => handleAddFollow(e, users.find(u => u.username === username))}>
                 <Icon name="plus"/>
             </Button>
             <p style={{marginTop:"2%"}}>{username}</p>

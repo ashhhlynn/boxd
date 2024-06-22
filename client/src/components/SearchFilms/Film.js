@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Image, Icon, Button, Rating, Modal, Popup } from 'semantic-ui-react'
+import { Card, Image, Icon, Button, Rating, Modal } from 'semantic-ui-react'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
 import { removeWatchlistFilm } from "../actions/rootActions"
+import ModalFeed from "../FilmsHome/ModalFeed"
 
 class Film extends Component {
     
@@ -148,23 +149,7 @@ class Film extends Component {
                         <div className="filmrating" style={{marginTop:"-2%"}}>
                             <Rating className="stars" disabled rating={5} maxRating={5}/>
                         </div><br></br><br></br>
-                        <Card.Group style={{marginLeft:"-6%", marginTop:"-2%"}} itemsPerRow={7}>
-                            {feedEntries.map((f => (
-                                <Card style={{marginLeft:"5%", textAlign:"center", fontSize:"12px", background:"inherit", boxShadow:"none", width:"30px"}}>
-                                    <Popup basic
-                                    trigger={<Icon style={{fontSize:"280%", marginLeft:"20%"}}name="user circle"/>}
-                                    content={f.user.username}
-                                    />
-                                    <Rating 
-                                    disabled
-                                    size="mini" 
-                                    rating={f.rating}
-                                    maxRating={5}
-                                    style={{fontSize:"8px", marginTop:"40%"}}
-                                    />
-                                </Card>
-                            )))}
-                        </Card.Group>
+                        <ModalFeed feedEntries={feedEntries} />
                     </Modal.Content>
                 </Modal>
             </Card>

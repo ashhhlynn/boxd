@@ -4,7 +4,6 @@ import { Card, Rating, Icon, Divider } from 'semantic-ui-react';
 import FilmModal from './FilmModal';
 
 const Feed = (props) => {
-
     return (
         <>
         {props.feed.length !== 0 ?

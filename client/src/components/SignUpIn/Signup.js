@@ -42,7 +42,7 @@ const Signup = ({ handleRoute }) => {
     return (
         <>
         <h2 style={{fontFamily:"Helvetica"}}>Register</h2>
-        <Form onSubmit={ (event) => {handleSubmit(event, state)} }>              
+        <Form onSubmit={(e) => handleSubmit(e, state)}>              
             <Form.Input
                 required
                 type="text"

@@ -35,7 +35,7 @@ const Login = ({ handleRoute }) => {
     return (
         <>                               
         <h2 style={{fontFamily:"Helvetica"}}>Sign In</h2>
-        <Form onSubmit={ (event) => { handleSubmit(event, state)}}>
+        <Form onSubmit={(e) => handleSubmit(e, state)}>
             <Form.Input
                 required
                 id="email"
@@ -54,7 +54,7 @@ const Login = ({ handleRoute }) => {
             <Form.Button size="tiny" circular content='Submit'/>
         </Form>               
         <br/>
-        No account? Sign in with the <Label size="mini" style={{color:"black", cursor:"pointer", fontSize:"11px", fontWeight:"normal", backgroundColor:"#cdcdff"}} onClick={(e) => handleSubmit(e, {email:'ashley@gmail.com', password:'tnns12345'})}>Demo</Label>
+        No account? Sign in with the <Label size="mini" style={{color:"black", cursor:"pointer", fontSize:"11px", fontWeight:"normal", backgroundColor:"#cdcdff"}} onClick={(e) => handleSubmit(e, {email:'demo@gmail.com', password:'demo'})}>Demo</Label>
         </>
     );
 };

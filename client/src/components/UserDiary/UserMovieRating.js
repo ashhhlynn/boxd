@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Rating } from 'semantic-ui-react';
 
 const UserMovieRating = ({ film, patchRating }) => {
-
     const [state, setState] = useState({rating: film.rating});
 
     const handleRating = ( e, { rating, maxRating }) => {
@@ -14,7 +13,7 @@ const UserMovieRating = ({ film, patchRating }) => {
         <div className="filmrating">
             <Rating className="stars" rating={state.rating} maxRating={5} onRate={handleRating} />
         </div>
-    )
+    );
 };
 
 export default UserMovieRating;
