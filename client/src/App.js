@@ -83,7 +83,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="app">
-                    <Navbar logOut={this.logOut} addFollowFilms={this.addFollowFilms} removeFollowFilms={this.removeFollowFilms} changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
+                    <Navbar logOut={this.getLogOut} addFollowFilms={this.addFollowFilms} removeFollowFilms={this.removeFollowFilms} changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
                     <Container>
                         <Switch>
                             <Route exact path="/">
