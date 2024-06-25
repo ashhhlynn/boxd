@@ -40,6 +40,7 @@ class App extends Component {
         .then(data => {
             this.props.checkUser(data)
             if (data !== null) {
+                this.getFeed()
                 this.getWatchlistFilms()
             }
         })
