@@ -17,6 +17,7 @@ import { fetchWatchlistFilms } from "./components/actions/rootActions"
 import { fetchFeed } from "./components/actions/rootActions"
 import { removeFollowFeed } from "./components/actions/rootActions"
 import { addUserFollowingCount } from "./components/actions/rootActions"
+import { logOut } from "./components/actions/rootActions"
 
 class App extends Component {
 
@@ -52,7 +53,7 @@ class App extends Component {
         })
     }
 
-    getFeed = (data) => {
+    getFeed = () => {
         fetch("/feed")
         .then(resp => resp.json())
         .then(data => {
@@ -73,11 +74,15 @@ class App extends Component {
         this.props.removeFollowFeed(data)
     }
 
+    getLogOut = () => {
+        this.props.logOut()
+    }
+
     render() {
         return (
             <Router>
                 <div className="app">
-                    <Navbar addFollowFilms={this.addFollowFilms} removeFollowFilms={this.removeFollowFilms} changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
+                    <Navbar logOut={this.logOut} addFollowFilms={this.addFollowFilms} removeFollowFilms={this.removeFollowFilms} changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
                     <Container>
                         <Switch>
                             <Route exact path="/">
@@ -117,7 +122,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) },
         fetchFeed: (data) => { dispatch(fetchFeed(data)) },
         removeFollowFeed: (data) => { dispatch(removeFollowFeed(data)) },
-        addUserFollowingCount: () => { dispatch(addUserFollowingCount()) }
+        addUserFollowingCount: () => { dispatch(addUserFollowingCount()) },
+        logOut: () => { dispatch(logOut()) }
     }
 } 
 

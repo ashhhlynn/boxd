@@ -1,95 +1,89 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Icon, Menu, Modal } from 'semantic-ui-react';
 import UserPage from '../UserProfile/UserPage';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logOut } from "../actions/rootActions";
 
-class Navbar extends Component {
-
-    state = {
-        modalOpen: false
-    }
+const Navbar = (props) => {
+    const [modalOpen, setModalOpen] = useState(false);
     
-    handleLogout = () => {
+    const handleLogout = () => {
         fetch("/logout", {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             }
         })
-        this.props.logOut()
+        props.logOut()
     };    
     
-    handleOpen = () => {
-        this.setState({ modalOpen: true })
+    const handleOpen = () => {
+        setModalOpen(true)
     };
     
-    handleClose = () => {
-        this.setState({ modalOpen: false })
+    const handleClose = () => {
+        setModalOpen(false)
     };
     
-    changeUserShow = (userShow) => {
-        this.props.changeUserShow(userShow)
-        this.handleClose()
+    const changeUserShow = (userShow) => {
+        props.changeUserShow(userShow)
+        handleClose()
     };
     
-    render() {
-        return (
-            <Menu className="nav">
-                <Menu.Menu 
-                    icon='labeled' 
-                    style={{
-                        marginLeft:"4%", 
-                        marginTop:"1%"
-                    }} 
-                    position="left"
+    return (
+        <Menu className="nav">
+            <Menu.Menu 
+                icon='labeled' 
+                style={{
+                    marginLeft:"4%", 
+                    marginTop:"1%"
+                }} 
+                position="left"
+            >
+                <br/>
+                <h1><Link to='/'>Boxd.</Link></h1>
+            </Menu.Menu>
+            <Menu.Menu 
+                style={{marginRight:"3%"}} 
+                position='right'
+            >
+                {props.currentUser.length === 0 ?
+                    <Menu.Item>
+                        <Link to='/login'><Icon size="big" name="user circle outline" /></Link>
+                    </Menu.Item>
+                :
+                    <>
+                    <Menu.Item>
+                        <Link to='/userdiary'><Icon name="user circle" size="large" style={{ marginTop:"2%"}} /></Link> Diary
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to='/watchlist'><Icon name="eye" size="large" style={{ marginTop:"2%"}} /></Link> Watchlist
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Icon name="address book outline" onClick={handleOpen} size="large" style={{cursor:"pointer"}} />Friends
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to='/'><Icon size="large" onClick={handleLogout} name="power off" /></Link>
+                    </Menu.Item>
+                    </>
+                }
+                <Modal
+                    open={modalOpen}
+                    onClose={handleClose}
+                    closeIcon
                 >
-                    <br/>
-                    <h1><Link to='/'>Boxd.</Link></h1>
-                </Menu.Menu>
-                <Menu.Menu 
-                    style={{marginRight:"3%"}} 
-                    position='right'
-                >
-                    {this.props.currentUser.length === 0 ?
-                        <Menu.Item>
-                            <Link to='/login'><Icon size="big" name="user circle outline" /></Link>
-                        </Menu.Item>
-                    :
-                        <>
-                        <Menu.Item>
-                            <Link to='/userdiary'><Icon name="user circle" size="large" style={{ marginTop:"2%"}} /></Link> Diary
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Link to='/watchlist'><Icon name="eye" size="large" style={{ marginTop:"2%"}} /></Link> Watchlist
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Icon name="address book outline" onClick={this.handleOpen} size="large" style={{cursor:"pointer"}} />Friends
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Link to='/'><Icon size="large" onClick={this.handleLogout} name="power off" /></Link>
-                        </Menu.Item>
-                        </>
-                    }
-                    <Modal
-                        open={this.state.modalOpen}
-                        onClose={this.handleClose}
-                        closeIcon
-                    >
-                        <Modal.Content style={{textAlign:"center"}}>
-                            <UserPage 
-                                addFollowFilms={this.props.addFollowFilms} 
-                                removeFollowFilms={this.props.removeFollowFilms} 
-                                changeUserShow={this.changeUserShow} 
-                                currentUser={this.props.currentUser} 
-                            />
-                        </Modal.Content>
-                    </Modal>
-                </Menu.Menu>
-            </Menu>
-        )
-    };
+                    <Modal.Content style={{textAlign:"center"}}>
+                        <UserPage 
+                            addFollowFilms={props.addFollowFilms} 
+                            removeFollowFilms={props.removeFollowFilms} 
+                            changeUserShow={changeUserShow} 
+                            currentUser={props.currentUser} 
+                        />
+                    </Modal.Content>
+                </Modal>
+            </Menu.Menu>
+        </Menu>
+    );
 };
 
 const mapStateToProps = (state) => {
@@ -98,10 +92,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return { 
-        logOut: () => { dispatch(logOut()) }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps)(Navbar);
