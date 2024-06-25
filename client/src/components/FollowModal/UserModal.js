@@ -4,7 +4,7 @@ import UserFollowers from './UserFollowers';
 import UserFollowing from './UserFollowing';
 import UserSearch from './UserSearch';
 
-const UserPage = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserShow }) => {
+const UserModal = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserShow }) => {
     
     const [userFollowing, setUserFollowing] = useState([]);
     const [users, setUsers] = useState([]);
@@ -111,4 +111,4 @@ const UserPage = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserSh
     );
 };
 
-export default UserPage;
+export default UserModal;

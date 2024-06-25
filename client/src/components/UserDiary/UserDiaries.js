@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Divider, Icon, Grid, Item } from 'semantic-ui-react';
+import { Divider, Grid } from 'semantic-ui-react';
 import UserDiaryFilm from './UserDiaryFilm';
+import UserInfo from './UserInfo';
 import { removeDiaryFilm } from "../actions/rootActions";
 import { patchDiaryFilm } from "../actions/rootActions";
 
@@ -45,27 +46,11 @@ class UserDiaries extends Component {
                     }}
                 >
                     <Grid.Column style={{width:"230px"}}>
-                        <Item style={{
-                            marginLeft:"-20%", 
-                            marginTop:"20%", 
-                            textAlign:"center"
-                        }}>
-                            <Icon 
-                                name="user circle" 
-                                size="huge" 
-                                style={{
-                                    marginLeft:"2.2%", 
-                                    fontSize:"600%"
-                                }}
-                            />  
-                            <h2 style={{ marginTop:"3%"}}>{this.props.currentUser.username}</h2>
-                            <p>
-                                Since {this.props.currentUser.created_at.slice(5, 10)}-  
-                                {this.props.currentUser.created_at.slice(0,4)}<br/>
-                                {this.props.userFollowingCount} Following | {this.props.currentUser.followers.length} Followers<br/>
-                                {this.props.dF.length} Films Logged<br/>
-                            </p>
-                        </Item>
+                        <UserInfo 
+                            dF={this.props.dF} 
+                            currentUser={this.props.currentUser} 
+                            userFollowingCount={this.props.userFollowingCount} 
+                        />
                     </Grid.Column>
                     <Grid.Column>
                         {this.props.dF.length === 0 ?

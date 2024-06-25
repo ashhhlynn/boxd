@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Icon, Menu, Modal } from 'semantic-ui-react';
-import UserPage from '../UserProfile/UserPage';
+import UserModal from '../FollowModal/UserModal';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -73,7 +73,7 @@ const Navbar = (props) => {
                     closeIcon
                 >
                     <Modal.Content style={{textAlign:"center"}}>
-                        <UserPage 
+                        <UserModal
                             addFollowFilms={props.addFollowFilms} 
                             removeFollowFilms={props.removeFollowFilms} 
                             changeUserShow={changeUserShow} 

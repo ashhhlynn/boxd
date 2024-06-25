@@ -10,7 +10,7 @@ import UserDiaries from './components/UserDiary/UserDiaries'
 import Home from './components/FilmsHome/Home'
 import Navbar from './components/Decorative/Navbar'
 import Watchlist from './components/UserWatchlist/Watchlist'
-import UserShow from './components/UserDiary/UserShow'
+import UserShow from './components/UserProfiles/UserShow'
 import { checkUser } from "./components/actions/rootActions"
 import { fetchAllDF } from "./components/actions/rootActions"
 import { fetchWatchlistFilms } from "./components/actions/rootActions"
