@@ -40,7 +40,6 @@ class App extends Component {
             this.props.checkUser(data)
             if (data !== null) {
                 this.getWatchlistFilms()
-                this.getFeed()
             }
         })
     }
@@ -53,12 +52,12 @@ class App extends Component {
         })
     }
 
-    getFeed = () => {
+    getFeed = (data) => {
         fetch("/feed")
         .then(resp => resp.json())
         .then(data => {
             this.props.fetchFeed(data)
-        })
+        })  
     }
     
     changeUserShow = (id) => {
@@ -82,7 +81,7 @@ class App extends Component {
                     <Container>
                         <Switch>
                             <Route exact path="/">
-                                <Home currentUser={this.props.currentUser}/>
+                                <Home currentUser={this.props.currentUser} />
                             </Route>
                             <Route exact path="/login">
                                 <SigninRegister getUserProfile={this.getUserProfile}/>

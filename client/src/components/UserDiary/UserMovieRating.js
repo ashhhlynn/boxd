@@ -11,7 +11,12 @@ const UserMovieRating = ({ film, patchRating }) => {
 
     return (
         <div className="filmrating">
-            <Rating className="stars" rating={state.rating} maxRating={5} onRate={handleRating} />
+            <Rating 
+                className="stars" 
+                rating={state.rating} 
+                maxRating={5} 
+                onRate={handleRating} 
+            />
         </div>
     );
 };

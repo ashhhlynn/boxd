@@ -41,7 +41,7 @@ const Signup = ({ handleRoute }) => {
 
     return (
         <>
-        <h2 style={{fontFamily:"Helvetica"}}>Register</h2>
+        <h2>Register</h2>
         <Form onSubmit={(e) => handleSubmit(e, state)}>              
             <Form.Input
                 required
@@ -75,7 +75,11 @@ const Signup = ({ handleRoute }) => {
                 value={state.password_confirmation} 
                 onChange={handleChange}
             />
-            <Form.Button size="tiny" circular content="Submit" />
+            <Form.Button 
+                size="tiny" 
+                circular 
+                content="Submit" 
+            />
         </Form>
         </>
     );

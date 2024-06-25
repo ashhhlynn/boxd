@@ -36,12 +36,28 @@ class UserDiaries extends Component {
     render () {
         return (
             <div className="diaries">
-                <Grid stackable columns={2} style={{fontFamily:"Helvetica", letterSpacing:".5px"}}>
+                <Grid 
+                    stackable 
+                    columns={2} 
+                    style={{
+                        fontFamily:"Helvetica", 
+                        letterSpacing:".5px"
+                    }}
+                >
                     <Grid.Column style={{width:"230px"}}>
-                        <Item style={{marginLeft:"-20%", marginTop:"20%"}}>
-                            <center>
-                                <Icon name="user circle" size="huge" style={{marginLeft:"2.2%", fontSize:"600%"}} />  
-                            </center>
+                        <Item style={{
+                            marginLeft:"-20%", 
+                            marginTop:"20%", 
+                            textAlign:"center"
+                        }}>
+                            <Icon 
+                                name="user circle" 
+                                size="huge" 
+                                style={{
+                                    marginLeft:"2.2%", 
+                                    fontSize:"600%"
+                                }}
+                            />  
                             <h2 style={{ marginTop:"3%"}}>{this.props.currentUser.username}</h2>
                             <p>
                                 Since {this.props.currentUser.created_at.slice(5, 10)}-  
@@ -57,9 +73,17 @@ class UserDiaries extends Component {
                         :
                             <>
                             <br/>
-                            <Divider style={{width:"157%", marginLeft:"1.4%"}} />
+                            <Divider style={{
+                                width:"157%", 
+                                marginLeft:"1.4%",
+                            }} />
                             {this.props.dF.map((movie, index) => (
-                                <UserDiaryFilm key={index} movie={movie} removeUserDiaryFilm={this.removeUserDiaryFilm} patchRating={this.patchRating} />
+                                <UserDiaryFilm 
+                                    key={index} 
+                                    movie={movie} 
+                                    removeUserDiaryFilm={this.removeUserDiaryFilm} 
+                                    patchRating={this.patchRating} 
+                                />
                             ))}
                             </>
                         }

@@ -34,7 +34,7 @@ const Login = ({ handleRoute }) => {
     
     return (
         <>                               
-        <h2 style={{fontFamily:"Helvetica"}}>Sign In</h2>
+        <h2>Sign In</h2>
         <Form onSubmit={(e) => handleSubmit(e, state)}>
             <Form.Input
                 required
@@ -51,10 +51,14 @@ const Login = ({ handleRoute }) => {
                 value={state.password} 
                 onChange={handleChange}
             /> 
-            <Form.Button size="tiny" circular content='Submit'/>
+            <Form.Button 
+                size="tiny" 
+                circular 
+                content='Submit'
+            />
         </Form>               
         <br/>
-        No account? Sign in with the <Label size="mini" style={{color:"black", cursor:"pointer", fontSize:"11px", fontWeight:"normal", backgroundColor:"#cdcdff"}} onClick={(e) => handleSubmit(e, {email:'demo@gmail.com', password:'demo'})}>Demo</Label>
+        No account? Sign in with the <Label size="mini" onClick={(e) => handleSubmit(e, {email:'demo@gmail.com', password:'demo'})}>Demo</Label>
         </>
     );
 };

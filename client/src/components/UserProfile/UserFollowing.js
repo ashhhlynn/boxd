@@ -9,8 +9,12 @@ const UserFollowing = ({ userFollowing, changeUserShow, removeFollow }) => {
             <Card key={index}>
                 <Card.Header>
                     <Link to='/profile' onClick={() => changeUserShow(user.id)}>{user.username}</Link>
-                    <Button floated="right" onClick={(event) => removeFollow(event, user)} size="mini">
-                        <Icon name="user close"/>
+                    <Button 
+                        floated="right" 
+                        onClick={(event) => removeFollow(event, user)} 
+                        size="mini"
+                    >
+                        <Icon name="user close" />
                     </Button>
                 </Card.Header>
             </Card>

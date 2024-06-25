@@ -4,7 +4,7 @@ import { Card, Image, Icon, Button, Rating, Modal } from 'semantic-ui-react'
 import { addDiaryFilm } from "../actions/rootActions"
 import { addWatchlistFilm } from "../actions/rootActions"
 import { removeWatchlistFilm } from "../actions/rootActions"
-import ModalFeed from "../FilmsHome/ModalFeed"
+import ModalFeed from "./ModalFeed"
 
 class Film extends Component {
     

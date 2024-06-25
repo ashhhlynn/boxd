@@ -9,8 +9,12 @@ const UserFollowers = ({ userFollowers, changeUserShow }) => {
             <Card key={index}>
                 <Card.Header>
                     <Link to='/profile' onClick={ () => changeUserShow(user.id) }>{user.username}</Link>
-                    <Button floated="right" style={{cursor:"auto"}} size="mini">
-                        <Icon name="user"/>
+                    <Button 
+                        floated="right" 
+                        style={{cursor:"auto"}} 
+                        size="mini"
+                    >
+                        <Icon name="user" />
                     </Button> 
                 </Card.Header>
             </Card>

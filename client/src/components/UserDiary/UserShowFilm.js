@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Item, Label, Divider, Rating } from 'semantic-ui-react';
-import FilmModal from '../FilmsHome/FilmModal';
+import FilmModal from '../SearchFilms/FilmModal';
 
 const UserShowFilm = ({ movie }) => {
     return (

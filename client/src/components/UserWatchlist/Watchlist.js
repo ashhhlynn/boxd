@@ -1,23 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card } from 'semantic-ui-react';
-import FilmModal from '../FilmsHome/FilmModal';
+import FilmModal from '../SearchFilms/FilmModal';
 
 const Watchlist = (props) => {
     return (
-        <div className="home">
+        <div className="watchlist">
             {props.watchlistFilms.length === 0 ?
-                <p><center><br/>Your watchlist is empty. Search for a film to begin adding!</center></p> 
+                <p>Your watchlist is empty. Search for a film to begin adding!</p> 
             :
-                <>
-                <Card.Group style={{marginTop:"3%", marginBottom:"-.5%"}} itemsPerRow={7}>
+                <Card.Group 
+                    itemsPerRow={7}
+                    style={{
+                        marginTop:"3%", 
+                        marginBottom:"-.5%"
+                    }} 
+                >
                     {props.watchlistFilms.map((movie) => (
                         <Card key={movie.id}>
                             <FilmModal film={movie} />
                         </Card>
                     ))}
                 </Card.Group>
-                </>
             }
         </div>
     );

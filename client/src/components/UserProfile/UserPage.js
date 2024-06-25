@@ -11,6 +11,7 @@ const UserPage = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserSh
     
     useEffect(() => {
         getFollowing()
+        getUsers()
     }, []);
     
     const getFollowing = () => {
@@ -20,10 +21,6 @@ const UserPage = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserSh
             setUserFollowing(data)
         })
     };
-    
-    useEffect(() => {
-        getUsers()
-    }, []);
     
     const getUsers = () => {
         fetch("/users")
@@ -58,37 +55,60 @@ const UserPage = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserSh
     
     return (
         <div className="userpage">
+            <br/>
+            <UserSearch 
+                users={users} 
+                addFollow={addFollow} 
+            />
             <center>
-                <br/>
-                <UserSearch users={users} addFollow={addFollow} />
-                <Grid stackable columns={2}>
-                    <Grid.Column>
-                        <h3>Following</h3>
-                        <Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}} />
-                        {userFollowing.length === 0 ?
+            <Grid stackable columns={2}>
+                <Grid.Column>
+                    <h3>Following</h3>
+                    <Divider style={{
+                        marginTop:"-1.5%", 
+                        marginBottom:"14.5%"
+                    }}
+                    />
+                    {userFollowing.length === 0 ?
                         <p style={{marginTop:"-7%"}}>You're following 0 users</p>
-                        :
-                            <Item style={{textAlign:"left", marginLeft:"12%"}}>	
-                                <UserFollowing changeUserShow={changeUserShow} userFollowing={userFollowing} removeFollow={removeFollow} />
-                            </Item>
-                        }
-                    </Grid.Column>
-                    <Grid.Column>
-                        <h3>Followers</h3>
-                        <Divider style={{marginTop:"-1.5%", marginBottom:"14.5%"}} />
-                        {currentUser.followers.length === 0 ?
-                            <p style={{marginTop:"-7%"}}>0 users are following you</p>
-                        :
-                            <Item style={{textAlign:"left", marginLeft:"12.5%"}}>
-                                <UserFollowers changeUserShow={changeUserShow} userFollowers={currentUser.followers} />
-                            </Item>
-                        }
-                    </Grid.Column>
-                </Grid>
-                <br/>
+                    :
+                        <Item style={{
+                            textAlign:"left", 
+                            marginLeft:"12%"
+                        }}>	
+                            <UserFollowing 
+                                changeUserShow={changeUserShow} 
+                                userFollowing={userFollowing} 
+                                removeFollow={removeFollow} 
+                            />
+                        </Item>
+                    }
+                </Grid.Column>
+                <Grid.Column>
+                    <h3>Followers</h3>
+                    <Divider style={{
+                        marginTop:"-1.5%", 
+                        marginBottom:"14.5%"
+                    }} />
+                    {currentUser.followers.length === 0 ?
+                        <p style={{marginTop:"-7%"}}>0 users are following you</p>
+                    :
+                        <Item style={{
+                            textAlign:"left", 
+                            marginLeft:"12.5%"
+                        }}>
+                            <UserFollowers 
+                                changeUserShow={changeUserShow} 
+                                userFollowers={currentUser.followers} 
+                            />
+                        </Item>
+                    }
+                </Grid.Column>
+            </Grid>
             </center>
+            <br/>
         </div>
-    )
+    );
 };
 
 export default UserPage;

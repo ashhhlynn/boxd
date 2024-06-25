@@ -13,11 +13,15 @@ const SigninRegister = ({ getUserProfile }) => {
     };
     
     return (
-        <>  
+        <div className='signupin'> 
         <br/>        
         <Segment placeholder>
             <br/> 
-            <Grid stackable relaxed='very' columns={2}>
+            <Grid 
+                stackable 
+                relaxed='very' 
+                columns={2}
+            >
                 <Grid.Column> 
                   <Login handleRoute={handleRoute} />
                 </Grid.Column>                 
@@ -25,9 +29,14 @@ const SigninRegister = ({ getUserProfile }) => {
                     <Signup handleRoute={handleRoute} />
                 </Grid.Column>   
             </Grid>
-            <Divider vertical style={{marginTop:"1%"}}>Or</Divider>
+            <Divider 
+                vertical 
+                style={{marginTop:"1%"}}
+            >
+                Or
+            </Divider>
         </Segment>
-        </>
+        </div> 
     );
 };
 

@@ -37,6 +37,11 @@
     height:100px;
 }
 
+.nav .item {
+    color: #c7c7ff  !important;
+    letter-spacing:.25px
+}
+
 .nav a, .ui.icon  {
     color: #c7c7ff !important;
 }
@@ -62,9 +67,19 @@
     background: inherit !important;
 }
 
+.signupin h2 {
+    font-family:"Helvetica"
+}
 
+.signupin .ui.label {
+    color: black;
+    background-color:#cdcdff;
+    cursor: pointer;
+    font-size: 11px !important;
+    font-weight: normal;
+}
 
-.home {
+.home, .watchlist{
     letter-spacing: .5px;
 }
 
@@ -82,19 +97,23 @@
     text-align:left;
 }
 
-.home .ui.card {
+.home .ui.card, .watchlist .ui.card {
     background-color:#171b22 !important;
     box-shadow:none !important;
     color:#f4f4ff !important;
 }
 
-.home .ui.image {
+.home .ui.image, .watchlist .ui.image {
     height: 220px !important;
     width: 210px !important;
 }
 
 .filmModal .ui.image {
     cursor: pointer;
+}
+
+.watchlist p {
+    margin-top:3.5% !important;
 }
 
 .diaries h3 {

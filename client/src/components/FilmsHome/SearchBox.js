@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from 'semantic-ui-react';
-import Films from './Films';
+import SearchFilms from './SearchFilms';
 
 const SearchBox = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -22,9 +22,9 @@ const SearchBox = () => {
     return (
         <>
         Search films 
-        <input style={{letterSpacing:".5px", fontSize:"16px"}} onChange={(event) => setSearchValue(event.target.value)} /> 
+        <input onChange={(event) => setSearchValue(event.target.value)} /> 
         <Icon name="search" />
-        <Films films={films} />
+        <SearchFilms films={films} />
         </>
     );
 };
