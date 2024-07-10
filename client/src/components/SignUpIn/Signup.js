@@ -10,7 +10,7 @@ const Signup = ({ handleRoute }) => {
     });
 
     const handleSubmit = (event, userData) => {
-        event.preventDefault()
+        event.preventDefault();
         fetch("/users", {
             method: 'POST',
             headers: {
@@ -26,17 +26,17 @@ const Signup = ({ handleRoute }) => {
         .then((response) => response.json())
         .then(data => {
             if (data.errors) {
-                window.alert("Signup failed.")
+                window.alert("Signup failed.");
             }
             else {
-                window.alert("Signup successful.")
+                window.alert("Signup successful.");
                 handleRoute()
             }
-        })
+        });
     }; 
 
     const handleChange = (event) => {
-        setState({...state, [event.target.id]: event.target.value})
+        setState({...state, [event.target.id]: event.target.value});
     };
 
     return (

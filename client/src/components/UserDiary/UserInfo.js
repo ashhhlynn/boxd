@@ -1,7 +1,7 @@
 import React from 'react';
 import { Item, Icon } from 'semantic-ui-react';
 
-const UserInfo = (props) => {
+const UserInfo = ({ currentUser, dF, userFollowingCount }) => {
     return (
         <Item style={{
             marginLeft:"-20%", 
@@ -16,12 +16,12 @@ const UserInfo = (props) => {
                     fontSize:"600%"
                 }}
             />  
-            <h2 style={{ marginTop:"3%"}}>{props.currentUser.username}</h2>
+            <h2 style={{ marginTop:"3%"}}>{currentUser.username}</h2>
             <p>
-                Since {props.currentUser.created_at.slice(5, 10)}-  
-                {props.currentUser.created_at.slice(0,4)}<br/>
-                {props.userFollowingCount} Following | {props.currentUser.followers.length} Followers<br/>
-                {props.dF.length} Films Logged<br/>
+                Since {currentUser.created_at.slice(5, 10)}-  
+                {currentUser.created_at.slice(0,4)}<br/>
+                {userFollowingCount} Following | {currentUser.followers.length} Followers<br/>
+                {dF.length} Films Logged<br/>
             </p>
         </Item>
     );

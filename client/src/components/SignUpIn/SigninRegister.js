@@ -1,15 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Grid, Divider, Segment } from 'semantic-ui-react';
 import Login from './Login';
 import Signup from './Signup';
-import { useHistory } from "react-router-dom";
 
 const SigninRegister = ({ getUserProfile }) => {
     const history = useHistory();
 
     const handleRoute = () => {
-        getUserProfile()
-        history.push('/')
+        getUserProfile();
+        history.push('/');
     };
     
     return (

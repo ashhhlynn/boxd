@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Divider, Grid } from 'semantic-ui-react';
 import UserDiaryFilm from './UserDiaryFilm';
 import UserInfo from './UserInfo';
-import { removeDiaryFilm } from "../actions/rootActions";
-import { patchDiaryFilm } from "../actions/rootActions";
+import { removeDiaryFilm, patchDiaryFilm } from "../actions/rootActions";
 
-class UserDiaries extends Component {
-    
-    removeUserDiaryFilm = (film) => {
+const UserDiaries = () => {
+
+    const dispatch = useDispatch();
+    const dF = useSelector(state => state.diaryFilms);
+    const currentUser = useSelector(state => state.currentUser);
+    const userFollowingCount = useSelector(state => state.userFollowingCount);
+
+    const removeUserDiaryFilm = (film) => {
         fetch(`/diary_films/` + film.id, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
-        })
-        this.props.removeDiaryFilm(film)
+        });
+        dispatch(removeDiaryFilm(film));
     };
 
-    patchRating = (r, id) => {
+    const patchRating = (r, id) => {
         fetch(`/diary_films/` + id, {  
             method: 'PATCH',
             headers: {
@@ -30,68 +34,51 @@ class UserDiaries extends Component {
         })
         .then((response) => response.json())
         .then(data => {
-            this.props.patchDiaryFilm(data)
-        })
+            dispatch(patchDiaryFilm(data));
+        });
     };
 
-    render () {
-        return (
-            <div className="diaries">
-                <Grid 
-                    stackable 
-                    columns={2} 
-                    style={{
-                        fontFamily:"Helvetica", 
-                        letterSpacing:".5px"
-                    }}
-                >
-                    <Grid.Column style={{width:"230px"}}>
-                        <UserInfo 
-                            dF={this.props.dF} 
-                            currentUser={this.props.currentUser} 
-                            userFollowingCount={this.props.userFollowingCount} 
-                        />
-                    </Grid.Column>
-                    <Grid.Column>
-                        {this.props.dF.length === 0 ?
-                            <p><br/><br/>Your diary is empty. Search for a film to begin logging!</p>
-                        :
-                            <>
-                            <br/>
-                            <Divider style={{
-                                width:"157%", 
-                                marginLeft:"1.4%",
-                            }} />
-                            {this.props.dF.map((movie, index) => (
-                                <UserDiaryFilm 
-                                    key={index} 
-                                    movie={movie} 
-                                    removeUserDiaryFilm={this.removeUserDiaryFilm} 
-                                    patchRating={this.patchRating} 
-                                />
-                            ))}
-                            </>
-                        }
-                    </Grid.Column>
-                </Grid>
-            </div>
-        )
-    };
-};
-    
-const mapStateToProps = (state) => {
-    return { 
-        dF: state.diaryFilms,
-        currentUser: state.currentUser,
-        userFollowingCount: state.userFollowingCount
-    }
+    return (
+        <div className="diaries">
+            <Grid 
+                stackable 
+                columns={2} 
+                style={{
+                    fontFamily:"Helvetica", 
+                    letterSpacing:".5px"
+                }}
+            >
+                <Grid.Column style={{width:"230px"}}>
+                    <UserInfo 
+                        dF={dF} 
+                        currentUser={currentUser} 
+                        userFollowingCount={userFollowingCount} 
+                    />
+                </Grid.Column>
+                <Grid.Column>
+                    {dF.length === 0 ?
+                        <p><br/><br/>Your diary is empty. Search for a film to begin logging!</p>
+                    :
+                        <>
+                        <br/>
+                        <Divider style={{
+                            width:"157%", 
+                            marginLeft:"1.4%",
+                        }} />
+                        {dF.map((movie, index) => (
+                            <UserDiaryFilm 
+                                key={index} 
+                                movie={movie} 
+                                removeUserDiaryFilm={removeUserDiaryFilm} 
+                                patchRating={patchRating} 
+                            />
+                        ))}
+                        </>
+                    }
+                </Grid.Column>
+            </Grid>
+        </div>
+    )
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return { 
-        removeDiaryFilm: (film) => { dispatch(removeDiaryFilm(film)) },
-    	patchDiaryFilm: (film) => { dispatch(patchDiaryFilm(film)) }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserDiaries);
+export default UserDiaries;

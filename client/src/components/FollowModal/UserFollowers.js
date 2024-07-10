@@ -20,7 +20,7 @@ const UserFollowers = ({ userFollowers, changeUserShow }) => {
             </Card>
         ))}
         </>
-    )
+    );
 };
 
 export default UserFollowers;

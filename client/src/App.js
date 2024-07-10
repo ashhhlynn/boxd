@@ -1,131 +1,108 @@
-import './App.css'
-import 'semantic-ui-css/semantic.min.css'
-import React, { Component } from 'react'
-import { Container } from 'semantic-ui-react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
-import Footer from './components/Decorative/Footer'
-import SigninRegister from './components/SignUpIn/SigninRegister'
-import UserDiaries from './components/UserDiary/UserDiaries'
-import Home from './components/FilmsHome/Home'
-import Navbar from './components/Decorative/Navbar'
-import Watchlist from './components/UserWatchlist/Watchlist'
-import UserShow from './components/UserProfiles/UserShow'
-import { checkUser } from "./components/actions/rootActions"
-import { fetchAllDF } from "./components/actions/rootActions"
-import { fetchWatchlistFilms } from "./components/actions/rootActions"
-import { fetchFeed } from "./components/actions/rootActions"
-import { removeFollowFeed } from "./components/actions/rootActions"
-import { addUserFollowingCount } from "./components/actions/rootActions"
-import { logOut } from "./components/actions/rootActions"
+import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Container } from 'semantic-ui-react';
+import Footer from './components/Decorative/Footer';
+import SigninRegister from './components/SignUpIn/SigninRegister';
+import UserDiaries from './components/UserDiary/UserDiaries';
+import Home from './components/FilmsHome/Home';
+import Navbar from './components/Decorative/Navbar';
+import Watchlist from './components/UserWatchlist/Watchlist';
+import UserShow from './components/UserProfiles/UserShow';
+import { checkUser, fetchAllDF, fetchWatchlistFilms, fetchFeed, removeFollowFeed, addUserFollowingCount, logOut } from "./components/actions/rootActions";
 
-class App extends Component {
+function App() {
+    const [userShow, setUserShow] = useState(null);
+    const dispatch = useDispatch();
 
-    state = {
-        userShow: null
-    }
-
-    componentDidMount = () => {
-        this.getUserProfile()
+    useEffect(() => {
+        getUserProfile();
         fetch("/diary_films")
         .then(resp => resp.json())
         .then(data => {
-            this.props.fetchAllDF(data)
-        })
-    }
+            dispatch(fetchAllDF(data));
+        });
+    });
     
-    getUserProfile = () => {
+    const getUserProfile = () => {
         fetch("/profile")
         .then(resp => resp.json())
         .then(data => {
-            this.props.checkUser(data)
+            dispatch(checkUser(data));
             if (data !== null) {
-                this.getFeed()
-                this.getWatchlistFilms()
+                getFeed();
+                getWatchlistFilms();
             }
-        })
-    }
+        });
+    };
 
-    getWatchlistFilms = () => {
+    const getWatchlistFilms = () => {
         fetch("/watchlist_films")
         .then(resp => resp.json())
         .then(data => {
-            this.props.fetchWatchlistFilms(data)
-        })
-    }
+            dispatch(fetchWatchlistFilms(data));
+        });
+    };
 
-    getFeed = () => {
+    const getFeed = () => {
         fetch("/feed")
         .then(resp => resp.json())
         .then(data => {
-            this.props.fetchFeed(data)
-        })  
-    }
+            dispatch(fetchFeed(data));
+        });
+    };
     
-    changeUserShow = (id) => {
-       this.setState({userShow: id})
-    }
+    const changeUserShow = (id) => {
+       setUserShow(id);
+    };
 
-    addFollowFilms = () => {
-        this.getFeed()
-        this.props.addUserFollowingCount()
-    }
+    const addFollowFilms = () => {
+        getFeed();
+        dispatch(addUserFollowingCount());
+    };
 
-    removeFollowFilms = (data) => {
-        this.props.removeFollowFeed(data)
-    }
+    const removeFollowFilms = (data) => {
+        dispatch(removeFollowFeed(data));
+    };
 
-    getLogOut = () => {
-        this.props.logOut()
-    }
+    const getLogOut = () => {
+        dispatch(logOut());
+    };
 
-    render() {
-        return (
-            <Router>
-                <div className="app">
-                    <Navbar logOut={this.getLogOut} addFollowFilms={this.addFollowFilms} removeFollowFilms={this.removeFollowFilms} changeUserShow={this.changeUserShow} getUserProfile={this.getUserProfile}/>
-                    <Container>
-                        <Switch>
-                            <Route exact path="/">
-                                <Home currentUser={this.props.currentUser} />
-                            </Route>
-                            <Route exact path="/login">
-                                <SigninRegister getUserProfile={this.getUserProfile}/>
-                            </Route>
-                            <Route exact path="/userdiary">
-                                <UserDiaries/>
-                            </Route>
-                            <Route exact path="/watchlist">
-                                <Watchlist/>
-                            </Route>
-                            <Route exact path="/profile">
-                                <UserShow userShow={this.state.userShow}/>
-                            </Route>
-                        </Switch>
-                    </Container>
-                    <Footer/>
-                </div>
-            </Router>
-        )
-    }
-}
+    return (
+        <Router>
+            <div className="app">
+                <Navbar 
+                    logOut={getLogOut} 
+                    addFollowFilms={addFollowFilms} 
+                    removeFollowFilms={removeFollowFilms} 
+                    changeUserShow={changeUserShow} 
+                />
+                <Container>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route exact path="/login">
+                            <SigninRegister getUserProfile={getUserProfile} />
+                        </Route>
+                        <Route exact path="/userdiary">
+                            <UserDiaries />
+                        </Route>
+                        <Route exact path="/watchlist">
+                            <Watchlist />
+                        </Route>
+                        <Route exact path="/profile">
+                            <UserShow userShow={userShow} />
+                        </Route>
+                    </Switch>
+                </Container>
+                <Footer />
+            </div>
+        </Router>
+    );
+};
 
-const mapStateToProps = (state) => {
-    return { 
-        currentUser: state.currentUser,
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return { 
-        checkUser: (user) => { dispatch(checkUser(user)) },
-        fetchAllDF: (data) => { dispatch(fetchAllDF(data)) },
-        fetchWatchlistFilms: (data) => { dispatch(fetchWatchlistFilms(data)) },
-        fetchFeed: (data) => { dispatch(fetchFeed(data)) },
-        removeFollowFeed: (data) => { dispatch(removeFollowFeed(data)) },
-        addUserFollowingCount: () => { dispatch(addUserFollowingCount()) },
-        logOut: () => { dispatch(logOut()) }
-    }
-} 
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App;

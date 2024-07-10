@@ -11,7 +11,7 @@ const SearchBox = () => {
         const response = await fetch(url)
         const responseJson = await response.json()
         if (responseJson.Search) {
-            setFilms(responseJson.Search)
+            setFilms(responseJson.Search);
         }
     };
 

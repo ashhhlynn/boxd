@@ -1,12 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Card } from 'semantic-ui-react';
 import FilmModal from '../SearchFilms/FilmModal';
 
-const Watchlist = (props) => {
+const Watchlist = () => {
+
+    const watchlistFilms = useSelector(state => state.watchlistFilms);
+
     return (
         <div className="watchlist">
-            {props.watchlistFilms.length === 0 ?
+            {watchlistFilms.length === 0 ?
                 <p>Your watchlist is empty. Search for a film to begin adding!</p> 
             :
                 <Card.Group 
@@ -16,7 +19,7 @@ const Watchlist = (props) => {
                         marginBottom:"-.5%"
                     }} 
                 >
-                    {props.watchlistFilms.map((movie) => (
+                    {watchlistFilms.map((movie) => (
                         <Card key={movie.id}>
                             <FilmModal film={movie} />
                         </Card>
@@ -26,11 +29,5 @@ const Watchlist = (props) => {
         </div>
     );
 };
-    
-const mapStateToProps = (state) => {
-    return { 
-        watchlistFilms: state.watchlistFilms
-    }
-};
 
-export default connect(mapStateToProps)(Watchlist);
+export default Watchlist;

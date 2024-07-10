@@ -20,7 +20,7 @@ const UserFollowing = ({ userFollowing, changeUserShow, removeFollow }) => {
             </Card>
         ))}
         </>
-    )
+    );
 };
 
 export default UserFollowing;

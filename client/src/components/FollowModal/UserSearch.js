@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import React, { useState } from 'react';
 import { Search, Button, Item, Icon } from 'semantic-ui-react';
+import _ from 'lodash';
 
 const UserSearch = ({ users, addFollow }) => {
     
@@ -9,21 +9,21 @@ const UserSearch = ({ users, addFollow }) => {
 
     const handleSearchChange = e => {
         let value = e.target.value;
-        setValue(value)
-        const re = new RegExp(_.escapeRegExp(value), 'i')
-        const isMatch = result => re.test(result.username)
-        setResults(_.filter(users, isMatch))
+        setValue(value);
+        const re = new RegExp(_.escapeRegExp(value), 'i');
+        const isMatch = result => re.test(result.username);
+        setResults(_.filter(users, isMatch));
     };
 
     const handleAddFollow = async (event, user) => {
-        event.preventDefault()
+        event.preventDefault();
         await fetch(`users/` + user.id + `/follow`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-        })
-        addFollow(user)
+        });
+        addFollow(user);
     };
     
     const resultRenderer = ({username}) => ([ 
@@ -53,7 +53,7 @@ const UserSearch = ({ users, addFollow }) => {
             value={value}
             placeholder='Search users..' 
         />
-    )
+    );
 };
 
 export default UserSearch;

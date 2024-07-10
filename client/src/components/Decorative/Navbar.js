@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Icon, Menu, Modal } from 'semantic-ui-react';
 import UserModal from '../FollowModal/UserModal';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-const Navbar = (props) => {
+const Navbar = ({ logOut, addFollowFilms, removeFollowFilms, changeUserShow }) => {
+
     const [modalOpen, setModalOpen] = useState(false);
+
+    const currentUser = useSelector(state => state.currentUser);
     
     const handleLogout = () => {
         fetch("/logout", {
@@ -13,21 +16,21 @@ const Navbar = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             }
-        })
-        props.logOut()
+        });
+        logOut();
     };    
     
     const handleOpen = () => {
-        setModalOpen(true)
+        setModalOpen(true);
     };
     
     const handleClose = () => {
-        setModalOpen(false)
+        setModalOpen(false);
     };
     
-    const changeUserShow = (userShow) => {
-        props.changeUserShow(userShow)
-        handleClose()
+    const changeUser = (userShow) => {
+        changeUserShow(userShow);
+        handleClose();
     };
     
     return (
@@ -47,7 +50,7 @@ const Navbar = (props) => {
                 style={{marginRight:"3%"}} 
                 position='right'
             >
-                {props.currentUser.length === 0 ?
+                {currentUser.length === 0 ?
                     <Menu.Item>
                         <Link to='/login'><Icon size="big" name="user circle outline" /></Link>
                     </Menu.Item>
@@ -74,10 +77,10 @@ const Navbar = (props) => {
                 >
                     <Modal.Content style={{textAlign:"center"}}>
                         <UserModal
-                            addFollowFilms={props.addFollowFilms} 
-                            removeFollowFilms={props.removeFollowFilms} 
-                            changeUserShow={changeUserShow} 
-                            currentUser={props.currentUser} 
+                            addFollowFilms={addFollowFilms} 
+                            removeFollowFilms={removeFollowFilms} 
+                            changeUserShow={changeUser} 
+                            currentUser={currentUser} 
                         />
                     </Modal.Content>
                 </Modal>
@@ -86,10 +89,4 @@ const Navbar = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        currentUser: state.currentUser
-    }
-};
-
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;

@@ -18,39 +18,39 @@ const UserModal = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserS
         fetch("/userfollowing")
         .then(resp => resp.json())
         .then(data => {
-            setUserFollowing(data)
-        })
+            setUserFollowing(data);
+        });
     };
     
     const getUsers = () => {
         fetch("/users")
         .then(resp => resp.json())
         .then(data => {
-            setUsers(data)
-        })
+            setUsers(data);
+        });
     };
     
     const addFollow = (data) => {
-        addFollowFilms()
-        const newUserFollowing = [...userFollowing, data]
-        setUserFollowing(newUserFollowing)
-        let newUsersList = users.filter(u => u.id !== data.id)
-        setUsers(newUsersList)
+        addFollowFilms();
+        const newUserFollowing = [...userFollowing, data];
+        setUserFollowing(newUserFollowing);
+        const newUsersList = users.filter(u => u.id !== data.id);
+        setUsers(newUsersList);
     };
     
     const removeFollow = (event, user) => {
-        event.preventDefault()
+        event.preventDefault();
         fetch(`users/` + user.id + `/unfollow`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-        })
-        const newUserList = userFollowing.filter((u) => u.id !== user.id)
-        setUserFollowing(newUserList)
-        let newUsersList = [...users, user]
-        setUsers(newUsersList)
-        removeFollowFilms(user)
+        });
+        const newUserList = userFollowing.filter((u) => u.id !== user.id);
+        setUserFollowing(newUserList);
+        const newUsersList = [...users, user];
+        setUsers(newUsersList);
+        removeFollowFilms(user);
     };
     
     return (

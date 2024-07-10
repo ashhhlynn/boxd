@@ -5,11 +5,11 @@ const Login = ({ handleRoute }) => {
     const [state, setState] = useState({email: '', password: ''});
 
     const handleChange = (event) => {
-        setState({...state, [event.target.id]: event.target.value})
+        setState({...state, [event.target.id]: event.target.value});
     };
 
     const handleSubmit = (event, loginData) => {
-        event.preventDefault()
+        event.preventDefault();
         fetch("/login", {
             method: 'POST',
             headers: {
@@ -23,13 +23,13 @@ const Login = ({ handleRoute }) => {
         .then((response) => response.json())
         .then(data => {
             if (data.errors) {
-                window.alert("Login failed.")
+                window.alert("Login failed.");
             }
             else {
-                window.alert("Login successful.")
-                handleRoute()
+                window.alert("Login successful.");
+                handleRoute();
             }
-        })
+        });
     };
     
     return (

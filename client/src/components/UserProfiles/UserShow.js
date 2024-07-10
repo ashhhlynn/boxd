@@ -16,15 +16,15 @@ const UserShow = ({ userShow }) => {
         fetch("/users/" + userShow)
         .then(resp => resp.json())
         .then(data => {
-            let year = data.created_at.slice(0,4)
-            let d = data.created_at.slice(5,10) + '-' + year
+            const year = data.created_at.slice(0,4);
+            const d = data.created_at.slice(5,10) + '-' + year;
             setState({
                 user: data,
                 date: d,
                 userDiaryFilms: data.diary_films,
                 follows: data.followees.length,
                 followers: data.followers.length
-            })          
+            });          
         })  
     }, [userShow]);
 
