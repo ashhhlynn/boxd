@@ -3,7 +3,6 @@ import { Divider, Icon, Grid, Item } from 'semantic-ui-react';
 import UserShowFilm from './UserShowFilm';
 
 const UserShow = ({ userShow }) => {
-    
     const [state, setState] = useState({
         user: [],
         userDiaryFilms: [],

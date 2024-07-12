@@ -4,7 +4,6 @@ import { Card } from 'semantic-ui-react';
 import FilmModal from '../SearchFilms/FilmModal';
 
 const Watchlist = () => {
-
     const watchlistFilms = useSelector(state => state.watchlistFilms);
 
     return (

@@ -5,9 +5,7 @@ import { Icon, Menu, Modal } from 'semantic-ui-react';
 import UserModal from '../FollowModal/UserModal';
 
 const Navbar = ({ logOut, addFollowFilms, removeFollowFilms, changeUserShow }) => {
-
     const [modalOpen, setModalOpen] = useState(false);
-
     const currentUser = useSelector(state => state.currentUser);
     
     const handleLogout = () => {

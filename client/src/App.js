@@ -18,31 +18,27 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getUserProfile();
-        fetch("/diary_films")
-        .then(resp => resp.json())
-        .then(data => {
-            dispatch(fetchAllDF(data));
-        });
+        getUserProfile()
+        getDiaryFilms()
     });
     
     const getUserProfile = () => {
         fetch("/profile")
         .then(resp => resp.json())
         .then(data => {
-            dispatch(checkUser(data));
             if (data !== null) {
+                dispatch(checkUser(data));
                 getFeed();
                 getWatchlistFilms();
             }
         });
     };
 
-    const getWatchlistFilms = () => {
-        fetch("/watchlist_films")
+    const getDiaryFilms = () => {
+        fetch("/diary_films")
         .then(resp => resp.json())
         .then(data => {
-            dispatch(fetchWatchlistFilms(data));
+            dispatch(fetchAllDF(data));
         });
     };
 
@@ -53,9 +49,17 @@ function App() {
             dispatch(fetchFeed(data));
         });
     };
+
+    const getWatchlistFilms = () => {
+        fetch("/watchlist_films")
+        .then(resp => resp.json())
+        .then(data => {
+            dispatch(fetchWatchlistFilms(data));
+        });
+    };
     
     const changeUserShow = (id) => {
-       setUserShow(id);
+        setUserShow(id);
     };
 
     const addFollowFilms = () => {

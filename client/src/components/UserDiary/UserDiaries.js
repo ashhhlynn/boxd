@@ -6,7 +6,6 @@ import UserInfo from './UserInfo';
 import { removeDiaryFilm, patchDiaryFilm } from "../actions/rootActions";
 
 const UserDiaries = () => {
-
     const dispatch = useDispatch();
     const dF = useSelector(state => state.diaryFilms);
     const currentUser = useSelector(state => state.currentUser);

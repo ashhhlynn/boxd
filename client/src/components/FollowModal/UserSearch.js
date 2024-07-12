@@ -3,7 +3,6 @@ import { Search, Button, Item, Icon } from 'semantic-ui-react';
 import _ from 'lodash';
 
 const UserSearch = ({ users, addFollow }) => {
-    
     const [results, setResults] = useState([]);
     const [value, setValue] = useState('');
 

@@ -5,7 +5,6 @@ import { addDiaryFilm, addWatchlistFilm, removeWatchlistFilm } from "../actions/
 import ModalFeed from "./ModalFeed";
 
 const Film = ({ movie }) => {
-
     const [modalOpen, setModalOpen] = useState(false);
     const [score, setScore] = useState('Unrated');
     const dispatch = useDispatch();

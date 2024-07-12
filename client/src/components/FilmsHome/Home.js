@@ -7,7 +7,6 @@ import SearchBox from './SearchBox';
 
 const Home = () => {
     const [welcomeMovies, setWelcomeMovies] = useState([]);
-
     const feed = useSelector(state => state.feed);
     const currentUser = useSelector(state => state.currentUser);
 

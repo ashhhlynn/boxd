@@ -5,7 +5,6 @@ import UserFollowing from './UserFollowing';
 import UserSearch from './UserSearch';
 
 const UserModal = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserShow }) => {
-    
     const [userFollowing, setUserFollowing] = useState([]);
     const [users, setUsers] = useState([]);
     

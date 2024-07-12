@@ -4,8 +4,7 @@ import { Icon, Image, Modal, Rating, Button } from 'semantic-ui-react';
 import { addDiaryFilm, addWatchlistFilm, removeWatchlistFilm } from "../actions/rootActions";
 import ModalFeed from "./ModalFeed";
 
-const FilmModal = ({ film }) => {
-    
+const FilmModal = ({ film }) => { 
     const [modalOpen, setModalOpen] = useState(false);
     const [score, setScore] = useState('Unrated');
     const dispatch = useDispatch();
