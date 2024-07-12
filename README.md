@@ -7,7 +7,8 @@ A Letterboxd inspired social network for rating films from the OMDb database to 
   </tr>
 </table>
 
-Check out the <a href="https://film-app.onrender.com/">live</a> and <a href="https://vimeo.com/922334242">video</a> demos.
+### :link: <a href="https://film-app.onrender.com/">Website</a> 
+### :link: <a href="https://vimeo.com/922334242">Video</a>
 
 ### Technologies Used
 - React.js
