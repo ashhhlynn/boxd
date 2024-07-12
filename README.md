@@ -53,19 +53,26 @@ A Letterboxd inspired social network for rating films from the OMDb database to 
 
 ### Setup
 #### Back End
-   ```sh
-   $ git clone https://github.com/ashhhlynn/film_app.git
-   $ cd film_app
-   $ bundle install
-   $ rake db:create
-   $ rake db:migrate
-   $ rails s
-   ```
+
+  ` $ git clone https://github.com/ashhhlynn/film_app.git `
+  
+  ` $ cd film_app `
+  
+  ` $ bundle install `
+  
+  ` $ rake db:create `
+  
+  ` $ rake db:migrate `
+  
+  ` $ rails s `
+  
+  
 #### Front End (New Terminal)
-   ```sh
-   $ cd client
-   $ npm install
-   $ npm start
-   ```
+   ` $ cd client `
+   
+   ` $ npm install `
+   
+   ` $ npm start `
+
 ### License 
 This project is MIT licensed. 
