@@ -30,7 +30,7 @@ const Signup = ({ handleRoute }) => {
             }
             else {
                 window.alert("Signup successful.");
-                handleRoute()
+                handleRoute();
             }
         });
     }; 

@@ -99,7 +99,7 @@ const FilmModal = ({ film }) => {
         dispatch(removeWatchlistFilm(x));
     };
     
-    let feedEntries = feed.filter(f => f.title === film.title)
+    let feedEntries = feed.filter(f => f.title === film.title);
 
     return (
         <div className="filmModal" >

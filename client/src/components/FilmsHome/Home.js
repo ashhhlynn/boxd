@@ -11,7 +11,7 @@ const Home = () => {
     const currentUser = useSelector(state => state.currentUser);
 
     useEffect(() => {
-        getWelcomeMovies()
+        getWelcomeMovies();
     }, []);
 
     const getWelcomeMovies = () => {

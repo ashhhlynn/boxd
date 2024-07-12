@@ -9,8 +9,8 @@ const UserModal = ({ currentUser, addFollowFilms, removeFollowFilms, changeUserS
     const [users, setUsers] = useState([]);
     
     useEffect(() => {
-        getFollowing()
-        getUsers()
+        getFollowing();
+        getUsers();
     }, []);
     
     const getFollowing = () => {
