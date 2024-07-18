@@ -16,7 +16,7 @@ A Letterboxd inspired social network for rating films from the OMDb database to 
 - React Router
 - Ruby on Rails
 - PostgreSQL
-- BCrypt Gem
+- BCrypt
 - OMDb API
 - Semantic UI React
 - HTML & CSS
