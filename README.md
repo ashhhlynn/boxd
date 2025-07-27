@@ -32,30 +32,19 @@ A Letterboxd inspired social network for rating films from the OMDb database to 
 - View film diaries of other users 
 
 ### Media 
-
-![Screenshot (181)](https://github.com/ashhhlynn/film_app/assets/84604278/3615b1c8-f1e4-4b23-952b-bf79d1c7fc44)
-
-
-![Screenshot (182)](https://github.com/ashhhlynn/film_app/assets/84604278/eaaa741b-e4fe-4c8f-b733-e479429e28ec)
-
-
-![Screenshot (184)](https://github.com/ashhhlynn/film_app/assets/84604278/46fda5a6-2817-40a9-a799-04a084eb54d1)
-
-
-![Screenshot (187)](https://github.com/ashhhlynn/film_app/assets/84604278/8093a166-ec60-4259-b199-1a1fa69c5c6d)
-
-
-![Screenshot (180)](https://github.com/ashhhlynn/film_app/assets/84604278/3dfb4b18-ddb9-438b-a7d0-d640e60c0b6f)
-
-
-![Screenshot (186)](https://github.com/ashhhlynn/film_app/assets/84604278/349f37d5-56a2-4eb4-8e1a-277ac459bb68)
+<img src="https://github.com/ashhhlynn/film_app/assets/84604278/3615b1c8-f1e4-4b23-952b-bf79d1c7fc44" style="width:80%;height:80%">
+<img src="https://github.com/ashhhlynn/film_app/assets/84604278/eaaa741b-e4fe-4c8f-b733-e479429e28ec" style="width:80%;height:80%">
+<img src="https://github.com/ashhhlynn/film_app/assets/84604278/46fda5a6-2817-40a9-a799-04a084eb54d1" style="width:80%;height:80%">
+<img src="https://github.com/ashhhlynn/film_app/assets/84604278/8093a166-ec60-4259-b199-1a1fa69c5c6d" style="width:80%;height:80%">
+<img src="https://github.com/ashhhlynn/film_app/assets/84604278/3dfb4b18-ddb9-438b-a7d0-d640e60c0b6f" style="width:80%;height:80%">
+<img src="https://github.com/ashhhlynn/film_app/assets/84604278/349f37d5-56a2-4eb4-8e1a-277ac459bb68" style="width:80%;height:80%">
 
 ### Setup
-
 #### Back End
-&emsp; ` $ git clone https://github.com/ashhhlynn/film_app.git `
+
+&emsp; ` $ git clone https://github.com/ashhhlynn/boxd.git `
   
-&emsp; ` $ cd film_app `
+&emsp; ` $ cd boxd `
   
 &emsp; ` $ bundle install `
   
@@ -65,8 +54,8 @@ A Letterboxd inspired social network for rating films from the OMDb database to 
   
 &emsp; ` $ rails s `
   
-  
 #### Front End (new terminal)
+
 &emsp; ` $ cd client `
    
 &emsp; ` $ npm install `
