@@ -26,7 +26,7 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
 - Register users and log in authenticated with BCrypt
 - Fetch from OMDb API to search, sort, and display over 200,000 films
 - Log and rate films on 5-star scale with ability to update or remove entries 
-- Add (and remove) films to watchlist
+- Add films to watchlist with ability to remove 
 - Search for, follow and unfollow users to view activity on feed
 - View film's average Boxd rating and followed users who watched
 - View user profiles with logged films and ratings  
