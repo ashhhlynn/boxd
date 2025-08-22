@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td>
-A Letterboxd inspired social network for rating films from the OMDb database to a diary, adding to a watchlist, and tracking activity by followed users. Built with a React.js and Redux front end and Ruby on Rails with PostgreSQL database back end.    
+A Letterboxd inspired social network for film built with a Ruby on Rails and PostgreSQL back end and a JavaScript and React front end. Search OMDb database for films to rate or add to a watchlist and view activity by followed users.     
     </td>
   </tr>
 </table>
@@ -23,13 +23,13 @@ A Letterboxd inspired social network for rating films from the OMDb database to 
 - Render
 
 ### Features
-- Register and log in authenticated with BCrypt gem
-- Search, sort, and display over 200,000 films through fetches from OMDb API database
-- View film Boxd rating average and followed users who watched
-- Log and rate films to diary on 5-star scale, and update or remove logs
-- Add and remove films from watchlist
-- Search for, follow and unfollow users to track activity on feed
-- View film diaries of other users 
+- Register users and log in authenticated with BCrypt
+- Fetch from OMDb API to search, sort, and display over 200,000 films
+- Log and rate films on 5-star scale with ability to update or remove entries 
+- Add (and remove) films to watchlist
+- Search for, follow and unfollow users to view activity on feed
+- View film's average Boxd rating and followed users who watched
+- View user profiles with logged films and ratings  
 
 ### Media 
 <img src="https://github.com/ashhhlynn/film_app/assets/84604278/3615b1c8-f1e4-4b23-952b-bf79d1c7fc44" style="width:80%;height:80%">
