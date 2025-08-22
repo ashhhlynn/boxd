@@ -40,7 +40,7 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
 <img src="https://github.com/ashhhlynn/film_app/assets/84604278/349f37d5-56a2-4eb4-8e1a-277ac459bb68" style="width:80%;height:80%">
 
 ### Setup
-#### Back End
+##### Back End
 
 &emsp; ` $ git clone https://github.com/ashhhlynn/boxd.git `
   
@@ -54,7 +54,7 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
   
 &emsp; ` $ rails s `
   
-#### Front End (new terminal)
+##### Front End (new terminal)
 
 &emsp; ` $ cd client `
    
