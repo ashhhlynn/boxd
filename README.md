@@ -40,26 +40,34 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
 
 ### Setup
 #### Back-end
-
-&emsp; ` $ git clone https://github.com/ashhhlynn/boxd.git `
-  
-&emsp; ` $ cd boxd `
-  
-&emsp; ` $ bundle install `
-  
-&emsp; ` $ rake db:create `
-  
-&emsp; ` $ rake db:migrate `
-  
-&emsp; ` $ rails s `
-  
+   ```sh
+   $ git clone https://github.com/ashhhlynn/boxd.git
+   ```
+   ```sh
+   $ cd boxd
+   ```
+   ```sh
+   $ bundle install 
+   ```
+   ```sh
+   $ rake db:create
+   ```
+   ```sh
+   $ rake db:migrate
+   ```
+   ```sh
+   $ rails s
+   ```
 #### Front-end
-
-&emsp; ` $ cd client `
-   
-&emsp; ` $ npm install `
-   
-&emsp; ` $ npm start `
+   ```sh
+   $ cd client
+   ```
+   ```sh
+   $ npm install
+   ```
+   ```sh
+   $ npm start
+   ```
 
 ### License 
 This project is MIT licensed. 
