@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td>
-A Letterboxd inspired social network for film built with a Ruby on Rails and PostgreSQL back end and a JavaScript and React front end. Search OMDb database for films to rate or add to a watchlist and view activity by followed users.     
+A Letterboxd inspired social network for film built with a Ruby on Rails and PostgreSQL back end and a React.js front end. Search the OMDb database for films to rate or add to a watchlist and follow users to view their film activity.   
     </td>
   </tr>
 </table>
@@ -10,10 +10,9 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
 #### :link: <a href="https://film-app.onrender.com/">Website</a> 
 #### :link: <a href="https://vimeo.com/922334242">Video</a>
 
-### Technologies Used
+### Technologies
 - React.js
 - Redux
-- React Router
 - Ruby on Rails
 - PostgreSQL
 - BCrypt
@@ -24,11 +23,11 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
 
 ### Features
 - Register users and log in authenticated with BCrypt
-- Fetch from OMDb API to search, sort, and display over 200,000 films
-- Log and rate films on 5-star scale with ability to update or remove entries 
-- Add films to watchlist with ability to remove 
-- Search for, follow and unfollow users to view activity on feed
-- View film's average Boxd rating and followed users who watched
+- Fetches from OMDb API to search, sort, and display over 200,000 films
+- Log and rate films on a 5-star scale and update or remove entries 
+- Add films to a watchlist and remove entries 
+- Search for, follow and unfollow users to view their activity on home feed
+- View film's average Boxd rating and followed users who watched it
 - View user profiles with logged films and ratings  
 
 ### Media 
@@ -40,7 +39,7 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
 <img src="https://github.com/ashhhlynn/film_app/assets/84604278/349f37d5-56a2-4eb4-8e1a-277ac459bb68" style="width:80%;height:80%">
 
 ### Setup
-##### Back End
+#### Back-end
 
 &emsp; ` $ git clone https://github.com/ashhhlynn/boxd.git `
   
@@ -54,7 +53,7 @@ A Letterboxd inspired social network for film built with a Ruby on Rails and Pos
   
 &emsp; ` $ rails s `
   
-##### Front End (new terminal)
+#### Front-end
 
 &emsp; ` $ cd client `
    
